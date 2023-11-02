@@ -9,6 +9,7 @@
    
   }
   .content{
+    
     padding: 10px 14px 0px;
   }
 .row{
@@ -52,6 +53,22 @@ p{
     background-color: rgba(255, 255, 255, 0.8);
     margin: 20px;
     border-radius: 0.5rem;
+    width: 700px;
+    
   }
 
  
+  .uploadbtn{
+    width: 100%;
+  }
+
+  .mat-mdc-raised-button.mat-accent {
+    --mdc-protected-button-container-color: #974c44;
+   
+}
+.choseFile{
+color: #974c44;
+}
+h6{
+  color: red;
+}

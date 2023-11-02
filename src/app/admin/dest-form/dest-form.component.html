@@ -35,11 +35,13 @@
     </div>
 
     <div class="row">
-        <mat-form-field appearance="outline">
-            <mat-label >Image url</mat-label>
-            <input matInput placeholder="ex: /assets/images/kashmir.jpg" formControlName="imageFile">
-        </mat-form-field>
-
+     
+        <div class="row">
+                <h6>add image after adding the destination</h6>
+                <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
+                <div class="col"> <button mat-raised-button type="button" color="accent" (click)="onUpload()" value="upload" class="uploadbtn">Upload Image</button></div>
+        </div>
+    
         <mat-form-field appearance="outline">
             <mat-label >Rating</mat-label>
             <input matInput placeholder="ex: 5" formControlName="popularityScore">

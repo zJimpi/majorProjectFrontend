@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AddDestService } from '../service/add-dest.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dest-form',
@@ -11,7 +12,12 @@ import { CoreService } from '../core/core.service';
 })
 export class DestFormComponent implements OnInit {
 
- 
+  selectedFile !: File;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  message !: string;
+  imageName: any;
   destForm:FormGroup;
   
   stateNames: string[]=[
@@ -65,7 +71,8 @@ export class DestFormComponent implements OnInit {
     private _destService: AddDestService,
     private _dialogRef: MatDialogRef<DestFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private _httpClient:HttpClient
 
     ){
 
@@ -117,4 +124,33 @@ export class DestFormComponent implements OnInit {
     }
      }
 
+     //Gets called when the user clicks on submit to upload the image
+  onUpload() {
+    console.log(this.selectedFile);
+    
+    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  
+    //Make a call to the Spring Boot Application to save the image
+    this._httpClient.post('http://localhost:8086/image/fileSystem', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.message = 'Image uploaded successfully';//+response.body;
+          
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+      }
+      );
+
+
+  }
+
+    //Gets called when the user selects an image
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+      console.log('Selected File:', this.selectedFile);
+    }
 }

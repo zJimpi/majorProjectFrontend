@@ -6,7 +6,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { CoreService } from '../core/core.service';
 import { AddDestService } from '../service/add-dest.service';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-add-destination',
@@ -17,7 +18,7 @@ export class AddDestinationComponent implements OnInit {
 
   
   displayedColumns: string[] = [
-    'id',
+    'destId',
     'destName',
     'destType',
     'imageLocation',
@@ -34,13 +35,13 @@ export class AddDestinationComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private _dialog: MatDialog,
     private _destService: AddDestService,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private _httpClient:HttpClient
     ){}
     ngOnInit(): void {
       this.getDestinationList();
-      
+   
     }
-
 
 
 
@@ -71,6 +72,8 @@ export class AddDestinationComponent implements OnInit {
       error: console.log,
     });
   }
+
+ 
 
   //for seaching by name ..and other feilds
   applyFilter(event: Event) {
