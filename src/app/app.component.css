@@ -142,3 +142,7 @@ li{
 .mat-mdc-raised-button.mat-unthemed {
     --mdc-protected-button-container-color: rgba(0, 0, 0, 0.04);
 }
+
+.docLinks a{
+    color: white;
+}
