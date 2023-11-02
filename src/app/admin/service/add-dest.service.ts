@@ -11,23 +11,20 @@ export class AddDestService {
 
   addDestination(data:any): Observable<any>{
     
-    return this._http.post('http://localhost:3000/destination',data)
+    return this._http.post('http://localhost:8086/destination/saveDest',data)
   }
   
   updateDestination(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/destination/${id}`, data);
+    return this._http.put(`http://localhost:8086/destination/updateDestination/${id}`, data);
   }
 
   getDestinationList(): Observable<any> {
-    return this._http.get('http://localhost:3000/destination');
+    return this._http.get('http://localhost:8086/destination/getDestinationList');
   }
 
   deleteDestination(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:8086/destination/${id}`);
+    return this._http.delete(`http://localhost:8086/destination/deleteDestinationById/${id}`);
   }
 
-  getImageById(id: number): Observable<any> {
-    return this._http.get(`http://localhost:8086/image/getById/${id}`,{ responseType: 'blob' });
-  }
 
 }

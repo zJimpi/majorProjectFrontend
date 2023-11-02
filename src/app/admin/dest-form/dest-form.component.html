@@ -10,12 +10,17 @@
         <mat-form-field appearance="outline">
             <mat-label >Destination Name</mat-label>
             <input matInput placeholder="ex: Hawa Mahal" formControlName="destName">
+            <mat-hint style = "color: red;" *ngIf="destForm.get('destName')?.touched && destForm.get('destName')?.errors?.['required']">
+                <small>Destination name is required.</small>
+            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label >Destination Type</mat-label>
-            <input matInput placeholder="ex: Mountain" formControlName="destType">
-            <mat-hint>Hint:sea,Forest,Religious</mat-hint>
+            <input matInput placeholder="ex: Mountain,sea,Forest,Religious" formControlName="destType">
+            <mat-hint style = "color: red;" *ngIf="destForm.get('destType')?.touched && destForm.get('destType')?.errors?.['required']">
+                <small>Destination Type is required.</small>
+            </mat-hint>
         </mat-form-field>
     </div>
 
@@ -24,28 +29,37 @@
         <mat-form-field appearance="outline">
             <mat-label >Destination Location</mat-label>
             <input matInput placeholder="ex: Ajmer" formControlName="imageLocation">
+            <mat-hint style = "color: red;" *ngIf="destForm.get('imageLocation')?.touched && destForm.get('imageLocation')?.errors?.['required']">
+                <small>Image location is required.</small>
+            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>State/UT</mat-label>
-            <mat-select formControlName="stateAndUT">
+            <mat-select formControlName="stateAndUTName">
               <mat-option *ngFor="let val of stateNames" [value]="val">{{val}}</mat-option>
             </mat-select>
+            <mat-hint style = "color: red;" *ngIf="destForm.get('stateAndUTName')?.touched && destForm.get('stateAndUTName')?.errors?.['required']">
+                <small>state or UT name is required.</small>
+            </mat-hint>
           </mat-form-field>
     </div>
 
     <div class="row">
      
         <div class="row">
-                <h6>add image after adding the destination</h6>
+                <h6>Add image after adding the destination</h6>
                 <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
                 <div class="col"> <button mat-raised-button type="button" color="accent" (click)="onUpload()" value="upload" class="uploadbtn">Upload Image</button></div>
         </div>
     
         <mat-form-field appearance="outline">
             <mat-label >Rating</mat-label>
-            <input matInput placeholder="ex: 5" formControlName="popularityScore">
-            <mat-hint>min: 0 max:5</mat-hint>
+            <input matInput placeholder="ex:0 - 5" formControlName="popularityScore">
+            
+            <mat-hint style = "color: red;" *ngIf="destForm.get('popularityScore')?.touched && destForm.get('popularityScore')?.errors?.['required']">
+                <small>Rating is required.</small>
+            </mat-hint>
         </mat-form-field>
    
         
@@ -54,6 +68,9 @@
         <mat-form-field class="text-box" appearance="outline">
             <mat-label>Description</mat-label>
             <textarea matInput placeholder="describe the place and the experience" formControlName="imageDescription"></textarea>
+            <mat-hint style = "color: red;" *ngIf="destForm.get('imageDescription')?.touched && destForm.get('imageDescription')?.errors?.['required']">
+                <small>Image Description is required.</small>
+            </mat-hint>
         </mat-form-field>  
 </div>
 

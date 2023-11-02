@@ -22,7 +22,7 @@ export class AddDestinationComponent implements OnInit {
     'destName',
     'destType',
     'imageLocation',
-    'stateAndUT',
+    'stateAndUTName',
     'imageFile',
     'popularityScore',
     'imageDescription',
@@ -92,7 +92,9 @@ export class AddDestinationComponent implements OnInit {
         this._coreService.openSnackBar('Destination deleted!', 'done');
         this.getDestinationList();
       },
-      error: console.log,
+      error: (res) => {
+        this._coreService.openSnackBar('Destination deleted!', 'done');
+        this.getDestinationList()},
     });
   }
 

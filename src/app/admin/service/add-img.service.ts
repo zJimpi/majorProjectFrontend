@@ -15,9 +15,6 @@ export class AddImgService {
     return this._http.put(`http://localhost:8086/image/${id}`, data);
   }
 
-  getImageList(): Observable<any> {
-    return this._http.get('http://localhost:8086/image/getAllImage');
-  }
   getImageByname(name:string): Observable<any>{
     return this._http.get(`http://localhost:8086/image/fileSystem${name}`);
   }

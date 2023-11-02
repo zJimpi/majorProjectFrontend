@@ -26,28 +26,8 @@
       "popularityScore": "4",
       "imageDescription": "The Sri Venkateswara Swami Temple is a Hindu temple situated in the hill town of Tirumala at Tirupati in Tirupati district of Andhra Pradesh, India. The Temple is dedicated to Venkateswara, a form of Vishnu, who is believed to have appeared on the earth to save mankind from trials and troubles of Kali Yuga.",
       "destId": 1
-    },
-{
-      "destName": "Sela Pass",
-      "destType": "Mountain",
-      "imageLocation": "Tawang",
-      "stateAndUT": "Arunachal Pradesh",
-      "imageFile": "/assets/images/forest.jpg",
-      "popularityScore": "5",
-      "imageDescription": "Sela Pass or Sela Lake is named after a tribal woman named Sela who used to bring food and water to an Indian Army named Jaswant Singh Rawant who fought alone against the Chinese Soldiers in the year 1962 in Sino- Indian war near the Pass and was dead.",
-      "destId": 2
-    },
-{
-      "destName": "Kamakhya Temple",
-      "destType": "Religious",
-      "imageLocation": "Kamarupa",
-      "stateAndUT": "Assam",
-      "imageFile": "/assets/images/kashmir.jpg",
-      "popularityScore": "4",
-      "imageDescription": "Unlike most other shrines, Maa Kamakhya temple has no idol. Instead, the object of worship is the yoni, or the vulva of Goddess Sati. It is located in the temple's sanctum sanctorum, and collects water from an underground spring.",
-      "destId": 3
     }
-
+   
   ],
   "user": [
     {

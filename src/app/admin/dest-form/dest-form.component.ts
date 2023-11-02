@@ -1,5 +1,5 @@
 import { Component,Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddDestService } from '../service/add-dest.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
@@ -77,13 +77,13 @@ export class DestFormComponent implements OnInit {
     ){
 
     this.destForm=this._fb.group({
-      destName:'', 
-      destType:'',
-      imageLocation:'',
-      stateAndUT:'',
-      imageFile:'/assets/images/',
-      popularityScore:0,
-      imageDescription:''
+      destName:['',Validators.required], 
+      destType:['',Validators.required],
+      imageLocation:['',Validators.required],
+      stateAndUTName:['',Validators.required],
+      imageFile:'',
+      popularityScore:[0,Validators.required],
+      imageDescription:['',Validators.required]
     });
   }
 
@@ -99,7 +99,7 @@ export class DestFormComponent implements OnInit {
       if (this.data) {
         //if data exist then update it 
         this._destService
-          .updateDestination(this.data.id, this.destForm.value)
+          .updateDestination(this.data.destId, this.destForm.value)
           .subscribe({
             next: (val: any) => {
               this._coreService.openSnackBar('Destinaltion detail updated!');
@@ -136,7 +136,8 @@ export class DestFormComponent implements OnInit {
     this._httpClient.post('http://localhost:8086/image/fileSystem', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
-          this.message = 'Image uploaded successfully';//+response.body;
+          this._coreService.openSnackBar('Image added successfully');
+          this._dialogRef.close(true);
           
         } else {
           this.message = 'Image not uploaded successfully';
