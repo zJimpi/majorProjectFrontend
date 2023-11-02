@@ -15,18 +15,19 @@ export class LoginComponent {
 
   
 
+  // Property to track whether the user is an admin (initialized as false).
   adminIn:boolean =false;
   loginForm: FormGroup;
 
-  constructor(private _fb:FormBuilder,
-    private _loginService: LoginServiceService,
-    private _dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService,
-    private _router:Router
+  constructor(private _fb:FormBuilder, // Injecting the FormBuilder service to create and manage the FormGroup.
+    private _loginService: LoginServiceService, // Injecting a custom LoginServiceService.
+    private _dialogRef: MatDialogRef<LoginComponent>, // Injecting the MatDialogRef to handle the dialog.
+    @Inject(MAT_DIALOG_DATA) public data: any, // Injecting data passed to the dialog, if any.
+    private _coreService: CoreService,  // Injecting a custom CoreService.
+    private _router:Router // Injecting the Router service for route navigation.
 
     ){
-
+// Create a FormGroup named 'loginForm' with form controls for username and password with appropriate validaitions.
     this.loginForm=this._fb.group({
 
       username:['',Validators.required],
@@ -34,6 +35,7 @@ export class LoginComponent {
     });
   }
 
+  //when user clicks on login
   onLogin(){
     
     this._loginService.getuser().subscribe({
@@ -43,8 +45,9 @@ export class LoginComponent {
           return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
         });
 
+        //if user details are correct
         if (user) {
-
+          //checks for admin login
           if(this.checkAdmin(user.username))
           {
             this._coreService.openSnackBar(' Admin logged in succesfully');
@@ -57,6 +60,7 @@ export class LoginComponent {
            
           }
 
+          //checks for normal user login
           else{
           this._coreService.openSnackBar('logged in succesfully');
           this._dialogRef.close(true);
@@ -89,16 +93,17 @@ export class LoginComponent {
   }
   
 
+  //method to check if the user name belong to admin or not
   checkAdmin(username: string): boolean {
+    //if name has admin in the end then its an admin
     if(username.endsWith('admin')){
       return true;
     }
-     // Example: Admin emails end with "@admin.com"
-
     return false;
   }
 
 
+  //if logout is clicked
   onlogout(){
     this._router.navigate(['/home']);
   }

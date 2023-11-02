@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MajorprojectComponent {
 
+  //to be added later
 
 }

@@ -16,14 +16,16 @@ export class SignupComponent {
 
   signupForm: FormGroup;
 
-  constructor(private _fb:FormBuilder,
-    private _loginService: LoginServiceService,
-    private _dialogRef: MatDialogRef<SignupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService
+  //injects services and initializes the SignupComponent.
+  constructor(private _fb:FormBuilder, // Injecting the FormBuilder service to create and manage the FormGroup.
+    private _loginService: LoginServiceService, // Injecting a custom LoginServiceService.
+    private _dialogRef: MatDialogRef<SignupComponent>, // Injecting the MatDialogRef to handle the dialog.
+    @Inject(MAT_DIALOG_DATA) public data: any, // Injecting data passed to the dialog, if any.
+    private _coreService: CoreService// Injecting a custom CoreService.
 
     ){
 
+      // Creates the FormGroup named 'signupForm' with form controls and associated validators.
     this.signupForm=this._fb.group({
       name:['', [Validators.required,Validators.minLength(2),Validators.pattern("^[a-zA-Z ]+$")]], 
       email:['', [Validators.required, Validators.email]],
@@ -32,14 +34,19 @@ export class SignupComponent {
     });
   }
 
+  // This method is called when the user attempts to sign up
   onSignup(){
     if(this.signupForm.valid){
+      // Call the 'adduser' method of the 'LoginServiceService' to add a user with the form values.
       this._loginService.adduser(this.signupForm.value).subscribe({
         next: (val :any)=>{
+          // If the user is successfully added, display a success message using 'openSnackBar'.
           this._coreService.openSnackBar('Resigter susessfully!');
+          // Close the signup dialog with a 'true' value to indicate a successful action.
           this._dialogRef.close(true);
         },
         error: (err:any)=>{
+          // If there is an error, log it to the console.
           console.error(err);
         }
       });
@@ -47,7 +54,7 @@ export class SignupComponent {
   }
 
   hide = true;
-  //custom validators
+  
 
 
 }

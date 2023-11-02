@@ -98,6 +98,7 @@ export class AddDestinationComponent implements OnInit {
     });
   }
 
+  //when edit icon is clicked
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(DestFormComponent, {
       data,

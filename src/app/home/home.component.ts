@@ -27,9 +27,10 @@ export class HomeComponent implements AfterViewInit, OnInit{
   }
 
   ngAfterViewInit(): void {
-    // You can perform additional initialization here
+    
   }
 
+  //scrols to popular section
   private scrollToPopularSection() {
     const popularSection = this.elementRef.nativeElement.querySelector('#popular');
     if (popularSection) {
@@ -45,7 +46,7 @@ export class HomeComponent implements AfterViewInit, OnInit{
   }
 
 
-
+//opens the major componet
   openMajorProject(){
     this.router.navigate(['/majorProject']);
   }
