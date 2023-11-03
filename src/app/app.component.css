@@ -147,7 +147,19 @@ li{
     color: white;
 }
 
-
+/* new toggle css */
+/* close btn */
+.close-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    text-decoration: none;
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+  }
 /*============== colaspes responsive style============== */
 @media (max-width: 990px){
     .space{
@@ -180,7 +192,13 @@ li{
         left: 10px;
         top: 45px;
      }
-
-
   
+  }
+
+
+   /* //screnn bigger */
+   @media (min-width: 768px){
+    .close-btn{
+        display: none;
+     }
   }

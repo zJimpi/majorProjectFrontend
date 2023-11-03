@@ -40,7 +40,9 @@
                     <li class="nav-item">
                       <a routerLink="admin/addDestination" routerLinkActive="active" class="nav-link" *ngIf="adminIn">Admin Pannel</a>
                     </li>
-                  
+                    <button class="close-btn" type="button"  (click)="refreshPageWithReload()">
+                      <b>X</b>
+                    </button>
                   </ul>
                 </div>
                </div> <!--end of row -->

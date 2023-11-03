@@ -77,4 +77,8 @@ export class AppComponent {
 
   }
 
+  refreshPageWithReload() {
+    location.reload(); // Reload the current page
+  }
+
 }
