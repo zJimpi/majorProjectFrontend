@@ -29,9 +29,9 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     color: #FCEFE5ff;
-    margin-top: 7%;
-    position: absolute;
-    top: 0px;
+
+    position: relative;
+
     
     
 }
@@ -114,4 +114,15 @@
 
   height: 100px;
   width: 100px;
+}
+
+/* =============responsive============ */
+@media (max-width: 990px){
+  .home__tittle{
+      font-size: 70px;
+      padding-top: 60px;
+  }
+
+  
+
 }
