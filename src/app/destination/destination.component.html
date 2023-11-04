@@ -24,9 +24,9 @@
             <table mat-table [dataSource]="dataSource" matSort class="table-card">
         
                 <!-- ID Column -->
-                <ng-container matColumnDef="id" class="hide">
+                <ng-container matColumnDef="destId" class="hide">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> ID </th>
-                <td mat-cell *matCellDef="let row" class="hide"> {{row.id}} </td>
+                <td mat-cell *matCellDef="let row" class="hide"> {{row.destId}} </td>
                 </ng-container>
                 
                 <!-- image colum -->
@@ -57,9 +57,9 @@
                 <td mat-cell *matCellDef="let row" class="card-box"> <h6>LOCATION: {{row.imageLocation}}</h6></td>
                 </ng-container>
         
-                <ng-container matColumnDef="stateAndUT">
+                <ng-container matColumnDef="stateAndUTName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> state And UT </th>
-                <td mat-cell *matCellDef="let row" class="card-box"> <h6>STATE: {{row.stateAndUT}}</h6></td>
+                <td mat-cell *matCellDef="let row" class="card-box"> <h6>STATE: {{row.stateAndUTName}}</h6></td>
                 </ng-container>
 
                 <ng-container matColumnDef="destType">

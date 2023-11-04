@@ -16,12 +16,12 @@ export class DestinationComponent {
   retrievedImage: any;
   imageName: any;
   displayedColumns: string[] = [
-    'id',
+    'destId',
     'imageFile',
     'destName',
     
     'imageLocation',
-    'stateAndUT',
+    'stateAndUTName',
     'destType',
     
     'imageDescription',
