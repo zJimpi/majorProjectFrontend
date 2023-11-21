@@ -31,7 +31,7 @@ import { DestFormComponent } from './admin/dest-form/dest-form.component';
 
 
 import { MajorprojectComponent } from './majorproject/majorproject.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -65,7 +65,8 @@ import { MajorprojectComponent } from './majorproject/majorproject.component';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
 
 
   ],

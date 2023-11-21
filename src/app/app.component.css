@@ -202,3 +202,32 @@ li{
         display: none;
      }
   }
+
+  .user{
+    width: 100%;
+    
+    padding: 20px;
+   
+    color: white;
+
+   font-size: 17px;
+
+  }
+
+
+ 
+  .item1, .item2{
+ text-align: center;
+ padding-left: 4px;
+
+  }
+
+  .item1:hover{
+    cursor: pointer;
+  }
+
+  i{
+    padding: 10px;
+    font-size: 25px;
+    
+  }

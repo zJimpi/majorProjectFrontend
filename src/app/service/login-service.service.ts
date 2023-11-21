@@ -11,6 +11,8 @@ export class LoginServiceService {
   loggedIn : boolean =false;
   adminIn : boolean = false;
 
+  user_name : string ='' ;
+
   constructor(private _http:HttpClient) { }
 
   // Method to add a user by sending a POST request to the jason server.

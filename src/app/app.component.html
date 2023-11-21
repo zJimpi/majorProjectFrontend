@@ -33,13 +33,21 @@
                     </li>
 
                     <li class="nav-item">
-                      <button  mat-raised-button (click)="logOut()" *ngIf="loggedIn">Logout</button>
-                    </li>
+                      <span class="user" *ngIf="loggedIn"> Namaste, {{user}} <i [matMenuTriggerFor]="beforeMenu" class="bi bi-person-circle">   
 
-                    <!-- move this to addmin login -->
-                    <li class="nav-item">
-                      <a routerLink="admin/addDestination" routerLinkActive="active" class="nav-link" *ngIf="adminIn">Admin Pannel</a>
-                    </li>
+                        
+                        <mat-menu class="profile-box" #beforeMenu="matMenu" xPosition="before">
+                          <a routerLink="admin/addDestination" routerLinkActive="active" class="nav-link item2" *ngIf="adminIn">Admin</a>
+                          <hr *ngIf="adminIn">
+                          <div class="item1"  (click)="logOut()" *ngIf="loggedIn">Logout</div>
+                          
+                          </mat-menu>
+
+
+                        
+                      </i></span> 
+                    </li >
+                  
                     <button class="close-btn" type="button"  (click)="refreshPageWithReload()">
                       <b>X</b>
                     </button>
@@ -63,80 +71,19 @@
 <div class="footer">
   <div class="container">
     <div class="row tech-used ">
-      <h4 class="footer-subtitle tech">Technolgy used</h4>
+      <h4 class="footer-subtitle tech">Contact Us</h4>
         
-      <div class="col-md-3">
-        <h5 class="sub-sub-title">Frontend</h5>
-        <li>Html</li>
-        <li>Css: Bootstrap</li>
-        <li>TypeScript: Angular</li>
+      <div class="col-md-6">
+        <li>Email : support_wanderquest@gmail.com</li>
+        <li>Phone Number: +91 9000900012</li>
+        <li>Address : Floor no. 5, Bulding no. 105, New Area, salt lake, Bidhannagar, West Bengal, pin 700110</li>
       </div>
       
-      <div class="col-md-3">
-        <h5 class="sub-sub-title">Backend</h5>
-        <li>java</li>
-        <li>SpringBoot framework</li>
-      </div>
-      <div class="col-md-3">
-        <h5 class="sub-sub-title">Database</h5>
-        <li>MySql</li>
-      </div>
-      <div class="col-md-3">
-        <h5 class="sub-sub-title">Testing</h5>
-       
-        <li>Postman</li>
-        <li>Jason</li>
-
-      </div>
-      <div class="col-md-3">
-        <h5 class="sub-sub-title">version control tool</h5>
-        <li><i class="bi bi-git"></i> Git</li>
-      </div>
-      <div class="col-md-3 docLinks">
-        <h5 class="sub-sub-title">Documentation</h5>
-        <li> <a href="https://onedrive.live.com/edit.aspx?resid=5C5320B368241231!6981&ithint=file%2cdocx&wdo=2&authkey=!AK6LhK8aPcdF8Ow" target="_blank"> <i class="bi bi-file-earmark-word-fill"> </i>  </a> FrontEnd Documentation  </li>
-        <li> <a href="https://drive.google.com/file/d/19mxtNXKJEGjSq0JSP5uNxXYwk6qaASlk/view" target="_blank"><i class="bi bi-file-earmark-word-fill"> </i></a> BackEnd  Documentation</li>
-        <li> <a href="#" target="_blank"><i class="bi bi-file-earmark-word-fill"> </i></a> Testing  Documentation </li>
       
-      </div>
     </div>
     
     <hr>
-    
-    <div class="row tech-used">
-      <div class="col-md-3">
-        <h5 class="footer-subtitle">Team Members</h5>
-        <li>Sarmistha Dolui</li>
-        <li>Jimpi Niyogi</li>
-        <li>Sangita Das</li>
-        <li>Suhbrojeet Dutta</li>
-        <li>Trisha Das</li>
-        <li>Prantika Chowdhury</li>
-        <li>Abir Manna</li>
-      </div>
-      <div class="col-md-3">
-        <h5 class="footer-subtitle">Role</h5>
-        <li>Documentation</li>
-        <li>Frontend</li>
-        <li>Backend</li>
-        <li>Backend</li>
-        <li>Database</li>
-        <li>Testing</li>
-        <li>Testing</li>
-      </div>
-      <div class="col-md-3 github__links">
-        <h5 class="footer-subtitle">GitHub Links</h5>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/doluisarmistha">doluisarmistha</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/zJimpi">zJimpi</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/thesangita">thesangita</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/geeksubhro">geeksubhro</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/TrishaDas88659">TrishaDas</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/iamprantika">iamprantika</a> </li>
-        <li><i class="bi bi-github"></i> <a href="https://github.com/abirmanna7">abirmanna7</a> </li>
-      </div>
-      
-    </div>
-    <hr>
+  
     <div class="row "> 
       <div class="col minorP">@Minor Project </div>
       </div>

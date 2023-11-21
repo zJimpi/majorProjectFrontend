@@ -126,3 +126,23 @@
   
 
 }
+
+/* /search box changes */
+
+.search-box {
+ 
+  display: flex;
+ 
+  align-items: center;
+
+}
+
+.search-container {
+  
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  margin-left: 8px; /* Add margin if needed */
+}

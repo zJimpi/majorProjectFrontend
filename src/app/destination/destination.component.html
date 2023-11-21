@@ -15,9 +15,14 @@
 
         <div class="main-body">
 
-            <mat-form-field>
-            <mat-label>Filter your Search (eg: Mountain, Assam, Taj Mahal)</mat-label>
+            <mat-form-field class="search-box" appearance="outline">
+            <mat-label >Filter your Search (eg: Mountain, Assam, Taj Mahal)</mat-label>
+            <div class="search-container">
             <input matInput (keyup)="applyFilter($event)"  #input>
+            <button mat-icon-button class="search-icon">
+              <mat-icon>search</mat-icon>
+            </button>
+            </div>
             </mat-form-field>
         
             <div class="table-container">

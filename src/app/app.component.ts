@@ -20,6 +20,7 @@ export class AppComponent {
   // This boolean variable is used to track whether the logged-in user is an admin. Initially set to false.
   adminIn:boolean = false;
 
+ 
 
   //  services are injected as dependencies.
   constructor(private _dialog: MatDialog,// Injecting the MatDialog service for displaying dialogs.
@@ -29,6 +30,7 @@ export class AppComponent {
 
     ){}
 
+    user:string='';
 
 
   //to open a signup form dialog.
@@ -59,7 +61,7 @@ export class AppComponent {
            // Update the  properties in the component based on the values from the LoginServiceService.
           this.adminIn = this._loginService.adminIn;
           this.loggedIn = this._loginService.loggedIn;
-  
+          this.user=this._loginService.user_name;
         }
       },
     });

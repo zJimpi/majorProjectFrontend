@@ -47,6 +47,8 @@ export class LoginComponent {
 
         //if user details are correct
         if (user) {
+          //name of the user
+          
           //checks for admin login
           if(this.checkAdmin(user.username))
           {
@@ -57,7 +59,7 @@ export class LoginComponent {
             //show log out button
             this._loginService.adminIn= true; // Initialize as false
             this._loginService.loggedIn= true;
-           
+            this._loginService.user_name = user.username;
           }
 
           //checks for normal user login
@@ -69,7 +71,7 @@ export class LoginComponent {
           //show log out button
           this._loginService.adminIn= false;
           this._loginService.loggedIn= true; // Initialize as false
-         
+          this._loginService.user_name = user.username;
         }
 
         } 
