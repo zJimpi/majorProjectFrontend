@@ -1,0 +1,32 @@
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+
+  .outer-box{
+    padding: 50px;
+    height: 500px;
+    margin-left: 700px;
+    background-color: antiquewhite;
+    width: 500px;
+    margin-top: 20px;
+
+  }
+
+ 
+  .tittle{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+ 

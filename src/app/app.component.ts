@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CoreService } from './admin/core/core.service';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './service/login-service.service';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
 
 @Component({
   selector: 'app-root',
@@ -82,5 +83,28 @@ export class AppComponent {
   refreshPageWithReload() {
     location.reload(); // Reload the current page
   }
+  
+  
+  
+  //reset password
+  openResetPass(){
+    //open by component
+    const dialogRef = this._dialog.open(RestPasswordComponent)
+    //when colse button is closed
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+           // Update the  properties in the component based on the values from the LoginServiceService.
+          this.adminIn = this._loginService.adminIn;
+          this.loggedIn = this._loginService.loggedIn;
+          this.user=this._loginService.user_name;
+          
+        }
+      },
+    });
+  }
+    
+  //reset password
+
 
 }

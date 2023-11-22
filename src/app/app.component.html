@@ -37,9 +37,11 @@
 
                         
                         <mat-menu class="profile-box" #beforeMenu="matMenu" xPosition="before">
-                          <a routerLink="admin/addDestination" routerLinkActive="active" class="nav-link item2" *ngIf="adminIn">Admin</a>
+                          <a routerLink="admin/addDestination" routerLinkActive="active" class="nav-link item2" *ngIf="adminIn"> Admin Pannel </a>
                           <hr *ngIf="adminIn">
-                          <div class="item1"  (click)="logOut()" *ngIf="loggedIn">Logout</div>
+                          <div class="item-reset"  (click)="openResetPass()" *ngIf="loggedIn"> Reset Password </div>
+                          <hr *ngIf="loggedIn">
+                          <div class="item1"  (click)="logOut()" *ngIf="loggedIn">Logout <mat-icon class="exist-box">exit_to_app</mat-icon> </div>
                           
                           </mat-menu>
 

@@ -32,6 +32,8 @@ import { DestFormComponent } from './admin/dest-form/dest-form.component';
 
 import { MajorprojectComponent } from './majorproject/majorproject.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import {MatMenuModule} from '@angular/material/menu';
     AddDestinationComponent,
     DestFormComponent,
     MajorprojectComponent,
+    RestPasswordComponent,
+    ChangePassComponent,
 
   ],
   imports: [

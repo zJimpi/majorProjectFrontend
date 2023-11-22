@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddDestinationComponent } from './admin/add-destination/add-destination.component';
 import { MajorprojectComponent } from './majorproject/majorproject.component';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path : 'destination', component: DestinationComponent},
   { path : 'login', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
+  { path: 'resetPass', component:RestPasswordComponent},
+  { path: 'changePass', component:ChangePassComponent},
   { path:'admin/addDestination', component:AddDestinationComponent},
   { path: 'majorProject', component:MajorprojectComponent}
 ];

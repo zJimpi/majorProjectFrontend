@@ -77,6 +77,13 @@
       "username": "trishaadmin",
       "password": "trisha123",
       "id": 7
+    },
+    {
+      "name": "ed",
+      "email": "ed@gmail.com",
+      "username": "ed12",
+      "password": "edzxcvbn",
+      "id": 8
     }
   ]
 }
