@@ -1,80 +1,82 @@
 <div class="outer-box container">
+    <div class="yellow-box">
         <div class="row">
             <h1 class="tittle">Reset Password</h1>
         </div>
 
         
-    <form  [formGroup]="resetPassForm" (ngSubmit)="onreset()">
-        <div  mat-dialog-content class="content">
+        <form  [formGroup]="resetPassForm" (ngSubmit)="onreset()">
+            <div  mat-dialog-content class="content">
+
+                <div class="row">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter old password</mat-label>
+                        <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="oldPass">
+
+                        <button type="button" mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                        <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+
+                        <mat-hint style = "color: red;" *ngIf="resetPassForm.get('oldPass')?.touched && resetPassForm.get('oldPass')?.errors?.['required']">
+                            <small>Please enter your old password</small>
+                        </mat-hint>
+
+                    </mat-form-field>
+        
+                </div>
+        
+                <div class="row">
+            
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter new password</mat-label>
+                        <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="newPass">
+
+                        <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newPass')?.touched && resetPassForm.get('newPass')?.errors?.['required']">
+                            <small>Please enter a new password</small>
+                        </mat-hint>
+
+                        <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newPass')?.touched && resetPassForm.get('newPass')?.errors?.['minlength']">
+                            <small>Minimun 8 charecters are required.</small>
+                        </mat-hint>
+                    </mat-form-field>
+            
+                </div>
+            
+                <div class="row"> 
+            
+                    <mat-form-field appearance="outline">
+                        <mat-label>ReEnter new password</mat-label>
+                        <input matInput [type]="hide3 ? 'password' : 'text'" formControlName="newRePass">
+
+                        <button  type="button"  mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide3">
+                        <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+
+                        <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newRePass')?.touched && resetPassForm.get('newRePass')?.errors?.['required']">
+                            <small>Please RE Enter a new password</small>
+                        </mat-hint>
+
+                        <mat-hint  style = "color: red;" *ngIf="resetPassForm.get('newRePass')?.touched && (resetPassForm.get('newPass')?.value !== resetPassForm.get('newRePass')?.value)">
+                            <small>Pasword doesn't match</small>
+                        </mat-hint>
+                        
+
+                    </mat-form-field>
+            
+                </div>
+
+            </div>
 
             <div class="row">
-
-                <mat-form-field>
-                    <mat-label>Enter old password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPass">
-
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-
-                    <mat-hint style = "color: red;" *ngIf="resetPassForm.get('oldPass')?.touched && resetPassForm.get('oldPass')?.errors?.['required']">
-                        <small>Please enter your old password</small>
-                    </mat-hint>
-
-                </mat-form-field>
-    
+                <div mat-dialog-actions class="action">
+                    <button mat-raised-button type="button" [mat-dialog-close]="false"> Cancel </button>
+                    <button mat-raised-button color="primary" type="submit"> Reset </button>
+                </div>
             </div>
-    
-            <div class="row">
-        
-                <mat-form-field>
-                    <mat-label>Enter new password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPass">
-
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newPass')?.touched && resetPassForm.get('newPass')?.errors?.['required']">
-                        <small>Please enter a new password</small>
-                    </mat-hint>
-
-                    <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newPass')?.touched && resetPassForm.get('newPass')?.errors?.['minlength']">
-                        <small>Minimun 8 charecters are required.</small>
-                    </mat-hint>
-                </mat-form-field>
-        
-            </div>
-        
-            <div class="row"> 
-        
-                <mat-form-field>
-                    <mat-label>ReEnter new password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="newRePass">
-
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-
-                    <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newRePass')?.touched && resetPassForm.get('newRePass')?.errors?.['required']">
-                        <small>Please RE Enter a new password</small>
-                    </mat-hint>
-
-                    <mat-hint style = "color: red;" *ngIf="resetPassForm.get('newRePass')?.touched && (resetPassForm.get('newPass')?.value !== resetPassForm.get('newRePass')?.value)">
-                        <small>Pasword doesn't match</small>
-                    </mat-hint>
-                    
-
-                </mat-form-field>
-        
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div mat-dialog-actions class="action">
-                <button mat-raised-button type="button" [mat-dialog-close]="false"> Cancel </button>
-                <button mat-raised-button color="primary" type="submit"> Reset </button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

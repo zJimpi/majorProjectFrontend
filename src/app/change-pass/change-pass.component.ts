@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./change-pass.component.css']
 })
 export class ChangePassComponent {
-hide=true;
+
+  hide1=true;
+  hide2=true;
+  hide3=true;
 
 resetPassForm: FormGroup;
 
@@ -54,16 +57,16 @@ onreset(){
           next: (response: any) => {
             this._coreService.openSnackBar('Password changed successfully!');
             this._dialogRef.close(true);
-            this._router.navigate(['/home']);
-            this._loginService.loggedIn= false;
-            this._loginService.adminIn= false;
+           
           },
           error: (error: any) => {
             
             console.error('Error updating password', error);
           },
         });
-
+        this._router.navigate(['/home']);
+        this._loginService.loggedIn= false;
+        this._loginService.adminIn= false;
 
       } 
       else {
