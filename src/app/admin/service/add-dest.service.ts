@@ -11,13 +11,7 @@ export class AddDestService {
 
   // Method to add a destination by sending a POST request to the tomcat server.
   addDestination(data:any): Observable<any>{
-    
     return this._http.post('http://localhost:8086/destination/saveDest',data)
-  }
-
-  // Method to update a destination by sending a PUT request with the destination's ID and updated data.
-  updateDestination(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:8086/destination/updateDestination/${id}`, data);
   }
 
   // Method to retrieve a list of destinations by sending a GET request to the tomcat server.
@@ -25,10 +19,14 @@ export class AddDestService {
     return this._http.get('http://localhost:8086/destination/getDestinationList');
   }
 
+  // Method to update a destination by sending a PUT request with the destination's ID and updated data.
+  updateDestination(id: number, data: any): Observable<any> {
+    return this._http.put(`http://localhost:8086/destination/updateDestination/${id}`, data);
+  }
+
   // Method to delete a destination by sending a DELETE request with the destination's ID.
   deleteDestination(id: number): Observable<any> {
     return this._http.delete(`http://localhost:8086/destination/deleteDestinationById/${id}`);
   }
-
 
 }
