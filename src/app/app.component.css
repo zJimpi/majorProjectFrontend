@@ -130,7 +130,7 @@ li{
 }
 
 .container{
-    padding-bottom: 37px;
+    padding-bottom: 10px;
 }
   
 /* Remove default button styles */
@@ -241,3 +241,13 @@ li{
     padding-top: 5px;
     color: red;
   }
+
+ .footer-end{
+    height: 50px;
+ }
+ .nav-item{
+    margin-top: -13px;
+ }
+ .right-start .nav-item{
+    margin-left:10px;
+ }
