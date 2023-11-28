@@ -84,6 +84,27 @@
       "username": "ed12",
       "password": "ed12345678",
       "id": 8
+    },
+    {
+      "name": "subhrojeet",
+      "email": "subhrojeet1232@gmail.com",
+      "username": "subhro",
+      "password": "subhro123",
+      "id": 9
+    },
+    {
+      "name": "Raj",
+      "email": "raj@gmail.com",
+      "username": "itsraj",
+      "password": "raj1234@",
+      "id": 10
+    },
+    {
+      "name": "geta",
+      "email": "geta@gmail.com",
+      "username": "itsgeta",
+      "password": "12345678@",
+      "id": 11
     }
   ]
 }
