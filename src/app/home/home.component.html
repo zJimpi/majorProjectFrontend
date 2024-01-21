@@ -13,7 +13,7 @@
 
 <div #popular class="popular" id="popular">
     <div class="container">
-        <div class="row"> <h1 class="popular__title">Popular This Season</h1></div>
+        <div class="row"> <h1 class="popular__title">Popular Packages This Season</h1></div>
         <div class="row">
             <div class="img__card">
                 <!-- enter cards -->
@@ -75,10 +75,13 @@
                         </div>
                         </div>
                     </div>
-
+                   
 
                 </div>
                 
+                <div class="row">
+                    <button type="button" (click)="openpkgViewpage()" class="btn btn-bd-primary">View More Pakages</button>
+                </div>
                   
                 
             </div>
@@ -120,7 +123,8 @@
                           
                         </div>
                         <div class="card-footer">
-                            <div class="col"><button  type="button" (click)="openMajorProject()" class="btn btn-bd-primary">Book Hotels</button></div>
+                            
+                            <div class="col"><button  type="button" (click)="openHotelViewpage()" class="btn btn-bd-primary">Book Hotels</button></div>
                         </div>
                     </div>
     
@@ -132,7 +136,7 @@
                           
                         </div>
                         <div class="card-footer">
-                            <div class="col"><button  type="button" (click)="openMajorProject()" class="btn btn-bd-primary">Book Rides</button></div>
+                            <div class="col"><button  type="button" class="btn btn-bd-primary">Book Rides</button></div>
                         </div>
                     </div>
     
@@ -144,7 +148,7 @@
                           
                         </div>
                         <div class="card-footer">
-                            <div class="col"><button  type="button" (click)="openMajorProject()" class="btn btn-bd-primary">Blog Post</button></div>
+                            <div class="col"><button  type="button" class="btn btn-bd-primary">Blog Post</button></div>
                         </div>
                     </div>
 

@@ -29,11 +29,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddDestinationComponent } from './admin/add-destination/add-destination.component';
 import { DestFormComponent } from './admin/dest-form/dest-form.component';
 
-
-import { MajorprojectComponent } from './majorproject/majorproject.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
+import { PkgViewComponent } from './majorproject/pakages/pkg-view/pkg-view.component';
+import { PkgBookingComponent } from './majorproject/pakages/pkg-booking/pkg-booking.component';
+import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
+import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.component';
+
 
 
 @NgModule({
@@ -45,9 +48,12 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
     SignupComponent,
     AddDestinationComponent,
     DestFormComponent,
-    MajorprojectComponent,
     RestPasswordComponent,
     ChangePassComponent,
+    PkgViewComponent,
+    PkgBookingComponent,
+    HotelBookingComponent,
+    HotelViewComponent,
 
   ],
   imports: [

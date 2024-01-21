@@ -45,12 +45,15 @@ export class HomeComponent implements AfterViewInit, OnInit{
     this.router.navigate(['/destination']);
   }
 
+  //openpakage page
 
-//opens the major componet
-  openMajorProject(){
-    this.router.navigate(['/majorProject']);
+  openpkgViewpage(){
+    this.router.navigate(['/pakageView']);
   }
 
+    //openhotel page
 
-  
+    openHotelViewpage(){
+      this.router.navigate(['/hotelView']);
+    }
 }
