@@ -36,7 +36,8 @@ import { PkgViewComponent } from './majorproject/pakages/pkg-view/pkg-view.compo
 import { PkgBookingComponent } from './majorproject/pakages/pkg-booking/pkg-booking.component';
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.component';
-
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.c
     PkgBookingComponent,
     HotelBookingComponent,
     HotelViewComponent,
+    UserDashboardComponent,
 
   ],
   imports: [
@@ -76,7 +78,8 @@ import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.c
     MatSortModule,
     MatSnackBarModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule
 
 
   ],

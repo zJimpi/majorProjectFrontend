@@ -106,5 +106,8 @@ export class AppComponent {
     
   //reset password
 
+  openUserDashboard(){
+    this._router.navigate(['/userDashboard']);
+  }
 
 }
