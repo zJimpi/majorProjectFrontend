@@ -38,6 +38,9 @@ import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-
 import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
+import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
+import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HotelBookingComponent,
     HotelViewComponent,
     UserDashboardComponent,
+    AdminHomeComponent,
+    AddPackageComponent,
+    AddHotelComponent,
 
   ],
   imports: [
