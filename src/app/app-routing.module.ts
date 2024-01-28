@@ -13,6 +13,7 @@ import { PkgBookingComponent } from './majorproject/pakages/pkg-booking/pkg-book
 import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.component';
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,10 @@ const routes: Routes = [
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
   { path:'hotelBooking', component:HotelBookingComponent},
-  { path:'userDashboard', component:UserDashboardComponent}
+  { path:'userDashboard', component:UserDashboardComponent},
+  { path:'adminHome', component:AdminHomeComponent},
+  
+
  
 ];
 
