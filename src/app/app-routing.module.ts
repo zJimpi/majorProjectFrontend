@@ -30,7 +30,7 @@ const routes: Routes = [
   { path:'hotelView', component:HotelViewComponent},
   { path:'hotelBooking', component:HotelBookingComponent},
   { path:'userDashboard', component:UserDashboardComponent}
- 
+
 ];
 
 @NgModule({
