@@ -26,7 +26,7 @@ export class AddPkgService {
 
   // Method to delete a destination by sending a DELETE request with the destination's ID.
   deletePackage(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:8086/package/deletePackageById/${id}`);
+    return this._http.delete(`http://localhost:3000/package/deletePackageById/${id}`);
   }
 
 }
