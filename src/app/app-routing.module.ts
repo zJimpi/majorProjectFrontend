@@ -14,6 +14,8 @@ import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.c
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
+import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
+import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path:'hotelBooking', component:HotelBookingComponent},
   { path:'userDashboard', component:UserDashboardComponent},
   { path:'adminHome', component:AdminHomeComponent},
+  { path:'addPackage', component:AddPackageComponent},
+  { path:'addHotel', component:AddHotelComponent},
   
 
  
