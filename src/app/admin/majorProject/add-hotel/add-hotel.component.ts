@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddHotelService } from '../../service/add-hotel.service';
 import { CoreService } from '../../core/core.service';
+import { AddRoomService } from '../../service/add-room.service';
 
 @Component({
   selector: 'app-add-hotel',
@@ -12,6 +13,7 @@ export class AddHotelComponent {
   
   hotelForm:FormGroup;
   roomForm:FormGroup;
+  assignForm:FormGroup;
   stateNames: string[]=[
     'Andhra Pradesh',
     'Arunachal Pradesh',
@@ -57,8 +59,19 @@ export class AddHotelComponent {
     
     'Chandigarh'
   ];
+
+  roomTypes:string[]=[
+    'Standard Room',
+    'Suite',
+    'Family Room',
+    'Accessible Room'
+  ];
+  hotelId!: Number;
+  roomId!:Number;
+
   constructor(private _fb:FormBuilder,
     private _hotelService:AddHotelService,
+    private _roomService:AddRoomService,
     private _coreService:CoreService,
 
     ){
@@ -71,9 +84,13 @@ export class AddHotelComponent {
         managerName:['',Validators.required],
       });
       this.roomForm=this._fb.group({
-        roomType:['',Validators.required],
         roomName:['',Validators.required],
+        roomType:['',Validators.required],
         pricePerDay:['',Validators.required],
+      });
+      this.assignForm=this._fb.group({
+        assingHotelId:['',Validators.required],
+        assignRoomid:['',Validators.required]
       });
     }
 
@@ -83,6 +100,13 @@ export class AddHotelComponent {
           this._coreService.openSnackBar('Hotel added successfully');
 
           //print hotel id
+          this._hotelService.getHotelById(val.id).subscribe({
+            next:(res:any)=>{
+              console.log(res);
+              this.hotelId=res.id;
+            }
+          });
+          
          
         },
         error: (err: any) => {
@@ -92,5 +116,28 @@ export class AddHotelComponent {
 
     }
 
-    roomFormSubmit(){}
+
+
+    roomFormSubmit(){
+      this._roomService.addRoom(this.roomForm.value).subscribe({
+        next:(val:any)=>{
+          this._coreService.openSnackBar('room added successfully');
+          //show room id
+          this._roomService.getRoomById(val.id).subscribe({
+            next:(res:any)=>{
+              console.log(res);
+              this.roomId=res.id;
+            }
+          });
+        },
+        error: (err: any) => {
+          console.error(err);
+        },
+      });
+    }
+
+
+    roomAssignToHotel(){
+
+    }
 }

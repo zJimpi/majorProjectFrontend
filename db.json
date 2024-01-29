@@ -1,21 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "destination": [
     {
       "destName": "Sri Venkateswara Swami Temple",
@@ -124,6 +107,71 @@
       "hotelMobileNumber": "4567",
       "managerName": "raju",
       "id": 2
+    },
+    {
+      "hotelName": "hindu hotel",
+      "hotelLocation": "kolkata",
+      "state": "West Bengal",
+      "address": "sealdha,kolkata",
+      "hotelMobileNumber": "9000900012",
+      "managerName": "rani",
+      "id": 3
+    },
+    {
+      "hotelName": "kali hotels",
+      "hotelLocation": "assam",
+      "state": "Assam",
+      "address": "assam",
+      "hotelMobileNumber": "2345678901",
+      "managerName": "assam",
+      "id": 4
+    },
+    {
+      "hotelName": "ram",
+      "hotelLocation": "up",
+      "state": "Uttarakhand",
+      "address": "up",
+      "hotelMobileNumber": "1234567890",
+      "managerName": "ram",
+      "id": 5
+    },
+    {
+      "hotelName": "ram",
+      "hotelLocation": "up",
+      "state": "Uttarakhand",
+      "address": "up",
+      "hotelMobileNumber": "1234567890",
+      "managerName": "ram",
+      "id": 6
+    },
+    {
+      "hotelName": "joba hotels",
+      "hotelLocation": "tipura",
+      "state": "Assam",
+      "address": "tipura",
+      "hotelMobileNumber": "1234567890",
+      "managerName": "joba",
+      "id": 7
+    }
+  ],
+  "room": [
+    {
+      "roomType": "suit",
+      "roomName": "suitluxary",
+      "pricePerDay": 300,
+      "id": 1
+    },
+    {
+      "roomName": "family suite",
+      "roomType": "Family Room",
+      "pricePerDay": "300",
+      "id": 2
+    },
+    {
+      "roomName": "luxary room for rich",
+      "roomType": "Suite",
+      "pricePerDay": "3000",
+      "id": 3
     }
   ],
   "pakage": []

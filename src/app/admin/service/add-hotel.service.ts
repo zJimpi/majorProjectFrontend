@@ -16,6 +16,9 @@ export class AddHotelService {
   getHotelList(): Observable<any> {
     return this._http.get('http://localhost:3000/hotel');
   }
+  getHotelById(id: number): Observable<any> {
+    return this._http.get(`http://localhost:3000/hotel/${id}`);
+  }
 
   updateHotel(id: number, data: any): Observable<any> {
     return this._http.put(`http://localhost:3000/hotel/${id}`, data);
