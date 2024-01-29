@@ -1,1 +1,75 @@
 <p>add-hotel works!</p>
+<div class="container hotel-design-box">
+
+    <form  [formGroup]="hotelForm" (ngSubmit)="hotelFormSubmit()">
+
+        
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label >Hotel Name</mat-label>
+                <input matInput placeholder="ex: Raju Hotels" formControlName="hotelName">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelName')?.touched && hotelForm.get('hotelName')?.errors?.['required']">
+                    <small>Hotel name is required.</small>
+                </mat-hint>
+            </mat-form-field>
+        <div class="row">
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label >Hotel Location</mat-label>
+                <input matInput placeholder="ex: Jaipur" formControlName="hotelLocation">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelLocation')?.touched && hotelForm.get('hotelLocation')?.errors?.['required']">
+                    <small>Hotel Location is required.</small>
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label >State</mat-label>
+                <mat-select formControlName="state">
+                    <mat-option *ngFor="let val of stateNames" [value]="val">{{val}}</mat-option>
+                  </mat-select>
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('state')?.touched && hotelForm.get('state')?.errors?.['required']">
+                    <small>state is required.</small>
+                </mat-hint>
+            </mat-form-field>
+
+
+        </div>
+    
+        <mat-form-field appearance="fill" class="input-width">
+            <mat-label >Full Address</mat-label>
+            <input matInput placeholder="ex: block-12,Jaipur,Rajasthan" formControlName="address">
+            <mat-hint style = "color: red;" *ngIf="hotelForm.get('address')?.touched && hotelForm.get('address')?.errors?.['required']">
+                <small>address is required.</small>
+            </mat-hint>
+        </mat-form-field>
+        
+        <div class="row">
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label >Hotel Reception Number</mat-label>
+                <input matInput placeholder="ex:" formControlName="hotelMobileNumber">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['required']">
+                    <small>Hotel Reception Number is required.</small>
+                </mat-hint>
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['minlength']">
+                    <small>10 digits are required.</small>
+                </mat-hint>
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['maxlength']">
+                    <small>10 digits are required.</small>
+                </mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label >Manager Name</mat-label>
+                <input matInput placeholder="ex:" formControlName="managerName">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('managerName')?.touched && hotelForm.get('managerName')?.errors?.['required']">
+                    <small>Manager Name is required.</small>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+
+
+    <div mat-actions class="action">
+        
+        <button mat-raised-button color="primary" type="submit">save hotel</button>
+    </div>
+    </form>
+    
+</div>

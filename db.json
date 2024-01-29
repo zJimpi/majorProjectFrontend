@@ -107,10 +107,24 @@
       "id": 11
     }
   ],
-  "hotel":[
-
+  "hotel": [
+    {
+      "hotelName": "raju hotels",
+      "hotelLocation": "jaipur",
+      "address": "jjaipu,rajasthan",
+      "hotelMobileNumber": "45678",
+      "managerName": "raju",
+      "id": 1
+    },
+    {
+      "hotelName": "raju hotels",
+      "hotelLocation": "jaipur",
+      "state": "Tamil Nadu",
+      "address": "blok 12",
+      "hotelMobileNumber": "4567",
+      "managerName": "raju",
+      "id": 2
+    }
   ],
-  "pakage":[
-    
-  ]
+  "pakage": []
 }
