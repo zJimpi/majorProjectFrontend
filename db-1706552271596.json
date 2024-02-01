@@ -1,4 +1,21 @@
 {
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "destination": [
     {
       "destName": "Sri Venkateswara Swami Temple",
@@ -152,26 +169,6 @@
       "hotelMobileNumber": "1234567890",
       "managerName": "joba",
       "id": 7
-    }
-  ],
-  "room": [
-    {
-      "roomType": "suit",
-      "roomName": "suitluxary",
-      "pricePerDay": 300,
-      "id": 1
-    },
-    {
-      "roomName": "family suite",
-      "roomType": "Family Room",
-      "pricePerDay": "300",
-      "id": 2
-    },
-    {
-      "roomName": "luxary room for rich",
-      "roomType": "Suite",
-      "pricePerDay": "3000",
-      "id": 3
     }
   ],
   "pakage": []
