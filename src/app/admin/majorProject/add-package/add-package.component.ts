@@ -11,7 +11,7 @@ import { CoreService } from '../../core/core.service';
 export class AddPackageComponent {
 
   packageForm! : FormGroup;
-  formControl! : FormControl;
+  // formControl! : FormControl;
   
 
   constructor(private _formBuilder : FormBuilder,
@@ -28,18 +28,18 @@ export class AddPackageComponent {
 
     }
 
-    get spots() {
+    get spots(): FormArray {
       return this.packageForm.get('spots') as FormArray;
     }
   
     addSpot() {
       this.spots.push(this._formBuilder.control('', Validators.required));
     }
-
   
     removeSpot(index: number) {
       this.spots.removeAt(index);
     }
+  
 
     packageFormSubmit(){
       this._packageService.addPackage(this.packageForm.value).subscribe({

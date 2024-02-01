@@ -11,7 +11,7 @@ export class AddPkgService {
 
   // Method to add a destination by sending a POST request to the tomcat server.
   addPackage(data:any): Observable<any>{
-    return this._http.post('http://localhost:3000/package',data)
+    return this._http.post('http://localhost:8086/package/savePackage',data)
   }
 
   // Method to retrieve a list of destinations by sending a GET request to the tomcat server.
