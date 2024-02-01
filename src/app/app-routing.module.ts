@@ -17,6 +17,7 @@ import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.c
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
 
 
 const routes: Routes = [
@@ -37,9 +38,9 @@ const routes: Routes = [
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},
   { path:'addHotel', component:AddHotelComponent},
-  { path:'viewHotel',component:ViewHotelTabelComponent}
+  { path:'viewHotel',component:ViewHotelTabelComponent},
+  { path:'viewPackage',component:ViewPackageTableComponent}
 
- 
 ];
 
 @NgModule({

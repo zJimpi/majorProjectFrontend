@@ -44,6 +44,7 @@ import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.comp
 import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
 
 import {MatCardModule} from '@angular/material/card';
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
 
 
 
@@ -67,6 +68,7 @@ import {MatCardModule} from '@angular/material/card';
     AddPackageComponent,
     AddHotelComponent,
     ViewHotelTabelComponent,
+    ViewPackageTableComponent,
 
   ],
   imports: [

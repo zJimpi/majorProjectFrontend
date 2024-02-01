@@ -1,8 +1,15 @@
+<div class="button_div container">
+    <div class="row">
+        <button class="col" (click)="clearAllForm()">Add new Package data</button>
+        <button class="col" (click)="redirectToViewPackage()">view all package details</button>
+    </div>
+   
+</div>
 <div class="container package-design-box">
 
     <form  [formGroup]="packageForm" (ngSubmit)="packageFormSubmit()">
 
-        <!-- Package Name -->
+
         <mat-form-field appearance="fill" class="input-width col">
             <mat-label>Package Name</mat-label>
             <input matInput placeholder="ex : Goa Package" formControlName = "pckgName">
@@ -11,7 +18,7 @@
             </mat-hint>
         </mat-form-field>
 
-        <!-- Package Location -->
+        
         <mat-form-field appearance="fill" class="input-width col">
             <mat-label >Package Location</mat-label>
             <input matInput placeholder="ex: Goa" formControlName="location">
@@ -20,7 +27,7 @@
             </mat-hint>
         </mat-form-field>
 
-        <!-- Package Code -->
+        
         <mat-form-field appearance="fill" class="input-width col">
             <mat-label >Package Code</mat-label>
             <input matInput placeholder="ex:A136" formControlName="packageCode">
@@ -35,7 +42,7 @@
             </mat-hint>
         </mat-form-field>
 
-        <!-- Package Price -->
+        
         <mat-form-field appearance="fill" class="input-width col">
             <mat-label >Package Price</mat-label>
             <input matInput placeholder="Enter Package Price" formControlName="price">
@@ -44,7 +51,7 @@
             </mat-hint>
         </mat-form-field>
 
-        <!-- Spots -->
+        
         <div formArrayName="spots">
             <div *ngFor="let spot of spots.controls; let i = index" class="input-width col">
                 <mat-form-field appearance="fill">
@@ -62,6 +69,10 @@
   
         <div mat-actions class="action">
             <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">Save Package</button>
+        </div>
+
+        <div *ngIf="pckgId">
+            <p>Package id:{{pckgId}}</p>
         </div>
 
     </form>

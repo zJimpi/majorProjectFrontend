@@ -29,4 +29,8 @@ export class AddPkgService {
     return this._http.delete(`http://localhost:3000/package/${id}`);
   }
 
+  getPackageById(id: number): Observable<any> {
+    return this._http.get(`http://localhost:8086/hotel/getHotelById/${id}`);
+  }
+
 }
