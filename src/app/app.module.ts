@@ -42,6 +42,9 @@ import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.c
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 
+import {MatCardModule} from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
@@ -85,7 +88,8 @@ import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.comp
     MatSnackBarModule,
     FormsModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
 
 
   ],

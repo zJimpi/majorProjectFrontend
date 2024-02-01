@@ -1,1 +1,65 @@
-<p>add-package works!</p>
+<div class="container package-design-box">
+
+    <form  [formGroup]="packageForm" (ngSubmit)="packageFormSubmit()">
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label>Package Name</mat-label>
+            <input matInput placeholder="ex : Goa Package" formControlName = "pckgName">
+            <mat-hint style="color: red;" *ngIf = "packageForm.get('pckgName')?.touched && packageForm.get('pckgName')?.errors?.['required']">
+                <small>Package Name is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Package Location</mat-label>
+            <input matInput placeholder="ex: Goa" formControlName="location">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('location')?.touched && packageForm.get('location')?.errors?.['required']">
+                <small>Package Location is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Package Code</mat-label>
+            <input matInput placeholder="ex:A136" formControlName="packageCode">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('packageCode')?.touched && packageForm.get('packageCode')?.errors?.['required']">
+                <small>Package Code is required.</small>
+            </mat-hint>
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('packageCode')?.touched && packageForm.get('packageCode')?.errors?.['minlength']">
+                <small>minimum 3 characters are required.</small>
+            </mat-hint>
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('packageCode')?.touched && packageForm.get('packageCode')?.errors?.['maxlength']">
+                <small>maximum 10 characters are required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Package Price</mat-label>
+            <input matInput placeholder="Enter Package Price" formControlName="price">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('location')?.touched && packageForm.get('location')?.errors?.['required']">
+                <small>Package Price is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <div formArrayName="spots">
+            <div *ngFor="let spot of spots.controls; let i = index" class="input-width col">
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Spot {{ i + 1 }}</mat-label>
+                    <input matInput formControlName="spot" placeholder="Enter spot" />
+                    <mat-hint *ngIf="spot.touched && spot.hasError('required')" style="color: red;">
+                        <small>Spot is required.</small>
+                    </mat-hint>
+                </mat-form-field>
+      
+                <button type="button" (click)="removeSpot(i)">Remove Spot {{ i + 1 }}</button>
+            </div>
+            
+            <button type="button" (click)="addSpot()">Add Spot</button>
+        </div>
+  
+        <div mat-actions class="action">
+            <button mat-raised-button color="primary" type="submit">Save Package</button>
+        </div>
+
+    </form>
+</div>

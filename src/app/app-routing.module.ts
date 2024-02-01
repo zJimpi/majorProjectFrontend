@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'signup', component:SignupComponent},
   { path: 'resetPass', component:RestPasswordComponent},
   { path: 'changePass', component:ChangePassComponent},
-  { path:'admin/addDestination', component:AddDestinationComponent},
+  { path:'adminHome/addDestination', component:AddDestinationComponent},
   { path:'pakageView', component:PkgViewComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
