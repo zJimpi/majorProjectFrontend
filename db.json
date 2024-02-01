@@ -107,10 +107,144 @@
       "id": 11
     }
   ],
-  "hotel":[
-
-  ],
-  "pakage":[
-    
+  "hotel": [],
+  "package": [
+    {
+      "pckgName": "xcvbn",
+      "packageCode": "dfgh",
+      "location": "fghj",
+      "price": "4567",
+      "id": 1
+    },
+    {
+      "pckgName": "",
+      "packageCode": "",
+      "location": "",
+      "price": "",
+      "id": 2
+    },
+    {
+      "pckgName": "goa Package",
+      "packageCode": "A2233",
+      "location": "Goa",
+      "price": "23445",
+      "spots": [
+        "",
+        "",
+        ""
+      ],
+      "id": 3
+    },
+    {
+      "pckgName": "delhi package",
+      "packageCode": "123dd",
+      "location": "delhi",
+      "price": "123e",
+      "spots": [
+        "taj mahal",
+        "red fort"
+      ],
+      "id": 4
+    },
+    {
+      "pckgName": "Goa Package",
+      "packageCode": "A123",
+      "location": "Goa",
+      "price": "20000",
+      "spots": [
+        "",
+        "",
+        ""
+      ],
+      "id": 5
+    },
+    {
+      "pckgName": "erdcfgvbuhijn",
+      "packageCode": "e45",
+      "location": "cyvgubhijnl",
+      "price": "45678",
+      "spots": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 6
+    },
+    {
+      "pckgName": "dfvgbhkn",
+      "packageCode": "gvjbh56",
+      "location": "cgvjhk ",
+      "price": "56789",
+      "spots": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 7
+    },
+    {
+      "pckgName": "jj",
+      "packageCode": "h768",
+      "location": "jh",
+      "price": "6789",
+      "spots": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 8
+    },
+    {
+      "pckgName": "fhgvjh",
+      "packageCode": "ggvjhk",
+      "location": "fghvjb nm",
+      "price": "5678",
+      "spots": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 9
+    },
+    {
+      "pckgName": "dxcfvghkj",
+      "packageCode": "4556gb",
+      "location": "fgvjbhkj",
+      "price": "6576889",
+      "spots": [
+        "",
+        "",
+        ""
+      ],
+      "id": 10
+    },
+    {
+      "pckgName": "Goa Package",
+      "packageCode": "G21",
+      "location": "Goa",
+      "price": "40000",
+      "spots": [
+        "beach",
+        "fort",
+        "church"
+      ],
+      "id": 11
+    },
+    {
+      "pckgName": "Goa Package",
+      "packageCode": "G21",
+      "location": "Goa",
+      "price": "40000",
+      "spots": [
+        "beach",
+        "fort",
+        "church"
+      ],
+      "id": 12
+    }
   ]
 }
