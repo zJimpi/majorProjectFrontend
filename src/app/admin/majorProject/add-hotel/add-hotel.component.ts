@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddHotelService } from '../../service/add-hotel.service';
 import { CoreService } from '../../core/core.service';
 import { AddRoomService } from '../../service/add-room.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-hotel',
@@ -73,15 +74,16 @@ export class AddHotelComponent {
     private _hotelService:AddHotelService,
     private _roomService:AddRoomService,
     private _coreService:CoreService,
+    private _router:Router
 
     ){
       this.hotelForm = this._fb.group({
         hotelName:['',Validators.required],
-        hotelLocation:['',Validators.required],
+        location:['',Validators.required],
         state:['',Validators.required],
         address:['',Validators.required],
-        hotelMobileNumber:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-        managerName:['',Validators.required],
+        number:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+        manager:['',Validators.required],
       });
       this.roomForm=this._fb.group({
         roomName:['',Validators.required],
@@ -98,12 +100,12 @@ export class AddHotelComponent {
       this._hotelService.addHotel(this.hotelForm.value).subscribe({
         next: (val: any) => {
           this._coreService.openSnackBar('Hotel added successfully');
-
+         
           //print hotel id
-          this._hotelService.getHotelById(val.id).subscribe({
+          this._hotelService.getHotelById(val.hotelId).subscribe({
             next:(res:any)=>{
-              console.log(res);
-              this.hotelId=res.id;
+           
+              this.hotelId=res.hotelId;
             }
           });
           
@@ -122,11 +124,12 @@ export class AddHotelComponent {
       this._roomService.addRoom(this.roomForm.value).subscribe({
         next:(val:any)=>{
           this._coreService.openSnackBar('room added successfully');
+         
           //show room id
-          this._roomService.getRoomById(val.id).subscribe({
+          this._roomService.getRoomById(val.roomId).subscribe({
             next:(res:any)=>{
-              console.log(res);
-              this.roomId=res.id;
+             
+              this.roomId=res.roomId;
             }
           });
         },
@@ -138,6 +141,28 @@ export class AddHotelComponent {
 
 
     roomAssignToHotel(){
+      let hotelId = this.assignForm.get('assingHotelId')?.value;
+      let roomId = this.assignForm.get('assignRoomid')?.value;
 
+      this._hotelService.assignRoomIdToHotelId(roomId,hotelId).subscribe({
+        next:(val:any)=>{
+          
+        },
+        error:(err:any)=>{
+          console.log();
+        }
+      });
+
+      this._coreService.openSnackBar('room assigned to hotel successfully');
+    }
+
+    clearAllForm(){
+      this.hotelForm.reset();
+      this.roomForm.reset();
+      this.assignForm.reset();
+    }
+
+    redirectToViewHotel(){
+      this._router.navigate(['viewHotel']);
     }
 }

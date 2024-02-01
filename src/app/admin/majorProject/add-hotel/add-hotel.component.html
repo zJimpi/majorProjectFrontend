@@ -1,4 +1,11 @@
-<p>add-hotel works!</p>
+
+<div class="button_div container">
+    <div class="row">
+        <button class="col" (click)="clearAllForm()">Add new Hotel data</button>
+        <button class="col" (click)="redirectToViewHotel()">view all hotel details</button>
+    </div>
+   
+</div>
 <div class="container hotel-design-box">
 
     <form  [formGroup]="hotelForm" (ngSubmit)="hotelFormSubmit()">
@@ -14,8 +21,8 @@
         <div class="row">
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Hotel Location</mat-label>
-                <input matInput placeholder="ex: Jaipur" formControlName="hotelLocation">
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelLocation')?.touched && hotelForm.get('hotelLocation')?.errors?.['required']">
+                <input matInput placeholder="ex: Jaipur" formControlName="location">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('location')?.touched && hotelForm.get('location')?.errors?.['required']">
                     <small>Hotel Location is required.</small>
                 </mat-hint>
             </mat-form-field>
@@ -44,22 +51,22 @@
         <div class="row">
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Hotel Reception Number</mat-label>
-                <input matInput placeholder="ex:" formControlName="hotelMobileNumber">
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['required']">
+                <input matInput placeholder="ex:" formControlName="number">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('number')?.touched && hotelForm.get('number')?.errors?.['required']">
                     <small>Hotel Reception Number is required.</small>
                 </mat-hint>
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['minlength']">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('number')?.touched && hotelForm.get('number')?.errors?.['minlength']">
                     <small>10 digits are required.</small>
                 </mat-hint>
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('hotelMobileNumber')?.touched && hotelForm.get('hotelMobileNumber')?.errors?.['maxlength']">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('number')?.touched && hotelForm.get('number')?.errors?.['maxlength']">
                     <small>10 digits are required.</small>
                 </mat-hint>
             </mat-form-field>
     
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Manager Name</mat-label>
-                <input matInput placeholder="ex:" formControlName="managerName">
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('managerName')?.touched && hotelForm.get('managerName')?.errors?.['required']">
+                <input matInput placeholder="ex:" formControlName="manager">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('manager')?.touched && hotelForm.get('manager')?.errors?.['required']">
                     <small>Manager Name is required.</small>
                 </mat-hint>
             </mat-form-field>
@@ -67,7 +74,7 @@
 
 
     <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit">save hotel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!hotelForm.valid">save hotel</button>
     </div>
     </form>
     <div *ngIf="hotelId">
@@ -111,7 +118,7 @@
         </div>
 
     <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit">Save Room</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!roomForm.valid">Save Room</button>
     </div>
     </form>
     <div *ngIf="roomId">
@@ -142,7 +149,7 @@
         </div>
 
     <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit">Assign Room Id to Hotel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!assignForm.valid">Assign Room Id to Hotel</button>
     </div>
     </form>
 </div>

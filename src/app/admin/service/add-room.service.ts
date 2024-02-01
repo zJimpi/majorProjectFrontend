@@ -9,11 +9,11 @@ export class AddRoomService {
 
   constructor(private _http:HttpClient) { }
   addRoom(data:any): Observable<any>{
-    return this._http.post('http://localhost:3000/room',data)
+    return this._http.post('http://localhost:8086/room/saveRoom',data)
   }
 
   getRoomById(id: number): Observable<any> {
-    return this._http.get(`http://localhost:3000/room/${id}`);
+    return this._http.get(`http://localhost:8086/room/getRoomById/${id}`);
   }
 
   updateRoom(id: number, data: any): Observable<any> {

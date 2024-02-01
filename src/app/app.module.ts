@@ -41,6 +41,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
+import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.comp
     AdminHomeComponent,
     AddPackageComponent,
     AddHotelComponent,
+    ViewHotelTabelComponent,
 
   ],
   imports: [
