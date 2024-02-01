@@ -11,7 +11,7 @@ import { CoreService } from '../../core/core.service';
 export class AddPackageComponent {
 
   packageForm! : FormGroup;
-  // formControl! : FormControl;
+  formControl! : FormControl;
   
 
   constructor(private _formBuilder : FormBuilder,
