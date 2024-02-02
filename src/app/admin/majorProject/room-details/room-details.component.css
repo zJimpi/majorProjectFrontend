@@ -11,10 +11,3 @@
     display: flex;
     gap: 5px;
   }
-
-  .buttons{
-   padding :20px 0px;
-  }
-  .buttons .row{
-    gap:20px;
-  }

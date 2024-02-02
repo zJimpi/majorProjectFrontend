@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AddHotelService {
 
+  urlHotelId!:number;
+
   constructor(private _http:HttpClient) { }
  
   addHotel(data:any): Observable<any>{
@@ -14,21 +16,22 @@ export class AddHotelService {
   }
 
   getHotelList(): Observable<any> {
-    return this._http.get('http://localhost:3000/hotel');
+    return this._http.get('http://localhost:8086/hotel/getHotelList');
   }
   getHotelById(id: number): Observable<any> {
     return this._http.get(`http://localhost:8086/hotel/getHotelById/${id}`);
   }
 
   updateHotel(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/hotel/${id}`, data);
+    return this._http.put(`http://localhost:8086/hotel/updateHotel/${id}`, data);
   }
 
   deleteHotel(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/hotel/${id}`);
+    return this._http.delete(`http://localhost:8086/hotel/deleteHotelById/${id}`);
   }
 
   assignRoomIdToHotelId(roomId:number, hotelId:number):Observable<any>{
     return this._http.post(`http://localhost:8086/hotel/assignRoomId/${roomId}/toHotelId/${hotelId}`,null);
+    
   }
 }
