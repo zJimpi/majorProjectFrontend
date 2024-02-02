@@ -17,7 +17,11 @@ import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.c
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
+
 import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
+
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+
 
 
 const routes: Routes = [
@@ -29,7 +33,7 @@ const routes: Routes = [
   { path: 'signup', component:SignupComponent},
   { path: 'resetPass', component:RestPasswordComponent},
   { path: 'changePass', component:ChangePassComponent},
-  { path:'admin/addDestination', component:AddDestinationComponent},
+  { path:'adminHome/addDestination', component:AddDestinationComponent},
   { path:'pakageView', component:PkgViewComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
@@ -37,11 +41,16 @@ const routes: Routes = [
   { path:'userDashboard', component:UserDashboardComponent},
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},
+
   
   { path:'viewHotel',component:ViewHotelTabelComponent},
   { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent}
 
- 
+  { path:'addHotel', component:AddHotelComponent},
+  { path:'viewHotel',component:ViewHotelTabelComponent},
+  { path:'viewPackage',component:ViewPackageTableComponent}
+
+
 ];
 
 @NgModule({

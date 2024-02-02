@@ -45,6 +45,10 @@ import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/v
 import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
 import { AddRoomComponent } from './admin/majorProject/add-room/add-room.component';
 
+import {MatCardModule} from '@angular/material/card';
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+
+
 
 @NgModule({
   declarations: [
@@ -66,8 +70,12 @@ import { AddRoomComponent } from './admin/majorProject/add-room/add-room.compone
     AddPackageComponent,
     AddHotelComponent,
     ViewHotelTabelComponent,
+
     RoomDetailsComponent,
     AddRoomComponent,
+
+    ViewPackageTableComponent,
+
 
   ],
   imports: [
@@ -91,7 +99,8 @@ import { AddRoomComponent } from './admin/majorProject/add-room/add-room.compone
     MatSnackBarModule,
     FormsModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
 
 
   ],
