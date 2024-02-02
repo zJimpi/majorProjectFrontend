@@ -16,12 +16,20 @@ export class AddRoomService {
     return this._http.get(`http://localhost:8086/room/getRoomById/${id}`);
   }
 
+  getRoomList():Observable<any>{
+    return this._http.get('http://localhost:8086/room/getRoomList');
+  }
+
+  getRoomByHotelId(id :number) :Observable<any>{
+    return this._http.get(`http://localhost:8086/room/getRoomByHotelId/${id}`);
+  }
+
   updateRoom(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/room/${id}`, data);
+    return this._http.put(`http://localhost:8086/room/updateRoomById/${id}`, data);
   }
 
   deleteRoom(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/room/${id}`);
+    return this._http.delete(`http://localhost:8086/room/deleteRoomById/${id}`);
   }
 
 }

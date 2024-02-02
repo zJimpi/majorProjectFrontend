@@ -42,6 +42,8 @@ import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.c
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
 import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
+import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
+import { AddRoomComponent } from './admin/majorProject/add-room/add-room.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/v
     AddPackageComponent,
     AddHotelComponent,
     ViewHotelTabelComponent,
+    RoomDetailsComponent,
+    AddRoomComponent,
 
   ],
   imports: [
