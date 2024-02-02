@@ -1,11 +1,4 @@
 
-<div class="button_div container">
-    <div class="row">
-        <button class="col" (click)="clearAllForm()">Add new Hotel data</button>
-        <button class="col" (click)="redirectToViewHotel()">view all hotel details</button>
-    </div>
-   
-</div>
 <div class="container hotel-design-box">
 
     <form  [formGroup]="hotelForm" (ngSubmit)="hotelFormSubmit()">
@@ -74,82 +67,8 @@
 
 
     <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!hotelForm.valid">save hotel</button>
-    </div>
-    </form>
-    <div *ngIf="hotelId">
-        <p>Hotel id:{{hotelId}}</p>
-    </div>
-</div>
-
-
-<!-- room form  -->
-
-<div class="container room-design-box">
-
-    <form  [formGroup]="roomForm" (ngSubmit)="roomFormSubmit()">
-
-        <div class="row">
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Room Name</mat-label>
-                <input matInput placeholder="ex: Family Suite" formControlName="roomName">
-                <mat-hint style = "color: red;" *ngIf="roomForm.get('roomName')?.touched && roomForm.get('roomName')?.errors?.['required']">
-                    <small>Room Name is required.</small>
-                </mat-hint>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Room Type</mat-label>
-                <mat-select formControlName="roomType">
-                    <mat-option *ngFor="let val of roomTypes" [value]="val">{{val}}</mat-option>
-                  </mat-select>
-                <mat-hint style = "color: red;" *ngIf="roomForm.get('roomType')?.touched && roomForm.get('roomType')?.errors?.['required']">
-                    <small>Room Type is required.</small>
-                </mat-hint>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Price Per Day</mat-label>
-                <input matInput placeholder="ex: Jaipur" formControlName="pricePerDay">
-                <mat-hint style = "color: red;" *ngIf="roomForm.get('pricePerDay')?.touched && roomForm.get('pricePerDay')?.errors?.['required']">
-                    <small>Price Per Day is required.</small>
-                </mat-hint>
-            </mat-form-field>
-        </div>
-
-    <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!roomForm.valid">Save Room</button>
-    </div>
-    </form>
-    <div *ngIf="roomId">
-        <p>Room id:{{roomId}}</p>
-    </div>
-</div>
-
-<div class="container assign-design-box">
-    <form  [formGroup]="assignForm" (ngSubmit)="roomAssignToHotel()">
-
-        <div class="row">
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Hotel id</mat-label>
-                <input matInput placeholder="ex: h1" formControlName="assingHotelId">
-                <mat-hint style = "color: red;" *ngIf="assignForm.get('assingHotelId')?.touched && assignForm.get('assingHotelId')?.errors?.['required']">
-                    <small>Hotel id is required.</small>
-                </mat-hint>
-            </mat-form-field>
-
-
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Room Id</mat-label>
-                <input matInput placeholder="ex: r1" formControlName="assignRoomid">
-                <mat-hint style = "color: red;" *ngIf="assignForm.get('assignRoomid')?.touched && assignForm.get('assignRoomid')?.errors?.['required']">
-                    <small>Room id is required.</small>
-                </mat-hint>
-            </mat-form-field>
-        </div>
-
-    <div mat-actions class="action"> 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!assignForm.valid">Assign Room Id to Hotel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!hotelForm.valid">{{data ? 'update':'save'}}</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
     </div>
     </form>
 </div>
