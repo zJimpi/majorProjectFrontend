@@ -47,6 +47,8 @@ import { AddRoomComponent } from './admin/majorProject/add-room/add-room.compone
 
 import {MatCardModule} from '@angular/material/card';
 import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+import { AddActivityComponent } from './admin/majorProject/add-activity/add-activity.component';
+import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
 
 
 
@@ -75,6 +77,8 @@ import { ViewPackageTableComponent } from './admin/majorProject/view-package-tab
     AddRoomComponent,
 
     ViewPackageTableComponent,
+      AddActivityComponent,
+      ActivityDetailsComponent,
 
 
   ],

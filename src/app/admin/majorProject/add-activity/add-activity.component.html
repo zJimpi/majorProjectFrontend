@@ -1,0 +1,36 @@
+<div class="container activity-design-box">
+
+    <form  [formGroup]="activityForm" (ngSubmit)="activityFormSubmit()">
+
+        <div class="row">
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label> Activity Name </mat-label>
+                <input matInput placeholder="ex: Boating" formControlName="activityName">
+                <mat-hint style = "color: red;" *ngIf="activityForm.get('activityForm')?.touched && activityForm.get('activityForm')?.errors?.['required']">
+                    <small>Activity Name is required.</small>
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label> Activity Timing </mat-label>
+                <input matInput placeholder="ex: Evening" formControlName="activityTiming">
+                <mat-hint style = "color: red;" *ngIf="activityForm.get('activityForm')?.touched && activityForm.get('activityForm')?.errors?.['required']">
+                    <small>Activity Timing is required.</small>
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="input-width col">
+                <mat-label> Activity Description </mat-label>
+                <input matInput placeholder="ex: Boating" formControlName="activityDescription">
+                <mat-hint style = "color: red;" *ngIf="activityForm.get('activityForm')?.touched && activityForm.get('activityForm')?.errors?.['required']">
+                    <small>Activity Description is required.</small>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div mat-actions class="action"> 
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!activityForm.valid">{{data? 'update':'save'}}</button>
+        </div>
+    </form>
+</div>
