@@ -32,7 +32,7 @@ export class AddPkgService {
   }
 
   getPackageById(id: number): Observable<any> {
-    return this._http.get(`http://localhost:8086/hotel/getHotelById/${id}`);
+    return this._http.get(`http://localhost:8086/package/getPackageById/${id}`);
   }
 
 }

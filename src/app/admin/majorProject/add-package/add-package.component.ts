@@ -55,7 +55,7 @@ export class AddPackageComponent implements OnInit {
     packageFormSubmit(){
       if(this.packageForm.valid){
         if(this.data){//update
-          this._packageService.updatePackage(this.data.packageId,this.packageForm.value).subscribe({
+          this._packageService.updatePackage(this.data.pckgId,this.packageForm.value).subscribe({
             next : (val:any)=>{
               this._coreService.openSnackBar('Package Details updated');
               this._dialogRef.close(true);

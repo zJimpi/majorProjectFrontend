@@ -95,6 +95,7 @@ export class ViewPackageTableComponent implements OnInit {
     deletePackageDetails(packageId:number){
       this._packageService.deletePackage(packageId).subscribe({
         next:(res:any)=>{
+          console.log(packageId);
           this._coreService.openSnackBar('Package Details Deleted','done');
           this.getPackageList();
         },      

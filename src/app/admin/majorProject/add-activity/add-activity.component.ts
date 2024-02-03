@@ -42,6 +42,7 @@ export class AddActivityComponent implements OnInit {
       {
         if(this.data)
         {
+          console.log(this.data.activityId);
           this._activityService.updateActivity(this.data.activityId, this.data.value).subscribe
           ({
             next: (val: any) =>
@@ -69,8 +70,10 @@ export class AddActivityComponent implements OnInit {
                 {
                   this.activityId=res.activityId;
                   console.log(this.activityId);
+                  console.log("added");
 
                   this.assignActivityToPackage();
+                  console.log("assigned");
                   this._dialogRef.close(true);
                 },
                 error:(err:any)=>
