@@ -42,9 +42,7 @@ const routes: Routes = [
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},
 
-  
-  { path:'viewHotel',component:ViewHotelTabelComponent},
-  { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent}
+  { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent},
 
   { path:'addHotel', component:AddHotelComponent},
   { path:'viewHotel',component:ViewHotelTabelComponent},
