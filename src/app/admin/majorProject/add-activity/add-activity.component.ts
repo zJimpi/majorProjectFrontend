@@ -42,8 +42,7 @@ export class AddActivityComponent implements OnInit {
       {
         if(this.data)
         {
-          console.log(this.data.activityId);
-          this._activityService.updateActivity(this.data.activityId, this.data.value).subscribe
+          this._activityService.updateActivity(this.data.activityId, this.activityForm.value).subscribe
           ({
             next: (val: any) =>
             {
