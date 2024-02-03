@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AddActivityService {
 
+
   constructor(private _http:HttpClient) { }
 
   
@@ -31,5 +32,13 @@ export class AddActivityService {
 
   assignActivityIdToPackageId(activityId :number, packageId:number):Observable<any>{
     return this._http.post(`http://localhost:8086/activity/assignActivityId/${activityId}/toPackageId/${packageId}`,null);
+  }
+
+  getActivityList():Observable<any>{
+    return this._http.get('http://localhost:8086/activity/getActivityList');
+  }
+
+  getActivityByPackageId(id :number) :Observable<any>{
+    return this._http.get(`http://localhost:8086/activity/getActivityListByPackageId/${id}`);
   }
 }

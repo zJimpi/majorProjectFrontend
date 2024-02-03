@@ -25,7 +25,7 @@ export class RoomDetailsComponent implements OnInit{
   dataSource!: MatTableDataSource<any>;
 
   constructor(private _roomService:AddRoomService,
-    private route: ActivatedRoute,
+  private route: ActivatedRoute,
     private _coreService:CoreService,
     private _dialog: MatDialog,
     private _router:Router

@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+  }
+  .action{
+    display: flex;
+    gap: 5px;
+  }
+  .view-section {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1348px;
+    
+  }

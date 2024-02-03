@@ -21,6 +21,7 @@ import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/v
 import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
 
 import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
 
 
 
@@ -34,6 +35,9 @@ const routes: Routes = [
   { path: 'resetPass', component:RestPasswordComponent},
   { path: 'changePass', component:ChangePassComponent},
   { path:'adminHome/addDestination', component:AddDestinationComponent},
+  { path:'adminHome/viewPackage', component:ViewPackageTableComponent},
+  { path:'adminHome/viewHotel', component:ViewHotelTabelComponent},
+
   { path:'pakageView', component:PkgViewComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
@@ -41,14 +45,18 @@ const routes: Routes = [
   { path:'userDashboard', component:UserDashboardComponent},
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},
+  { path:'addPackage', component:AddPackageComponent},
+
 
   
-  { path:'viewHotel',component:ViewHotelTabelComponent},
-  { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent}
+  
+  { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent},
+  { path:'activity/getActivityListByPackageId/:packageId', component:ActivityDetailsComponent},
 
   { path:'addHotel', component:AddHotelComponent},
   { path:'viewHotel',component:ViewHotelTabelComponent},
-  { path:'viewPackage',component:ViewPackageTableComponent}
+  { path:'viewPackage',component:ViewPackageTableComponent},
+  { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent}
 
 
 ];

@@ -1,10 +1,3 @@
-<div class="button_div container">
-    <div class="row">
-        <button class="col" (click)="clearAllForm()">Add new Package data</button>
-        <button class="col" (click)="redirectToViewPackage()">view all package details</button>
-    </div>
-   
-</div>
 <div class="container package-design-box">
 
     <form  [formGroup]="packageForm" (ngSubmit)="packageFormSubmit()">
@@ -67,12 +60,9 @@
             <button type="button" (click)="addSpot()">Add Spot</button>
         </div>
   
-        <div mat-actions class="action">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">Save Package</button>
-        </div>
-
-        <div *ngIf="pckgId">
-            <p>Package id:{{pckgId}}</p>
+        <div mat-actions class="action"> 
+            <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">{{data ? 'update':'save'}}</button>
+            <!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
         </div>
 
     </form>
