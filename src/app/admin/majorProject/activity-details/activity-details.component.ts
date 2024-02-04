@@ -55,7 +55,6 @@ export class ActivityDetailsComponent implements OnInit{
       this._route.params.subscribe(params => {
         this.packageId = +params['packageId'];
     
-        // Check if packageId is defined before making the request
         if (this.packageId !== undefined) {
           this._activityService.getActivityByPackageId(this.packageId).subscribe(
             (activities: any[]) => {
@@ -67,7 +66,7 @@ export class ActivityDetailsComponent implements OnInit{
           );
         } else {
           console.error('PackageId is undefined.');
-          // Handle the case where packageId is undefined, e.g., display an error message to the user.
+         
         }
       });
     }

@@ -29,7 +29,8 @@ export class AddPackageComponent implements OnInit {
         packageCode : ['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
         location : ['',Validators.required],
         price : ['',Validators.required],
-        spots: this._formBuilder.array([], Validators.required)
+        // spots: this._formBuilder.array([], Validators.required)
+        spots: this._formBuilder.array([this._formBuilder.control('', Validators.required)])
       }); 
 
     }
@@ -37,7 +38,7 @@ export class AddPackageComponent implements OnInit {
     ngOnInit(): void {
       this.packageForm.patchValue(this.data);
     }
-
+    
     get spots(): FormArray {
       return this.packageForm.get('spots') as FormArray;
     }
@@ -45,6 +46,7 @@ export class AddPackageComponent implements OnInit {
     addSpot() {
       this.spots.push(this._formBuilder.control('', Validators.required));
     }
+    
   
     removeSpot(index: number) {
       this.spots.removeAt(index);
