@@ -28,9 +28,12 @@ export class ViewPackageTableComponent implements OnInit {
     'action'
   ];
 
+  spot !: String[];
+
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
 
   constructor(private _dialog : MatDialog,
     private _packageService : AddPkgService,
@@ -49,6 +52,7 @@ export class ViewPackageTableComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+
         },
         error: console.log,
       });

@@ -30,7 +30,8 @@ export class AddPackageComponent implements OnInit {
         location : ['',Validators.required],
         price : ['',Validators.required],
         // spots: this._formBuilder.array([], Validators.required)
-        spots: this._formBuilder.array([this._formBuilder.control('', Validators.required)])
+        // spots: this._formBuilder.array([this._formBuilder.control('', Validators.required)])
+        spots : ['',Validators.required],
       }); 
 
     }

@@ -44,41 +44,18 @@
             </mat-hint>
         </mat-form-field>
 
-        
-        <!-- <div formArrayName="spots">
-            <div *ngFor="let spot of spots.controls; let i = index" class="input-width col">
-                <mat-form-field appearance="fill">
-                    <mat-label>Spot {{ i + 1 }}</mat-label>
-                    <input matInput formControlName="{{i}}" placeholder="Enter spot" />
-                    <mat-hint *ngIf="spot.touched && spot.hasError('required')" style="color: red;">
-                        <small>Spot {{i + 1}} is required.</small>
-                    </mat-hint>
-                </mat-form-field>
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Spots </mat-label>
+            <input matInput placeholder="ex: bagha beach, anjuna beach" formControlName="spots">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('spots')?.touched && packageForm.get('spots')?.errors?.['required']">
+                <small>Package Spots are required.</small>
+            </mat-hint>
+        </mat-form-field>
 
-                <button type="button" (click)="removeSpot(i)">Remove Spot {{ i + 1 }}</button>
-            </div>
-            <button type="button" (click)="addSpot()">Add Spot</button>
-        </div> -->
-
-        <div formArrayName="spots">
-            <div *ngFor="let spot of spots.controls; let i = index" class="input-width col">
-              <mat-form-field appearance="fill">
-                <mat-label>Spot {{ i + 1 }}</mat-label>
-                <input matInput formControlName="{{i}}" placeholder="Enter spot" />
-                <mat-hint *ngIf="spot.touched && spot.hasError('required')" style="color: red;">
-                  <small>Spot {{i + 1}} is required.</small>
-                </mat-hint>
-              </mat-form-field>
-          
-              <button type="button" (click)="removeSpot(i)">Remove Spot {{ i + 1 }}</button>
-            </div>
-            <button type="button" (click)="addSpot()">Add Spot</button>
-          </div>
-          
   
         <div mat-actions class="action"> 
             <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">{{data ? 'update':'save'}}</button>
-            <!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
         </div>
 
     </form>
