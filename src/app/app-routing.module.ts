@@ -52,8 +52,8 @@ const routes: Routes = [
   { path:'addHotel', component:AddHotelComponent},
   { path:'viewHotel',component:ViewHotelTabelComponent},
   { path:'viewPackage',component:ViewPackageTableComponent},
-  { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent}
-
+  { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent},
+  { path:'hotelBooking', component:HotelBookingComponent}
 
 ];
 

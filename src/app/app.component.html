@@ -55,11 +55,11 @@
                           <div class="item1"  (click)="logOut()" *ngIf="loggedIn">Logout <mat-icon class="exist-box">exit_to_app</mat-icon> </div>
                           
                           </mat-menu>
-
-
-                        
                       </i></span> 
                     </li >
+                    <li class="nav-item">
+                      <i class="bi bi-person-standing-dress" (click)="openUserDashboard()"></i>
+                    </li>
 
                   
                     <button class="close-btn" type="button"  (click)="refreshPageWithReload()">
