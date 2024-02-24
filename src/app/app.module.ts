@@ -50,8 +50,10 @@ import {MatCardModule} from '@angular/material/card';
 import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
 import { AddActivityComponent } from './admin/majorProject/add-activity/add-activity.component';
 import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
-import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
 
+import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
+import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -79,10 +81,10 @@ import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-v
     AddRoomComponent,
 
     ViewPackageTableComponent,
-      AddActivityComponent,
-      ActivityDetailsComponent,
-      PkgViewMoreComponent,
-
+    AddActivityComponent,
+    ActivityDetailsComponent,
+    HotelViewMoreComponent,
+    PkgViewMoreComponent,
 
   ],
   imports: [

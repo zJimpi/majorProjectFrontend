@@ -54,6 +54,9 @@ const routes: Routes = [
   { path:'viewHotel',component:ViewHotelTabelComponent},
   { path:'viewPackage',component:ViewPackageTableComponent},
   { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent},
+
+  { path:'hotelBooking', component:HotelBookingComponent},
+
   { path:'packageBooking',component:PkgBookingComponent}
 
 
