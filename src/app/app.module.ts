@@ -25,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { AddDestinationComponent } from './admin/add-destination/add-destination.component';
 import { DestFormComponent } from './admin/dest-form/dest-form.component';
@@ -49,8 +50,9 @@ import {MatCardModule} from '@angular/material/card';
 import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
 import { AddActivityComponent } from './admin/majorProject/add-activity/add-activity.component';
 import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
-import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 
+import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
+import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
 import {MatStepperModule} from '@angular/material/stepper';
 
 
@@ -79,10 +81,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     AddRoomComponent,
 
     ViewPackageTableComponent,
-      AddActivityComponent,
-      ActivityDetailsComponent,
-      HotelViewMoreComponent,
-
+    AddActivityComponent,
+    ActivityDetailsComponent,
+    HotelViewMoreComponent,
+    PkgViewMoreComponent,
 
   ],
   imports: [

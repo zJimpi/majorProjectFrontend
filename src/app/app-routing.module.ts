@@ -22,6 +22,7 @@ import { RoomDetailsComponent } from './admin/majorProject/room-details/room-det
 
 import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
 import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
+import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
 
 
 
@@ -53,7 +54,11 @@ const routes: Routes = [
   { path:'viewHotel',component:ViewHotelTabelComponent},
   { path:'viewPackage',component:ViewPackageTableComponent},
   { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent},
-  { path:'hotelBooking', component:HotelBookingComponent}
+
+  { path:'hotelBooking', component:HotelBookingComponent},
+
+  { path:'packageBooking',component:PkgBookingComponent}
+
 
 ];
 

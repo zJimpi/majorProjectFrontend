@@ -1,1 +1,84 @@
-<p>pkg-booking works!</p>
+<mat-stepper #stepper>
+    
+    <mat-step [stepControl]="firstFormGroup" errorMessage="User Details is required.">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your details</ng-template>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Enter your username" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Enter your full name" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Enter your phn no." formControlName="firstCtrl" required>
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>Email Id</mat-label>
+            <input matInput placeholder="Enter your email id" formControlName="firstCtrl" required>
+        </mat-form-field>
+
+        <div>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Hotel Details is required.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="thirdFormGroup" errorMessage="Booking Details is required.">
+        <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Fill out booking details</ng-template>
+        <mat-form-field>
+            <mat-label>Start Date</mat-label>
+            <input matInput placeholder="Enter Start Date of your journey" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>End Date</mat-label>
+            <input matInput placeholder="Enter End Date of your journey" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Adult</mat-label>
+            <input matInput placeholder="Enter No. of Adult" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Child</mat-label>
+            <input matInput placeholder="Enter No. of Adult" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>End Date</mat-label>
+            <input matInput placeholder="Enter End Date of your journey" formControlName="thirdCtrl" required>
+        </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </form>
+</mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
