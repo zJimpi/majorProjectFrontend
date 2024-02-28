@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
   }
   
@@ -72,13 +72,14 @@ body {
     height: 100%;
   }
   
-  .book-now-button {
+  .book-now-button, .view-more-button{
     background-color: #3187b5;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px; /* Added margin to separate the buttons */
   }
   
   .bottom-section {
