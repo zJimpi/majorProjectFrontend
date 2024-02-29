@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, ElementRef, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { SignupComponent } from './signup/signup.component';
 import { Router } from '@angular/router';
 import { CoreService } from './admin/core/core.service';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './service/login-service.service';
 import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -104,10 +105,33 @@ export class AppComponent {
     });
   }
     
-  //reset password
+ 
 
   openUserDashboard(){
-    this._router.navigate(['/userDashboard']);
+    // this._router.navigate(['/userDashboard']);
+
+    //configuring diaglog position
+    const dialogConfig = new MatDialogConfig();
+
+    // Setting position of the dialog to open on the right side
+    dialogConfig.position = {
+      right: '0', 
+      top: '0', 
+    };
+  
+    // Set the dimensions to occupy full viewport height
+    dialogConfig.height = '100vh';
+    dialogConfig.width = '325px';
+   
+
+    const dialogRef = this._dialog.open(UserDashboardComponent,dialogConfig);
+    
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+   
+      },
+    });
+
   }
 
 }

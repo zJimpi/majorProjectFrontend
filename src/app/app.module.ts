@@ -25,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { AddDestinationComponent } from './admin/add-destination/add-destination.component';
 import { DestFormComponent } from './admin/dest-form/dest-form.component';
@@ -41,6 +42,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
+import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
+import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
+import { AddRoomComponent } from './admin/majorProject/add-room/add-room.component';
+
+import {MatCardModule} from '@angular/material/card';
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+import { AddActivityComponent } from './admin/majorProject/add-activity/add-activity.component';
+import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
+
+import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
+import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -62,6 +75,16 @@ import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.comp
     AdminHomeComponent,
     AddPackageComponent,
     AddHotelComponent,
+    ViewHotelTabelComponent,
+
+    RoomDetailsComponent,
+    AddRoomComponent,
+
+    ViewPackageTableComponent,
+    AddActivityComponent,
+    ActivityDetailsComponent,
+    HotelViewMoreComponent,
+    PkgViewMoreComponent,
 
   ],
   imports: [
@@ -85,7 +108,9 @@ import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.comp
     MatSnackBarModule,
     FormsModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+    MatStepperModule
 
 
   ],

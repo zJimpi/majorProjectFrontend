@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from '../service/login-service.service';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,12 +9,11 @@ export class UserDashboardComponent implements OnInit {
 
  
 
-  constructor() { }
+  constructor() 
+  {}
 
 
   ngOnInit(): void {
-
-   
 
   }
 

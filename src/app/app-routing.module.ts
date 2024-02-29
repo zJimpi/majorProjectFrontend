@@ -16,6 +16,14 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AdminHomeComponent } from './admin/majorProject/admin-home/admin-home.component';
 import { AddPackageComponent } from './admin/majorProject/add-package/add-package.component';
 import { AddHotelComponent } from './admin/majorProject/add-hotel/add-hotel.component';
+import { ViewHotelTabelComponent } from './admin/majorProject/view-hotel-tabel/view-hotel-tabel.component';
+
+import { RoomDetailsComponent } from './admin/majorProject/room-details/room-details.component';
+
+import { ViewPackageTableComponent } from './admin/majorProject/view-package-table/view-package-table.component';
+import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
+import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +35,10 @@ const routes: Routes = [
   { path: 'signup', component:SignupComponent},
   { path: 'resetPass', component:RestPasswordComponent},
   { path: 'changePass', component:ChangePassComponent},
-  { path:'admin/addDestination', component:AddDestinationComponent},
+  { path:'adminHome/addDestination', component:AddDestinationComponent},
+  { path:'adminHome/viewPackage', component:ViewPackageTableComponent},
+  { path:'adminHome/viewHotel', component:ViewHotelTabelComponent},
+
   { path:'pakageView', component:PkgViewComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
@@ -35,10 +46,20 @@ const routes: Routes = [
   { path:'userDashboard', component:UserDashboardComponent},
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},
-  { path:'addHotel', component:AddHotelComponent},
-  
-
  
+  { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent},
+  { path:'activity/getActivityListByPackageId/:packageId', component:ActivityDetailsComponent},
+
+  { path:'addHotel', component:AddHotelComponent},
+  { path:'viewHotel',component:ViewHotelTabelComponent},
+  { path:'viewPackage',component:ViewPackageTableComponent},
+  { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent},
+
+  { path:'hotelBooking', component:HotelBookingComponent},
+
+  { path:'packageBooking',component:PkgBookingComponent}
+
+
 ];
 
 @NgModule({
