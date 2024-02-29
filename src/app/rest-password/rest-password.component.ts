@@ -39,23 +39,21 @@ export class RestPasswordComponent {
 
   //when user clicks on login
   onLogin(){
+
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
     
-    this._loginService.getuser().subscribe({
+    this._loginService.getuser(username, password).subscribe({
       next:(userDetails: any) => {
 
-        const user = userDetails.find((a:any)=>{
-          return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-        });
-
-        //if user details are correct
-        if (user) {
+        if (userDetails) {
           this._coreService.openSnackBar('logged in succesfully');
           this._dialogRef.close(true);
           // Redirect to the home page 
           this._dialog.open(ChangePassComponent)
           //show log out button
           this._loginService.loggedIn= true; // Initialize as false
-          this._loginService.user_name = user.username;
+          // this._loginService.user_name = user.username;
         
 
         } 

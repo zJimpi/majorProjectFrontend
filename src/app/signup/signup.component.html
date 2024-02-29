@@ -34,6 +34,23 @@
                             </mat-hint>
                             
                         </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label >Phone Number</mat-label>
+                            <input matInput placeholder="enter your phn no." formControlName="mobile">
+                            <mat-hint style = "color: red;" *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.errors?.['required']">
+                                <small>Phone number is required.</small>
+                            </mat-hint>
+                            <mat-hint style = "color: red;" *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.errors?.['minlength']">
+                                <small>10 charecters are required.</small>
+                            </mat-hint>
+                            <mat-hint style = "color: red;" *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.errors?.['maxlength']">
+                                <small>10 charecters are required.</small>
+                            </mat-hint>
+                            <mat-hint style = "color: red;" *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.errors?.['pattern']">
+                                <small>Enter valid hn no.</small>
+                            </mat-hint>
+                        </mat-form-field>
                     
                     </div>
                     <div class="row">

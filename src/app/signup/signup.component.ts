@@ -29,6 +29,7 @@ export class SignupComponent {
     this.signupForm=this._fb.group({
       name:['', [Validators.required,Validators.minLength(2),Validators.pattern("^[a-zA-Z ]+$")]], 
       email:['', [Validators.required, Validators.email]],
+      mobile:['', [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(/^[0-9]{10}$/)]],
       username:['', [Validators.required,Validators.minLength(2)]],
       password:['', [Validators.required,Validators.minLength(8)]]
     });
@@ -41,7 +42,7 @@ export class SignupComponent {
       this._loginService.adduser(this.signupForm.value).subscribe({
         next: (val :any)=>{
           // If the user is successfully added, display a success message using 'openSnackBar'.
-          this._coreService.openSnackBar('Resigter susessfully!');
+          this._coreService.openSnackBar('Resigtered susessfully!');
           // Close the signup dialog with a 'true' value to indicate a successful action.
           this._dialogRef.close(true);
         },
