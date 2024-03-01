@@ -1,12 +1,22 @@
 .package-design-box{
-    background-color: rgba(255, 170, 0, 0.266);
+    background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    height: 500px;
+    padding: 20px 20px;
+    
 
 }
+
 .input-width{
     width: 100%;
 }
 
-
 .button_div{
-    padding: 20px;
+    padding-top: 50px;
 }
+.action{
+   
+    display: grid; 
+    grid-template-columns: repeat(1, 8fr); 
+    gap: 15px;
+}
+

@@ -59,10 +59,12 @@
             </div>
             <button type="button" (click)="addSpot()">Add Spot</button>
         </div>
+
+        <br>
   
         <div mat-actions class="action"> 
             <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">{{data ? 'update':'save'}}</button>
-            <!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
         </div>
 
     </form>
