@@ -1,4 +1,4 @@
-<ng-container *ngIf="!_loginService.adminIn && _loginService.loggedIn">
+<ng-container>
 <mat-card class="user-card">
     <mat-card-header>
       <mat-card-title><h1>User Dashboard</h1></mat-card-title>
@@ -34,31 +34,10 @@
         <div>date</div>
     </div><hr>
 
+    <button class="admin" (click)="openAdminPanel()">Admin Panel</button>
     <button class="reset-pas" (click)="openResetPass()">Reset Password <mat-icon>edit</mat-icon></button>
     <button class="logout" (click)="logOut()">Logout</button>
     </mat-card-content>
     
   </mat-card>
 </ng-container>
-
-<ng-container *ngIf="_loginService.adminIn">
-  <mat-card class="user-card">
-    <mat-card-header>
-      <mat-card-title><h1>User Dashboard</h1></mat-card-title>
-      <mat-card-subtitle><h4>Namaste user</h4></mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/Munnar.jpg" alt="Photo of a user">
-    <mat-card-content>
-      <div class="user-details">
-        <div class="user_details-header"><h5>Your profile <mat-icon>edit</mat-icon></h5></div>
-        <div class="email">Email: test@gmail.com</div>
-        <div class="phoneNumber">Phone: 9876867584</div>
-      </div>
-      <button class="admin" (click)="openAdminPanel()">Admin Panel</button>
-      <button class="reset-pas" (click)="openResetPass()">Reset Password <mat-icon>edit</mat-icon></button>
-      <button class="logout" (click)="logOut()">Logout</button>
-    </mat-card-content>
-  </mat-card>
-</ng-container>
-
-
