@@ -53,7 +53,7 @@ import { ActivityDetailsComponent } from './admin/majorProject/activity-details/
 
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
-import {MatStepperModule} from '@angular/material/stepper';
+
 
 
 @NgModule({
