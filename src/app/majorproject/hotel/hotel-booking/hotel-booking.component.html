@@ -1,0 +1,51 @@
+<div class="container">
+
+<mat-stepper #stepper>
+
+    <!-- user details  -->
+    <mat-step [stepControl]="userFormGroup" errorMessage="User details is required.">
+      <form [formGroup]="userFormGroup">
+        <ng-template matStepLabel>User Details</ng-template>
+        <p>room details</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam consequatur dolores culpa alias quis eaque, magnam vitae unde aspernatur, veniam quos, facilis similique nisi nam! Impedit quo labore fuga itaque.</p>
+        <p>dates:dd/mm/yyyy</p>
+        <mat-form-field >
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="ex. iamRaju" formControlName="userName" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>No of Adults</mat-label>
+          <input matInput placeholder="Ex. 4" formControlName="adults" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>No of child</mat-label>
+          <input matInput placeholder="Ex. 1" formControlName="child" required>
+        </mat-form-field>
+       
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Book</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+
+    <!-- show payment details  -->
+    <mat-step>
+      <form [formGroup]="paymentFormGroup">
+      <ng-template matStepLabel>Payment</ng-template>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput placeholder="Ex. 4" formControlName="amount" required>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Payment Done</button>
+      </div>
+    </form>
+    </mat-step>
+  </mat-stepper>
+
+</div>

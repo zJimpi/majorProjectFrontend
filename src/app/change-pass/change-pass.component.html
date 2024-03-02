@@ -11,6 +11,14 @@
                 <div class="row">
 
                     <mat-form-field appearance="outline">
+                        <mat-label >User Name</mat-label>
+                        <input #username matInput placeholder="ex: itsRaju" formControlName="username">
+                        <mat-hint style = "color: red;" *ngIf="resetPassForm.get('username')?.touched && resetPassForm.get('username')?.errors?.['required']">
+                            <small>Username is required.</small>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
                         <mat-label>Enter old password</mat-label>
                         <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="oldPass">
 

@@ -34,48 +34,59 @@ export class LoginComponent {
       password:['',Validators.required],
     });
   }
-
-  //when user clicks on login
-  onLogin(){
-    
-    this._loginService.getuser().subscribe({
-      next:(userDetails: any) => {
-
-        const user = userDetails.find((a:any)=>{
-          return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-        });
-
-        //if user details are correct
-        if (user) {
-          //name of the user
-          
-          //checks for admin login
-          if(this.checkAdmin(user.username))
-          {
-            this._coreService.openSnackBar(' Admin logged in succesfully');
-            this._dialogRef.close(true);
-            // Redirect to the home page 
-            this._router.navigate(['/home']);
-            //show log out button
-            this._loginService.adminIn= true; // Initialize as false
-            this._loginService.loggedIn= true;
-            this._loginService.user_name = user.username;
-          }
-
-          //checks for normal user login
-          else{
-          this._coreService.openSnackBar('logged in succesfully');
-          this._dialogRef.close(true);
-          // Redirect to the home page 
-          this._router.navigate(['/home']);
-          //show log out button
-          this._loginService.adminIn= false;
-          this._loginService.loggedIn= true; // Initialize as false
-          this._loginService.user_name = user.username;
-        }
-
+  onLogin() {
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+  
+    this._loginService.getuser(username, password).subscribe({
+      next: (userDetails: any) => {
+        // console.log("User details:", userDetails);
+        if (userDetails) {
+          // console.log("User exists");
+          this._loginService.checkAdmin(username, password).subscribe({
+            next: (isAdmin: boolean) => {
+              // console.log("Is admin:", isAdmin);
+              if (isAdmin) 
+              {
+                this._coreService.openSnackBar('Admin logged in successfully');
+                console.log(this._loginService.checkAdmin(username, password));
+                this._dialogRef.close(true);
+                // Redirect to the home page 
+                this._router.navigate(['/home']);
+                //show log out button
+                this._loginService.adminIn= true; // Initialize as false
+                this._loginService.loggedIn= true;
+                // this._loginService.user_name = user.username;
+              } 
+              else 
+              {
+                this._coreService.openSnackBar('Logged in successfully');
+                console.log(this._loginService.checkAdmin(username, password));
+                this._dialogRef.close(true);
+                // Redirect to the home page 
+                this._router.navigate(['/home']);
+                //show log out button
+                this._loginService.adminIn= false;
+                this._loginService.loggedIn= true; // Initialize as false
+                // this._loginService.user_name = user.username;
+              }
+              this._dialogRef.close(true);
+              this._router.navigate(['/home']);
+              this._loginService.adminIn = isAdmin;
+              this._loginService.loggedIn = true;
+            },
+            error: (err: any) => {
+              console.error(err);
+              this._coreService.openSnackBar('Incorrect username or password!');
+              this._dialogRef.close(true);
+              this._router.navigate(['/home']);
+              this._loginService.loggedIn = false;
+              this._loginService.adminIn = false;
+            }
+          });
         } 
-        else {
+        else 
+        {
           // Password is incorrect or user not found
           this._coreService.openSnackBar('Inccorect password!');
           this._dialogRef.close(true);
@@ -84,25 +95,88 @@ export class LoginComponent {
           this._loginService.adminIn= false;
          
         }
- 
       },
       error: (err: any) => {
         console.error(err);
-        
       }
-  });
- 
+              
+    });
   }
+  // //when user clicks on login
+  // onLogin(){
+    
+  //   const username = this.loginForm.value.username;
+  //   const password = this.loginForm.value.password;
+
+    
+  //   this._loginService.getuser(username, password).subscribe({
+  //     next:(userDetails: any) => {
+
+  //       // const user = userDetails.find((a:any)=>{
+  //       //   return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+  //       // });
+
+  //       //if user details are correct
+  //       if (userDetails) {
+  //         //name of the user
+          
+  //         //checks for admin login
+  //         if(this._loginService.checkAdmin(username, password))
+  //         {
+  //           this._coreService.openSnackBar(' Admin logged in succesfully');
+  //           console.log(this._loginService.checkAdmin(username, password));
+  //           this._dialogRef.close(true);
+  //           // Redirect to the home page 
+  //           this._router.navigate(['/home']);
+  //           //show log out button
+  //           this._loginService.adminIn= true; // Initialize as false
+  //           this._loginService.loggedIn= true;
+  //           // this._loginService.user_name = user.username;
+  //         }
+
+  //         //checks for normal user login
+  //         else{
+  //         this._coreService.openSnackBar('logged in succesfully');
+          // console.log(this._loginService.checkAdmin(username, password));
+          // this._dialogRef.close(true);
+          // // Redirect to the home page 
+          // this._router.navigate(['/home']);
+          // //show log out button
+          // this._loginService.adminIn= false;
+          // this._loginService.loggedIn= true; // Initialize as false
+          // // this._loginService.user_name = user.username;
+  //       }
+
+  //       } 
+        // else {
+        //   // Password is incorrect or user not found
+        //   this._coreService.openSnackBar('Inccorect password!');
+        //   this._dialogRef.close(true);
+        //   this._router.navigate(['/home']);
+        //   this._loginService.loggedIn= false;
+        //   this._loginService.adminIn= false;
+         
+        // }
+ 
+  //     },
+  //     error: (err: any) => {
+  //       console.error(err);
+        
+  //     }
+  // });
+ 
+  // }
+
   
 
   //method to check if the user name belong to admin or not
-  checkAdmin(username: string): boolean {
-    //if name has admin in the end then its an admin
-    if(username.endsWith('admin')){
-      return true;
-    }
-    return false;
-  }
+  // checkAdmin(username: string): boolean {
+  //   //if name has admin in the end then its an admin
+  //   if(username.endsWith('admin')){
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
 
   //if logout is clicked
