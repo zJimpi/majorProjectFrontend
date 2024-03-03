@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
+import { Hotel } from 'src/app/hotel';
 
 @Component({
   selector: 'app-hotel-view',
@@ -16,6 +17,8 @@ export class HotelViewComponent implements OnInit{
 	  'address',
 	  'number' 
   ]
+
+  hotels !: Hotel[];
   constructor(private _router:Router,
     private _hotelService: AddHotelService){
 
@@ -28,6 +31,7 @@ export class HotelViewComponent implements OnInit{
     getHotelList(){
       this._hotelService.getHotelList().subscribe({
         next:(res:any)=>{
+          this.hotels = res;
           
         },error: console.log,
       });

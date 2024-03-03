@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-4">
-      <mat-card class="hotel-card">
+      <mat-card class="hotel-card" *ngFor="let hotel of hotels">
         <mat-card-header>
-          <mat-card-title class="hotel-title"><h5><b>Hotel Name</b></h5></mat-card-title>
+          <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
         </mat-card-header>
         
         <div class="hotel-img"></div>
       
         <mat-card-content class="hotel-content">
           <div class="hotel-loc">
-            <i class="bi bi-geo-alt-fill"></i> Location name <br>
+            <i class="bi bi-geo-alt-fill"></i> Location name : {{hotel.address}} <br>
           </div>
          <div class="phone"><b><i class="bi bi-telephone-fill"></i></b></div><br>
           <div class="description">
@@ -21,7 +21,7 @@
 
           </div>
           <div class="price">
-            <h6>Starting Price:<b> &#8377; 500</b></h6>
+            <h6>Starting Price:<b> &#8377;{{hotel.startingPrice}}</b></h6>
           </div>
         </mat-card-content>
         <mat-card-actions class="row action justify-content-center">
@@ -33,9 +33,6 @@
       
     </div>
 <!-- /// -->
-
-
-
 
 <!-- /// -->
 
