@@ -26,7 +26,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
 import { AddDestinationComponent } from './admin/add-destination/add-destination.component';
 import { DestFormComponent } from './admin/dest-form/dest-form.component';
 
@@ -53,7 +52,7 @@ import { ActivityDetailsComponent } from './admin/majorProject/activity-details/
 
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
-import {MatStepperModule} from '@angular/material/stepper';
+
 
 
 @NgModule({

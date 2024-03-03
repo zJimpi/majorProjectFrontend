@@ -40,6 +40,7 @@ const routes: Routes = [
   { path:'adminHome/viewHotel', component:ViewHotelTabelComponent},
 
   { path:'pakageView', component:PkgViewComponent},
+  { path:'pakageView/pakageViewMore', component:PkgViewMoreComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
   { path:'hotelView', component:HotelViewComponent},
   { path:'hotelBooking', component:HotelBookingComponent},
