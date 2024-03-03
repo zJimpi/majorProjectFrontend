@@ -40,40 +40,33 @@ export class LoginComponent {
   
     this._loginService.getuser(username, password).subscribe({
       next: (userDetails: any) => {
-        // console.log("User details:", userDetails);
+        //if user details is fetched 
         if (userDetails) {
-          // console.log("User exists");
+          //checking if the user is admin
           this._loginService.checkAdmin(username, password).subscribe({
             next: (isAdmin: boolean) => {
-              // console.log("Is admin:", isAdmin);
+              //if it is admin
               if (isAdmin) 
               {
+                // logged in as admin
                 this._coreService.openSnackBar('Admin logged in successfully');
-                console.log(this._loginService.checkAdmin(username, password));
                 this._dialogRef.close(true);
-                // Redirect to the home page 
-                this._router.navigate(['/home']);
-                //show log out button
                 this._loginService.adminIn= true; // Initialize as false
                 this._loginService.loggedIn= true;
-                // this._loginService.user_name = user.username;
-              } 
+                this._router.navigate(['/home']);
+                this._loginService.user_name = username;
+              }
+              //if it is normal user 
               else 
               {
+                //logged in as user
                 this._coreService.openSnackBar('Logged in successfully');
-                console.log(this._loginService.checkAdmin(username, password));
                 this._dialogRef.close(true);
-                // Redirect to the home page 
-                this._router.navigate(['/home']);
-                //show log out button
                 this._loginService.adminIn= false;
-                this._loginService.loggedIn= true; // Initialize as false
-                // this._loginService.user_name = user.username;
+                this._loginService.loggedIn= true; 
+                this._router.navigate(['/home']);
+                this._loginService.user_name = username;
               }
-              this._dialogRef.close(true);
-              this._router.navigate(['/home']);
-              this._loginService.adminIn = isAdmin;
-              this._loginService.loggedIn = true;
             },
             error: (err: any) => {
               console.error(err);
@@ -88,12 +81,11 @@ export class LoginComponent {
         else 
         {
           // Password is incorrect or user not found
-          this._coreService.openSnackBar('Inccorect password!');
+          this._coreService.openSnackBar('Incorrect username or password!');
           this._dialogRef.close(true);
           this._router.navigate(['/home']);
           this._loginService.loggedIn= false;
           this._loginService.adminIn= false;
-         
         }
       },
       error: (err: any) => {

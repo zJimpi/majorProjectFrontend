@@ -2,7 +2,7 @@
 <mat-card class="user-card">
     <mat-card-header>
       <mat-card-title><h1>User Dashboard</h1></mat-card-title>
-      <mat-card-subtitle><h4>Namaste user</h4></mat-card-subtitle>
+      <mat-card-subtitle><h4>Namaste {{_loginService.user_name}}</h4></mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/images/Munnar.jpg" alt="Photo of a user">
     <mat-card-content>
@@ -14,14 +14,15 @@
       </div><hr>
 
       <div class="booking-details">
+
         <div class="booking-details-header"><h5>Your Bookings</h5></div><br>
+
         <h6>Package Bookings</h6>
         <div>pakage name:delhi pakage</div>
         <div>date:2/4/24-5/4/24</div>
         <div>package hotel booked</div>
         <div>raju delux hotel</div>
         <div>room details: 2 suit 1 family</div>
-        
 
         <br><h6>Hotel Bookings</h6>
         <div>not booked or</div>
@@ -32,7 +33,8 @@
         <br><h6>train booked</h6>
         <div>train name</div>
         <div>date</div>
-    </div><hr>
+
+      </div><hr>
 
     <button class="reset-pas" (click)="openResetPass()">Reset Password <mat-icon>edit</mat-icon></button>
     <button class="logout" (click)="logOut()">Logout</button>
@@ -45,7 +47,7 @@
   <mat-card class="user-card">
     <mat-card-header>
       <mat-card-title><h1>User Dashboard</h1></mat-card-title>
-      <mat-card-subtitle><h4>Namaste user</h4></mat-card-subtitle>
+      <mat-card-subtitle><h4>Namaste {{_loginService.user_name}}</h4></mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/images/Munnar.jpg" alt="Photo of a user">
     <mat-card-content>

@@ -31,12 +31,13 @@ export class UserDashboardComponent implements OnInit {
 
   logOut(){
     // Set the properties to false to indicate that the user is no longer logged in.
+   
     this._loginService.loggedIn = false;
     this._loginService.adminIn = false;
 
     //  // Navigate to the '/home' route
-    // this._router.navigate(['/home']);
-    location.reload();
+    this._router.navigate(['/home']);
+    console.log(this._loginService.loggedIn)
 
   }
 
@@ -60,9 +61,5 @@ export class UserDashboardComponent implements OnInit {
   openAdminPanel(){
     this._router.navigate(['/adminHome']);
   }
-
-
-
-  
 
 }

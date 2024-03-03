@@ -111,6 +111,7 @@ export class AppComponent {
     // this._router.navigate(['/userDashboard']);
 
     //configuring diaglog position
+
     const dialogConfig = new MatDialogConfig();
 
     // Setting position of the dialog to open on the right side
@@ -124,16 +125,13 @@ export class AppComponent {
     dialogConfig.width = '325px';
    
 
-    const dialogRef = this._dialog.open(UserDashboardComponent,dialogConfig);
+
+      const dialogRef = this._dialog.open(UserDashboardComponent,dialogConfig);
     
-    dialogRef.afterClosed().subscribe({
-      next: (val) => {
+      dialogRef.afterClosed().subscribe({
+        next: (val) => {
    
-      },
-    });
-
-    
-
+        },
+      });
+    }
   }
-
-}
