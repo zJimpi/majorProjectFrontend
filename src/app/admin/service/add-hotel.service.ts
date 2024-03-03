@@ -9,6 +9,7 @@ export class AddHotelService {
 
   urlHotelId!:number;
 
+
   constructor(private _http:HttpClient) { }
  
   addHotel(data:any): Observable<any>{
