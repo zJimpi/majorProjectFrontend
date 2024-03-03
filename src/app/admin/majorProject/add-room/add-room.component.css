@@ -1,9 +1,17 @@
 .input-width{
-    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .room-design-box{
-    background-color: rgba(255, 98, 0, 0.266);
-    width: 80%;
-    padding: 20px;
+    background-image: linear-gradient(to right, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    width: 100%;
+    height: 180px;
+    
+}
+.action{
+    
+    display: grid; 
+    grid-template-columns: repeat(2, 8fr); 
+    gap: 10px;
 }
