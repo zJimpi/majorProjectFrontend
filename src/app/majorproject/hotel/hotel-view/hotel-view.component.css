@@ -3,6 +3,18 @@
 .container{
   padding: 20px 0px;
 }
+.hero{
+  background-color: #076B83ff;
+  height: 150px;
+}
+.hero h1{
+  color: white;
+  text-align: center;
+}
+/* .search but{
+background-color: white;
+
+} */
 .hotel-card{
   margin-bottom: 25px;
 }

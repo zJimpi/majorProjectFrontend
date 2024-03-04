@@ -2,17 +2,70 @@
 
 <mat-stepper #stepper>
 
+  <mat-step>
+    <div>
+      <h2>Booking Terms and Conditions</h2>
+      <p>Please read the following terms and conditions carefully before making your booking:</p>
+      <ol>
+        <li>
+          <strong>Booking Confirmation:</strong>
+          <p>Your booking is confirmed only after receiving a confirmation email from us.</p>
+        </li>
+        <li>
+          <strong>Payment:</strong>
+          <p>Full payment is required at the time of booking, unless stated otherwise.</p>
+        </li>
+        <li>
+          <strong>Cancellation Policy:</strong>
+          <p>Please refer to our cancellation policy for details on refunds and cancellation fees.</p>
+        </li>
+        <li>
+          <strong>Check-in/Check-out:</strong>
+          <p>Check-in time is after 2:00 PM and check-out time is before 11:00 AM.</p>
+        </li>
+        <li>
+          <strong>Damage Policy:</strong>
+          <p>You will be responsible for any damages caused during your stay.</p>
+        </li>
+        <li>
+          <strong>Guest Responsibilities:</strong>
+          <p>Please respect other guests and hotel staff during your stay.</p>
+        </li>
+        <li>
+          <strong>Additional Charges:</strong>
+          <p>Additional charges may apply for extra services requested during your stay.</p>
+        </li>
+      </ol>
+      <p>By making a booking, you agree to abide by these terms and conditions.</p>
+    </div>
+  
+    <div>
+      <button mat-raised-button routerLink="/hotelView">I Disagree</button>  
+      <button mat-raised-button color="primary" matStepperNext>I agree</button>
+    
+    </div>
+  </mat-step>
     <!-- user details  -->
     <mat-step [stepControl]="userFormGroup" errorMessage="User details is required.">
       <form [formGroup]="userFormGroup">
         <ng-template matStepLabel>User Details</ng-template>
-        <p>room details</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam consequatur dolores culpa alias quis eaque, magnam vitae unde aspernatur, veniam quos, facilis similique nisi nam! Impedit quo labore fuga itaque.</p>
-        <p>dates:dd/mm/yyyy</p>
+          <div class="row">
+            <div class="col">
+              <h5>Hotel Details</h5>
+              <p>Hotel Name: {{ bookingDetails?.hotelName }}</p>
+              <p>Address: {{ bookingDetails?.address }}</p>
+              <p>Number: {{ bookingDetails?.number }}</p>
+            </div>
+          </div>
+        
+        
+        
+        <h3>Fill booking Details</h3>
         <mat-form-field >
           <mat-label>User Name</mat-label>
           <input matInput placeholder="ex. iamRaju" formControlName="userName" required>
         </mat-form-field>
+        
         <mat-form-field>
           <mat-label>No of Adults</mat-label>
           <input matInput placeholder="Ex. 4" formControlName="adults" required>
@@ -22,8 +75,22 @@
           <mat-label>No of child</mat-label>
           <input matInput placeholder="Ex. 1" formControlName="child" required>
         </mat-form-field>
-       
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" formControlName="checkInDate">
+          <input matEndDate placeholder="End date" formControlName="checkOutDate">
+          </mat-date-range-input>
+          
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+      
+
         <div>
+          <button mat-button matStepperPrevious>Back</button>
           <button mat-raised-button color="primary" matStepperNext>Book</button>
         </div>
       </form>
@@ -35,6 +102,9 @@
     <mat-step>
       <form [formGroup]="paymentFormGroup">
       <ng-template matStepLabel>Payment</ng-template>
+      
+        <h4>Amount to be paid: 1000</h4>
+      
       <mat-form-field>
         <mat-label>Amount</mat-label>
         <input matInput placeholder="Ex. 4" formControlName="amount" required>

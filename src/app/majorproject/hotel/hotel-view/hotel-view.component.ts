@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
-import { Hotel } from 'src/app/hotel';
+import { AddRoomService } from 'src/app/admin/service/add-room.service';
+
 
 @Component({
   selector: 'app-hotel-view',
@@ -10,17 +11,12 @@ import { Hotel } from 'src/app/hotel';
 })
 export class HotelViewComponent implements OnInit{
 
-  hotel:string[]=[
-    'hotelId',
-	  'hotelName',
-	  'startingPrice',
-	  'address',
-	  'number' 
-  ]
 
-  hotels !: Hotel[];
+  
+  hotels:any;
   constructor(private _router:Router,
-    private _hotelService: AddHotelService){
+    private _hotelService: AddHotelService,
+    private _roomService:AddRoomService){
 
     }
     ngOnInit(): void {
@@ -38,11 +34,12 @@ export class HotelViewComponent implements OnInit{
     }
 
 
-
-    loadBookingPage(){
-      this._router.navigate(['/hotelBooking'])
-    }
-    loadHotelRooms(){
-      this._router.navigate(['/hotelViewMore'])
+    viewRoomDetailByHotelId(hotelId:number){
+      this._roomService.getRoomByHotelId(hotelId).subscribe({
+        next:(val:any)=>{
+          console.log(val);
+          this._router.navigate(['hotelView/getRoomByHotelId/',hotelId]);
+        },error:console.log,
+      });
     }
 }

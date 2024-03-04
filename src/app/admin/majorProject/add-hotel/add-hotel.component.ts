@@ -12,7 +12,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddHotelComponent implements OnInit{
   
   hotelForm:FormGroup;
-
+//state is removed
   stateNames: string[]=[
     'Andhra Pradesh',
     'Arunachal Pradesh',
@@ -73,11 +73,11 @@ export class AddHotelComponent implements OnInit{
     ){
       this.hotelForm = this._fb.group({
         hotelName:['',Validators.required],
-        location:['',Validators.required],
-        state:['',Validators.required],
+        startingPrice:[,Validators.required],
+        
         address:['',Validators.required],
         number:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-        manager:['',Validators.required],
+        
       });
     }
      //when in edit mode the previous data will show

@@ -43,9 +43,10 @@ const routes: Routes = [
   { path:'pakageView', component:PkgViewComponent},
   { path:'pakageView/pakageViewMore', component:PkgViewMoreComponent},
   { path:'pakgesBooking', component:PkgBookingComponent},
-  { path:'hotelViewMore', component:HotelViewMoreComponent},
+  
+  { path:'hotelView/getRoomByHotelId/:hotelId', component:HotelViewMoreComponent},
   { path:'hotelView', component:HotelViewComponent},
-  { path:'hotelBooking', component:HotelBookingComponent},
+  { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
   { path:'userDashboard', component:UserDashboardComponent},
   { path:'adminHome', component:AdminHomeComponent},
   { path:'addPackage', component:AddPackageComponent},

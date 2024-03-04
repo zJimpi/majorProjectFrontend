@@ -1,73 +1,148 @@
-<p>hotel-view-more works!</p>
-<table>
-    <!-- Row with hotel name "Smile" -->
-    <tr>
-        <td colspan="4" style="text-align: center;">
-            <h1>Hotel name: Smile</h1>
-  
-        </td>
-    </tr>
-  
-    <!-- Existing rows -->
-    <tr>
-        <td rowspan="2">
-            <img src="assets/hotel_image/Deluxe_room.jpg" alt="Image">
-            <h2>Deluxe King Bed With Bathtub</h2>
-            <h4><i class="fas fa-square"></i>430 sq.ft</h4>
-            <h4><i class="fas fa-bed"></i>King Bed</h4>
-            <p>
-                <li>Mineral Water</li>
-                <li>Laundry Services</li>
-                <li>Air Conditioning</li>
-                <li>In- room Dinner</li>
-                <li>Complementory Breakfast</li>
-                <li>Wi-Fi</li>
-                <button>Book Now</button>
-            </p>
-        </td>
-        <td>
-            <img src="assets/hotel_image/Executive_room.jpg" alt="Image 1">
-            <h4>Executive Room</h4>
-            <p>
-                <li>No meal include</li>
-                <li>Book with 0% payment</li>
-                <li>10% discount on food and soft beverages </li>
-                <button>Book Now</button>
-            </p>
-        </td>
-        <td>
-            <img src="assets/hotel_image/Family_room.jpg" alt="Image 3">
-            <h4>Family Room</h4>
-            <p>
-                <li>No meal include</li>
-                <li>Book with 0% payment</li>
-                <li>10% discount on food and soft beverages </li>
-            </p>
-            <button>Book Now</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="assets/hotel_image/suite_room.jpg" alt="Image 2">
-            <h4>Suite</h4>
-            <p>
-                <li>No meal include</li>
-                <li>Book with 0% payment</li>
-                <li>10% discount on food and soft beverages </li>
-            </p>
-            <b>Price:2000</b>
-            <button>Book Now</button>
-        </td>
-        <td>
-            <img src="assets/hotel_image/Standard.jpg" alt="Image 4">
-            <h4>Standard Room</h4>
-            <p>
-                <li>No meal include</li>
-                <li>Book with 0% payment</li>
-                <li>10% discount on food and soft beverages </li>
-            </p>
-            <button>Book Now</button>
-        </td>
-    </tr>
-  </table>
-  
+<!-- hotel details  -->
+<div class="hero container-fluid">
+    <div class="card text-bg-dark ">
+        <div class="card-img" alt="..."></div>
+        <div class="card-img-overlay" *ngIf="hotel">
+          <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
+          <h5 class="card-text">{{hotel.address}}</h5>
+          <h5 class="card-text">{{hotel.number}}</h5>
+        </div>
+        <button mat-raised-button color="primary" (click)="bookHotelById()">Book Now</button>
+      </div>
+
+</div>
+
+<!-- hotel  facilities(static) -->
+<div class="facilities container">
+    <div class="row">
+        <h4>Hotel Facilities</h4>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span><i class="bi bi-shuttle"></i> Airport shuttle </span>
+        <span><i class="bi bi-emoji-neutral-fill"></i> Non-smoking rooms </span>
+        <span><i class="bi bi-telephone"></i> Room service </span>
+        <span><i class="bi bi-person-circle"></i> Facilities for disabled guests </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span><i class="bi bi-parking"></i> Free parking </span>
+        <span><i class="bi bi-wifi"></i> Free WiFi </span>
+        <span><i class="bi bi-people"></i> Family rooms </span>
+        <span><i class="bi bi-clock"></i> 24-hour front desk </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span><i class="bi bi-cup-straw"></i> Tea/Coffee Maker in All Rooms </span>
+        <span><i class="bi bi-egg-fried"></i> Breakfast </span>
+        </div>
+    </div>
+
+</div>
+<!-- room table  -->
+<div class="main-body container">
+        <h4>Room Details</h4>    
+    <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="roomId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Room ID </th>
+        <td mat-cell *matCellDef="let row" class="hide"> {{row.roomId}} </td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="roomType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Type </th>
+        <td mat-cell *matCellDef="let row"> {{row.roomType}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="roomName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.roomName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="pricePerDay">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price Per Day</th>
+        <td mat-cell *matCellDef="let row"> &#8377;{{row.pricePerDay}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="availability">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Availability </th>
+            <td mat-cell *matCellDef="let row">
+                <form  [formGroup]="dateForm" (ngSubmit)="checkAvailibilityByHotelIdandRoomId(row.roomId)">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date" formControlName="checkInDate">
+                        <input matEndDate placeholder="End date" formControlName="checkOutDate">
+                        </mat-date-range-input>
+                        
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                  
+
+                    <button mat-raised-button color="primary">Check Availability</button>
+                        <mat-hint style = "color: green;" *ngIf="availableStatus&& dateForm.get('checkOutDate')?.errors?.['required']">
+                            <h5>Available</h5>
+                        </mat-hint>
+                        <!-- <mat-hint style = "color: red;"*ngIf="!availableStatus  &&dateForm.get('checkOutDate')?.touched && dateForm.get('checkOutDate')?.errors?.['required']">
+                            <h5>Not available</h5>
+                          </mat-hint> -->
+                </form>
+            </td>
+        
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        
+    </table>
+    </div>
+
+</div>
+
+<!-- refund ppolicies(static)  -->
+<div class="refund container">
+    <h2>Hotel Refund Policy</h2>
+        
+        <h3>Booking Terms:</h3>
+        <ul>
+            <li>All bookings are subject to availability.</li>
+            <li>Guests must provide valid payment details to confirm reservations.</li>
+            <li>Rates are subject to change without prior notice.</li>
+        </ul>
+
+        <h3>Cancellation Policy:</h3>
+        <ul>
+            <li>Cancellations made [X] days prior to the check-in date are eligible for a full refund.</li>
+            <li>Cancellations made between [Y] and [Z] days prior to the check-in date are eligible for a partial refund, subject to [percentage]% cancellation fee.</li>
+            <li>Cancellations made within [A] days of the check-in date are non-refundable.</li>
+        </ul>
+
+        <h3>Refund Eligibility:</h3>
+        <ul>
+            <li>Refunds will be issued to the original payment method.</li>
+            <li>Refunds may take [N] business days to process.</li>
+        </ul>
+
+        <h3>Exceptions:</h3>
+        <ul>
+            <li>Force Majeure: In the event of unforeseen circumstances beyond our control, such as natural disasters or government regulations, the hotel reserves the right to modify or cancel bookings without penalty.</li>
+            <li>No-Show: Guests who fail to arrive without prior notice will be charged the full amount of the reservation.</li>
+            <li>Special Promotions: Bookings made under special promotional rates may have different cancellation and refund policies. Please refer to the specific terms and conditions of the promotion.</li>
+        </ul>
+
+        <h3>How to Cancel:</h3>
+        <p>Guests can cancel or modify their reservations by contacting our reservations team at [Insert Contact Information].</p>
+
+        <h3>Additional Notes:</h3>
+        <ul>
+            <li>Refund policies may vary for group bookings, long-term stays, or special events.</li>
+            <li>Any disputes regarding refunds will be resolved at the discretion of the hotel management.</li>
+        </ul>
+</div>
