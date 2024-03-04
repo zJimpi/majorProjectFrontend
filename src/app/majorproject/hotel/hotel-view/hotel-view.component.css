@@ -5,6 +5,7 @@
 }
 .hotel-card{
   margin-bottom: 25px;
+  background-color: #FCEFE5;
 }
 .hotel-title{
 padding: 10px;
@@ -25,15 +26,29 @@ padding: 10px;
 .hotel-content{
   padding: 10px 20px;
 }
+i{
+  color: #703333;
+}
 .description{
   color: green;
 
 }
+.description i{
+
+  color: green;
+}
 
 .price{
-  background-color: rgba(34, 41, 41, 0.082);
+  background-color: rgba(248, 194, 132, 0.579);
   text-align: center;
   border-radius: 0.5rem;
   padding: 10px;
   
+}
+
+
+
+.search-form{
+
+ 
 }

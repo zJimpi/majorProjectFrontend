@@ -1,3 +1,42 @@
+<div class="search container">
+  <form class="search-form">
+      <div class="form-row row">
+          <!-- Location  -->
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Location</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- Check-in Date -->
+            <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Check-in Date</mat-label>
+              <input matInput [matDatepicker]="checkinPicker">
+              
+              <mat-datepicker-toggle matIconSuffix [for]="checkinPicker"></mat-datepicker-toggle>
+              <mat-datepicker #checkinPicker></mat-datepicker>
+            </mat-form-field>
+            </div>
+            <!-- Check-out Date -->
+            <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Check-out Date</mat-label>
+              <input matInput [matDatepicker]="checkoutPicker">
+              
+              <mat-datepicker-toggle matIconSuffix [for]="checkoutPicker"></mat-datepicker-toggle>
+              <mat-datepicker #checkoutPicker></mat-datepicker>
+            </mat-form-field>
+            </div>
+
+          <!-- Search Button -->
+          <div class="col-md-3 action">
+              <button type="submit" mat-raised-button color="primary">Search</button>
+          </div>
+      </div>
+  </form>
+</div>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-4">
