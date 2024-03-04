@@ -27,6 +27,7 @@ export class AddPackageComponent implements OnInit {
       this.packageForm = this._formBuilder.group({
         pckgName : ['',Validators.required],
         packageCode : ['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
+        packageDuration : ['',Validators.required],
         location : ['',Validators.required],
         price : ['',Validators.required],
         spots : ['',Validators.required],
