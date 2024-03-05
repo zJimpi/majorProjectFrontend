@@ -41,6 +41,10 @@
     </div>
 
 </div>
+<!-- chek availability  -->
+<div class="container">
+    <button>check</button>
+</div>
 <!-- room table  -->
 <div class="main-body container">
         <h4>Room Details</h4>    
@@ -69,32 +73,16 @@
         <td mat-cell *matCellDef="let row"> &#8377;{{row.pricePerDay}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="availability">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Availability </th>
-            <td mat-cell *matCellDef="let row">
-                <form  [formGroup]="dateForm" (ngSubmit)="checkAvailibilityByHotelIdandRoomId(row.roomId)">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Enter a date range</mat-label>
-                        <mat-date-range-input [rangePicker]="picker">
-                        <input matStartDate placeholder="Start date" formControlName="checkInDate">
-                        <input matEndDate placeholder="End date" formControlName="checkOutDate">
-                        </mat-date-range-input>
-                        
-                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-date-range-picker #picker></mat-date-range-picker>
-                    </mat-form-field>
-                  
 
-                    <button mat-raised-button color="primary">Check Availability</button>
-                        <mat-hint style = "color: green;" *ngIf="availableStatus&& dateForm.get('checkOutDate')?.errors?.['required']">
-                            <h5>Available</h5>
-                        </mat-hint>
-                        <!-- <mat-hint style = "color: red;"*ngIf="!availableStatus  &&dateForm.get('checkOutDate')?.touched && dateForm.get('checkOutDate')?.errors?.['required']">
-                            <h5>Not available</h5>
-                          </mat-hint> -->
-                </form>
+        <ng-container matColumnDef="selected">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Select Room</th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox #checkbox (change)="toggleGuestInput(checkbox.checked, row.roomId)"></mat-checkbox>
+                <mat-form-field *ngIf="checkbox.checked" appearance="outline">
+                    <mat-label>No of Rooms</mat-label>
+                    <input matInput #guestInput placeholder="ex: 2" (change)="addRoomSelection(row.roomId, +guestInput.value,checkbox.checked)">
+                </mat-form-field>
             </td>
-        
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
