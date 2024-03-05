@@ -13,7 +13,7 @@ export class AddPkgService {
 
   // Method to add a destination by sending a POST request to the tomcat server.
   addPackage(data:any): Observable<any>{
-    return this._http.post('http://localhost:8086/package/savePackage',data)
+    return this._http.post(`http://localhost:8086/package/savePackage`,data)
   }
 
   // Method to retrieve a list of destinations by sending a GET request to the tomcat server.
@@ -33,6 +33,10 @@ export class AddPkgService {
 
   getPackageById(id: number): Observable<any> {
     return this._http.get(`http://localhost:8086/package/getPackageById/${id}`);
+  }
+
+  getSpotsById(id: number): Observable<any> {
+    return this._http.get(`http://localhost:8086/package/getSpotsById/${id}`);
   }
 
 }
