@@ -47,7 +47,7 @@
   </mat-step>
     <!-- user details  -->
     <mat-step [stepControl]="userFormGroup" errorMessage="User details is required.">
-      <form [formGroup]="userFormGroup">
+      <form [formGroup]="userFormGroup" (ngSubmit)="bookHotel()">
         <ng-template matStepLabel>User Details</ng-template>
           <div class="row">
             <div class="col">
@@ -55,6 +55,16 @@
               <p>Hotel Name: {{ bookingDetails?.hotelName }}</p>
               <p>Address: {{ bookingDetails?.address }}</p>
               <p>Number: {{ bookingDetails?.number }}</p>
+            </div>
+            <div class="col">
+              <div class="row">
+                <h5>Selected Room Details</h5>
+              <div class="col" *ngFor="let roomDetail of roomDetails">               
+                <p>Room Name: {{ roomDetail.roomName }}</p>
+                <p>Room Type: {{ roomDetail.roomType }}</p> 
+                <p>Number of Rooms: {{ roomDetail.noRooms }}</p>
+              </div>
+              </div>
             </div>
           </div>
         
@@ -91,7 +101,7 @@
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button color="primary" matStepperNext>Book</button>
+          <button mat-raised-button color="primary" matStepperNext type="submit">Book</button>
         </div>
       </form>
     </mat-step>
@@ -116,6 +126,7 @@
       </div>
     </form>
     </mat-step>
+
   </mat-stepper>
 
 </div>

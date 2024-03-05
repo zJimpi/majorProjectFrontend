@@ -23,12 +23,16 @@ export class HotelViewMoreComponent {
     'roomType', 
     'roomName', 
     'pricePerDay',
-    'availability' ,
+    'selected'
+    // 'availability' ,
+
    
   ];
 
+  roomSelections: { roomId: number, noRooms: number }[] = [];
+
   dateForm:FormGroup
-dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
 
 constructor(private _roomService:AddRoomService,
   private route: ActivatedRoute,
@@ -64,6 +68,7 @@ constructor(private _roomService:AddRoomService,
     });
   }
   
+
  
   getHotelById(){
         // Get the hotelId from the route params
@@ -78,19 +83,12 @@ constructor(private _roomService:AddRoomService,
   });
   }
   
-  // bookRoomByHotelId(roomId:number){
-  //   this._roomService.getRoomById(roomId).subscribe({
-  //     next:(val:any)=>{
-  //       console.log(val);
-  //       this._router.navigate(['hotelBooking/',roomId]);
-  //     },error:console.log,
-  //   });
-  //   // this._router.navigate(['/hotelBooking'])
-  // }
+
   bookHotelById(){
       this._hotelService.getHotelById(this.hotelId).subscribe({
         next:(val:any)=>{
-          this._router.navigate(['hotelBooking/',this.hotelId]);
+          this._router.navigate(['hotelBooking/',this.hotelId],{ state: { roomSelections: this.roomSelections } });
+          // console.log(this.roomSelections)
         },error:console.log,
       });
       // this._router.navigate(['/hotelBooking'])
@@ -98,14 +96,47 @@ constructor(private _roomService:AddRoomService,
   
 
 
-  checkAvailibilityByHotelIdandRoomId(roomId:number){
-    this.availableStatus = true
-    console.log(this.availableStatus)
-    console.log(roomId);
-    console.log(this.dateForm.value);
+  // checkAvailibilityByHotelIdandRoomId(roomId:number){
+  //   this.availableStatus = true
+  //   console.log(this.availableStatus)
+  //   console.log(roomId);
+  //   console.log(this.dateForm.value);
     
     
+  // }
+
+
+
+  toggleGuestInput(checked: boolean, roomId: number) {
+    if (checked) {
+      // Checkbox is checked, call addRoomSelection with default guests (0)
+      this.addRoomSelection(roomId, 0, true);
+    } else {
+      // Checkbox is unchecked, call addRoomSelection with guests as 0 to remove room selection
+      this.addRoomSelection(roomId, 0, false);
+    }
   }
 
+  addRoomSelection(roomId: number, noRooms: number, isChecked: boolean) {
+    if (isChecked) {
+      // If checkbox is checked, add or update room selection
+      const existingSelectionIndex = this.roomSelections.findIndex(selection => selection.roomId === roomId);
+      if (existingSelectionIndex !== -1) {
+        // Update existing room selection
+        this.roomSelections[existingSelectionIndex].noRooms = noRooms;
+      } else {
+        // Add new room selection
+        this.roomSelections.push({ roomId, noRooms });
+      }
+    } else {
+      // If checkbox is unchecked, remove room selection
+      const existingSelectionIndex = this.roomSelections.findIndex(selection => selection.roomId === roomId);
+      if (existingSelectionIndex !== -1) {
+        // Remove room selection
+        this.roomSelections.splice(existingSelectionIndex, 1);
+      }
+    }
+  }
+  
 
 }
