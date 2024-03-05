@@ -113,6 +113,7 @@ export class HotelBookingComponent implements OnInit{
       next: (val: any) => {
         this._coreService.openSnackBar('Hotel booked successfully');
         console.log(this.userFormGroup)
+        
       },
       error: (err: any) => {
         console.error(err);
@@ -120,7 +121,9 @@ export class HotelBookingComponent implements OnInit{
     });
   }
   
-  
+  priceCalculation(){
+
+  }
 }
 
 
