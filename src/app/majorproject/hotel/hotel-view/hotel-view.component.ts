@@ -13,7 +13,10 @@ export class HotelViewComponent implements OnInit{
 
 
   
-  hotels:any;
+  hotels !:any[];
+  filteredHotels: any[] = [];
+  searchQuery: string = '';
+
   constructor(private _router:Router,
     private _hotelService: AddHotelService,
     private _roomService:AddRoomService){
@@ -28,11 +31,19 @@ export class HotelViewComponent implements OnInit{
       this._hotelService.getHotelList().subscribe({
         next:(res:any)=>{
           this.hotels = res;
+          this.filteredHotels = [...this.hotels];
           
         },error: console.log,
       });
     }
 
+    // seachbar for hotel 
+    filterHotels(searchQuery: string): void {
+      this.filteredHotels = this.hotels.filter(h =>
+        h.hotelName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        h.location.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
 
     viewRoomDetailByHotelId(hotelId:number){
       this._roomService.getRoomByHotelId(hotelId).subscribe({

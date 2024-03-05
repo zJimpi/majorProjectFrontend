@@ -11,7 +11,14 @@
                     <small>Hotel name is required.</small>
                 </mat-hint>
             </mat-form-field>
-    
+            <mat-form-field appearance="fill" class="input-width">
+                <mat-label >Location</mat-label>
+                <input matInput placeholder="ex: Jaipur" formControlName="location">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('location')?.touched && hotelForm.get('location')?.errors?.['required']">
+                    <small>address is required.</small>
+                </mat-hint>
+            </mat-form-field>
+            
         <mat-form-field appearance="fill" class="input-width">
             <mat-label >Full Address</mat-label>
             <input matInput placeholder="ex: block-12,Jaipur,Rajasthan" formControlName="address">
