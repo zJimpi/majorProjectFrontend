@@ -53,6 +53,7 @@ const routes: Routes = [
  
   { path:'room/getRoomByHotelId/:hotelId', component:RoomDetailsComponent},
   { path:'activity/getActivityListByPackageId/:packageId', component:ActivityDetailsComponent},
+  { path:'activity/getActivityCardsByPackageId/:packageId', component:PkgViewMoreComponent},
 
   { path:'addHotel', component:AddHotelComponent},
   { path:'viewHotel',component:ViewHotelTabelComponent},
