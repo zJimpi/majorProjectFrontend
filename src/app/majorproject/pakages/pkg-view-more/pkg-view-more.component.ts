@@ -5,6 +5,7 @@ import { CoreService } from 'src/app/admin/core/core.service';
 import { AddActivityService } from 'src/app/admin/service/add-activity.service';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddPkgService } from 'src/app/admin/service/add-pkg.service';
+import { AddRoomService } from 'src/app/admin/service/add-room.service';
 
 @Component({
   selector: 'app-pkg-view-more',
@@ -17,11 +18,11 @@ export class PkgViewMoreComponent {
   activities !: any[];
   spots: string = '';
   package!:any;
-  hotels: any[] = [];
   filteredHotels: any[] = [];
 
   constructor(private _activityService:AddActivityService,
     private _packageService:AddPkgService,
+    private _roomService:AddRoomService,
     private _hotelService:AddHotelService,
     private _route: ActivatedRoute,
     private _coreService:CoreService,
@@ -29,8 +30,6 @@ export class PkgViewMoreComponent {
 
     ngOnInit(): void {
       this.viewActivityDetails();
-      this.getHotelList();
-      
     }
 
     viewActivityDetails() 
@@ -52,7 +51,7 @@ export class PkgViewMoreComponent {
           this._packageService.getPackageById(this.packageId).subscribe(
             (res: any) => {
               this.package = res;
-              this.filterHotels(this.package.location);
+              this.getFilteredHotelList();
             },
             error => {
               console.error('Error fetching spot details:', error);
@@ -63,20 +62,19 @@ export class PkgViewMoreComponent {
         {
           console.error('PackageId is undefined.');
         }
-        
       });
     }
 
-    getHotelList(){
-      this._hotelService.getHotelList()
+    getFilteredHotelList(){
+      this._packageService.getHotelsByPackageLocation(this.package.location)
         .subscribe(hotels => {
-          this.hotels = hotels;
+          this.filteredHotels = hotels;
+          this.filteredHotels.forEach(hotel => {
+            this._roomService.getRoomByHotelId(hotel.hotelId).subscribe(rooms => {
+              hotel.rooms = rooms;
+            });
+          });
         });
     }
-
-    filterHotels(location: string): void {
-      this.filteredHotels = this.hotels.filter(hotel =>
-        hotel.location.toLowerCase().includes(location)
-      );
-    }
+    
 }

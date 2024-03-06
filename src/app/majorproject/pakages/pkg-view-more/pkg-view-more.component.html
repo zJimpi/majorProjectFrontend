@@ -1,4 +1,4 @@
-<div class="hero">
+<div class="hero" *ngIf="package">
   <img src="assets/pkg_img/Andaman.jpeg" alt="Andaman">
   <h1 class="hero-title">Andaman & Nicobar Island</h1>
   <p class="hero-subtitle">"Discover the Uncharted Beauty of Andaman & Nicobar Islands"</p>
@@ -18,10 +18,9 @@
 <table>
   <tr *ngFor="let hotel of filteredHotels">
     <td>
-      <img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Hotel Image">
+      <img [src]="'assets/hotel_image/Enjoy.jpeg'" alt="Hotel Image">
       <p>{{hotel.hotelName}}</p>
     </td>
-    <!-- Nested table for room details -->
     <td>
       <table>
         <thead>
@@ -34,9 +33,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let room of hotel.room">
+          <tr *ngFor="let room of hotel.rooms">
             <td>{{room.roomType}}</td>
-            <td><img [src]="" alt="Room Image"></td>
+            <td><img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Room Image"></td>
             <td>{{room.pricePerDay}}</td>
             <td><input type="checkbox"></td>
             <td><input type="number" placeholder="Quantity"></td>

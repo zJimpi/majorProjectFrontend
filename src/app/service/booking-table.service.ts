@@ -23,4 +23,8 @@ export class BookingTableService {
   deleteBooking(id : number):Observable<any>{
     return this._http.delete(`http://localhost:8086/bookingTable/deleteBookingById/${id}`)
   }
+
+  updatePriceByBookingId(id : number, price : number):Observable<any>{
+    return this._http.put(`http://localhost:8086/bookingTable/updatePriceByBookingId/${id}/${price}`, null)
+  }
 }
