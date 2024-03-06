@@ -49,7 +49,7 @@ export class HotelBookingComponent implements OnInit{
       
     });
     this.paymentFormGroup =_fb.group({
-      amount:['']
+      amount:0
     });
     
   }
@@ -100,9 +100,29 @@ export class HotelBookingComponent implements OnInit{
       roomTypes.push(selection.roomId);
       noOfRooms.push(selection.noRooms);
     });
-  
+    
+    const checkInDate = this.userFormGroup.value.checkInDate 
+    ? new Date(this.userFormGroup.value.checkInDate)
+    : new Date();
+    const checkOutDate = this.userFormGroup.value.checkOutDate 
+     ? new Date(this.userFormGroup.value.checkOutDate)
+     : new Date();
+
+// Set both check-in and check-out dates to the next day
+    checkInDate.setDate(checkInDate.getDate() + 1);
+    checkOutDate.setDate(checkOutDate.getDate() + 1);
+
+    const formattedCheckInDate = checkInDate.toISOString().split('T')[0];
+    const formattedCheckOutDate = checkOutDate.toISOString().split('T')[0];
+    
     const formData = {
-      userForm: this.userFormGroup.value,
+      userForm: {
+        userName: this.userFormGroup.value.userName,
+        adults: this.userFormGroup.value.adults,
+        child: this.userFormGroup.value.child,
+        checkInDate: formattedCheckInDate,
+        checkOutDate: formattedCheckOutDate,
+      },
       roomTypes: roomTypes,
       noOfRooms: noOfRooms,
       hotelId: this.hotelId 
@@ -112,7 +132,8 @@ export class HotelBookingComponent implements OnInit{
             
       next: (val: any) => {
         this._coreService.openSnackBar('Hotel booked successfully');
-        console.log(this.userFormGroup)
+        
+        this.priceCalculation()
       },
       error: (err: any) => {
         console.error(err);
@@ -120,7 +141,31 @@ export class HotelBookingComponent implements OnInit{
     });
   }
   
-  
+  priceCalculation() {
+    let totalPrice = 0;
+
+    // Iterate through each room detail
+    this.roomDetails.forEach(roomDetail => {
+      // Calculate the date difference
+      const checkInDate = new Date(this.userFormGroup.get('checkInDate')?.value);
+      const checkOutDate = new Date(this.userFormGroup.get('checkOutDate')?.value);
+      const dateDifference = ((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24))+1; // Difference in days
+      console.log(dateDifference);
+      
+      // Calculate the price for the current room
+      const roomPrice = roomDetail.pricePerDay;
+      const noRooms = roomDetail.noRooms;
+      const roomTotalPrice = roomPrice * noRooms * dateDifference;
+     
+      // Add the current room's total price to the grand total
+      totalPrice += roomTotalPrice;
+    });
+
+    // Update the total price in the form control
+    this.paymentFormGroup.get('amount')?.setValue(totalPrice);
+   
+    
+  }
 }
 
 

@@ -74,7 +74,7 @@ export class AddHotelComponent implements OnInit{
       this.hotelForm = this._fb.group({
         hotelName:['',Validators.required],
         startingPrice:[,Validators.required],
-        
+        location:[,Validators.required],
         address:['',Validators.required],
         number:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
         

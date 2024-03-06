@@ -2,18 +2,24 @@
   <div class="container">
     <h1>Best Stays Available</h1>
     <div class="search">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Enter Location" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-      </div>
+      
+        <div class="filter-box">
+          <input type="text" [(ngModel)]="searchQuery" (input)="filterHotels(searchQuery)" placeholder="Search hotels by location">
+        </div>
+        
+     
     </div>
   </div>
 </div>
+
+
+<!-- hotel cards  -->
+
 <div class="container">
-<!-- //serach bar  -->
+
 
   <div class="row justify-content-center">
-    <div class="col-md-4" *ngFor="let hotel of hotels">
+    <div class="col-md-4" *ngFor="let hotel of filteredHotels">
       <mat-card class="hotel-card" >
         <mat-card-header>
           <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
