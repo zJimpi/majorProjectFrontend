@@ -4,6 +4,7 @@
   <p class="hero-subtitle">"Discover the Uncharted Beauty of Andaman & Nicobar Islands"</p>
 </div>
 <br>
+<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn">Book Now</button>
 <section id="spots" class="spots-section">
   <div class="spot-heading-container">
     <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>
@@ -37,8 +38,8 @@
             <td>{{room.roomType}}</td>
             <td><img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Room Image"></td>
             <td>{{room.pricePerDay}}</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
+            <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
+            <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
           </tr>
         </tbody>
       </table>

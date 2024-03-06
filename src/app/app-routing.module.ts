@@ -71,7 +71,8 @@ const routes: Routes = [
   // booking pages
   { path:'hotelBooking', component:HotelBookingComponent},
   { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
-  { path:'packageBooking',component:PkgBookingComponent}
+  { path:'packageBooking',component:PkgBookingComponent},
+  { path:'packageBooking/:packageId', component:PkgBookingComponent},
 
 
 ];

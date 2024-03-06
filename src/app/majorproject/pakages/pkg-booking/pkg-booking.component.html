@@ -1,84 +1,132 @@
-<mat-stepper #stepper>
-    
-    <mat-step [stepControl]="firstFormGroup" errorMessage="User Details is required.">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your details</ng-template>
-        <mat-form-field>
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Enter your username" formControlName="firstCtrl" required>
-        </mat-form-field><br>
+<div class="container">
 
-        <mat-form-field>
-            <mat-label>Full Name</mat-label>
-            <input matInput placeholder="Enter your full name" formControlName="firstCtrl" required>
-        </mat-form-field><br>
-
-        <mat-form-field>
-            <mat-label>Phone Number</mat-label>
-            <input matInput placeholder="Enter your phn no." formControlName="firstCtrl" required>
-        </mat-form-field><br>
-
-        <mat-form-field>
-            <mat-label>Email Id</mat-label>
-            <input matInput placeholder="Enter your email id" formControlName="firstCtrl" required>
-        </mat-form-field>
-
-        <div>
-            <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <mat-step [stepControl]="secondFormGroup" errorMessage="Hotel Details is required.">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-
-    <mat-step [stepControl]="thirdFormGroup" errorMessage="Booking Details is required.">
-        <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Fill out booking details</ng-template>
-        <mat-form-field>
-            <mat-label>Start Date</mat-label>
-            <input matInput placeholder="Enter Start Date of your journey" formControlName="thirdCtrl" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>End Date</mat-label>
-            <input matInput placeholder="Enter End Date of your journey" formControlName="thirdCtrl" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Adult</mat-label>
-            <input matInput placeholder="Enter No. of Adult" formControlName="thirdCtrl" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Child</mat-label>
-            <input matInput placeholder="Enter No. of Adult" formControlName="thirdCtrl" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>End Date</mat-label>
-            <input matInput placeholder="Enter End Date of your journey" formControlName="thirdCtrl" required>
-        </mat-form-field>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-  </form>
-</mat-step>
+  <mat-stepper #stepper>
+  
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <h2>Booking Terms and Conditions</h2>
+        <p>Please read the following terms and conditions carefully before making your booking:</p>
+        <ol>
+          <li>
+            <strong>Booking Confirmation:</strong>
+            <p>Your booking is confirmed only after receiving a confirmation email from us.</p>
+          </li>
+          <li>
+            <strong>Payment:</strong>
+            <p>Full payment is required at the time of booking, unless stated otherwise.</p>
+          </li>
+          <li>
+            <strong>Cancellation Policy:</strong>
+            <p>Please refer to our cancellation policy for details on refunds and cancellation fees.</p>
+          </li>
+          <li>
+            <strong>Check-in/Check-out:</strong>
+            <p>Check-in time is after 2:00 PM and check-out time is before 11:00 AM.</p>
+          </li>
+          <li>
+            <strong>Damage Policy:</strong>
+            <p>You will be responsible for any damages caused during your stay.</p>
+          </li>
+          <li>
+            <strong>Guest Responsibilities:</strong>
+            <p>Please respect other guests and hotel staff during your stay.</p>
+          </li>
+          <li>
+            <strong>Additional Charges:</strong>
+            <p>Additional charges may apply for extra services requested during your stay.</p>
+          </li>
+        </ol>
+        <p>By making a booking, you agree to abide by these terms and conditions.</p>
+      </div>
+    
+      <div>
+        <button mat-raised-button routerLink="/hotelView">I Disagree</button>  
+        <button mat-raised-button color="primary" matStepperNext>I agree</button>
+      
       </div>
     </mat-step>
-  </mat-stepper>
+      <!-- user details  -->
+      <mat-step [stepControl]="userFormGroup" errorMessage="User details is required.">
+        <form [formGroup]="userFormGroup" (ngSubmit)="bookPackage()">
+          <ng-template matStepLabel>User Details</ng-template>
+            <div class="row">
+              <div class="col">
+                <h5>Hotel Details</h5>
+                <p>Hotel Name: {{ bookingDetails?.hotelName }}</p>
+                <p>Address: {{ bookingDetails?.address }}</p>
+                <p>Number: {{ bookingDetails?.number }}</p>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <h5>Selected Room Details</h5>
+                <div class="col" *ngFor="let roomDetail of roomDetails">               
+                  <p>Room Name: {{ roomDetail.roomName }}</p>
+                  <p>Room Type: {{ roomDetail.roomType }}</p> 
+                  <p>Number of Rooms: {{ roomDetail.noRooms }}</p>
+                </div>
+                </div>
+              </div>
+            </div>
+          
+          
+          
+          <h3>Fill booking Details</h3>
+          <mat-form-field >
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="ex. iamRaju" formControlName="userName" required>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>No of Adults</mat-label>
+            <input matInput placeholder="Ex. 4" formControlName="adults" required>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>No of child</mat-label>
+            <input matInput placeholder="Ex. 1" formControlName="child" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" formControlName="checkInDate">
+            <input matEndDate placeholder="End date" formControlName="checkOutDate">
+            </mat-date-range-input>
+            
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+  
+        
+  
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext type="submit">Book</button>
+          </div>
+        </form>
+      </mat-step>
+  
+  
+  
+      <!-- show payment details  -->
+      <mat-step>
+        <form [formGroup]="paymentFormGroup">
+        <ng-template matStepLabel>Payment</ng-template>
+        
+          <h4>Amount to be paid: {{ paymentFormGroup.get('amount')?.value }}</h4>
+        
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput placeholder="Ex. 4" formControlName="amount" required>
+        </mat-form-field>
+  
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Payment Done</button>
+        </div>
+      </form>
+      </mat-step>
+  
+    </mat-stepper>
+  
+  </div>
