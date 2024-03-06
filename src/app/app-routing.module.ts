@@ -29,6 +29,7 @@ import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-v
 import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.component';
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
+import { DestDetailComponent } from './dest-detail/dest-detail.component';
 
 
 
@@ -37,8 +38,12 @@ const routes: Routes = [
   { path : 'home', component: HomeComponent},
   { path: 'home/:scrollTo', component: HomeComponent },
   { path : '', redirectTo: 'home', pathMatch: 'full'},
+
+  { path : 'destination', component: DestinationComponent},
+  { path:'destinationDetails/:destId',component:DestDetailComponent},
   
   // login & signup
+
   { path : 'login', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
   { path: 'resetPass', component:RestPasswordComponent},
@@ -69,11 +74,11 @@ const routes: Routes = [
   { path:'hotelView/getRoomByHotelId/:hotelId', component:HotelViewMoreComponent},
  
   // booking pages
-  { path:'hotelBooking', component:HotelBookingComponent},
   { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
-  { path:'packageBooking',component:PkgBookingComponent},
   { path:'packageBooking/:packageId', component:PkgBookingComponent},
 
+
+  
 
 ];
 

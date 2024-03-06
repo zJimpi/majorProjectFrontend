@@ -60,6 +60,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DestDetailComponent } from './dest-detail/dest-detail.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
     ActivityDetailsComponent,
     HotelViewMoreComponent,
     PkgViewMoreComponent,
+    DestDetailComponent,
 
   ],
   imports: [
