@@ -131,9 +131,10 @@ export class HotelBookingComponent implements OnInit{
     this._hotelBooking.addHotelBooking(formData).subscribe({
             
       next: (val: any) => {
+        const bookingId = val.bookingId;
         this._coreService.openSnackBar('Hotel booked successfully');
         
-        this.priceCalculation()
+        this.priceCalculation(bookingId)
       },
       error: (err: any) => {
         console.error(err);
@@ -141,7 +142,7 @@ export class HotelBookingComponent implements OnInit{
     });
   }
   
-  priceCalculation() {
+  priceCalculation(bookingId:number) {
     let totalPrice = 0;
 
     // Iterate through each room detail
@@ -164,7 +165,7 @@ export class HotelBookingComponent implements OnInit{
     // Update the total price in the form control
     this.paymentFormGroup.get('amount')?.setValue(totalPrice);
    
-    
+    this._hotelBooking.updateBookingPriceById(bookingId,totalPrice).subscribe();
   }
 }
 
