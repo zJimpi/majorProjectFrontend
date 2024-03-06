@@ -16,11 +16,10 @@
 </section>
 <b><p class="additional-activity-text">Hotels</p></b>
 <table>
-  <tr >
-    <!-- Hotel image and name -->
+  <tr *ngFor="let hotel of filteredHotels">
     <td>
-      <img [src]="" alt="Hotel Image">
-      <p>Raju Hotel</p>
+      <img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Hotel Image">
+      <p>{{hotel.hotelName}}</p>
     </td>
     <!-- Nested table for room details -->
     <td>
@@ -35,68 +34,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>suite</td>
+          <tr *ngFor="let room of hotel.room">
+            <td>{{room.roomType}}</td>
             <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-  <tr >
-    <!-- Hotel image and name -->
-    <td>
-      <img [src]="" alt="Hotel Image">
-      <p>Raju Hotel</p>
-    </td>
-    <!-- Nested table for room details -->
-    <td>
-      <table>
-        <thead>
-          <tr>
-            <th>Room Type</th>
-            <th>Room Picture</th>
-            <th>Price per Day</th>
-            <th>Checkbox</th>
-            <th>Input Field</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
+            <td>{{room.pricePerDay}}</td>
             <td><input type="checkbox"></td>
             <td><input type="number" placeholder="Quantity"></td>
           </tr>
