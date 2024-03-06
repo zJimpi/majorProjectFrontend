@@ -113,7 +113,7 @@
       <form [formGroup]="paymentFormGroup">
       <ng-template matStepLabel>Payment</ng-template>
       
-        <h4>Amount to be paid: 1000</h4>
+        <h4>Amount to be paid: {{ paymentFormGroup.get('amount')?.value }}</h4>
       
       <mat-form-field>
         <mat-label>Amount</mat-label>

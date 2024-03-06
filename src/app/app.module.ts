@@ -19,7 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -55,7 +55,11 @@ import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-v
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
-
+//dates
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
 
 @NgModule({
@@ -113,11 +117,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSidenavModule,
     MatCardModule,
     MatStepperModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule
 
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-IN' }, // Indian English locale
+  { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS] },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
