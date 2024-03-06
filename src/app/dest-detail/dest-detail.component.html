@@ -19,11 +19,15 @@
 
 <div class="pakage-box">
   <h2>Packages for {{destDetail.imageLocation}} tour</h2>
-<app-pkg-view></app-pkg-view>
+<app-pkg-view [showHero]="false" [accessedFromOutside]="true" [state]="destDetail?.stateAndUTName" [location]="destDetail?.imageLocation" ></app-pkg-view>
 </div>
 
 <div class="hotel-box">
   <h2>Hotels near {{destDetail.imageLocation}}</h2>
-<app-hotel-view [showHero]="false" [location]="destDetail?.imageLocation" [state]="destDetail?.stateAndUTName">
+<app-hotel-view [showHero]="false" [accessedFromOutside]="true" [state]="destDetail?.stateAndUTName" [location]="destDetail?.imageLocation" >
 </app-hotel-view>
+</div>
+
+<div class="review-box">
+  <h2>Reviews By user</h2>
 </div>

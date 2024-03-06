@@ -33,6 +33,10 @@ export class AddDestService {
   }
 
   getPakageByDestiantion(state:string,location:string):Observable<any>{
-    return this._http.get(`http://localhost:8086/destination/getPackageListByDestination/${state}/${location}`)
+    return this._http.get(`http://localhost:8086/destination/getPackageListByDestination/${state}/${location}`);
+  }
+
+  getHotelByLocation(state:string,location:string):Observable<any>{
+    return this._http.get(`http://localhost:8086/destination/getHotelListByDestination/${state}/${location}`);
   }
 }

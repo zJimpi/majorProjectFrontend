@@ -99,3 +99,12 @@
   width : 500px;
   margin: 50 px;
 }
+
+.filter-box{
+  height: 100px;
+  width: 100%;
+  background-color: #076B83;
+  text-align: center;
+  color: white;
+  
+}

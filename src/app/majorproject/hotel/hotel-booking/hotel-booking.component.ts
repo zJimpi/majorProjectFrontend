@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CoreService } from 'src/app/admin/core/core.service';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { BookingTableService } from 'src/app/service/booking-table.service';
 import { HotelBookingService } from 'src/app/service/hotel-booking.service';
 
 
@@ -36,7 +37,7 @@ export class HotelBookingComponent implements OnInit{
     private _roomService:AddRoomService,
     private route: ActivatedRoute,
     private _coreService:CoreService,
-    private _hotelBooking:HotelBookingService
+    private _hotelBooking:BookingTableService
     ) {
 
       
@@ -128,7 +129,7 @@ export class HotelBookingComponent implements OnInit{
       hotelId: this.hotelId 
     };
 
-    this._hotelBooking.addHotelBooking(formData).subscribe({
+    this._hotelBooking.addBookingTable(formData).subscribe({
             
       next: (val: any) => {
         const bookingId = val.bookingId;
@@ -165,7 +166,7 @@ export class HotelBookingComponent implements OnInit{
     // Update the total price in the form control
     this.paymentFormGroup.get('amount')?.setValue(totalPrice);
    
-    this._hotelBooking.updateBookingPriceById(bookingId,totalPrice).subscribe();
+    this._hotelBooking.updatePriceByBookingId(bookingId,totalPrice).subscribe();
   }
 }
 

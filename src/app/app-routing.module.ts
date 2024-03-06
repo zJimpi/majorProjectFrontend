@@ -61,6 +61,7 @@ const routes: Routes = [
   { path:'viewPackage',component:ViewPackageTableComponent},
   { path:'adminHome/viewPackage/viewActivity',component:ActivityDetailsComponent},
   { path:'activity/getActivityListByPackageId/:packageId', component:ActivityDetailsComponent},
+  { path:'room/getRoomByHotelId/:hotelId',component:RoomDetailsComponent},
 
   { path:'addHotel', component:AddHotelComponent},
   { path:'addPackage', component:AddPackageComponent},

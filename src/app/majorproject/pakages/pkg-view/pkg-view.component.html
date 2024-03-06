@@ -1,5 +1,8 @@
-<div class="filter-box">
-  <input type="text" [(ngModel)]="searchQuery" (input)="filterPackages(searchQuery)" placeholder="Search packages">
+<div class="hero" *ngIf="showHero">
+  <div class="filter-box">
+    <h1> Tailored Packages for Every Vacation</h1>
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterPackages(searchQuery)" placeholder="Search packages">
+  </div>
 </div>
 
 <div class="container"  *ngFor="let package of filteredPackages">

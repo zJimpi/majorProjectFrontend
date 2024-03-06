@@ -15,7 +15,8 @@ export class HotelViewComponent implements OnInit{
   @Input() state: string='';
   @Input() location: string='';
   @Input() showHero: boolean = true;
-  
+  @Input() accessedFromOutside: boolean = false;
+
   hotels !:any[];
   filteredHotels: any[] = [];
   searchQuery: string = '';
@@ -27,10 +28,10 @@ export class HotelViewComponent implements OnInit{
 
     }
     ngOnInit(): void {
-    
-      this.getHotelList();
-
-      this.getHotelListByLocation(this.state,this.location);
+    if (!this.accessedFromOutside) {
+      this.getHotelList();}
+      else{this.getHotelListByLocation(this.state,this.location);}
+      
       
     }
     
@@ -64,12 +65,12 @@ export class HotelViewComponent implements OnInit{
     }
 
     getHotelListByLocation(state:any,location:any){
-      // this._destService.getPakageByDestiantion(state,location).subscribe({
-      //   next:(res:any)=>{
-      //     this.hotels = res;
-      //     this.filteredHotels = [...this.hotels];
+      this._destService.getHotelByLocation(state,location).subscribe({
+        next:(res:any)=>{
+          this.hotels = res;
+          this.filteredHotels = [...this.hotels];
           
-      //   },error: console.log,
-      // });
+        },error: console.log,
+      });
     }
 }
