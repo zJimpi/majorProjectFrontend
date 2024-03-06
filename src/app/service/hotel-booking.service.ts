@@ -17,4 +17,8 @@ export class HotelBookingService {
     return this._http.get(`http://localhost:3000/hotelbooking/${id}`)
     
   }
+
+  updateBookingPriceById(id:number,data:any):Observable<any>{
+    return this._http.put(`http://localhost:3000/hotelbooking/${id}`,data)
+  }
 }
