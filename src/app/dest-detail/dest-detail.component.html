@@ -1,0 +1,29 @@
+<div class="card text-bg-dark">
+
+<img [src]="destDetail.imageFile" class="card-img img-box" alt="...">
+    <div class="card-img-overlay">
+      <h1 class="card-title">{{destDetail.destName}}</h1>
+      <div class="row">
+        <div class="col">
+          <p class="card-text">Type: {{destDetail.destType}}</p>
+          <p class="card-text">Location: {{destDetail.imageLocation}}</p>
+          <p class="card-text">State: {{destDetail.stateAndUTName}}</p>
+        </div>
+        <div class="col">
+          <p class="card-text">Description: {{destDetail.imageDescription}}</p>
+          <p class="card-text">Rating: {{destDetail.popularityScore}}</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="pakage-box">
+  <h2>Packages for {{destDetail.imageLocation}} tour</h2>
+<app-pkg-view></app-pkg-view>
+</div>
+
+<div class="hotel-box">
+  <h2>Hotels near {{destDetail.imageLocation}}</h2>
+<app-hotel-view [showHero]="false" [location]="destDetail?.imageLocation" [state]="destDetail?.stateAndUTName">
+</app-hotel-view>
+</div>

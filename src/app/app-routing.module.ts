@@ -24,6 +24,7 @@ import { ViewPackageTableComponent } from './admin/majorProject/view-package-tab
 import { ActivityDetailsComponent } from './admin/majorProject/activity-details/activity-details.component';
 import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
+import { DestDetailComponent } from './dest-detail/dest-detail.component';
 
 
 
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'home/:scrollTo', component: HomeComponent },
   { path : '', redirectTo: 'home', pathMatch: 'full'},
   { path : 'destination', component: DestinationComponent},
+  { path:'destinationDetails/:destId',component:DestDetailComponent},
+
   { path : 'login', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
   { path: 'resetPass', component:RestPasswordComponent},
@@ -62,8 +65,9 @@ const routes: Routes = [
 
   { path:'hotelBooking', component:HotelBookingComponent},
 
-  { path:'packageBooking',component:PkgBookingComponent}
+  { path:'packageBooking',component:PkgBookingComponent},
 
+  
 
 ];
 

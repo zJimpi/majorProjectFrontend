@@ -1,10 +1,10 @@
-<div class="hero">
+<div class="hero" *ngIf="showHero">
   <div class="container">
     <h1>Best Stays Available</h1>
     <div class="search">
       
         <div class="filter-box">
-          <input type="text" [(ngModel)]="searchQuery" (input)="filterHotels(searchQuery)" placeholder="Search hotels by location">
+          <input type="text" #searchInput [(ngModel)]="searchQuery" (input)="filterHotels(searchQuery)" placeholder="Search hotels by location">
         </div>
         
      

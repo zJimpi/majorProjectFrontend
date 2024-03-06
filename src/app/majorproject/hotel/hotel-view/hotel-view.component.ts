@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input,ViewChild ,OnInit,ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { AddDestService } from 'src/app/admin/service/add-dest.service';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
 
@@ -11,22 +12,30 @@ import { AddRoomService } from 'src/app/admin/service/add-room.service';
 })
 export class HotelViewComponent implements OnInit{
 
-
+  @Input() state: string='';
+  @Input() location: string='';
+  @Input() showHero: boolean = true;
   
   hotels !:any[];
   filteredHotels: any[] = [];
   searchQuery: string = '';
-
+ 
   constructor(private _router:Router,
     private _hotelService: AddHotelService,
-    private _roomService:AddRoomService){
+    private _roomService:AddRoomService,
+    private _destService:AddDestService){
 
     }
     ngOnInit(): void {
     
       this.getHotelList();
+
+      this.getHotelListByLocation(this.state,this.location);
+      
     }
-  
+    
+
+
     getHotelList(){
       this._hotelService.getHotelList().subscribe({
         next:(res:any)=>{
@@ -52,5 +61,15 @@ export class HotelViewComponent implements OnInit{
           this._router.navigate(['hotelView/getRoomByHotelId/',hotelId]);
         },error:console.log,
       });
+    }
+
+    getHotelListByLocation(state:any,location:any){
+      // this._destService.getPakageByDestiantion(state,location).subscribe({
+      //   next:(res:any)=>{
+      //     this.hotels = res;
+      //     this.filteredHotels = [...this.hotels];
+          
+      //   },error: console.log,
+      // });
     }
 }
