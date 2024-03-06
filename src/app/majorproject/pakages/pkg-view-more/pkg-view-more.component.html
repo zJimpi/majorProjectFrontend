@@ -1,9 +1,10 @@
-<div class="hero">
+<div class="hero" *ngIf="package">
   <img src="assets/pkg_img/Andaman.jpeg" alt="Andaman">
   <h1 class="hero-title">Andaman & Nicobar Island</h1>
   <p class="hero-subtitle">"Discover the Uncharted Beauty of Andaman & Nicobar Islands"</p>
 </div>
 <br>
+<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn">Book Now</button>
 <section id="spots" class="spots-section">
   <div class="spot-heading-container">
     <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>
@@ -16,13 +17,11 @@
 </section>
 <b><p class="additional-activity-text">Hotels</p></b>
 <table>
-  <tr >
-    <!-- Hotel image and name -->
+  <tr *ngFor="let hotel of filteredHotels">
     <td>
-      <img [src]="" alt="Hotel Image">
-      <p>Raju Hotel</p>
+      <img [src]="'assets/hotel_image/Enjoy.jpeg'" alt="Hotel Image">
+      <p>{{hotel.hotelName}}</p>
     </td>
-    <!-- Nested table for room details -->
     <td>
       <table>
         <thead>
@@ -35,70 +34,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-  <tr >
-    <!-- Hotel image and name -->
-    <td>
-      <img [src]="" alt="Hotel Image">
-      <p>Raju Hotel</p>
-    </td>
-    <!-- Nested table for room details -->
-    <td>
-      <table>
-        <thead>
-          <tr>
-            <th>Room Type</th>
-            <th>Room Picture</th>
-            <th>Price per Day</th>
-            <th>Checkbox</th>
-            <th>Input Field</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
-          </tr>
-          <tr>
-            <td>suite</td>
-            <td><img [src]="" alt="Room Image"></td>
-            <td>5000</td>
-            <td><input type="checkbox"></td>
-            <td><input type="number" placeholder="Quantity"></td>
+          <tr *ngFor="let room of hotel.rooms">
+            <td>{{room.roomType}}</td>
+            <td><img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Room Image"></td>
+            <td>{{room.pricePerDay}}</td>
+            <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
+            <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
           </tr>
         </tbody>
       </table>
