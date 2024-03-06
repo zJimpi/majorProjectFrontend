@@ -6,7 +6,7 @@ import { CoreService } from 'src/app/admin/core/core.service';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
 import { BookingTableService } from 'src/app/service/booking-table.service';
-import { HotelBookingService } from 'src/app/service/hotel-booking.service';
+
 
 
 @Component({
@@ -37,7 +37,7 @@ export class HotelBookingComponent implements OnInit{
     private _roomService:AddRoomService,
     private route: ActivatedRoute,
     private _coreService:CoreService,
-    private _hotelBooking:BookingTableService
+    private _booking:BookingTableService
     ) {
 
       
@@ -117,19 +117,20 @@ export class HotelBookingComponent implements OnInit{
     const formattedCheckOutDate = checkOutDate.toISOString().split('T')[0];
     
     const formData = {
-      userForm: {
+      
         userName: this.userFormGroup.value.userName,
         adults: this.userFormGroup.value.adults,
         child: this.userFormGroup.value.child,
         checkInDate: formattedCheckInDate,
         checkOutDate: formattedCheckOutDate,
-      },
-      roomTypes: roomTypes,
+     
+      roomIds: roomTypes,
       noOfRooms: noOfRooms,
       hotelId: this.hotelId 
     };
-
-    this._hotelBooking.addBookingTable(formData).subscribe({
+    console.log(formData);
+    
+    this._booking.addBookingTable(formData).subscribe({
             
       next: (val: any) => {
         const bookingId = val.bookingId;
@@ -166,7 +167,7 @@ export class HotelBookingComponent implements OnInit{
     // Update the total price in the form control
     this.paymentFormGroup.get('amount')?.setValue(totalPrice);
    
-    this._hotelBooking.updatePriceByBookingId(bookingId,totalPrice).subscribe();
+    this._booking.updatePriceByBookingId(bookingId,totalPrice).subscribe();
   }
 }
 
