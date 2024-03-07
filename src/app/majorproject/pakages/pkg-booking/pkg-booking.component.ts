@@ -35,9 +35,9 @@ export class PkgBookingComponent {
   bookingDetails:any
 
   roomSelections:any[]=[];
-  hotelSelections:any[]=[];
+  hotelSelections:any;
   roomDetails: any[] = [];
-  hotelDetails : any[] = [];
+  hotelDetails : any;
 
 
   constructor(private _formBuilder: FormBuilder,
@@ -64,7 +64,8 @@ export class PkgBookingComponent {
     this.loadPackageDetails()
     this.roomSelections = history.state.roomSelections;
     this.hotelSelections = history.state.hotelSelections;
-    this.fetchRoomDetails()
+    this.fetchRoomDetails();
+    this.fetchHotelDetails();
   }
 
   loadPackageDetails(){
@@ -100,19 +101,19 @@ export class PkgBookingComponent {
   }
 
   fetchHotelDetails() {
-  this.hotelSelections.forEach(hotelSelection => {
-    this._hotelService.getHotelById(hotelSelection.hotelId).subscribe(
-      (details: any) => {
-        this.hotelDetails.push(details);
-        console.log(this.hotelDetails);
-      },
-      
-      error => {
-        console.error('Error fetching hotel details:', error);
-      }
-    );
-  });
-}
+    if (this.hotelSelections.isChecked) {
+      this._hotelService.getHotelById(this.hotelSelections.hotelId).subscribe(
+        (details: any) => {
+          this.hotelDetails = details;
+          console.log(this.hotelDetails); 
+        },
+        error => {
+          console.error('Error fetching hotel details:', error);
+        }
+      );
+    } 
+  }
+  
 
 
   bookPackage(){
@@ -127,30 +128,41 @@ export class PkgBookingComponent {
     const checkInDate = this.userFormGroup.value.checkInDate 
     ? new Date(this.userFormGroup.value.checkInDate)
     : new Date();
-
     checkInDate.setDate(checkInDate.getDate() + 1);
-
     const formattedCheckInDate = checkInDate.toISOString().split('T')[0];
+    console.log(formattedCheckInDate);
+
+    const packageDuration = this.bookingDetails.packageDuration; // Assuming packageDuration is "3 nights/4days"
+    const numberOfNights = parseInt(packageDuration.split(' ')[0]);
+    const checkOutDate = new Date(checkInDate.getTime());
+    checkOutDate.setDate(checkOutDate.getDate() + numberOfNights);
+    const formattedCheckOutDate = checkOutDate.toISOString().split('T')[0];
+    console.log("Check-out Date:", formattedCheckOutDate);
+    console.log(this.bookingDetails.pckgId);
+    console.log(this.hotelDetails.hotelId);
 
     const formData = {
-      userForm: {
+      
         userName: this.userFormGroup.value.userName,
-        adults: this.userFormGroup.value.adults,
-        child: this.userFormGroup.value.child,
+        packageId:this.bookingDetails.pckgId,
+        NoOfAdults: this.userFormGroup.value.adults,
+        NoOfChild: this.userFormGroup.value.child,
         checkInDate: formattedCheckInDate,
-      },
-      roomTypes: roomTypes,
-      noOfRooms: noOfRooms,
-      hotelId: this.hotelId 
+        checkOutDate: formattedCheckOutDate,
+      
+      roomIds: roomTypes,
+      NoOfRooms: noOfRooms,
+      hotelId: this.hotelSelections.hotelId 
     };
 
+    console.log(formData);
     this._bookingTableService.addBookingTable(formData).subscribe({
 
       next: (val: any) => {
         const bookingId = val.bookingId;
-        this._coreService.openSnackBar('Hotel booked successfully');
+        this._coreService.openSnackBar('Package booked successfully');
         
-        // this.priceCalculation(bookingId)
+        this.priceCalculation(bookingId)
       },
       error: (err: any) => {
         console.error(err);
@@ -159,22 +171,30 @@ export class PkgBookingComponent {
   }
 
     priceCalculation(bookingId:number) {
-      let totalPrice = 0;
-  
-      // Iterate through each room detail
-      this.roomDetails.forEach(roomDetail => {
-        // Calculate the date difference
-        const checkInDate = new Date(this.userFormGroup.get('checkInDate')?.value);
-        // const dateDifference = ((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24))+1; // Difference in days
-        // console.log(dateDifference);
-        
-        // Calculate the price for the current room
-        const roomPrice = roomDetail.pricePerDay;
-        const noRooms = roomDetail.noRooms;
-        // const roomTotalPrice = roomPrice * noRooms * dateDifference;
-       
-        // Add the current room's total price to the grand total
-        // totalPrice += roomTotalPrice;
-      });
-    }
+    let totalPrice = 0;
+
+    // Iterate through each room detail
+    const packageDuration = this.bookingDetails.packageDuration; // Assuming packageDuration is "3 nights/4days"
+    const numberOfNights = parseInt(packageDuration.split(' ')[0]); // Extract "3" and convert to integer
+
+    // Iterate through each room detail
+    this.roomDetails.forEach(roomDetail => {
+
+      const dateDifference = numberOfNights; // Use the extracted number of nights
+
+      // Calculate the price for the current room
+      const roomPrice = roomDetail.pricePerDay;
+      const noRooms = roomDetail.noRooms;
+      const roomTotalPrice = roomPrice * noRooms * dateDifference;
+
+      // Add the current room's total price to the grand total
+      totalPrice += roomTotalPrice;
+    });
+    totalPrice += this.bookingDetails.price
+
+    // Update the total price in the form control
+    this.paymentFormGroup.get('amount')?.setValue(totalPrice);
+   
+    this._bookingTableService.updatePriceByBookingId(bookingId,totalPrice).subscribe();
+  }
 }

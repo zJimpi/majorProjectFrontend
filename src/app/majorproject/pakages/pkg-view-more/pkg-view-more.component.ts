@@ -22,7 +22,7 @@ export class PkgViewMoreComponent {
   filteredHotels: any[] = [];
 
   roomSelections: { roomId: number, noRooms: number }[] = [];
-  hotelSelections: { hotelId: number, isChecked: boolean }[] = [];
+  hotelSelections: { hotelId: number, isChecked: boolean } = { hotelId: 0, isChecked: false };
 
   constructor(private _activityService:AddActivityService,
     private _packageService:AddPkgService,
@@ -131,22 +131,12 @@ export class PkgViewMoreComponent {
 
     addHotelSelection(selection: { hotelId: number; isChecked: boolean; }) {
       if (selection.isChecked) {
-        // If checkbox is checked, add hotel selection
-        const existingSelectionIndex = this.hotelSelections.findIndex(s => s.hotelId === selection.hotelId);
-        if (existingSelectionIndex === -1) {
-          // If hotel selection does not exist, add it
-          this.hotelSelections.push({ hotelId: selection.hotelId, isChecked: true });
-        }
-        // If hotel selection already exists and is checked, do nothing
+        // If checkbox is checked, set hotel selection
+        this.hotelSelections = { hotelId: selection.hotelId, isChecked: true };
       } else {
-        // If checkbox is unchecked, remove hotel selection
-        const existingSelectionIndex = this.hotelSelections.findIndex(s => s.hotelId === selection.hotelId);
-        if (existingSelectionIndex !== -1) {
-          // Remove hotel selection
-          this.hotelSelections.splice(existingSelectionIndex, 1);
-        }
-        // If hotel selection does not exist and is unchecked, do nothing
+        // If checkbox is unchecked, clear hotel selection
+        this.hotelSelections = { hotelId: 0, isChecked: false }; // Reset to default values
       }
-    }
+    }    
     
 }
