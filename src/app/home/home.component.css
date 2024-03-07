@@ -67,19 +67,19 @@
 /* =================image section ============================*/
 
 .popular__img1{
-    background-image: url('assets/kashmir.jpg');
+    background-image: url('assets/pkg-img.jpg');
     background-size: cover;
     background-position: center;
     height: 20rem;
 }
 .popular__img2{
-    background-image: url('assets/tajmahal.jpg');
+    background-image: url('assets/hotel-imgOrg.jpg');
     background-size: cover;
     background-position: center;
     height: 20rem;
 }
 .popular__img3{
-    background-image: url('assets/rajasthan.jpg');
+    background-image: url('assets/destination-img.jpg');
     background-size: cover;
     background-position: center;
     height: 20rem;
@@ -108,7 +108,7 @@
     width: 100%;
     height: 460px;
     background-color: aqua;
-    background-image: url('assets/forest.jpg');
+    background-image: url('assets/ride.png');
     background-size: cover;
     background-position-y: 50%;
 }
@@ -123,9 +123,14 @@
 }
 .des__title-box{
     background-color: #076B83ff ;
-    height: 15rem;
+    height: 13rem;
+    width: 47%;
     border-radius: 1rem;
-    padding: 3%;
+    margin: auto;
+    
+}
+.des__title-box p{
+    color: white;
 }
 .des__title-box:hover{
     transform: scale(1.05);
@@ -137,46 +142,22 @@
 .btn-bd-primary{
     --bs-btn-color: #FCEFE5ff;
     --bs-btn-bg: #703333ff;
-    --bs-btn-hover-bg:#FCEFE5ff;
+    --bs-btn-hover-bg:#f7c8a4;
 
 }
-/* ================booking======================*/
-.booking{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 0px 30px 0px;
-}
-.book__cards{
-    margin-bottom: 12%;
-}
-
-/* ============img booking section================= */
-.book_hotel-img{
-    background-image: url('assets/hotel-book-img.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 20rem;
-}
-.book_ride-img{
-    background-image: url('assets/ride-book-img.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 20rem;
-}
-.bolg-img{
-    background-image: url('assets/blog-img.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 20rem;
-}
-
 .card-footer{
-border: none;
-text-align: center;
-background: none;
-padding-bottom: 10px;
+    border: none;
+    text-align: center;
+    background: none;
+    padding-bottom: 10px;
+    }
+
+/*================== review ================== */
+
+.review h1{
+    padding: 20px 0px;
 }
+
 /*================ responsive======================= */
 /* text will be 90px from screen size 0-767 */
 @media (max-width:767px) {

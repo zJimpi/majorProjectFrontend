@@ -28,7 +28,7 @@ export class HotelBookingComponent implements OnInit{
 
   hotelId!:number
   bookingDetails:any
-
+  formData:any
   roomSelections:any[]=[]
   roomDetails: any[] = [];
 
@@ -116,7 +116,7 @@ export class HotelBookingComponent implements OnInit{
     const formattedCheckInDate = checkInDate.toISOString().split('T')[0];
     const formattedCheckOutDate = checkOutDate.toISOString().split('T')[0];
     
-    const formData = {
+     this.formData = {
       
         userName: this.userFormGroup.value.userName,
         adults: this.userFormGroup.value.adults,
@@ -128,14 +128,12 @@ export class HotelBookingComponent implements OnInit{
       noOfRooms: noOfRooms,
       hotelId: this.hotelId 
     };
-    console.log(formData);
+    console.log(this.formData);
     
-    this._booking.addBookingTable(formData).subscribe({
+    this._booking.addBookingTable(this.formData).subscribe({
             
       next: (val: any) => {
         const bookingId = val.bookingId;
-        this._coreService.openSnackBar('Hotel booked successfully');
-        
         this.priceCalculation(bookingId)
       },
       error: (err: any) => {
@@ -168,6 +166,12 @@ export class HotelBookingComponent implements OnInit{
     this.paymentFormGroup.get('amount')?.setValue(totalPrice);
    
     this._booking.updatePriceByBookingId(bookingId,totalPrice).subscribe();
+  }
+  //tikit
+  genrateTicket(){
+  
+   this._coreService.openSnackBarWithConfirmation("You can view your booking details in user dashboard");
+   
   }
 }
 
