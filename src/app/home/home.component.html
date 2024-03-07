@@ -13,7 +13,7 @@
 
 <div #popular class="popular" id="popular">
     <div class="container">
-        <div class="row"> <h1 class="popular__title">Popular Packages This Season</h1></div>
+        <div class="row"> <h1 class="popular__title">Hassle Free Bookings</h1></div>
         <div class="row">
             <div class="img__card">
                 <!-- enter cards -->
@@ -23,18 +23,24 @@
                     <div class="card mb-3 col-md-3">
                         <div class="card-img-top popular__img2"></div>
                         <div class="card-body">
-                          <h5 class="card-title">Taj Mahal</h5>
-                          <h6 class="location-text"><i class="bi bi-geo-alt-fill"></i> Agra, India</h6>
-                          <p class="card-text">Standing majestically on the banks of River Yamuna. 
-                            Taj Mahal is famous for own beauty and one of the wonders 
-                            of the world.</p>
+                          <h5 class="card-title">Book Hotels</h5>
+                          
+                          <p class="card-text">Experience comfort and luxury, book your stay today and make memories that last a lifetime!</p>
+
+
                           <div class="stars">
+                            <p>Hotel Booking Experience By Our User</p>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star star__color"></i>
                         </div>
+
+                        </div>
+                        <div class="card-footer">
+                            
+                            <div class="col"><button  type="button" (click)="openHotelViewpage()" class="btn btn-bd-primary">Book Hotels</button></div>
                         </div>
                     </div>
 
@@ -42,18 +48,22 @@
                     <div class="card mb-3 col-md-3"> 
                         <div class="card-img-top popular__img1"></div>
                         <div class="card-body">
-                          <h5 class="card-title">Floating Market, Dal Lake</h5>
-                          <h6 class="location-text"><i class="bi bi-geo-alt-fill"></i> Srinagar,Jammu and Kashmir</h6>
-                          <p class="card-text">The Floating Vegetable Market 
-                            is a unique site to savour in Srinagar, set against the beautiful backdrop, 
-                            marks it as a photographer's heaven.</p>
+                          <h5 class="card-title">Book Packages</h5>
+                          
+                          <p class="card-text">Unlock unforgettable adventures with our curated tour packages – 
+                            book your dream getaway today!</p>
                           <div class="stars">
+                            <p>Package Booking Experience By Our User</p>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star star__color"></i>
                         </div>
+                        </div>
+                        <div class="card-footer">
+                            
+                            <div class="col"><button  type="button" (click)="openpkgViewpage()" class="btn btn-bd-primary">Book Packages</button></div>
                         </div>
                     </div>
     
@@ -62,29 +72,27 @@
                     <div class="card mb-3 col-md-3">
                         <div class="card-img-top popular__img3"></div>
                         <div class="card-body">
-                          <h5 class="card-title">Hawa Mahal</h5>
-                          <h6 class="location-text"><i class="bi bi-geo-alt-fill"></i> Jaipur, India</h6>
-                          <p class="card-text">The exquisite pink and red sandstone 'mahal' 
-                            stands out for its striking architecture, 
-                            and the beautiful 'jhaali' works on its 953 windows.</p>
+                          <h5 class="card-title">Explore Destinations</h5>
+                          
+                          <p class="card-text">Embark on a journey of discovery and explore captivating and adventurous destinations with us.</p>
                           <div class="stars">
+                            <p>Destinations Experience By Our User</p>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
                             <i class="bi bi-star-fill star__color"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill star__color"></i>
+                            <i class="bi bi-star-half star__color"></i>
                         </div>
+                        </div>
+                        <div class="card-footer">
+                            
+                            <div class="col"><button  type="button" (click)="navigateToDestination()" class="btn btn-bd-primary">Explore Destinations</button></div>
                         </div>
                     </div>
                    
 
                 </div>
-                
-                <div class="row">
-                    <button type="button" (click)="openpkgViewpage()" class="btn btn-bd-primary">View More Pakages</button>
-                </div>
-                  
-                
+   
             </div>
             
         </div>
@@ -100,64 +108,20 @@
     <div class="container">
         <div class="row row-cols-1">
             <div class="des__title-box">
-            <div class="col"><h1 class="destination__title">Discover Dream Destination</h1></div>
-            <div class="col"><button (click)="navigateToDestination()" type="button" class="btn btn-bd-primary">Let's Explore</button></div>
+            <div class="col"><h1 class="destination__title">Ride & Drive</h1></div>
+            <p>Hit the road in style with our hassle-free car and bike rentals – adventure awaits!</p>
+            <div class="col"><button (click)="navigateToDestination()" type="button" class="btn btn-bd-primary">Book Rentals</button></div>
             </div>
         </div>
     </div>
 
 </div>
 
-<div class="booking">
+<div class="review">
     <div class="container">
-        <div class="row"> <h1 class="popular__title">Book Your Stays & Rides</h1></div>
+        <div class="row"> <h1 class="popular__title">Review and Comments</h1></div>
         <div class="row">
-            <div class="img__card">
-                <!-- enter cards -->
-                <div class="row">
-                    <div class="card mb-3 col-md-3">
-                        
-                        <div class="card-img-top book_hotel-img"></div>
-                        <div class="card-body">
-                          <h5 class="card-title">Book Hotels</h5>
-                          <p class="card-text">Experience comfort and luxury, book your stay today and make memories that last a lifetime!</p>
-                          
-                        </div>
-                        <div class="card-footer">
-                            
-                            <div class="col"><button  type="button" (click)="openHotelViewpage()" class="btn btn-bd-primary">Book Hotels</button></div>
-                        </div>
-                    </div>
-    
-                    
-                    <div class="card mb-3 col-md-3">
-                        <div class="card-img-top book_ride-img"></div>
-                        <div class="card-body">
-                          <h5 class="card-title">Book Rides</h5>
-                          <p class="card-text">Ride in style, book your journey with a smile!</p>
-                          
-                        </div>
-                        <div class="card-footer">
-                            <div class="col"><button  type="button" class="btn btn-bd-primary">Book Rides</button></div>
-                        </div>
-                    </div>
-    
-                    <div class="card mb-3 col-md-3">
-                        <div class="card-img-top bolg-img"></div>
-                        <div class="card-body">
-                          <h5 class="card-title">Blog by travelers</h5>
-                          <p class="card-text">Explore, Engage, and Expand Your World - Dive into our Blog Today!</p>
-                          
-                        </div>
-                        <div class="card-footer">
-                            <div class="col"><button  type="button" class="btn btn-bd-primary">Blog Post</button></div>
-                        </div>
-                    </div>
 
-
-                </div>
-
-            </div>
         </div>
     </div>
 
