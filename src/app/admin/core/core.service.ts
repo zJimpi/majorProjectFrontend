@@ -19,4 +19,19 @@ export class CoreService {
       verticalPosition: 'top',
     });
   }
+    // Open a snackbar and hold it until the user clicks the "OK" button
+    openSnackBarWithConfirmation(message: string, action: string = 'ok'): void {
+  
+      // Open the snackbar with the formatted message
+      const snackBarRef = this._snackBar.open(message, action, {
+        verticalPosition: 'top',
+        duration: undefined, // Hold until user action
+      });
+  
+      // Attach a callback to the afterDismissed event to perform actions after the snackbar is dismissed
+      snackBarRef.afterDismissed().subscribe(() => {
+        // Do something after the snackbar is dismissed
+        console.log('Snackbar dismissed');
+      });
+    }
 }
