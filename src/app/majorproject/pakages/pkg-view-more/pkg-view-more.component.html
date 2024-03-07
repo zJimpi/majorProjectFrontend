@@ -1,7 +1,7 @@
 <div class="hero" *ngIf="package">
   <img src="assets/pkg_img/Andaman.jpeg" alt="Andaman">
-  <h1 class="hero-title">Andaman & Nicobar Island</h1>
-  <p class="hero-subtitle">"Discover the Uncharted Beauty of Andaman & Nicobar Islands"</p>
+  <h1 class="hero-title">{{package.location}}</h1>
+  <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
 </div>
 <br>
 <button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn">Book Now</button>
@@ -20,6 +20,9 @@
 <div class="conatiner">
   <table>
     <tr *ngFor="let hotel of filteredHotels">
+      <td>
+        <input type="checkbox" #hotelCheckbox (change)="toggleHotelInput(hotelCheckbox.checked, hotel.hotelId)">
+      </td>
       <td>
         <img [src]="'assets/hotel_image/Enjoy.jpeg'" alt="Hotel Image">
         <p>{{hotel.hotelName}}</p>

@@ -22,6 +22,7 @@ export class PkgViewMoreComponent {
   filteredHotels: any[] = [];
 
   roomSelections: { roomId: number, noRooms: number }[] = [];
+  hotelSelections: { hotelId: number, isChecked: boolean }[] = [];
 
   constructor(private _activityService:AddActivityService,
     private _packageService:AddPkgService,
@@ -84,7 +85,7 @@ export class PkgViewMoreComponent {
     bookPackage(){
       this._packageService.getPackageById(this.packageId).subscribe({
         next:(val:any)=>{
-          this._router.navigate(['hotelBooking/',this.hotelId],{ state: { roomSelections: this.roomSelections } });
+          this._router.navigate(['packageBooking/',this.packageId],{ state: { roomSelections: this.roomSelections, hotelSelections: this.hotelSelections } });
         },error:console.log,
       });
     }
@@ -96,6 +97,14 @@ export class PkgViewMoreComponent {
       } else {
         // Checkbox is unchecked, call addRoomSelection with guests as 0 to remove room selection
         this.addRoomSelection(roomId, 0, false);
+      }
+    }
+
+    toggleHotelInput(checked: boolean, hotelId: number) {
+      if(checked) {
+        this.addHotelSelection({ hotelId, isChecked: true });
+      } else {
+        this.addHotelSelection({ hotelId, isChecked: false });
       }
     }
 
@@ -117,6 +126,26 @@ export class PkgViewMoreComponent {
           // Remove room selection
           this.roomSelections.splice(existingSelectionIndex, 1);
         }
+      }
+    }
+
+    addHotelSelection(selection: { hotelId: number; isChecked: boolean; }) {
+      if (selection.isChecked) {
+        // If checkbox is checked, add hotel selection
+        const existingSelectionIndex = this.hotelSelections.findIndex(s => s.hotelId === selection.hotelId);
+        if (existingSelectionIndex === -1) {
+          // If hotel selection does not exist, add it
+          this.hotelSelections.push({ hotelId: selection.hotelId, isChecked: true });
+        }
+        // If hotel selection already exists and is checked, do nothing
+      } else {
+        // If checkbox is unchecked, remove hotel selection
+        const existingSelectionIndex = this.hotelSelections.findIndex(s => s.hotelId === selection.hotelId);
+        if (existingSelectionIndex !== -1) {
+          // Remove hotel selection
+          this.hotelSelections.splice(existingSelectionIndex, 1);
+        }
+        // If hotel selection does not exist and is unchecked, do nothing
       }
     }
     

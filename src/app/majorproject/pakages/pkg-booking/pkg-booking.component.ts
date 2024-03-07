@@ -11,6 +11,7 @@ import { BookingTableService } from 'src/app/service/booking-table.service';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
 import { ActivatedRoute } from '@angular/router';
+import { AddPkgService } from 'src/app/admin/service/add-pkg.service';
 
 
 @Component({
@@ -30,13 +31,18 @@ export class PkgBookingComponent {
   paymentFormGroup!:FormGroup
 
   hotelId!:number
+  packageId!:number
   bookingDetails:any
 
-  roomSelections:any[]=[]
+  roomSelections:any[]=[];
+  hotelSelections:any[]=[];
   roomDetails: any[] = [];
+  hotelDetails : any[] = [];
+
 
   constructor(private _formBuilder: FormBuilder,
     private _hotelService:AddHotelService,
+    private _packageService:AddPkgService,
     private _roomService:AddRoomService,
     private _bookingTableService:BookingTableService,
     private route: ActivatedRoute,
@@ -55,18 +61,19 @@ export class PkgBookingComponent {
   }
 
   ngOnInit(): void {
-    this.loadHotelDetails()
+    this.loadPackageDetails()
     this.roomSelections = history.state.roomSelections;
+    this.hotelSelections = history.state.hotelSelections;
     this.fetchRoomDetails()
   }
 
-  loadHotelDetails(){
+  loadPackageDetails(){
       // Get the hotelId from the route params
     this.route.params.subscribe(params => {
-      this.hotelId= +params['hotelId']; // '+' is for converting string to number
+      this.packageId= +params['packageId']; // '+' is for converting string to number
         // Fetch room details by hotelId
-        console.log(this.hotelId);
-      this._hotelService.getHotelById(this.hotelId).subscribe(
+        console.log(this.packageId);
+      this._packageService.getPackageById(this.packageId).subscribe(
         (res: any) => {
           this.bookingDetails=res
           console.log(this.bookingDetails);
@@ -91,6 +98,22 @@ export class PkgBookingComponent {
       );
     });
   }
+
+  fetchHotelDetails() {
+  this.hotelSelections.forEach(hotelSelection => {
+    this._hotelService.getHotelById(hotelSelection.hotelId).subscribe(
+      (details: any) => {
+        this.hotelDetails.push(details);
+        console.log(this.hotelDetails);
+      },
+      
+      error => {
+        console.error('Error fetching hotel details:', error);
+      }
+    );
+  });
+}
+
 
   bookPackage(){
     const roomTypes: number[] = [];

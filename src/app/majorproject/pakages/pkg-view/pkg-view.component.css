@@ -101,10 +101,23 @@
 }
 
 .filter-box{
-  height: 100px;
+  height: 140px;
   width: 100%;
   background-color: #076B83;
   text-align: center;
   color: white;
-  
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+.rounded-input::placeholder {
+  text-align: center;
+
+}
+
+.rounded-input {
+  border-radius: 10px;
+  height : 30px; 
+  width : 1300px;
+  border: none;
+}
+

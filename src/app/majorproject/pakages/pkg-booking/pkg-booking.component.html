@@ -51,10 +51,20 @@
           <ng-template matStepLabel>User Details</ng-template>
             <div class="row">
               <div class="col">
-                <h5>Hotel Details</h5>
-                <p>Hotel Name: {{ bookingDetails?.hotelName }}</p>
-                <p>Address: {{ bookingDetails?.address }}</p>
-                <p>Number: {{ bookingDetails?.number }}</p>
+                <h5>Package Details</h5>
+                <p>Package Name: {{ bookingDetails?.pckgName }}</p>
+                <p>Location: {{ bookingDetails?.location }}</p>
+                <p>Duration: {{ bookingDetails?.packageDuration }}</p>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <h5>Selected Hotel Details</h5>
+                <div class="col" *ngFor="let hotelDetail of hotelDetails">               
+                  <p>Hotel Name: {{ hotelDetail.hotelName }}</p>
+                  <p>Address: {{ hotelDetail.address }}</p> 
+                  <p>Number: {{ hotelDetail.number }}</p>
+                </div>
+                </div>
               </div>
               <div class="col">
                 <div class="row">
