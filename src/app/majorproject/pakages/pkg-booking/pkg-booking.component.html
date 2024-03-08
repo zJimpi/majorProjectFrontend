@@ -51,10 +51,16 @@
           <ng-template matStepLabel>User Details</ng-template>
             <div class="row">
               <div class="col">
+                <h5>Package Details</h5>
+                <p>Package Name: {{ bookingDetails?.pckgName }}</p>
+                <p>Location: {{ bookingDetails?.location }}</p>
+                <p>Duration: {{ bookingDetails?.packageDuration }}</p>
+              </div>
+              <div class="col">
                 <h5>Hotel Details</h5>
-                <p>Hotel Name: {{ bookingDetails?.hotelName }}</p>
-                <p>Address: {{ bookingDetails?.address }}</p>
-                <p>Number: {{ bookingDetails?.number }}</p>
+                <p>Hotel Name: {{ hotelDetails?.hotelName }}</p>
+                <p>Location: {{ hotelDetails?.address }}</p>
+                <p>Duration: {{ hotelDetails?.number }}</p>
               </div>
               <div class="col">
                 <div class="row">
@@ -87,15 +93,12 @@
           </mat-form-field>
   
           <mat-form-field appearance="fill">
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date" formControlName="checkInDate">
-            <input matEndDate placeholder="End date" formControlName="checkOutDate">
-            </mat-date-range-input>
-            
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-label>Check-in Date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="checkInDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
+          
   
         
   
@@ -122,7 +125,7 @@
   
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Payment Done</button>
+          <button mat-button (click)="generateTicket()">Payment Done</button>
         </div>
       </form>
       </mat-step>

@@ -42,10 +42,7 @@ export class PkgViewComponent implements OnInit {
       this._packageService.getPackageList().subscribe({
         next:(res:any)=>{
           this.packages = res;
-          this.filteredPackages = [...this.packages];
-          
-          
-          
+          this.filteredPackages = [...this.packages];       
         },error: console.log,
       });
     }

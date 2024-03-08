@@ -1,0 +1,37 @@
+<div class="container car-rental-design-box">
+
+    <form  [formGroup]="carRentalDetailsForm" (ngSubmit)="carRentalDetailsFormSubmit()">
+
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="ex : Goa, Rajasthan" formControlName = "location">
+            <mat-hint style="color: red;" *ngIf = "carRentalDetailsForm.get('location')?.touched && carRentalDetailsForm.get('location')?.errors?.['required']">
+                <small>Location is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Shop Name</mat-label>
+            <input matInput placeholder="ex: Raju Car Rentals" formControlName="shopName">
+            <mat-hint style = "color: red;" *ngIf="carRentalDetailsForm.get('shopName')?.touched && carRentalDetailsForm.get('shopName')?.errors?.['required']">
+                <small>Shop Name is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Average Price</mat-label>
+            <input matInput placeholder="ex: 1000/day" formControlName="averagePrice">
+            <mat-hint style = "color: red;" *ngIf="carRentalDetailsForm.get('averagePrice')?.touched && carRentalDetailsForm.get('averagePrice')?.errors?.['required']">
+                <small>Average Price is required.</small>
+            </mat-hint>
+        </mat-form-field>
+        
+        <div mat-actions class="action"> 
+            <button mat-raised-button color="primary" type="submit" [disabled]="!carRentalDetailsForm.valid">{{data ? 'update':'save'}}</button>
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        </div>
+
+    </form>
+</div>

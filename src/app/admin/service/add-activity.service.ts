@@ -23,7 +23,6 @@ export class AddActivityService {
   
   updateActivity(id: number, data: any): Observable<any> {
     return this._http.put(`http://localhost:8086/activity/updateActivityById/${id}`, data);
-    // return this._http.put(`http://localhost:3000/activity/${id}`, data);
   }
 
   

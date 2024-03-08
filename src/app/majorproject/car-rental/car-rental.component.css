@@ -1,0 +1,50 @@
+.hero{
+    height:260px;
+    background-color: #076B83ff;
+}
+.hero-content{
+    padding-top :40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero-content h1{
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.hero-content h3 {
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 400;
+    
+}
+.location-details{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 1500px;
+    background-color: azure;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+img{
+    height:100px;
+    width : 100px;
+}
+.col-md-4{
+    padding : 20px;
+}
+.filter-box input{
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    height : 35px;
+  }
+.filter-box{
+    padding-top: 20px;
+}
+.filter-box ::placeholder{
+    text-align: center;
+    font-size: 1.2rem;
+}

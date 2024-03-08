@@ -1,0 +1,117 @@
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Car hire for any kind of trip</h1>
+            <h3>Great deals at great prices, from the biggest car hire companies</h3>
+        </div>
+    </div>
+</div>
+<div class="container things-to-know text-center">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-star icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>Thrifty</h3>
+                    <p>The most booked company over the past month</p>
+                </div>
+            </div>
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-cash icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>1000 per day</h3>
+                    <p>Average daily price for premium car</p>
+                </div>
+            </div>
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-clock icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>Best time to book to pay less</h3>
+                    <p>4 days before the trip</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-car-front-fill icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>Premium Car</h3>
+                    <p>The most popular to book</p>
+                </div>
+            </div>
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-calendar2-week icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>Typical rental term</h3>
+                    <p>3 days</p>
+                </div>
+            </div>
+            <div class="row point">
+                <div class="col icon-container">
+                    <i class="bi bi-speedometer icon-large"></i>
+                </div>
+                <div class="col content-container">
+                    <h3>Mileage</h3>
+                    <p>Unlimited</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="car-booking justify-content-center">
+    <h1>Fill the form to book car</h1>
+</div>
+<div class="container form">
+    <div [formGroup]="carBookingFormGroup">
+      <input id="username" type="text" placeholder="Username" formControlName="username">
+      <input id="pickUpDate" type="date" formControlName="pickUpDate">
+      <input id="dropOffDate" type="date" formControlName="dropOffDate">
+      <select id="acOrNonAc" formControlName="acOrNonAc">
+        <option value="" disabled selected hidden>Select AC/Non-AC</option>
+        <option *ngFor="let ac of acOrNonAc" [value]="ac">{{ ac }}</option>
+      </select>
+        
+      <select id="carType" formControlName="carType">
+        <option value="" disabled selected hidden>Select Car Type</option>
+        <option *ngFor="let type of carType" [value]="type">{{ type }}</option>
+      </select>
+  
+      <button type="button" (click)="bookCar()">Book</button>
+    </div>
+</div>
+
+<div class="conditions">
+ 
+  <div class="heading">
+    <p >Know Before You Go</p>
+  </div>
+ 
+  <div class="points">
+    <ul>
+      <li>Users can book only one car at a time.</li>
+      <li>A valid driver's license or government-issued identification proof is required at the time of car borrowing.</li>
+      <li>If a customer opts for a four-wheeler, they will be presented with options to choose from, and an advance payment is required based on the chosen car model.</li>
+      <li>The car will be provided with a full tank of fuel at the time of renting. Users are responsible for refueling the car to the same level upon return; otherwise, charges will apply.</li>
+      <li>Drivers must present a valid driver's license for verification before operating the vehicle.</li>
+      <li>Users are responsible for any damage caused to the car during the rental period. They must report accidents immediately and adhere to the rental agreement's procedures.</li>
+      <li>Insurance coverage may be available and should be discussed with the rental service.</li>
+      <li>Prohibited activities include illegal use, racing, towing, off-road driving, or any activity that may damage the vehicle or violate the law.</li>
+      <li>Late returns may incur additional charges as per the rental service's policy.</li>
+      <li>Cancellation charges may apply based on the timing of the cancellation and the booking agreement.</li>
+      <li>The rental service is responsible for maintaining the vehicle in good working condition. Users should report any issues promptly.</li>
+      <li>Users agree to indemnify and hold harmless the rental service from any claims, damages, or liabilities arising from their use of the rented vehicle.</li>
+    </ul>
+
+  </div>
+</div>
