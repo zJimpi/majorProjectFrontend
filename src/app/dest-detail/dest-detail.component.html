@@ -31,3 +31,32 @@
 <div class="review-box">
   <h2>Reviews By user</h2>
 </div>
+
+<div class="container review-form">
+  <div class="row"><h3>Share Your Thoughts</h3></div>
+  <div class="row">
+      <div class="col-1 icon">
+          <i class="bi bi-person-circle big-icon"></i>
+      </div>
+      <div class="col-11">
+          <div class="row">
+              <h5>username</h5>
+          </div>
+          <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
+          
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Leave a comment</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
+                  
+          </form>
+      </div>
+  </div>
+</div>
+
+<div class="container show-review">
+  
+  <app-review [destAccesed]="true" [dLocation]="destDetail.imageLocation"></app-review>
+</div>

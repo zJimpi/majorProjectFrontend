@@ -388,3 +388,23 @@ tr:nth-child(even) {
 .hotelBook-btn{
   width: 100%;
 }
+
+/*================ review csss ============= */
+.big-icon {
+   
+  font-size: 4em; 
+  color: rgb(255, 166, 115); 
+  padding-left: 20px;
+}
+.review-form{
+  /* background-color: antiquewhite; */
+  border-radius: 0.7rem;
+  padding: 20px;
+}
+.review-form h3{
+  text-align: center;
+  padding: 20px 10px;
+}
+.show-review{
+  margin: 20px auto;
+}

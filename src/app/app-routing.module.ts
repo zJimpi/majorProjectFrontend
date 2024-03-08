@@ -30,6 +30,7 @@ import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.c
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 import { DestDetailComponent } from './dest-detail/dest-detail.component';
+import { ReviewComponent } from './majorproject/review/review/review.component';
 
 
 
@@ -78,6 +79,8 @@ const routes: Routes = [
   { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
   { path:'packageBooking/:packageId', component:PkgBookingComponent},
 
+  //review
+  { path:'review',component:ReviewComponent}
 
   
 
