@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoreService } from 'src/app/admin/core/core.service';
 import { AddActivityService } from 'src/app/admin/service/add-activity.service';
-import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddPkgService } from 'src/app/admin/service/add-pkg.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
   selector: 'app-pkg-view-more',
@@ -24,14 +25,20 @@ export class PkgViewMoreComponent {
   roomSelections: { roomId: number, noRooms: number }[] = [];
   hotelSelections: { hotelId: number, isChecked: boolean } = { hotelId: 0, isChecked: false };
 
+  reviewForm:FormGroup
   constructor(private _activityService:AddActivityService,
     private _packageService:AddPkgService,
     private _roomService:AddRoomService,
-    private _hotelService:AddHotelService,
+    private _fb:FormBuilder,
     private _route: ActivatedRoute,
     private _router:Router,
-    private _coreService:CoreService,
-    private _dialog: MatDialog){}
+    private _reviewService:ReviewService
+   
+   ){
+    this.reviewForm =this._fb.group({
+      comment:''
+    });
+   }
 
     ngOnInit(): void {
       this.viewActivityDetails();
@@ -139,4 +146,21 @@ export class PkgViewMoreComponent {
       }
     }    
     
+    addReview(){
+      const reviewFormData={
+        username:"username(change)",
+        location:this.package.location,
+        packageName:this.package.pckgName,
+        comment:this.reviewForm.value.comment,
+      }
+     this._reviewService.addReview(reviewFormData).subscribe({
+      next: (val: any) => {
+       console.log("comment added");
+       this.reviewForm.reset();
+      },
+      error: (err: any) => {
+        console.error(err);
+      },
+     });
+    }
 }

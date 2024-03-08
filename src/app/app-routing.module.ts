@@ -30,9 +30,13 @@ import { HotelViewComponent } from './majorproject/hotel/hotel-view/hotel-view.c
 import { HotelBookingComponent } from './majorproject/hotel/hotel-booking/hotel-booking.component';
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 import { DestDetailComponent } from './dest-detail/dest-detail.component';
+
+import { ReviewComponent } from './majorproject/review/review/review.component';
+
 import { ViewCarTableComponent } from './admin/majorProject/view-car-table/view-car-table.component';
 import { CarRentalComponent } from './majorproject/car-rental/car-rental.component';
 import { CarBookingComponent } from './majorproject/car-booking/car-booking.component';
+
 
 
 
@@ -84,6 +88,8 @@ const routes: Routes = [
   { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
   { path:'packageBooking/:packageId', component:PkgBookingComponent},
 
+  //review
+  { path:'review',component:ReviewComponent}
 
   
 

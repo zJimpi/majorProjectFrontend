@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
   selector: 'app-hotel-view-more',
@@ -30,7 +31,7 @@ export class HotelViewMoreComponent {
   ];
 
   roomSelections: { roomId: number, noRooms: number }[] = [];
-
+  reviewForm:FormGroup
   dateForm:FormGroup
   dataSource!: MatTableDataSource<any>;
 
@@ -38,17 +39,24 @@ constructor(private _roomService:AddRoomService,
   private route: ActivatedRoute,
   private _router:Router,
   private _hotelService:AddHotelService,
-  private _fb:FormBuilder
+  private _fb:FormBuilder,
+  private _reviewService:ReviewService
   ){
     this.dateForm = this._fb.group({
       checkInDate:['',Validators.required],
       checkOutDate:['',Validators.required]
+    });
+
+    this.reviewForm =this._fb.group({
+      comment:''
     });
   }
 
   ngOnInit(): void {
     this.getHotelById()
     this.loadRoomDetails();
+   
+    
   }
 
   loadRoomDetails(){
@@ -77,6 +85,9 @@ constructor(private _roomService:AddRoomService,
     this._hotelService.getHotelById(this.hotelId).subscribe({
       next:(res:any)=>{
         this.hotel = res;
+        console.log(this.hotel);
+        
+        
         
       },error: console.log,
     }); 
@@ -94,18 +105,6 @@ constructor(private _roomService:AddRoomService,
       // this._router.navigate(['/hotelBooking'])
     }
   
-
-
-  // checkAvailibilityByHotelIdandRoomId(roomId:number){
-  //   this.availableStatus = true
-  //   console.log(this.availableStatus)
-  //   console.log(roomId);
-  //   console.log(this.dateForm.value);
-    
-    
-  // }
-
-
 
   toggleGuestInput(checked: boolean, roomId: number) {
     if (checked) {
@@ -138,5 +137,23 @@ constructor(private _roomService:AddRoomService,
     }
   }
   
+  addReview(){
+    const reviewFormData={
+      username:"username(change)",
+      location:this.hotel.location,
+      hotelName:this.hotel.hotelName,
+      comment:this.reviewForm.value.comment,
+    }
+   this._reviewService.addReview(reviewFormData).subscribe({
+    next: (val: any) => {
+     console.log("comment added");
+     this.reviewForm.reset();
+    },
+    error: (err: any) => {
+      console.error(err);
+    },
+   });
+  }
+ 
 
 }
