@@ -48,7 +48,7 @@ export class PkgBookingComponent {
     private route: ActivatedRoute,
     private _coreService:CoreService,) {
 
-    this.userFormGroup= _formBuilder.group({
+    this.userFormGroup = _formBuilder.group({
       userName:['',Validators.required],
       adults:['',Validators.required],
       child:['',Validators.required],
@@ -76,7 +76,7 @@ export class PkgBookingComponent {
         console.log(this.packageId);
       this._packageService.getPackageById(this.packageId).subscribe(
         (res: any) => {
-          this.bookingDetails=res
+          this.bookingDetails=res;
           console.log(this.bookingDetails);
           console.log(this.roomSelections);  
         },
@@ -132,7 +132,7 @@ export class PkgBookingComponent {
     const formattedCheckInDate = checkInDate.toISOString().split('T')[0];
     console.log(formattedCheckInDate);
 
-    const packageDuration = this.bookingDetails.packageDuration; // Assuming packageDuration is "3 nights/4days"
+    const packageDuration = this.bookingDetails.packageDuration; 
     const numberOfNights = parseInt(packageDuration.split(' ')[0]);
     const checkOutDate = new Date(checkInDate.getTime());
     checkOutDate.setDate(checkOutDate.getDate() + numberOfNights);
@@ -160,9 +160,7 @@ export class PkgBookingComponent {
 
       next: (val: any) => {
         const bookingId = val.bookingId;
-        this._coreService.openSnackBar('Package booked successfully');
-        
-        this.priceCalculation(bookingId)
+        this.priceCalculation(bookingId);
       },
       error: (err: any) => {
         console.error(err);
@@ -174,20 +172,18 @@ export class PkgBookingComponent {
     let totalPrice = 0;
 
     // Iterate through each room detail
-    const packageDuration = this.bookingDetails.packageDuration; // Assuming packageDuration is "3 nights/4days"
-    const numberOfNights = parseInt(packageDuration.split(' ')[0]); // Extract "3" and convert to integer
+    const packageDuration = this.bookingDetails.packageDuration; 
+    const numberOfNights = parseInt(packageDuration.split(' ')[0]); 
 
     // Iterate through each room detail
     this.roomDetails.forEach(roomDetail => {
 
-      const dateDifference = numberOfNights; // Use the extracted number of nights
-
-      // Calculate the price for the current room
+      const dateDifference = numberOfNights; 
       const roomPrice = roomDetail.pricePerDay;
       const noRooms = roomDetail.noRooms;
       const roomTotalPrice = roomPrice * noRooms * dateDifference;
 
-      // Add the current room's total price to the grand total
+      
       totalPrice += roomTotalPrice;
     });
     totalPrice += this.bookingDetails.price
@@ -197,4 +193,10 @@ export class PkgBookingComponent {
    
     this._bookingTableService.updatePriceByBookingId(bookingId,totalPrice).subscribe();
   }
+
+  generateTicket(){
+  
+    this._coreService.openSnackBarWithConfirmation("You can view your booking details in user dashboard");
+    
+   }
 }

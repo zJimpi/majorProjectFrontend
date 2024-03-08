@@ -1,0 +1,93 @@
+.hero{
+    height:220px;
+    background-color: #076B83ff;
+}
+.hero-content{
+    padding-top :40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero-content h1{
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.hero-content h3 {
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 400;
+    
+}
+
+.things-to-know{
+    margin-top: 50px;
+    height:350px;
+    background-color: azure;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-large {
+    font-size: 3rem;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+
+.content-container {
+    text-align: left;
+}
+
+.form{
+    height : 90px;
+    margin-top: 20px;
+}
+.car-booking{
+    margin-top: 30px;
+}
+.container.form {
+    display: flex;
+    gap: 30px; /* Add spacing between form fields */
+  }
+  
+  .container.form input,
+  .container.form select
+   {
+    flex: 1; /* Make form fields flexible to occupy available space */
+    height: 60px; /* Set taller height of form fields */
+    padding: 10px; /* Add padding to form fields */
+    border: 3px solid #076B83ff; /* Add border to form fields */
+    border-radius: 5px; /* Add rounded corners to form fields */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+  }
+  .container.form button{
+    flex: 1; /* Make form fields flexible to occupy available space */
+    height: 60px; /* Set taller height of form fields */
+    padding: 10px; /* Add padding to form fields */
+    border: 3px solid #076B83ff; /* Add border to form fields */
+    border-radius: 5px; /* Add rounded corners to form fields */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+  }
+  .container.form button:hover {
+    background-color: #076B83ff; /* Change button background color on hover */
+    color: #fff; /* Change button text color on hover */
+  }
+  
+  .container.form input[type="date"] {
+    /* Additional styles for date input */
+    appearance: none; /* Remove default appearance */
+  }
+  
+  .container.form input:focus,
+  .container.form select:focus {
+    outline: none; /* Remove focus outline */
+    border-color: #007bff; /* Change border color on focus */
+  }
+  
+  

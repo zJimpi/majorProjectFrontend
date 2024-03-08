@@ -1,0 +1,22 @@
+.car-rental-design-box{
+    background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    height: 380px;
+    padding: 20px 20px;
+    
+
+}
+
+.input-width{
+    width: 100%;
+}
+
+.button_div{
+    padding-top: 50px;
+}
+.action{
+   
+    display: grid; 
+    grid-template-columns: repeat(1, 8fr); 
+    gap: 15px;
+}
+

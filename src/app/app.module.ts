@@ -61,6 +61,10 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DestDetailComponent } from './dest-detail/dest-detail.component';
+import { CarRentalComponent } from './majorproject/car-rental/car-rental.component';
+import { AddCarComponent } from './admin/majorProject/add-car/add-car.component';
+import { ViewCarTableComponent } from './admin/majorProject/view-car-table/view-car-table.component';
+import { CarBookingComponent } from './majorproject/car-booking/car-booking.component';
 
 
 @NgModule({
@@ -93,6 +97,10 @@ import { DestDetailComponent } from './dest-detail/dest-detail.component';
     HotelViewMoreComponent,
     PkgViewMoreComponent,
     DestDetailComponent,
+    CarRentalComponent,
+    AddCarComponent,
+    ViewCarTableComponent,
+    CarBookingComponent,
 
   ],
   imports: [
