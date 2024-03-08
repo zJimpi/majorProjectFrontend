@@ -143,15 +143,15 @@ export class PkgBookingComponent {
 
     const formData = {
       
-        userName: this.userFormGroup.value.userName,
-        packageId:this.bookingDetails.pckgId,
-        NoOfAdults: this.userFormGroup.value.adults,
-        NoOfChild: this.userFormGroup.value.child,
-        checkInDate: formattedCheckInDate,
-        checkOutDate: formattedCheckOutDate,
+      userName: this.userFormGroup.value.userName,
+      packageId:this.bookingDetails.pckgId,
+      adults: this.userFormGroup.value.adults,
+      child: this.userFormGroup.value.child,
+      checkInDate: formattedCheckInDate,
+      checkOutDate: formattedCheckOutDate,
       
       roomIds: roomTypes,
-      NoOfRooms: noOfRooms,
+      noOfRooms: noOfRooms,
       hotelId: this.hotelSelections.hotelId 
     };
 
