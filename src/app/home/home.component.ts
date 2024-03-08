@@ -45,6 +45,10 @@ export class HomeComponent implements AfterViewInit, OnInit{
     this.router.navigate(['/destination']);
   }
 
+  navigateToCarRentals(){
+    window.scrollTo(0, 0);
+    this.router.navigate(['/carRental']);
+  }
   //openpakage page
 
   openpkgViewpage(){
