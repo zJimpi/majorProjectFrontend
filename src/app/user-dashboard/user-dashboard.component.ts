@@ -30,12 +30,11 @@ export class UserDashboardComponent implements OnInit {
   }
 
   logOut(){
-    // Set the properties to false to indicate that the user is no longer logged in.
+
    
     this._loginService.loggedIn = false;
     this._loginService.adminIn = false;
 
-    //  // Navigate to the '/home' route
     this._router.navigate(['/home']);
     console.log(this._loginService.loggedIn)
 
@@ -48,7 +47,6 @@ export class UserDashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (val : any) => {
         if (val) {
-           // Update the  properties in the component based on the values from the LoginServiceService.
           this.adminIn = this._loginService.adminIn;
           this.loggedIn = this._loginService.loggedIn;
           this.user=this._loginService.user_name;

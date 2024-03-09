@@ -73,9 +73,6 @@ export class AddRoomComponent implements OnInit {
             
             next: (val: any) => {
               this._coreService.openSnackBar('Room added successfully');
-              this.onUpload(val.roomId);
-              
-
               //fetching room id
               this._roomService.getRoomById(val.roomId).subscribe({
                 next:(res:any)=>{
@@ -84,7 +81,9 @@ export class AddRoomComponent implements OnInit {
 
                //assign room to hotel
               this.assignRoomToHotel();
+              this.onUpload(val.roomId);
               this._dialogRef.close(true);
+
                 },error:(err:any)=>{
                   this._coreService.openSnackBar('Room assigned to hotel successfully');
                 }

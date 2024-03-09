@@ -37,4 +37,16 @@ export class LoginServiceService {
   checkAdmin(username: string, password: string): Observable<boolean> {
     return this._http.get<boolean>(`http://localhost:8086/user/checkAdmin/${username}/${password}`);
   }
+
+  getPackageBookingsByUsername(username: string): Observable<any> {
+    return this._http.get(`http://localhost:8086/user/getPackageBookingsByUsername/${username}`);
+  }
+
+  getHotelBookingsByUsername(username: string): Observable<any> {
+    return this._http.get(`http://localhost:8086/user/getHotelBookingsByUsername/${username}`);
+  }
+
+  getCarBookingsByUsername(username: string): Observable<any> {
+    return this._http.get(`http://localhost:8086/user/getCarBookingsByUsername/${username}`);
+  }
 }
