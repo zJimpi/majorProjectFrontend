@@ -1,7 +1,9 @@
 <!-- hotel details  -->
 <div class="hero container-fluid">
     <div class="card text-bg-dark ">
-        <div class="card-img" alt="..."></div>
+        <div class="card-img" alt="...">
+            <img [src]="hotel.imageFile" class="hero-img">
+        </div>
         <div class="card-img-overlay" *ngIf="hotel">
           <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
           <h5 class="card-text">{{hotel.address}}</h5>

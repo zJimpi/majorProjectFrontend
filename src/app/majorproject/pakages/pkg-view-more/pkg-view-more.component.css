@@ -408,3 +408,20 @@ tr:nth-child(even) {
 .show-review{
   margin: 20px auto;
 }
+.hero img{
+  
+ object-fit: cover;
+ 
+}
+.conatiner tr td img{
+  height: 200px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}
+.conatiner tr tbody tr td img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}

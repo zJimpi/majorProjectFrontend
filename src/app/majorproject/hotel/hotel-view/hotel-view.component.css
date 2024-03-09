@@ -54,3 +54,8 @@ padding: 10px;
   border-radius: 0.5rem;
   
 }
+.image-resize{
+  height: 100%;
+  width: 100%;
+  
+}
