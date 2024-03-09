@@ -10,12 +10,13 @@
     align-items: center;
 }
 .hero-content h1{
+    margin-top: 15px;
     color: white;
     font-weight: 700;
     font-size: 3rem;
 }
 
-.hero-content h3 {
+.hero-content h3,h4 {
     color: white;
     font-size: 2.6rem;
     font-weight: 400;
@@ -90,4 +91,13 @@
     border-color: #007bff; /* Change border color on focus */
   }
   
-  
+  .hero-bg{
+    width: 100%;
+    height: 67vh;
+    z-index: -1;
+    object-fit: cover;
+    
+  }
+  .things-to-know{
+    color: #fff;
+  }

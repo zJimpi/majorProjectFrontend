@@ -1,8 +1,10 @@
-<div class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Car hire for any kind of trip</h1>
-            <h3>Great deals at great prices, from the biggest car hire companies</h3>
+<div class="hero text-bg-dark" *ngIf="carLocation">
+    <img [src]="carLocation.imageFile" alt="" class="hero-bg">
+    <div class="container card-img-overlay">
+        <div class="hero-content" >
+            <h1>Rent Rides From {{carLocation.shopName}}</h1>
+            <h3>Location:{{carLocation.location}}</h3>
+            <h4>Average price:{{carLocation.averagePrice}}</h4>
         </div>
     </div>
 </div>
@@ -69,7 +71,7 @@
     </div>
 </div>
 
-<div class="car-booking justify-content-center">
+<div class="container car-booking justify-content-center">
     <h1>Fill the form to book car</h1>
 </div>
 <div class="container form">
@@ -91,10 +93,10 @@
     </div>
 </div>
 
-<div class="conditions">
+<div class="container conditions">
  
   <div class="heading">
-    <p >Know Before You Go</p>
+    <h3>Know Before You Go</h3>
   </div>
  
   <div class="points">
