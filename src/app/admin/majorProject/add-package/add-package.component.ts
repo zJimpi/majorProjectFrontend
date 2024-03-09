@@ -4,6 +4,7 @@ import { AddPkgService } from '../../service/add-pkg.service';
 import { CoreService } from '../../core/core.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,12 +16,16 @@ export class AddPackageComponent implements OnInit {
 
   packageForm! : FormGroup;
   formControl! : FormControl;
+
+  selectedFile !: File;
+  message !: string;
   
 
   constructor(private _formBuilder : FormBuilder,
     private _packageService : AddPkgService,
     private _coreService : CoreService,
     private _dialogRef: MatDialogRef<AddPackageComponent>,
+    private _httpClient:HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: any) 
     
     {
@@ -31,6 +36,7 @@ export class AddPackageComponent implements OnInit {
         location : ['',Validators.required],
         price : ['',Validators.required],
         spots : ['',Validators.required],
+        imageFile:'',
       }); 
 
     }
@@ -65,5 +71,29 @@ export class AddPackageComponent implements OnInit {
           });
         }
       }
+    }
+
+    onUpload(){
+
+      const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    this._httpClient.post('http://localhost:8086/image/fileSystem', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this._coreService.openSnackBar('Image added successfully');
+          this._dialogRef.close(true);
+          
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+      }
+      );
+
+    }
+
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+      console.log('Selected File:', this.selectedFile);
     }
 }

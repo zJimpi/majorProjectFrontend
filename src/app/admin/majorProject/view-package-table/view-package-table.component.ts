@@ -24,6 +24,7 @@ export class ViewPackageTableComponent implements OnInit {
     'location',
     'price',
     'spots',
+    'imageFile',
     'activity',
     'action'
   ];

@@ -60,6 +60,12 @@
                 <small>Package Spots are required.</small>
             </mat-hint>
         </mat-form-field>
+
+        <div class="row">
+            <h6>Add image after adding the destination</h6>
+            <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
+            <div class="col"> <button mat-raised-button type="button" color="accent" (click)="onUpload()" value="upload" class="uploadbtn">Upload Image</button></div>
+    </div>
   
         <div mat-actions class="action"> 
             <button mat-raised-button color="primary" type="submit" [disabled]="!packageForm.valid">{{data ? 'update':'save'}}</button>
