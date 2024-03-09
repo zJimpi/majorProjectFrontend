@@ -34,12 +34,16 @@
                 <td mat-cell *matCellDef="let row" class="hide"> {{row.destId}} </td>
                 </ng-container>
                 
+                <!-- make clickble image  -->
                 <!-- image colum -->
                 <ng-container matColumnDef="imageFile">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide">Image File</th>
                     <td mat-cell *matCellDef="let row" class="card-start">
                       <ng-container *ngIf="row.imageFile">
-                          <img [src]="row.imageFile">
+                        <a [routerLink]="['/destinationDetails', row.destId]" class="explore-link">
+                          <img [src]="row.imageFile" alt="Clickable Image">
+                          <span class="explore-text">Explore Pakages and Hotels</span>
+                      </a>
                       </ng-container>
                       <ng-container *ngIf="!row.imageFile">
                           No image added
@@ -56,7 +60,7 @@
                 </ng-container>
         
 
-        
+                
                 <ng-container matColumnDef="imageLocation">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Location </th>
                 <td mat-cell *matCellDef="let row" class="card-box"> <h6>LOCATION: {{row.imageLocation}}</h6></td>

@@ -1,43 +1,55 @@
-<div class="container">
-    <div class="image-container">
-      
+<div class="hero" *ngIf="showHero">
+  <div class="filter-box">
+    <h1> Tailored Packages for Every Vacation</h1>
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterPackages(searchQuery)" placeholder="Search for your dream destination....." class="rounded-input">
+  </div>
+</div>
+
+
+<div class="container"  *ngFor="let package of filteredPackages">
+  <div class="image-container">
+   
+      <img [src]="package.imageFile" class="img-size">
+
+    
+  </div>
+  <div class="text-container">
+    <div class="top-section">
+      <div class="sub-section stacked-section">
+        <!-- First sub-section -->
+        <h2>{{package.pckgName}}</h2>
+        <p>Duration: {{package.packageDuration}}</p>
+        <!-- <p>
+          Spots: 1. Cellular Jail<br />
+          2. Radhanagar Beach<br />
+          3.Neil Island<br />
+           4.Ross Island<br /> 
+           5.Elephant Beach<br /> 
+           6. Baratang Island
+        </p> -->
+        <!-- <p>Package Code: wby2345</p> -->
+      </div>
+      <div class="sub-section">
+        <!-- Second sub-section -->
+        <b>Location</b>: {{package.location}}
+      </div>
+      <div class="sub-section stacked-section">
+        <!-- Third sub-section -->
+        <div class="box">
+          <h4> Starting from <br> ₹ {{package.price}}  </h4>
+          <button class="book-now-button">Book Now</button>
+          <button  (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 
+        </div>
+      </div>
     </div>
-    <div class="text-container">
-      <div class="top-section">
-        <div class="sub-section stacked-section">
-          <!-- First sub-section -->
-          <h2>Andaman & Nicobar Island</h2>
-          <p>Duration: 5 days/6 nights</p>
-          <p>
-            Spots: 1. Cellular Jail<br />
-            2. Radhanagar Beach<br />
-            3.Neil Island<br />
-             4.Ross Island<br /> 
-             5.Elephant Beach<br /> 
-             6. Baratang Island
-          </p>
-          <p>Package Code: wby2345</p>
-        </div>
-        <div class="sub-section">
-          <!-- Second sub-section -->
-          <b>Place/City</b>: Andaman/Nile Island/Port Blair
-        </div>
-        <div class="sub-section stacked-section">
-          <!-- Third sub-section -->
-          <div class="box">
-            <h4> Starting from <br> ₹35000 </h4>
-            <button class="book-now-button">Book Now</button>
-            <button routerLink="pakageViewMore" class="view-more-button">View More</button> 
-          </div>
-        </div>
-      </div>
-      <div class="bottom-section">
-        <i class="bi bi-building-fill"></i> Hotel
-        <i class="bi bi-cup-hot-fill"></i> Food
-        <i class="bi bi-megaphone-fill"></i> Safety Guide
-        <i class="bi bi-globe-central-south-asia"></i> Around The World
-        <i class="bi bi-airplane-fill"></i> Flight
-        <i class="bi bi-person-walking"></i> Adventure
-      </div>
+    <div class="bottom-section">
+
+      <span><i class="bi bi-building-fill"></i> Hotel</span>
+      <span><i class="bi bi-cup-hot-fill"></i> Food</span>
+      <span><i class="bi bi-megaphone-fill"></i> Safety Guide</span>
+      <span><i class="bi bi-globe-central-south-asia"></i> Around The World</span>
+      <span><i class="bi bi-airplane-fill"></i> Flight</span>
+      <span><i class="bi bi-person-walking"></i> Adventure</span>
     </div>
   </div>
+</div>

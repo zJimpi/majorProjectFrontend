@@ -146,3 +146,43 @@
 .search-icon {
   margin-left: 8px; /* Add margin if needed */
 }
+
+
+/* //image  */
+
+.explore-link {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  
+}
+
+.explore-link:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.433); 
+  border-radius: 2rem;
+}
+
+.explore-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+
+}
+
+.explore-link:hover .explore-text {
+  opacity: 1; 
+  
+}
+

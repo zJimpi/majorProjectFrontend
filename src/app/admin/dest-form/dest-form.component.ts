@@ -111,10 +111,20 @@ export class DestFormComponent implements OnInit {
           });
       } else {
         //else add the data
-        this._destService.addDestination(this.destForm.value).subscribe({
+        const formData = {
+          destName : this.destForm.value.destName,
+          destType:this.destForm.value.destType,
+      imageLocation:this.destForm.value.imageLocation,
+      stateAndUTName:this.destForm.value.stateAndUTName,
+      popularityScore:this.destForm.value.popularityScore,
+      imageDescription:this.destForm.value.imageDescription,
+
+        }
+        this._destService.addDestination(formData).subscribe({
           next: (val: any) => {
             this._coreService.openSnackBar('Destinaltion added successfully');
             this._dialogRef.close(true);
+            this.onUpload(val.destId);
           },
           error: (err: any) => {
             console.error(err);
@@ -125,15 +135,12 @@ export class DestFormComponent implements OnInit {
      }
 
      //Gets called when the user clicks on submit to upload the image
-  onUpload() {
-    console.log(this.selectedFile);
+  onUpload(destId:any) {
     
-    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
   
-    //Make a call to the Spring Boot Application to save the image
-    this._httpClient.post('http://localhost:8086/image/fileSystem', uploadImageData, { observe: 'response' })
+    this._httpClient.post(`http://localhost:8086/image/destinationfileSystem/${destId}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this._coreService.openSnackBar('Image added successfully');

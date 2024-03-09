@@ -11,28 +11,14 @@
                     <small>Hotel name is required.</small>
                 </mat-hint>
             </mat-form-field>
-        <div class="row">
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Hotel Location</mat-label>
+            <mat-form-field appearance="fill" class="input-width">
+                <mat-label >Location</mat-label>
                 <input matInput placeholder="ex: Jaipur" formControlName="location">
                 <mat-hint style = "color: red;" *ngIf="hotelForm.get('location')?.touched && hotelForm.get('location')?.errors?.['required']">
-                    <small>Hotel Location is required.</small>
+                    <small>address is required.</small>
                 </mat-hint>
             </mat-form-field>
-
-            <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >State</mat-label>
-                <mat-select formControlName="state">
-                    <mat-option *ngFor="let val of stateNames" [value]="val">{{val}}</mat-option>
-                  </mat-select>
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('state')?.touched && hotelForm.get('state')?.errors?.['required']">
-                    <small>state is required.</small>
-                </mat-hint>
-            </mat-form-field>
-
-
-        </div>
-    
+            
         <mat-form-field appearance="fill" class="input-width">
             <mat-label >Full Address</mat-label>
             <input matInput placeholder="ex: block-12,Jaipur,Rajasthan" formControlName="address">
@@ -55,14 +41,20 @@
                     <small>10 digits are required.</small>
                 </mat-hint>
             </mat-form-field>
-    
+            
             <mat-form-field appearance="fill" class="input-width col">
-                <mat-label >Manager Name</mat-label>
-                <input matInput placeholder="ex:" formControlName="manager">
-                <mat-hint style = "color: red;" *ngIf="hotelForm.get('manager')?.touched && hotelForm.get('manager')?.errors?.['required']">
-                    <small>Manager Name is required.</small>
+                <mat-label >Hotel Starting Price</mat-label>
+                <input matInput placeholder="ex: Jaipur" formControlName="startingPrice">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('startingPrice')?.touched && hotelForm.get('startingPrice')?.errors?.['required']">
+                    <small>Hotel Address is required.</small>
                 </mat-hint>
             </mat-form-field>
+            <div class="row">
+                <mat-label>Choose an Image</mat-label>
+                <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
+                
+        </div>
+            
         </div>
     
 

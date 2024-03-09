@@ -1,0 +1,35 @@
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Car hire for any kind of trip</h1>
+            <h3>Great deals at great prices, from the biggest car hire companies</h3>
+        </div>
+        <div class="search">
+            <div class="filter-box">
+              <input type="text" #searchInput [(ngModel)]="searchQuery" (input)="filterCarRentalLocations(searchQuery)" placeholder="Search car rental location">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid location-details">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4"  *ngFor="let CarRentalLocation of filteredCarRentalLocations">
+            <div class="car-rent-location-card" (click)="viewCarRentallocation(CarRentalLocation.id)">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <img [src]="CarRentalLocation.imageFile" class="img-fluid" alt="Car Image">
+                        </div>
+                        <div class="col">
+                            <h5><b>Location : </b>{{CarRentalLocation.location}}</h5>
+                            <h6>Average {{CarRentalLocation.averagePrice}} &#8377; Per Day</h6>
+                            <h6><b>Shop Name : </b>{{CarRentalLocation.shopName}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

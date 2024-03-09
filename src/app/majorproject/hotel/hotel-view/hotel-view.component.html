@@ -1,139 +1,61 @@
-<div class="hotel-container">
-  <div class="hotel-card">
-    <img src="assets/hotel_image/Enjoy.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b>Enjoy</p>
-      <p><b>City:</b> Delhi</p>
-      <p><b>Location:</b> Mg Road</p>
-      <div class="price"><h5>Starting from <br> ₹1500</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-half"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="hotel-card">
-    <img src="assets/hotel_image/Happy.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b> Happy</p>
-      <p><b>City:</b> Siliguri</p>
-      <p><b>Location:</b> AKT Road</p>
-      <div class="price"><h5>Starting from <br> ₹1200</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <div class="rating">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star"></i>
+<div class="hero" *ngIf="showHero">
+  <div class="container">
+    <h1>Best Stays Available</h1>
+    <div class="search">
+        <div class="filter-box">
+          <input type="text" #searchInput [(ngModel)]="searchQuery" (input)="filterHotels(searchQuery)" placeholder="Search hotels by location">
         </div>
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="hotel-card">
-    <img src="assets/hotel_image/Heaven.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b> Heaven</p>
-      <p><b>City:</b> Srinagar</p>
-      <p><b>Location:</b> Pahalgam</p>
-      <div class="price"><h5>Starting from <br> ₹2000</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <div class="rating">
-          <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star"></i>
-        <i class="bi bi-star"></i>
+
+<!-- hotel cards  -->
+
+<div class="container">
+
+
+  <div class="row justify-content-center">
+    <div class="col-md-4" *ngFor="let hotel of filteredHotels">
+      <mat-card class="hotel-card" >
+        <mat-card-header>
+          <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
+        </mat-card-header>
+        
+        <div class="hotel-img">
+          <img [src]="hotel.imageFile" class="image-resize">
         </div>
-      </div>
+          
+      
+        <mat-card-content class="hotel-content">
+          <div class="hotel-loc">
+            <i class="bi bi-geo-alt-fill"></i> {{hotel.address}} <br>
+          </div>
+         <div class="phone"><b><i class="bi bi-telephone-fill"></i></b> {{hotel.number}}</div><br>
+          <div class="description">
+            <p><i class="bi bi-check-lg"></i> Free cancellation</p>
+            <p><i class="bi bi-check-lg"></i> Online Payment</p>
+            <p><i class="bi bi-check-lg"></i> No prepayment needed</p>
+            <p><i class="bi bi-check-lg"></i> Breakfast Available</p>
+
+          </div>
+          <div class="price">
+            <h6>Starting Price:<b> &#8377;{{hotel.startingPrice}}</b></h6>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="row action justify-content-center">
+          <!-- <button mat-raised-button color="primary" (click)="  loadBookingPage()" >Book</button> -->
+        
+          <button mat-raised-button color="primary" (click)="viewRoomDetailByHotelId(hotel.hotelId)">View Rooms</button>
+        </mat-card-actions>
+      </mat-card>
+      
     </div>
+<!-- /// -->
+
+<!-- /// -->
+
   </div>
 
-  <div class="hotel-card">
-    <img src="assets/hotel_image/life.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b> life</p>
-      <p><b>City:</b> Mumbai</p>
-      <p><b>Location:</b> lamingtom Road</p>
-      <div class="price"><h5>Starting from <br> ₹1400</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hotel-card">
-    <img src="assets/hotel_image/Relive.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b> Relive</p>
-      <p><b>City:</b> Bangalore</p>
-      <p><b>Location:</b> Ali road </p>
-      <div class="price"><h5>Starting from <br> ₹3600</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <div class="rating">
-          <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hotel-card">
-
-    <img src="assets/hotel_image/smile.jpeg">
-    <div class="hotel-details">
-      <p><b>Hotel:</b> Life</p>
-      <p><b>City:</b> Andaman</p>
-      <p><b>Location:</b> havlock</p>
-      <div class="price"><h5>Starting from <br> ₹1000</h5></div>
-      <div class="buttons">
-        <button class="book-button">Book Now</button>
-        <button class="details-button">View Details</button>
-      </div>
-      <div class="rating">
-        <div class="rating">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-half"></i>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>

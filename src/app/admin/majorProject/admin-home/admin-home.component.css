@@ -6,7 +6,6 @@
     height: 500px;
     width: 100%;
     padding-top: 150px;
-    padding-left: 100px;
 }
 .card-body{
     height: 110px;
@@ -26,29 +25,6 @@
     
 }
 
-/* .card{
-    border: no;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} 
-
-.option1{
-    background-color: #cdb4db;
-}
-.option2{
-    background-color: #ffc8dd;
-}
-.option3{
-    background-color: #a2d2ff;
-}
-.option4{
-    background-color: #e5989b;
-}
-.option5{
-    background-color: #94d2bd;
-}
-.option6{
-    background-color: #ff4d6d;
-}*/
 
 a{
     font-size: 20px;
@@ -69,6 +45,7 @@ a{
     border-radius: 10px;
     display: inline-block;
     margin: 40px;
+    width: calc(25% - 80px);
     /*transition: all 0.2s ease 0s;*/
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-transition-duration: 0.3s;

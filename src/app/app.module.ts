@@ -19,7 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -53,6 +53,21 @@ import { ActivityDetailsComponent } from './admin/majorProject/activity-details/
 import { HotelViewMoreComponent } from './majorproject/hotel/hotel-view-more/hotel-view-more.component';
 import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-view-more.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+//dates
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DestDetailComponent } from './dest-detail/dest-detail.component';
+
+import { ReviewComponent } from './majorproject/review/review/review.component';
+
+import { CarRentalComponent } from './majorproject/car-rental/car-rental.component';
+import { AddCarComponent } from './admin/majorProject/add-car/add-car.component';
+import { ViewCarTableComponent } from './admin/majorProject/view-car-table/view-car-table.component';
+import { CarBookingComponent } from './majorproject/car-booking/car-booking.component';
 
 
 
@@ -85,6 +100,15 @@ import {MatStepperModule} from '@angular/material/stepper';
     ActivityDetailsComponent,
     HotelViewMoreComponent,
     PkgViewMoreComponent,
+    DestDetailComponent,
+
+    ReviewComponent,
+
+    CarRentalComponent,
+    AddCarComponent,
+    ViewCarTableComponent,
+    CarBookingComponent,
+
 
   ],
   imports: [
@@ -110,11 +134,16 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatMenuModule,
     MatSidenavModule,
     MatCardModule,
-    MatStepperModule
-
+    MatStepperModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule
 
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-IN' }, // Indian English locale
+  { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS] },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
