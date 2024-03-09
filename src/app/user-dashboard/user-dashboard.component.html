@@ -1,49 +1,73 @@
 <ng-container>
-<mat-card class="user-card">
+<mat-card class="container user-card">
     <mat-card-header>
-      <mat-card-title><h1>User Dashboard</h1></mat-card-title>
-      <mat-card-subtitle><h4>Namaste {{_loginService.user_name}}</h4></mat-card-subtitle><br>
+      <mat-card-title><h3>User Dashboard</h3></mat-card-title>
+      <mat-card-subtitle><h5>Namaste {{_loginService.user_name}}</h5></mat-card-subtitle><br>
     </mat-card-header>
-   <div class="image">
-    <img mat-card-image src="assets/images/Munnar.jpg" alt="Photo of a user">
-  </div><br>
+
+    <div class="image">
+    <img mat-card-image src="assets/destImage/Kalpeni.jpg" alt="Photo of a user" class="userImg">
+    </div><br>
+    
     <mat-card-content>
 
       <div class="user-details">
-        <div class="user_details-header"><h5><B>Your profile <mat-icon>edit</mat-icon></B></h5></div>
+        <div class="user_details-header"><h5><B>Your profile 
+          <!-- <button mat-icon-button color="priamry"></button> -->
+        </B></h5></div>
         <div class="email">Email: test@gmail.com</div>
         <div class="phoneNumber">Phone: 9876867584</div>
+        <div class="reset">Reset Password
+          <button mat-icon-button class="reset-pas" color="primary" (click)="openResetPass()">
+          <mat-icon>edit</mat-icon></button>
+        </div>
+        
       </div><hr>
 
       <div class="booking-details">
 
         <div class="booking-details-header"><h5><B>Your Bookings</B></h5></div><br>
 
+        <div class="pkg-booking-details">
         <h6><u>Package Bookings</u></h6>
         <div>Pakage Name: Delhi Package</div>
         <div>Date: 2/4/24-5/4/24</div>
         <div>Package Hotel Booked</div>
         <div>Raju Delux Hotel</div>
         <div>Room Details: 2 suit 1 family</div>
+        </div>
 
-        <br><h6><u>Hotel Bookings</u></h6>
+        <br>
+        <div class="hotel-booking-details">
+          <h6><u>Hotel Bookings</u></h6>
         <div>Not booked or</div>
         <div>Raju Delux Hotel</div>
         <div>Room Details: 2 suit 1 family</div>
         <div>Date:2/4/24-5/4/24</div>
+        </div>
 
-        <br><h6><u>Train Booked</u></h6>
+        <br>
+        <div class="rental-booking-detail">
+          <h6><u>Train Booked</u></h6>
         <div>Train Name</div>
         <div>Date</div>
+        </div>
 
       </div><hr>
 
-    <button class="admin" (click)="openAdminPanel()">Admin Panel</button>
-    <button class="reset-pas" (click)="openResetPass()">Reset Password <mat-icon>edit</mat-icon></button>
-    <button class="logout" (click)="logOut()">Logout</button>
+      <div class="row">
+        <div class="col">
+          <button mat-raised-button color="primary" class="admin" (click)="openAdminPanel()">Admin Panel</button>
+          </div>
+          
+        <div class="col">
+          <button mat-raised-button color="primary" class="logout" (click)="logOut()">Logout</button>
+        </div>
+  
+      </div>
     </mat-card-content>
     
-  </mat-card>
+</mat-card>
 </ng-container>
 
 

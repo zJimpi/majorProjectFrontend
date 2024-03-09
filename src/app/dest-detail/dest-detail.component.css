@@ -19,6 +19,9 @@ h2{
 } */
 .pakage-box{
     margin-bottom: 30px;
+    /* background-color: #FCEFE5; */
+}
+.hotel-box{
     background-color: #FCEFE5;
 }
 .card{

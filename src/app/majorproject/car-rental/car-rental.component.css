@@ -31,6 +31,7 @@
 img{
     height:100px;
     width : 100px;
+    border-radius: 0.2rem;
 }
 .col-md-4{
     padding : 20px;

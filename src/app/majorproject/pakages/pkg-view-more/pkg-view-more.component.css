@@ -413,12 +413,15 @@ tr:nth-child(even) {
  object-fit: cover;
  
 }
+
+/* hote  */
 .conatiner tr td img{
   height: 200px;
   width: 400px;
   object-fit: cover;
   border-radius: 0.7rem;
 }
+/* //room  */
 .conatiner tr tbody tr td img{
   height: 200px;
   width: 200px;
