@@ -48,14 +48,14 @@ export class PkgBookingComponent {
     private route: ActivatedRoute,
     private _coreService:CoreService,) {
 
-    this.userFormGroup = _formBuilder.group({
+    this.userFormGroup = this._formBuilder.group({
       userName:['',Validators.required],
       adults:['',Validators.required],
       child:['',Validators.required],
       checkInDate:['',Validators.required]
         
     });
-    this.paymentFormGroup =_formBuilder.group({
+    this.paymentFormGroup =this._formBuilder.group({
         amount:0
     });
   }
