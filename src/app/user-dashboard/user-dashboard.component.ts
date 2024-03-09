@@ -15,9 +15,10 @@ export class UserDashboardComponent implements OnInit {
   //This boolean variable is used to track whether the logged-in user is an admin. Initially set to false.
   adminIn:boolean = false;
   user:string='';
-  
 
- 
+  packageBookingDetails !: any[];
+  hotelBookingDetails !: any[];
+  carBookingDetails !: any[];
 
   constructor(private _dialog: MatDialog,
     private _router:Router,
@@ -26,6 +27,10 @@ export class UserDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.getHotelBookingDetails();
+    this.getPackageBookingDetails();
+    this.getCarBookingDetails();
 
   }
 
@@ -60,4 +65,45 @@ export class UserDashboardComponent implements OnInit {
     this._router.navigate(['/adminHome']);
   }
 
+  getHotelBookingDetails(){
+
+    this._loginService.getHotelBookingsByUsername(this.user).subscribe({
+      next: (val :any)=>{
+        this.hotelBookingDetails = val;
+        console.log(this.hotelBookingDetails);
+
+      },
+      error: (err:any)=>{
+        console.error(err);
+      }
+    });
+  }
+
+  getPackageBookingDetails(){
+
+    this._loginService.getPackageBookingsByUsername(this.user).subscribe({
+      next: (val :any)=>{
+        this.packageBookingDetails = val;
+        console.log(this.packageBookingDetails);
+
+      },
+      error: (err:any)=>{
+        console.error(err);
+      }
+    });
+  }
+
+  getCarBookingDetails(){
+
+    this._loginService.getCarBookingsByUsername(this.user).subscribe({
+      next: (val :any)=>{
+        this.carBookingDetails = val;
+        console.log(this.carBookingDetails);
+
+      },
+      error: (err:any)=>{
+        console.error(err);
+      }
+    });
+  }
 }
