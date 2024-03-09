@@ -29,7 +29,7 @@ export class ReviewComponent implements OnInit{
         console.log(this.hLocation);
         console.log(this.hotelName);
     } 
-    if (this.pkgAccesed) {
+    else if (this.pkgAccesed) {
       
         this.loadpackagesReview(this.pLocation, this.packageName);
         console.log("pkg")
@@ -38,7 +38,7 @@ export class ReviewComponent implements OnInit{
         
         
     } 
-    if(this.destAccesed){
+    else if(this.destAccesed){
       this.laodDestinationReview(this.dLocation);
       console.log(this.dLocation);
       
@@ -62,7 +62,8 @@ export class ReviewComponent implements OnInit{
     this._reviewService.getHotelReview(hLocation,hotelName).subscribe({
       next:(res:any)=>{
         this.reviews = res;
-
+        console.log("inside load hotel review");
+        
       },error: console.log,
     });
   }
