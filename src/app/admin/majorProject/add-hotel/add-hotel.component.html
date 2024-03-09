@@ -49,6 +49,10 @@
                     <small>Hotel Address is required.</small>
                 </mat-hint>
             </mat-form-field>
+            <div class="row">
+                <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
+                <div class="col"> <button mat-raised-button type="button" color="accent" value="upload" class="uploadbtn">Upload Image</button></div>
+        </div>
             
         </div>
     

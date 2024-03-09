@@ -14,8 +14,7 @@
   margin: 1%;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff; /* Surrounding color for the photo */
-  background-image: url('src/assets/pkg_img/Andaman.jpeg');
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
 

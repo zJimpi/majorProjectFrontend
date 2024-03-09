@@ -22,7 +22,10 @@
           <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
         </mat-card-header>
         
-        <div class="hotel-img"></div>
+        <div class="hotel-img">
+          <img [src]="hotel.imageFile" class="image-resize">
+        </div>
+          
       
         <mat-card-content class="hotel-content">
           <div class="hotel-loc">

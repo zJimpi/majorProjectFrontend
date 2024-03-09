@@ -1,5 +1,5 @@
 <div class="hero" *ngIf="package">
-  <img src="assets/pkg_img/Andaman.jpeg" alt="Andaman">
+  <img [src]="package.imageFile" >
   <h1 class="hero-title">{{package.location}}</h1>
   <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
 </div>
@@ -24,7 +24,7 @@
         <input type="checkbox" #hotelCheckbox (change)="toggleHotelInput(hotelCheckbox.checked, hotel.hotelId)">
       </td>
       <td>
-        <img [src]="'assets/hotel_image/Enjoy.jpeg'" alt="Hotel Image">
+        <img [src]="hotel.imageFile" >
         <p>{{hotel.hotelName}}</p>
       </td>
       <td>
@@ -41,7 +41,7 @@
           <tbody>
             <tr *ngFor="let room of hotel.rooms">
               <td>{{room.roomType}}</td>
-              <td><img [src]="'assets/hotel_image/Deluxe_room.jpg'" alt="Room Image"></td>
+              <td><img [src]="room.imageFile" ></td>
               <td>{{room.pricePerDay}}</td>
               <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
               <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
@@ -60,7 +60,7 @@
 <b><p class="additional-activity-text">Additional Activities</p></b>
 <div class="additional-activity-section">
   <div class="card1 col-md-3" *ngFor="let activity of activities">
-    <img src="assets/pkg_img/Parasailing.jpeg">
+   <img [src]="activity.imageFile" >
     <div class="card-body1">
       <h2 class="additional-activity-name">{{activity.activityName}}</h2>
       <h4 class="additional-activity-timing">Timing : {{activity.activityTiming}}</h4>

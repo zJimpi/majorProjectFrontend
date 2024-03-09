@@ -19,7 +19,8 @@ export class RoomDetailsComponent implements OnInit{
     'roomId', 
     'roomType', 
     'roomName', 
-    'pricePerDay', 
+    'pricePerDay',
+    'imageFile', 
     'action'
 ];
   dataSource!: MatTableDataSource<any>;

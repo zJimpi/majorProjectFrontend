@@ -45,3 +45,9 @@
 .show-review{
     margin: 20px auto;
 }
+
+
+.image-resize {
+    width: 100px;
+    height: 100px;
+  }

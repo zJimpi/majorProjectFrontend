@@ -60,10 +60,20 @@ export class AddPackageComponent implements OnInit {
           });
         }
         else{//add
-          this._packageService.addPackage(this.packageForm.value).subscribe({
+
+          const formData = {
+            pckgName : this.packageForm.value.pckgName,
+            packageCode : this.packageForm.value.packageCode,
+            packageDuration : this.packageForm.value.packageDuration,
+            location : this.packageForm.value.location,
+            price : this.packageForm.value.price,
+            spots : this.packageForm.value.spots
+          }
+          this._packageService.addPackage(formData).subscribe({
             next : (val:any)=>{
               this._coreService.openSnackBar('Package Details added successfully');
               this._dialogRef.close(true);
+              this.onUpload(val.pckgId);
             },
             error: (err: any) => {
               console.error(err);
@@ -73,11 +83,11 @@ export class AddPackageComponent implements OnInit {
       }
     }
 
-    onUpload(){
+    onUpload(pckgId:any){
 
       const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this._httpClient.post('http://localhost:8086/image/fileSystem', uploadImageData, { observe: 'response' })
+      uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+      this._httpClient.post(`http://localhost:8086/image/packagefileSystem/${pckgId}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this._coreService.openSnackBar('Image added successfully');

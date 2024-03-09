@@ -140,7 +140,7 @@ export class DestFormComponent implements OnInit {
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
   
-    this._httpClient.post(`http://localhost:8086/image/fileSystem/${destId}`, uploadImageData, { observe: 'response' })
+    this._httpClient.post(`http://localhost:8086/image/destinationfileSystem/${destId}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this._coreService.openSnackBar('Image added successfully');

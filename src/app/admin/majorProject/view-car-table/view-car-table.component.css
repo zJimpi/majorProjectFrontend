@@ -20,3 +20,8 @@ mat-form-field {
 .buttons .row{
      gap:20px;
 }
+
+.image-resize {
+    width: 100px;
+    height: 100px;
+  }

@@ -20,6 +20,7 @@ export class ViewCarTableComponent implements OnInit {
     'location',
     'shopName',
     'averagePrice',
+    'imageFile',
     'action'
   ];
 

@@ -24,6 +24,7 @@ export class HotelViewMoreComponent {
     'roomType', 
     'roomName', 
     'pricePerDay',
+    'imageFile',
     'selected'
     // 'availability' ,
 
