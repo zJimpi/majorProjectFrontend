@@ -20,11 +20,12 @@ export class HotelViewMoreComponent {
   availableStatus:boolean=false
 
   displayedColumns: string[] = [
-    'roomId', 
+    'roomId',
+    'imageFile', 
     'roomType', 
     'roomName', 
     'pricePerDay',
-    'imageFile',
+    
     'selected'
     // 'availability' ,
 
