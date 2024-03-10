@@ -1,5 +1,8 @@
 .hotel-design-box{
-    background-color: rgba(255, 170, 0, 0.266);
+    background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+
+    padding: 20px;
+    padding: 20px;
 
 }
 .input-width{
@@ -10,3 +13,14 @@
 .button_div{
     padding: 20px;
 }
+
+.action{
+   
+    display: grid; 
+    grid-template-columns: repeat(2, 8fr); 
+    gap: 10px;
+}
+.image-resize {
+    width: 100px;
+    height: 100px;
+  }

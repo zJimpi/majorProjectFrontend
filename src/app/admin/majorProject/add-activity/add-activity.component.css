@@ -1,0 +1,12 @@
+.activity-design-box{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 150px;
+    background-image: linear-gradient(to right, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    
+}
+.action{
+    display: grid; 
+    grid-template-columns: repeat(2, 8fr); 
+    gap: 10px;
+}

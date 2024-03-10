@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoreService } from '../../core/core.service';
 import { AddPkgService } from '../../service/add-pkg.service';
 import { AddActivityService } from '../../service/add-activity.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-activity',
@@ -15,13 +16,17 @@ export class AddActivityComponent implements OnInit {
   activityForm:FormGroup;
   activityId!:number;
   packageId!:number;
+  selectedFile !: File;
+  message !: string;
 
   constructor(private _formBuilder :FormBuilder,
     private _activityService : AddActivityService,
     private _packageService:AddPkgService,
     private _dialogRef: MatDialogRef<AddActivityComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService:CoreService, 
+    private _coreService:CoreService,
+    private _httpClient:HttpClient
+ 
     )
 
     {
@@ -57,7 +62,13 @@ export class AddActivityComponent implements OnInit {
         }
         else
         {
-          this._activityService.addActivity(this.activityForm.value).subscribe
+          const formData = {
+            activityName:this.activityForm.value.activityName,
+            activityTiming:this.activityForm.value.activityTiming,
+            activityDescription:this.activityForm.value.activityDescription
+          }
+
+          this._activityService.addActivity(formData).subscribe
           ({
             next: (val: any) => 
             {
@@ -72,6 +83,7 @@ export class AddActivityComponent implements OnInit {
                   console.log("added");
 
                   this.assignActivityToPackage();
+                  this.onUpload(val.activityId);
                   console.log("assigned");
                   this._dialogRef.close(true);
                 },
@@ -101,5 +113,29 @@ export class AddActivityComponent implements OnInit {
           this._coreService.openSnackBar('Activity assigned to Package successfully');
         }
       });
+    }
+
+    onUpload(activityId:any) {
+    
+      const uploadImageData = new FormData();
+      uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    
+      this._httpClient.post(`http://localhost:8086/image/activityfileSystem/${activityId}`, uploadImageData, { observe: 'response' })
+        .subscribe((response) => {
+          if (response.status === 200) {
+            this._coreService.openSnackBar('Image added successfully');
+            this._dialogRef.close(true);
+            
+          } else {
+            this.message = 'Image not uploaded successfully';
+          }
+        }
+        );
+    }
+
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+      console.log('Selected File:', this.selectedFile);
     }
 }

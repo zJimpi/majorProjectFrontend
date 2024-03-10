@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddHotelService } from '../../service/add-hotel.service';
 import { CoreService } from '../../core/core.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-hotel',
@@ -12,7 +13,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddHotelComponent implements OnInit{
   
   hotelForm:FormGroup;
-
+  selectedFile !: File;
+  message !: string;
+//state is removed
   stateNames: string[]=[
     'Andhra Pradesh',
     'Arunachal Pradesh',
@@ -68,16 +71,18 @@ export class AddHotelComponent implements OnInit{
     private _dialogRef: MatDialogRef<AddHotelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService:CoreService,
+    private _httpClient:HttpClient
+ 
 
 
     ){
       this.hotelForm = this._fb.group({
         hotelName:['',Validators.required],
-        location:['',Validators.required],
-        state:['',Validators.required],
+        startingPrice:[,Validators.required],
+        location:[,Validators.required],
         address:['',Validators.required],
         number:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-        manager:['',Validators.required],
+        
       });
     }
      //when in edit mode the previous data will show
@@ -101,11 +106,19 @@ export class AddHotelComponent implements OnInit{
             });
         } else {
           //else add the data
-          this._hotelService.addHotel(this.hotelForm.value).subscribe({
+          const formData = {
+            hotelName:this.hotelForm.value.hotelName,
+            startingPrice:this.hotelForm.value.startingPrice,
+            location:this.hotelForm.value.location,
+            address:this.hotelForm.value.address,
+            number:this.hotelForm.value.number
+          }
+          this._hotelService.addHotel(formData).subscribe({
             
             next: (val: any) => {
               this._coreService.openSnackBar('Hotel added successfully');
               this._dialogRef.close(true);
+              this.onUpload(val.hotelId);
             },
             error: (err: any) => {
               console.error(err);
@@ -114,4 +127,28 @@ export class AddHotelComponent implements OnInit{
         }
       }
     }//end for hotelformsubmit
+
+    onUpload(hotelId:any) {
+    
+      const uploadImageData = new FormData();
+      uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    
+      this._httpClient.post(`http://localhost:8086/image/hotelfileSystem/${hotelId}`, uploadImageData, { observe: 'response' })
+        .subscribe((response) => {
+          if (response.status === 200) {
+            this._coreService.openSnackBar('Image added successfully');
+            this._dialogRef.close(true);
+            
+          } else {
+            this.message = 'Image not uploaded successfully';
+          }
+        }
+        );
+    }
+
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+      console.log('Selected File:', this.selectedFile);
+    }
 }

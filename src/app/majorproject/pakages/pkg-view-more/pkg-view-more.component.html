@@ -1,150 +1,123 @@
-<div class="hero">
-  <img src="assets/pkg_img/Andaman.jpeg" alt="Andaman">
-  <h1 class="hero-title">Andaman & Nicobar Island</h1>
-  <p class="hero-subtitle">"Discover the Uncharted Beauty of Andaman & Nicobar Islands"</p>
+<div class="hero" *ngIf="package">
+  <img [src]="package.imageFile" class="img-size">
+  <h1 class="hero-title">{{package.location}}</h1>
+  <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
 </div>
 <br>
-<b><p class="hotel-text">Hotel</p></b>
-<div class="hotel-section">
-  <div class="card">
-    <img src="assets/pkg_img/Hotel.jpeg" alt="Hotel">
-    <div class="card-body">
-      <h2 class="hotel-name">Hotel Sea Blue</h2>
-      <p class="hotel-description">Indulge in colonial elegance of the Bay of Bengal at hotel Sea Blue.</p>
-      <br>
-      <button class="book-now-button">Book Now</button>
-    </div>
+<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn">Book Now</button>
+<section id="spots" class="spots-section">
+  <div class="spot-heading-container">
+    <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>
   </div>
-  <div class="card">
-    <img src="assets/pkg_img/Hotel1.jpeg" alt="Hotel 1">
-    <div class="card-body">
-      <h2 class="hotel-name">Hotel Ocean Blue</h2>
-      <p class="hotel-description">Enjoy beachfront bliss and adventure on Neil Island at hotel Ocean Blue.</p>
-      <br>
-      <button class="book-now-button">Book Now</button>
-    </div>
+  <div class="spots-content">
+    <ul class="spot-list">
+      <li *ngFor="let spot of package.spots.split(',')">{{ spot }}</li>
+    </ul>
   </div>
-  <div class="card">
-    <img src="assets/pkg_img/Hotel2.jpeg" alt="Hotel 2">
-    <div class="card-body">
-      <h2 class="hotel-name">Hotel Dolphin</h2>
-      <p class="hotel-description">Experience luxury amidst the beaches of Andaman at hotel Dolphin.</p>
-      <br>
-      <button class="book-now-button">Book Now</button>
-    </div>
-  </div>
-  <div class="card">
-    <img src="assets/pkg_img/Hotel3.jpeg" alt="Hotel 3">
-    <div class="card-body">
-      <h2 class="hotel-name">Hotel Beach Paradise</h2>
-      <p class="hotel-description">Discover natural beauty at hotel Beach Paradise, nestled on Havelock Island.</p>
-      <br>
-      <button class="book-now-button">Book Now</button>
-    </div>
-  </div>
+</section>
+<b><p class="additional-activity-text">Hotels</p></b>
+
+<div class="conatiner">
+  <table>
+    <tr *ngFor="let hotel of filteredHotels">
+      <td>
+        <input type="checkbox" #hotelCheckbox (change)="toggleHotelInput(hotelCheckbox.checked, hotel.hotelId)">
+      </td>
+      <td><img [src]="hotel.imageFile" class="h-img-size"></td>
+      <td>
+        
+        <p>{{hotel.hotelName}}</p>
+      </td>
+      <td>
+        <table>
+          <thead>
+            <tr>
+              <th>Room Type</th>
+              <th>Room Picture</th>
+              <th>Price per Day</th>
+              <th>Checkbox</th>
+              <th>Input Field</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let room of hotel.rooms">
+              <td>{{room.roomType}}</td>
+              <td><img [src]="room.imageFile"></td>
+              <td>{{room.pricePerDay}}</td>
+              <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
+              <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </table>
+  
 </div>
+
+
+
 
 <b><p class="additional-activity-text">Additional Activities</p></b>
 <div class="additional-activity-section">
-  <div class="card1">
-    <img src="assets/pkg_img/Parasailing.jpeg" alt="Parasailing">
+  <div class="card1 col-md-3" *ngFor="let activity of activities">
+   <img [src]="activity.imageFile" >
     <div class="card-body1">
-      <h2 class="additional-activity-name">Parasailing</h2>
+      <h2 class="additional-activity-name">{{activity.activityName}}</h2>
+      <h4 class="additional-activity-timing">Timing : {{activity.activityTiming}}</h4>
       <p class="additional-activity-description">Parasailing is a recreational activity where participants are towed behind a boat while attached to a parachute-like canopy, soaring above the water or land.</p>
-      <button class="book-now-button">Book Now</button>
     </div>
   </div>
-  <div class="card1">
-    <img src="assets/pkg_img/Kayaking.jpeg" alt="Kayaking">
-    <div class="card-body1">
-      <h2 class="additional-activity-name">Kayaking</h2>
-      <p class="additional-activity-description">Kayaking involves navigating waterways using a small, narrow boat propelled by a double-bladed paddle, offering both leisurely exploration and exhilarating whitewater adventures.</p>
-      <button class="book-now-button">Book Now</button>
-    </div>
-  </div>
-  <div class="card1">
-    <img src="assets/pkg_img/Snorkeling.jpeg" alt="Snorkeling">
-    <div class="card-body1">
-      <h2 class="additional-activity-name">Snorkeling</h2>
-      <p class="additional-activity-description">Snorkeling is an underwater activity that involves swimming on the water's surface with a diving mask and a snorkel, allowing participants to observe marine life and explore the ocean depths.</p>
-      <button class="book-now-button">Book Now</button>
-    </div>
-  </div>
-  <div class="card1">
-    <img src="assets/pkg_img/Scuba Diving.jpeg" alt="Scuba Diving">
-    <div class="card-body1">
-      <h2 class="additional-activity-name">Scuba Diving</h2>
-      <p class="additional-activity-description">Scuba diving is an underwater activity where divers use self-contained breathing apparatus to explore the depths of the ocean, encountering diverse marine life and captivating underwater landscapes.</p>
-      <button class="book-now-button">Book Now</button>
-    </div>
-  </div>
-</div>
-<b><p class="popular-packages-text">Popular Packages</p></b>
-<div class="popular-packages-section">
-  <div class="card2">
-    <img src="assets/pkg_img/Helicopter.jpeg" alt="Helicopter">
-    <div class="card-body2">
-      <h2 class="popular-packages-name">Platinum</h2>
-      <p class="popular-packages-description">Hotel: Ocean Vista Retreat<br>Additional Activity: Helicopter Tour of Coastal Views<br>Time: Morning, Afternoon<br>Luxury Package: Platinum Elite Retreat<br>Food: Gourmet Seafood Feast </p>
-      <button class="book-now-button">Book Now</button>
-      <button class="learn-more-button">Select Slot</button>
-
-    </div>
-  </div>
-  <div class="card2">
-    <img src="assets/pkg_img/Cruise.jpeg" alt="Cruise">
-    <div class="card-body2">
-      <h2 class="popular-packages-name">Gold</h2>
-      <p class="popular-packages-description">Hotel: Azure Haven Resort<br>Additional activity: Sunset Yacht Cruise<br>Time: Afternoon<br>Luxury Package: Prestige Voyager Experience <br> Food: Deluxe Surf and Turf Dinner </p>
-      <button class="book-now-button">Book Now</button>
-      <button class="learn-more-button">Select Slot</button>
-    </div>
-  </div>
-  <div class="card2">
-    <img src="assets/pkg_img/Beach.jpeg" alt="Beach">
-    <div class="card-body2">
-      <h2 class="popular-packages-name">Silver</h2>
-      <p class="popular-packages-description">Hotel: Tranquil Oasis Inn<br>Additional activity:Private Beach Picnic<br>Time: Evening, Night<br>Luxury Pacakge: Grandeur Escape Package<br>Food: Decadent Chocolate Fondue</p>
-      <button class="book-now-button">Book Now</button>
-      <button class="learn-more-button">Select Slot</button>
-    </div>
-  </div>
-<section id="spots">
-  <h2>Spots</h2>
-  <br>
-  <p><h4>"Discover the natural wonders of Andaman's pristine beaches, lush rainforests,and vibrant coral reefs, offering a serene escape into paradise."</h4></p>
-  <br>
-  <p><h4>Few Spots</h4></p>
-  <br>
-  <!-- <p class="spot-title">Cellular Jail</p>
-  <p class="spot-description">Cellular Jail, located in the Andaman Islands, India, was a colonial-era prison infamous for its isolated cell structure, used by the British to incarcerate political prisoners during India's struggle for independence.</p>
-  <p class="spot-title">Neil Island</p>
-  <p class="spot-description">Neil Island is a picturesque island known for its pristine beaches, crystal-clear waters, and vibrant coral reefs, located in the Andaman and Nicobar Islands of India.</p>
-  <p class="spot-title">Ross Island</p>
-  <p class="spot-description">Ross Island is a small island in Antarctica known for its historic huts and scientific research stations.</p>
-  <p class="spot-title">Radhanagar Beach</p>
-  <p class="spot-description">Radhanagar Beach is a stunning white sand beach located on Havelock Island in the Andaman and Nicobar Islands, known for its crystal-clear waters and breathtaking sunsets.</p>
-   -->
-   <div class="spot-item">
-    <p class="spot-title"><h4>Cellular Jail</h4></p>
-    <p class="spot-description">Cellular Jail, located in the Andaman Islands, India, was a colonial-era prison infamous for its isolated cell structure, used by the British to incarcerate political prisoners during India's struggle for independence.</p>
 </div>
 
-<div class="spot-item">
-    <p class="spot-title"><h4>Neil Island</h4></p>
-    <p class="spot-description">Neil Island is a picturesque island known for its pristine beaches, crystal-clear waters, and vibrant coral reefs, located in the Andaman and Nicobar Islands of India.</p>
-</div>
+<div class="conditions">
+ 
+  <div class="heading">
+    <p >Know Before You Go</p>
+  </div>
+ 
+  <div class="points">
+    <ul>
+      <li>Wander Quest reserves the right to rearrange or change the itinerary for reasons that are beyond control like Natural calamity, weather conditions, road block etc.</li>
+      <li>Any sightseeing point which is not completed due to time constraints, traffic jam, natural calamity, travelers starting late, permits issued late or any other reason beyond control, Thrillophilia does not take the liability for a refund or a discount.</li>
+      <li>ID proof is mandatory for each individual guest at the time of booking, and also upon arrival. PAN card will not be considered as a valid address proof.</li>
+      <li>Air Fare / Train fare /Bus fare are not included in the package.</li>
+      <li>The display prices mentioned are for minimum 2 PAX</li>
+      <li>Kindly inform the operator about your flight timings prior to the date of travel.</li>
+      <li>Any expense of personal nature is not included in the package.</li>
+      <li>Rescheduling Policy for Private (Super Deluxe) & Hotel Specific Bookings: No modification or Rescheduling will be catered. A standard cancellation policy will be applicable for such cases.</li>
+      <li>Force Majeure: In cases of force majeure events (e.g., natural disasters, political unrest, or other unforeseeable circumstances), [Wander Quest] reserves the right to reschedule Tours & treks or offer alternative itineraries to ensure the safety and well-being of clients and staff.</li>
+      <li>Cancellation After Rescheduling: Clients who reschedule their tours or treks but later decide to cancel will be subject to our standard cancellation policy. Any rescheduling fees paid will be non-refundable.</li>
+    </ul>
 
-<div class="spot-item">
-    <p class="spot-title"><h4>Ross Island</h4></p>
-    <p class="spot-description">Ross Island is a small island in Antarctica known for its historic huts and scientific research stations.</p>
-</div>
-
-<div class="spot-item">
-    <p class="spot-title"><h4>Radhanagar Beach</h4></p>
-    <p class="spot-description">Radhanagar Beach is a stunning white sand beach located on Havelock Island in the Andaman and Nicobar Islands, known for its crystal-clear waters and breathtaking sunsets.</p>
-    <br>
-    <button class="more-explore-button">More explore</button>
   </div>
 </div>
-</section>
+
+<div class="container review-form">
+  <div class="row"><h3>Share Your Thoughts</h3></div>
+  <div class="row">
+      <div class="col-1 icon">
+          <i class="bi bi-person-circle big-icon"></i>
+      </div>
+      <div class="col-11">
+          <div class="row">
+              <h5>username</h5>
+          </div>
+          <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
+          
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Leave a comment</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
+                  
+          </form>
+      </div>
+  </div>
+</div>
+
+<div class="container show-review">
+  
+  <app-review [pkgAccesed]="true" [pLocation]="package?.location" [packageName]="package?.pckgName"></app-review>
+</div>

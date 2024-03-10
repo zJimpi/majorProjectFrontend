@@ -19,12 +19,11 @@ export class ViewHotelTabelComponent implements OnInit {
   displayedColumns: string[] = [
     'hotelId',
     'hotelName',
-    'location',
-    'state',
+    'startingPrice',
+    
     'address',
     'number',
-    'manager',
-    'imgUrl',
+    'imageFile',
     'room',
     'action',
   ];

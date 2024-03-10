@@ -4,6 +4,7 @@ import { AddRoomService } from '../../service/add-room.service';
 import { CoreService } from '../../core/core.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddHotelService } from '../../service/add-hotel.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-room',
@@ -12,6 +13,8 @@ import { AddHotelService } from '../../service/add-hotel.service';
 })
 export class AddRoomComponent implements OnInit {
 
+  selectedFile !: File;
+  message !: string;
   roomForm:FormGroup;
   roomId!:number;
   hotelId!:number;
@@ -27,6 +30,7 @@ export class AddRoomComponent implements OnInit {
     private _dialogRef: MatDialogRef<AddRoomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService:CoreService,
+    private _httpClient:HttpClient
    
 
     ){
@@ -58,12 +62,17 @@ export class AddRoomComponent implements OnInit {
         } //end of inner if
         else{
           //else add the data
-          this._roomService.addRoom(this.roomForm.value).subscribe({
+          const formData = {
+
+            roomName:this.roomForm.value.roomName,
+            roomType:this.roomForm.value.roomType,
+            pricePerDay:this.roomForm.value.pricePerDay
+
+          }
+          this._roomService.addRoom(formData).subscribe({
             
             next: (val: any) => {
               this._coreService.openSnackBar('Room added successfully');
-              
-
               //fetching room id
               this._roomService.getRoomById(val.roomId).subscribe({
                 next:(res:any)=>{
@@ -72,7 +81,9 @@ export class AddRoomComponent implements OnInit {
 
                //assign room to hotel
               this.assignRoomToHotel();
+              this.onUpload(val.roomId);
               this._dialogRef.close(true);
+
                 },error:(err:any)=>{
                   this._coreService.openSnackBar('Room assigned to hotel successfully');
                 }
@@ -98,6 +109,30 @@ export class AddRoomComponent implements OnInit {
           this._coreService.openSnackBar('Room assigned to hotel successfully');
         }
       });
+    }
+
+    onUpload(roomId:any) {
+    
+      const uploadImageData = new FormData();
+      uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    
+      this._httpClient.post(`http://localhost:8086/image/roomfileSystem/${roomId}`, uploadImageData, { observe: 'response' })
+        .subscribe((response) => {
+          if (response.status === 200) {
+            this._coreService.openSnackBar('Image added successfully');
+            this._dialogRef.close(true);
+            
+          } else {
+            this.message = 'Image not uploaded successfully';
+          }
+        }
+        );
+    }
+
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+      console.log('Selected File:', this.selectedFile);
     }
     
 }

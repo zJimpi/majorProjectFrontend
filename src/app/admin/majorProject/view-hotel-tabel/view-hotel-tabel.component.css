@@ -7,6 +7,9 @@
   mat-form-field {
     width: 100%;
   }
+  .col{
+    border: 1px solid black;
+  }
   .action{
     display: flex;
     gap: 5px;
@@ -17,4 +20,8 @@
   }
   .buttons .row{
     gap:20px;
+  }
+  .image-resize {
+    width: 100px;
+    height: 100px;
   }

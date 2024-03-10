@@ -1,0 +1,72 @@
+<div class="container buttons">
+    <div class="row">
+        <button mat-raised-button class="col" routerLink="adminHome" routerLinkActive="active">Admin Home</button>
+        <button mat-raised-button class="col" (click)="openCarDetailsForm()">Add Car Rental Location</button>
+    </div>
+</div>
+
+<div class="view-section">
+    
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Kolkata,Rajasthan" #input>
+    </mat-form-field>
+    
+    <div class="car-rental-table">
+        <table mat-table [dataSource]="dataSource" matSort>
+        
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+                <td mat-cell *matCellDef="let row"> {{row.location}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="imageFile">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide">Image File</th>
+                <td mat-cell *matCellDef="let row" class="card-start">
+                  <ng-container *ngIf="row.imageFile">
+                      <img [src]="row.imageFile" class="image-resize">
+                  </ng-container>
+                  <ng-container *ngIf="!row.imageFile">
+                      No image added
+                  </ng-container>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="shopName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Shop Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.shopName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="averagePrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Average Price </th>
+                <td mat-cell *matCellDef="let row"> {{row.averagePrice}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="primary" (click)="openEditCarRentalDetailsForm(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteCarRentalDetails(row.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>

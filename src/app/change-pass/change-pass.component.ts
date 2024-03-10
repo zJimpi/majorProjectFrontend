@@ -43,34 +43,45 @@ onreset(){
   const username = this.resetPassForm.value.username;
   const oldPassword = this.resetPassForm.value.oldPass;
   const newPassword = this.resetPassForm.value.newPass;
+  const newRePassword = this.resetPassForm.value.newRePass;
 
-  this._loginService.resetPassword(username, oldPassword, newPassword).subscribe({
-    next: (response: any) => {
-      // Assuming the response contains success information
-      if (response) {
-        this._coreService.openSnackBar('Password changed successfully!');
-        console.log(oldPassword);
-        console.log(newPassword);
-        this._dialogRef.close(true);
-        location.reload();
-        this._loginService.loggedIn = false;
-        this._loginService.adminIn = false;
-      }  
-      else 
-      {
-        //         Password is incorrect or user not found
-        this._coreService.openSnackBar('Inccorect password!');
-        this._dialogRef.close(true);
-        location.reload();
-        this._loginService.loggedIn= false;
-        this._loginService.adminIn= false;
-               
+
+  if (newPassword !== newRePassword) 
+  {
+    this._coreService.openSnackBar('Re-entered password do nat match');
+    this._dialogRef.close(true);
+  }
+  else
+  {
+    this._loginService.resetPassword(username, oldPassword, newPassword).subscribe({
+      next: (response: any) => {
+        if (response) 
+        {
+          if (newPassword !== newRePassword)
+          {
+            this._coreService.openSnackBar('Re-entered password do nat match');
+            this._dialogRef.close(true);
+          } 
+          else
+          {
+            this._coreService.openSnackBar('Password changed successfully!');
+            this._dialogRef.close(true);
+            this._loginService.loggedIn = false;
+            this._loginService.adminIn = false;
+            this._router.navigate(['/home']);
+          }
+        }  
+        else 
+        {
+          this._coreService.openSnackBar('Inccorect password!');
+          this._dialogRef.close(true);
+        }
+      },
+      error: (error: any) => {
+        this._coreService.openSnackBar('An error occurred while changing password!');
       }
-    },
-    error: (error: any) => {
-      this._coreService.openSnackBar('An error occurred while changing password!');
-    }
-  });
+    });
+  }
 
 
     

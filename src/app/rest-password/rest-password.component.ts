@@ -37,6 +37,8 @@ export class RestPasswordComponent {
     });
   }
 
+  user:string='';
+
   //when user clicks on login
   onLogin(){
 
@@ -53,7 +55,6 @@ export class RestPasswordComponent {
           this._dialog.open(ChangePassComponent)
           //show log out button
           this._loginService.loggedIn= true; // Initialize as false
-          // this._loginService.user_name = user.username;
         
 
         } 
@@ -61,9 +62,6 @@ export class RestPasswordComponent {
           // Password is incorrect or user not found
           this._coreService.openSnackBar('Inccorect password!');
           this._dialogRef.close(true);
-          this._router.navigate(['/home']);
-          this._loginService.loggedIn= false;
-          this._loginService.adminIn= false;
          
         }
  

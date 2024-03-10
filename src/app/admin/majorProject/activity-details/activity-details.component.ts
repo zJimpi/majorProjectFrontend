@@ -21,6 +21,7 @@ export class ActivityDetailsComponent implements OnInit{
     'activityName', 
     'activityTiming', 
     'activityDescription', 
+    'imageFile',
     'action'
   ];
 

@@ -10,6 +10,18 @@
         <td mat-cell *matCellDef="let row"> {{row.roomId}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="imageFile">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide">Image File</th>
+            <td mat-cell *matCellDef="let row" class="card-start">
+              <ng-container *ngIf="row.imageFile">
+                  <img [src]="row.imageFile" class="image-resize">
+              </ng-container>
+              <ng-container *ngIf="!row.imageFile">
+                  No image added
+              </ng-container>
+            </td>
+        </ng-container>
+
         <!-- Progress Column -->
         <ng-container matColumnDef="roomType">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Type </th>

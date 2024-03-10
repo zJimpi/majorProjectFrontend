@@ -1,0 +1,49 @@
+.img-box{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    border: none;
+   
+}
+h2{
+    text-align: center;
+    /* margin: 30px 0px; */
+    /* color: white;
+    background-color: #703333; */
+    padding: 10px;
+}
+/* .hotel-box{
+    background-color: #FCEFE5;
+} */
+.pakage-box{
+    margin-bottom: 30px;
+    /* background-color: #FCEFE5; */
+}
+.hotel-box{
+    background-color: #FCEFE5;
+}
+.card{
+    border: none;
+    border-radius: none;
+}
+/* ===================review=================  */
+.big-icon {
+   
+    font-size: 4em; 
+    color: rgb(255, 166, 115); 
+    padding-left: 20px;
+  }
+.review-form{
+    /* background-color: antiquewhite; */
+    border-radius: 0.7rem;
+    padding: 20px;
+}
+.review-form h3{
+    text-align: center;
+    padding: 20px 10px;
+}
+.show-review{
+    margin: 20px auto;
+}
