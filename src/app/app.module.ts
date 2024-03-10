@@ -109,7 +109,7 @@ import { PkgViewMoreComponent } from './majorproject/pakages/pkg-view-more/pkg-v
     MatMenuModule,
     MatSidenavModule,
     MatCardModule,
-    MatStepperModule
+    // MatStepperModule
 
 
   ],
