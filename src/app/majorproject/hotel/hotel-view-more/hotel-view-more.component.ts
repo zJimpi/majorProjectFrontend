@@ -150,6 +150,7 @@ constructor(private _roomService:AddRoomService,
     next: (val: any) => {
      console.log("comment added");
      this.reviewForm.reset();
+     
     },
     error: (err: any) => {
       console.error(err);

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
@@ -14,9 +14,9 @@ export class ReviewComponent implements OnInit{
   @Input() dLocation:string='';
   @Input() hotelName:string='';
   @Input() packageName:string='';
-  @Input() hotelAccesed:boolean=false
-  @Input() pkgAccesed:boolean=false
-  @Input() destAccesed:boolean=false
+  @Input() hotelAccesed:boolean | undefined =false;
+  @Input() pkgAccesed:boolean=false;
+  @Input() destAccesed:boolean=false;
 
   reviews!:any
   constructor(private _reviewService:ReviewService){
