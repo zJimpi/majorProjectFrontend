@@ -428,3 +428,23 @@ tr:nth-child(even) {
   object-fit: cover;
   border-radius: 0.7rem;
 }
+/* Centering the input fields in the spot section */
+.spots-content input[type="checkbox"],
+.spots-content input[type="number"] {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
+}
+
+/* Centering the input fields in the hotel section */
+.container input[type="checkbox"],
+.container input[type="number"] {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
+}
+
+/* Centering the input fields in the review section */
+.review-form textarea,
+.review-form button {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
+}
