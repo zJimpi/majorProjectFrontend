@@ -1,3 +1,40 @@
 .mat-mdc-form-field {
   margin: 20px;
 }
+/* Style for the container */
+.container {
+  width: 100%;
+  max-width: 800px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+}
+
+/* Style for the stepper */
+.mat-horizontal-stepper-header-container {
+  background-color: #f0f0f0; /* Background color for stepper header */
+}
+
+/* Style for step content */
+.mat-step-content {
+  padding: 20px;
+}
+
+/* Style for buttons */
+.mat-raised-button {
+  margin-right: 10px; /* Add space between buttons */
+}
+
+/* Style for form fields */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Style for labels */
+.mat-label {
+  font-weight: bold;
+}
+
+/* Style for error messages */
+.mat-error {
+  color: red;
+}
