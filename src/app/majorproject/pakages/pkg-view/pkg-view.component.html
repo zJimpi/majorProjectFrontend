@@ -8,10 +8,10 @@
 
 <div class="container"  *ngFor="let package of filteredPackages">
   <div class="image-container">
-   
+
       <img [src]="package.imageFile" class="img-size">
 
-    
+
   </div>
   <div class="text-container">
     <div class="top-section">
@@ -23,8 +23,8 @@
           Spots: 1. Cellular Jail<br />
           2. Radhanagar Beach<br />
           3.Neil Island<br />
-           4.Ross Island<br /> 
-           5.Elephant Beach<br /> 
+           4.Ross Island<br />
+           5.Elephant Beach<br />
            6. Baratang Island
         </p> -->
         <!-- <p>Package Code: wby2345</p> -->
@@ -37,8 +37,8 @@
         <!-- Third sub-section -->
         <div class="box">
           <h4> Starting from <br> ₹ {{package.price}}  </h4>
-          
-          <button  (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 
+
+          <button  (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button>
         </div>
       </div>
     </div>

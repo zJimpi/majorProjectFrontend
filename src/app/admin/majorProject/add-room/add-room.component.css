@@ -7,11 +7,16 @@
     background-image: linear-gradient(to right, #076b83, #008596, #00a09d, #00ba98, #2cd287);
     width: 100%;
     height: 180px;
-    
+
 }
 .action{
-    
-    display: grid; 
-    grid-template-columns: repeat(2, 8fr); 
+
+    display: grid;
+    grid-template-columns: repeat(2, 8fr);
     gap: 10px;
+}
+/* Add padding and background color to room form container */
+.container.room-design-box {
+  padding: 20px;
+  background-color: #FCEFE5; /* Linen cream color */
 }

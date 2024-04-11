@@ -1,9 +1,9 @@
-.container-fluid{
-    padding: 0;
+.container-fluid {
+  padding: 0;
 }
 .card{
     border:none;
-   
+
 }
 .card-img{
     height: 200px;
@@ -14,7 +14,7 @@
 }
 .card-img-overlay{
     background-color: #0000006c;
-    
+
 }
 .card-title{
     padding-bottom: 50px;
@@ -28,9 +28,9 @@
 
 /*=========== //review ========== */
 .big-icon {
-   
-    font-size: 4em; 
-    color: rgb(255, 166, 115); 
+
+    font-size: 4em;
+    color: rgb(255, 166, 115);
     padding-left: 20px;
   }
 .review-form{
@@ -46,14 +46,21 @@
     margin: 20px auto;
 }
 
-.hero-img{
-height: 200px;
-width: 100%;
-object-fit: cover;
+.hero-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .image-resize {
     height: 300px;
     width: 300px;
     object-fit: cover;
     border-radius: 0.7rem;
+}
+.card-body .icon {
+  color: green;
+}
+.room-image {
+  margin-bottom: 20px;
 }

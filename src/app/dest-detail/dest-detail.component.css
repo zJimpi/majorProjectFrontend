@@ -5,7 +5,7 @@
     object-position: center;
     overflow: hidden;
     border: none;
-   
+
 }
 h2{
     text-align: center;
@@ -30,9 +30,9 @@ h2{
 }
 /* ===================review=================  */
 .big-icon {
-   
-    font-size: 4em; 
-    color: rgb(255, 166, 115); 
+
+    font-size: 4em;
+    color: rgb(255, 166, 115);
     padding-left: 20px;
   }
 .review-form{
@@ -46,4 +46,7 @@ h2{
 }
 .show-review{
     margin: 20px auto;
+}
+.hero .card-title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust the values as needed */
 }

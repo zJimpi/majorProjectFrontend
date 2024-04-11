@@ -1,3 +1,7 @@
 .mat-mdc-form-field {
     margin: 20px;
   }
+  /* Add space between buttons */
+.mat-step-buttons div button {
+  margin-right: 10px;
+}

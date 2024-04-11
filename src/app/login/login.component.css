@@ -6,7 +6,7 @@
   .title{
     padding: 10px 14px 10px;
     text-align: center;
-   
+
   }
   .content{
     padding: 10px 14px 0px;
@@ -46,20 +46,20 @@
     height: 550px;
     padding-top: 10px;
     padding: 10px;
-    
-    
-   
+
+
+
   }
   .design-box{
     padding: 10px;
     margin-top: 150px;
-   
+
   }
   .peacock-box{
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1rem;
-    
-   
+
+
   }
   h1 ,h5{
     text-align: center;
@@ -68,3 +68,15 @@
   h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+  /* Set a fixed height for the container */
+.design-box {
+  height: 400px; /* Adjust the height as needed */
+  overflow-y: auto; /* Add vertical scroll if content exceeds container height */
+}
+
+/* Set a fixed height for the container on smaller screens */
+@media screen and (max-width: 768px) {
+  .design-box {
+    height: 300px; /* Adjust the height as needed for smaller screens */
+  }
+}

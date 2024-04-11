@@ -1,12 +1,12 @@
 .example-spacer {
     flex: 1 1 auto;
   }
-  
+
   .main-body {
     padding-top: 20px;
     margin: 0 auto;
     max-width: 1348px;
-    
+
   }
   mat-form-field {
     width: 100%;
@@ -21,7 +21,7 @@
     display: flex;
     gap:10px;
     justify-content: center;
-   
+
   }
   .dest-table{
     margin-bottom: 40px;
@@ -34,4 +34,8 @@
 .image-resize {
   width: 100px;
   height: 100px;
+}
+/* Add spacing between the top two buttons */
+.menu button {
+  margin-right: 10px;
 }

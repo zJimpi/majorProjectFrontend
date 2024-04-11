@@ -15,12 +15,17 @@
 }
 
 .action{
-   
-    display: grid; 
-    grid-template-columns: repeat(2, 8fr); 
+
+    display: grid;
+    grid-template-columns: repeat(2, 8fr);
     gap: 10px;
 }
 .image-resize {
     width: 100px;
     height: 100px;
   }
+  /* Add padding and background color to form container */
+.container.hotel-design-box {
+  padding: 20px;
+  background-color: #FCEFE5; /* Linen cream color */
+}
