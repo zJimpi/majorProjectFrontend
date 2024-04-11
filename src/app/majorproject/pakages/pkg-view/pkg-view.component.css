@@ -78,6 +78,7 @@
 }
 
 .bottom-section {
+  color: #9370DB; /* Light purple color */
   height: 1.2em;
   overflow: hidden;
   display: flex;
