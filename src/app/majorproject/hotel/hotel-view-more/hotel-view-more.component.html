@@ -8,6 +8,8 @@
           <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
           <h5 class="card-text">{{hotel.address}}</h5>
           <h5 class="card-text">{{hotel.number}}</h5>
+          <h5 class="card-text">Airport Distance: {{hotel.airportDistance}} miles</h5>
+          <h5 class="card-text">Railway Station Distance: {{hotel.railwayDistance}} miles</h5>
         </div>
         <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn">Book Now</button>
       </div>
