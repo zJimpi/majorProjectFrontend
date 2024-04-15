@@ -48,8 +48,16 @@
         <mat-form-field appearance="fill" class="input-width col">
             <mat-label >Package Price</mat-label>
             <input matInput placeholder="Enter Package Price" formControlName="price">
-            <mat-hint style = "color: red;" *ngIf="packageForm.get('location')?.touched && packageForm.get('location')?.errors?.['required']">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('price')?.touched && packageForm.get('price')?.errors?.['required']">
                 <small>Package Price is required.</small>
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input-width col">
+            <mat-label >Package Limitation</mat-label>
+            <input matInput placeholder="Enter Max No of Booking" formControlName="maxNoOfBookings">
+            <mat-hint style = "color: red;" *ngIf="packageForm.get('maxNoOfBookings')?.touched && packageForm.get('maxNoOfBookings')?.errors?.['required']">
+                <small>Max no of booking is required.</small>
             </mat-hint>
         </mat-form-field>
 
