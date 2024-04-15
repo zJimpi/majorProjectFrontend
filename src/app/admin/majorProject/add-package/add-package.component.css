@@ -1,10 +1,11 @@
 .package-design-box{
     background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
     height: 500px;
-    padding: 20px 20px;
-    
-
+    padding: 40px 20px;
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
+
 
 .input-width{
     width: 100%;
