@@ -23,6 +23,7 @@ export class ViewHotelTabelComponent implements OnInit {
     
     'address',
     'number',
+    'nearBy',
     'imageFile',
     'room',
     'action',

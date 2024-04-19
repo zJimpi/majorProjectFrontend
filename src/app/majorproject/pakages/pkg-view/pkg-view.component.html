@@ -9,7 +9,7 @@
 <div class="container"  *ngFor="let package of filteredPackages">
   <div class="image-container">
    
-      <img [src]="package.imageFile" class="img-size">
+    <img [src]="package.maxNoOfBookings === package.noOfBookings ? 'assets/pkg_img/PackageSoldOut.png' : package.imageFile" class="img-size">
 
     
   </div>
@@ -38,7 +38,7 @@
         <div class="box">
           <h4> Starting from <br> ₹ {{package.price}}  </h4>
           
-          <button  (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 
+          <button *ngIf="package.maxNoOfBookings !== package.noOfBookings" (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 
         </div>
       </div>
     </div>

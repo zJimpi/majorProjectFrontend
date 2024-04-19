@@ -1,6 +1,6 @@
 <div class="hero text-bg-dark" *ngIf="carLocation">
     <img [src]="carLocation.imageFile" alt="" class="hero-bg">
-    <div class="container card-img-overlay">
+    <div class="container ">
         <div class="hero-content" >
             <h1>Rent Rides From {{carLocation.shopName}}</h1>
             <h3>Location:{{carLocation.location}}</h3>
@@ -75,22 +75,22 @@
     <h1>Fill the form to book car</h1>
 </div>
 <div class="container form">
-    <div [formGroup]="carBookingFormGroup">
-      <input id="username" type="text" placeholder="Username" formControlName="username">
-      <input id="pickUpDate" type="date" formControlName="pickUpDate">
-      <input id="dropOffDate" type="date" formControlName="dropOffDate">
-      <select id="acOrNonAc" formControlName="acOrNonAc">
-        <option value="" disabled selected hidden>Select AC/Non-AC</option>
-        <option *ngFor="let ac of acOrNonAc" [value]="ac">{{ ac }}</option>
-      </select>
+    <form [formGroup]="carBookingFormGroup" (ngSubmit)="bookCar()">
+        <input id="username" type="text" placeholder="Username" formControlName="username">
+        <input id="pickUpDate" type="date" formControlName="pickUpDate">
+        <input id="dropOffDate" type="date" formControlName="dropOffDate">
+        <select id="acOrNonAc" formControlName="acOrNonAc">
+            <option value="" disabled selected hidden>Select AC/Non-AC</option>
+            <option *ngFor="let ac of acOrNonAc" [value]="ac">{{ ac }}</option>
+        </select>
         
-      <select id="carType" formControlName="carType">
-        <option value="" disabled selected hidden>Select Car Type</option>
-        <option *ngFor="let type of carType" [value]="type">{{ type }}</option>
-      </select>
+        <select id="carType" formControlName="carType">
+            <option value="" disabled selected hidden>Select Car Type</option>
+            <option *ngFor="let type of carType" [value]="type">{{ type }}</option>
+        </select>
   
-      <button type="button" (click)="bookCar()">Book</button>
-    </div>
+        <button type="submit">Book</button>
+    </form>
 </div>
 
 <div class="container conditions">

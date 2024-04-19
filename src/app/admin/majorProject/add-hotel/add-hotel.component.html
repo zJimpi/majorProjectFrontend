@@ -15,7 +15,7 @@
                 <mat-label >Location</mat-label>
                 <input matInput placeholder="ex: Jaipur" formControlName="location">
                 <mat-hint style = "color: red;" *ngIf="hotelForm.get('location')?.touched && hotelForm.get('location')?.errors?.['required']">
-                    <small>address is required.</small>
+                    <small>location is required.</small>
                 </mat-hint>
             </mat-form-field>
             
@@ -46,7 +46,14 @@
                 <mat-label >Hotel Starting Price</mat-label>
                 <input matInput placeholder="ex: Jaipur" formControlName="startingPrice">
                 <mat-hint style = "color: red;" *ngIf="hotelForm.get('startingPrice')?.touched && hotelForm.get('startingPrice')?.errors?.['required']">
-                    <small>Hotel Address is required.</small>
+                    <small>Hotel starting price is required.</small>
+                </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="input-width">
+                <mat-label >nearby airport/station</mat-label>
+                <input matInput placeholder="ex: 5km from airport/ 3km from station" formControlName="nearBy">
+                <mat-hint style = "color: red;" *ngIf="hotelForm.get('nearBy')?.touched && hotelForm.get('nearBy')?.errors?.['required']">
+                    <small>nearby airport/station is required.</small>
                 </mat-hint>
             </mat-form-field>
             <div class="row">
