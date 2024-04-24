@@ -29,8 +29,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 img{
-    height:100px;
-    width : 100px;
+    height:200px;
+    width : 200px;
     border-radius: 0.2rem;
 }
 .col-md-4{
@@ -52,7 +52,7 @@ img{
 /* Styling for the hero section */
 .hero {
   padding: 50px 0; /* Add padding top and bottom */
-  background-color: #FCEFE5; /* Change the background color */
+  background-color: #076B83; /* Change the background color */
 }
 
 /* Styling for the hero content */
@@ -75,3 +75,4 @@ img{
 .car-rent-location-card {
   height: 100%; /* Set a fixed height for each card */
 }
+

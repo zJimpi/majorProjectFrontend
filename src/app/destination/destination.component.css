@@ -188,6 +188,13 @@
 .card-box-start:hover,
 .card-box:hover,
 .card-end:hover {
-  color: #fff; /* Change the text color to white or any brighter color */
+  color:grey; /* Change the text color to white or any brighter color */
+}
+/* Add hover effect to text */
+.card-box-start h5:hover,
+.card-box h6:hover,
+.card-end:hover {
+  color: #007bff; /* Change text color to blue on hover */
+  text-decoration: underline; /* Add underline effect on hover */
 }
 

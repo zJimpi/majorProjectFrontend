@@ -70,7 +70,7 @@
   }
   /* Set a fixed height for the container */
 .design-box {
-  height: 400px; /* Adjust the height as needed */
+  height: 280px; /* Adjust the height as needed */
   overflow-y: auto; /* Add vertical scroll if content exceeds container height */
 }
 
@@ -80,3 +80,4 @@
     height: 300px; /* Adjust the height as needed for smaller screens */
   }
 }
+

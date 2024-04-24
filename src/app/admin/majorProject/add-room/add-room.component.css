@@ -15,8 +15,11 @@
     grid-template-columns: repeat(2, 8fr);
     gap: 10px;
 }
-/* Add padding and background color to room form container */
-.container.room-design-box {
-  padding: 20px;
-  background-color: #FCEFE5; /* Linen cream color */
+.room-design-box {
+  background-color: #f0f0f0; /* Add background color */
+  padding: 20px; /* Add padding */
 }
+.action {
+  margin-top: 15px; /* Adjust the margin value according to your preference */
+}
+

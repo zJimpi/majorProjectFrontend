@@ -2,7 +2,7 @@
     background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
     height: 380px;
     padding: 20px 20px;
-    
+
 
 }
 
@@ -14,9 +14,11 @@
     padding-top: 50px;
 }
 .action{
-   
-    display: grid; 
-    grid-template-columns: repeat(1, 8fr); 
+
+    display: grid;
+    grid-template-columns: repeat(1, 8fr);
     gap: 15px;
 }
-
+.action {
+  margin-top: 10px; /* Adjust the margin value according to your preference */
+}

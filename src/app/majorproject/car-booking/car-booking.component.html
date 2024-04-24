@@ -83,22 +83,22 @@
         <option value="" disabled selected hidden>Select AC/Non-AC</option>
         <option *ngFor="let ac of acOrNonAc" [value]="ac">{{ ac }}</option>
       </select>
-        
+
       <select id="carType" formControlName="carType">
         <option value="" disabled selected hidden>Select Car Type</option>
         <option *ngFor="let type of carType" [value]="type">{{ type }}</option>
       </select>
-  
+
       <button type="button" (click)="bookCar()">Book</button>
     </div>
 </div>
 
 <div class="container conditions">
- 
+
   <div class="heading">
     <h3>Know Before You Go</h3>
   </div>
- 
+
   <div class="points">
     <ul>
       <li>Users can book only one car at a time.</li>

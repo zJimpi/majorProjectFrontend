@@ -24,8 +24,4 @@
     width: 100px;
     height: 100px;
   }
-  /* Add padding and background color to form container */
-.container.hotel-design-box {
-  padding: 20px;
-  background-color: #FCEFE5; /* Linen cream color */
-}
+

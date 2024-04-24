@@ -5,3 +5,7 @@
 .mat-step-buttons div button {
   margin-right: 10px;
 }
+/* Add space between buttons */
+div button {
+  margin-right: 130px; /* Adjust the value as needed */
+}
