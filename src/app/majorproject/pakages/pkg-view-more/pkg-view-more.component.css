@@ -69,6 +69,7 @@ font-size: 1.5rem; /* Adjust to desired font size */
 .hotel-description {
 font-size: 1rem; /* Adjust to desired font size */
 color: gray; /* Adjust to desired text color */
+
 }
 
 .book-now-button {
@@ -400,13 +401,17 @@ tr:nth-child(even) {
   /* background-color: antiquewhite; */
   border-radius: 0.7rem;
   padding: 20px;
+ 
 }
+
+
 .review-form h3{
   text-align: center;
   padding: 20px 10px;
 }
 .show-review{
   margin: 20px auto;
+  
 }
 .hero img{
   
