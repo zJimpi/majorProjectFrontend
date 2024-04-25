@@ -15,8 +15,8 @@
         <div class="user_details-header"><h5><B>Your profile 
           <!-- <button mat-icon-button color="priamry"></button> -->
         </B></h5></div>
-        <div class="email">Email: test@gmail.com</div>
-        <div class="phoneNumber">Phone: 9876867584</div>
+        <div class="email">Email: {{this.userDetails.email}}</div>
+        <div class="phoneNumber">Phone: {{this.userDetails.mobile}}</div>
         <div class="reset">Reset Password
           <button mat-icon-button class="reset-pas" color="primary" (click)="openResetPass()">
           <mat-icon>edit</mat-icon></button>
@@ -30,12 +30,14 @@
 
         <div class="pkg-booking-details">
         <h6><u>Package Bookings</u></h6>
-        <div>Pakage Name: Delhi Package</div>
+        <div *ngFor="let booking of packageBookingDetails">
+        <div>Pakage Name: {{booking.packageId}}</div>
         <div>Date: 2/4/24-5/4/24</div>
         <div>Package Hotel Booked</div>
         <div>Raju Delux Hotel</div>
         <div>Room Details: 2 suit 1 family</div>
         </div>
+      </div>
 
         <br>
         <div class="hotel-booking-details">
@@ -57,7 +59,7 @@
 
       <div class="row">
         <div class="col">
-          <button mat-raised-button color="primary" class="admin" (click)="openAdminPanel()">Admin Panel</button>
+          <button mat-raised-button color="primary" class="admin" *ngIf="_loginService.adminIn" (click)="openAdminPanel()">Admin Panel</button>
           </div>
           
         <div class="col">

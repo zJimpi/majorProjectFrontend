@@ -12,6 +12,7 @@ export class LoginServiceService {
   adminIn : boolean = false;
 
   user_name : string ='' ;
+  password : string ='' ;
   
 
   constructor(private _http:HttpClient) { }

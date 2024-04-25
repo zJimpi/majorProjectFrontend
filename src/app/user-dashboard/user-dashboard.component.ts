@@ -19,6 +19,7 @@ export class UserDashboardComponent implements OnInit {
   packageBookingDetails !: any[];
   hotelBookingDetails !: any[];
   carBookingDetails !: any[];
+  userDetails !: any;
 
   constructor(private _dialog: MatDialog,
     private _router:Router,
@@ -28,6 +29,7 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.getUser();
     this.getHotelBookingDetails();
     this.getPackageBookingDetails();
     this.getCarBookingDetails();
@@ -100,6 +102,19 @@ export class UserDashboardComponent implements OnInit {
         this.carBookingDetails = val;
         console.log(this.carBookingDetails);
 
+      },
+      error: (err:any)=>{
+        console.error(err);
+      }
+    });
+  }
+
+  getUser(){
+    this._loginService.getuser(this._loginService.user_name,this._loginService.password).subscribe({
+      next: (val :any)=>{
+
+        this.userDetails= val;
+        console.log(this.userDetails.email);
       },
       error: (err:any)=>{
         console.error(err);
