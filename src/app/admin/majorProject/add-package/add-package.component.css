@@ -1,5 +1,5 @@
 .package-design-box{
-    background-image: linear-gradient(to top, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    background-image: linear-gradient(to top, #55bfcb, #75d0c8, #6ceaba, #00ba98, #95efe8);
     height: 500px;
     padding: 40px 20px;
     border-radius: 10px; /* Add border radius for rounded corners */
@@ -20,4 +20,7 @@
     grid-template-columns: repeat(1, 8fr); 
     gap: 15px;
 }
+.action {
+    margin-top: 10px; /* Adjust the margin value according to your preference */
+  }
 
