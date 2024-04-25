@@ -13,7 +13,7 @@ import { ReviewService } from 'src/app/service/review.service';
   styleUrls: ['./hotel-view-more.component.css']
 })
 export class HotelViewMoreComponent {
-  
+
   hotelId!: number;
   hotel:any
 
@@ -23,15 +23,15 @@ export class HotelViewMoreComponent {
 
   displayedColumns: string[] = [
     'roomId',
-    'imageFile', 
-    'roomType', 
-    'roomName', 
+    'imageFile',
+    'roomType',
+    'roomName',
     'pricePerDay',
-    
+
     'selected'
     // 'availability' ,
 
-   
+
   ];
 
   roomSelections: { roomId: number, noRooms: number }[] = [];
@@ -59,8 +59,8 @@ constructor(private _roomService:AddRoomService,
   ngOnInit(): void {
     this.getHotelById()
     this.loadRoomDetails();
-   
-    
+
+
   }
 
   loadRoomDetails(){
@@ -71,7 +71,7 @@ constructor(private _roomService:AddRoomService,
       this._roomService.getRoomByHotelId(this.hotelId).subscribe(
         (rooms: any[]) => {
           this.dataSource = new MatTableDataSource<any>([]);
-            this.dataSource.data = rooms; 
+            this.dataSource.data = rooms;
         },
         error => {
           console.error('Error fetching room details:', error);
@@ -79,9 +79,9 @@ constructor(private _roomService:AddRoomService,
       );
     });
   }
-  
 
- 
+
+
   getHotelById(){
         // Get the hotelId from the route params
         this.route.params.subscribe(params => {
@@ -90,14 +90,14 @@ constructor(private _roomService:AddRoomService,
       next:(res:any)=>{
         this.hotel = res;
         console.log(this.hotel);
-        
-        
-        
+
+
+
       },error: console.log,
-    }); 
+    });
   });
   }
-  
+
 
   bookHotelById(){
       this._hotelService.getHotelById(this.hotelId).subscribe({
@@ -108,7 +108,7 @@ constructor(private _roomService:AddRoomService,
       });
       // this._router.navigate(['/hotelBooking'])
     }
-  
+
 
   toggleGuestInput(checked: boolean, roomId: number) {
     if (checked) {
@@ -142,7 +142,7 @@ constructor(private _roomService:AddRoomService,
       }
     }
   }
-  
+
   addReview(){
     const reviewFormData={
       username:"username(change)",
@@ -160,6 +160,6 @@ constructor(private _roomService:AddRoomService,
     },
    });
   }
- 
+
 
 }

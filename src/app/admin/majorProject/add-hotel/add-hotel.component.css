@@ -15,9 +15,9 @@
 }
 
 .action{
-   
-    display: grid; 
-    grid-template-columns: repeat(2, 8fr); 
+
+    display: grid;
+    grid-template-columns: repeat(2, 8fr);
     gap: 10px;
 }
 .image-resize {
