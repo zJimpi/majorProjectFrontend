@@ -4,7 +4,7 @@
   <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
 </div>
 <br>
-<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn">Book Now</button>
+<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn" [disabled]="!areHotelAndRoomSelected()">Book Now</button>
 <section id="spots" class="spots-section">
   <div class="spot-heading-container">
     <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>

@@ -26,8 +26,7 @@
 .things-to-know{
     margin-top: 50px;
     height:350px;
-    background-color: azure;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 .icon-large {
@@ -60,8 +59,8 @@
   .container.form input,
   .container.form select
    {
-    flex: 1; /* Make form fields flexible to occupy available space */
-    height: 60px; /* Set taller height of form fields */
+    flex: 1; 
+    height: 60px; 
     padding: 10px; /* Add padding to form fields */
     border: 3px solid #076B83ff; /* Add border to form fields */
     border-radius: 5px; /* Add rounded corners to form fields */
@@ -76,20 +75,20 @@
     box-sizing: border-box; /* Include padding and border in width calculation */
   }
   .container.form button:hover {
-    background-color: #076B83ff; /* Change button background color on hover */
-    color: #fff; /* Change button text color on hover */
+    background-color: #076B83ff; 
+    color: #fff; 
   }
 
   .container.form input[type="date"] {
-    /* Additional styles for date input */
-    appearance: none; /* Remove default appearance */
+    
+    appearance: none; 
   }
 
   .container.form input:focus,
   .container.form select:focus {
-
     outline: none; /* Remove focus outline */
     border-color: #007bff; /* Change border color on focus */
+
   }
 
   .hero-bg{

@@ -1,4 +1,5 @@
 .activity-design-box{
+    background-color: #FCEFE5;
     padding-top: 20px;
     padding-bottom: 20px;
     height: 150px;
@@ -10,3 +11,17 @@
     grid-template-columns: repeat(2, 8fr); 
     gap: 10px;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Adjust the height as needed */
+  }
+  
+  .form {
+    max-width: 600px; /* Adjust the max-width as needed */
+  }
+  
+  .input-width {
+    width: 100%; /* Ensures the input fields take full width */
+  }

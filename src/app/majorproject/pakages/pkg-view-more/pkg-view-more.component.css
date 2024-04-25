@@ -69,6 +69,7 @@ font-size: 1.5rem; /* Adjust to desired font size */
 .hotel-description {
 font-size: 1rem; /* Adjust to desired font size */
 color: gray; /* Adjust to desired text color */
+
 }
 
 .book-now-button {
@@ -400,13 +401,17 @@ tr:nth-child(even) {
   /* background-color: antiquewhite; */
   border-radius: 0.7rem;
   padding: 20px;
+ 
 }
+
+
 .review-form h3{
   text-align: center;
   padding: 20px 10px;
 }
 .show-review{
   margin: 20px auto;
+  
 }
 .hero img{
   
@@ -427,4 +432,24 @@ tr:nth-child(even) {
   width: 200px;
   object-fit: cover;
   border-radius: 0.7rem;
+}
+/* Centering the input fields in the spot section */
+.spots-content input[type="checkbox"],
+.spots-content input[type="number"] {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
+}
+
+/* Centering the input fields in the hotel section */
+.container input[type="checkbox"],
+.container input[type="number"] {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
+}
+
+/* Centering the input fields in the review section */
+.review-form textarea,
+.review-form button {
+  margin: 0 auto; /* Center horizontally */
+  display: block; /* Display as block to center */
 }

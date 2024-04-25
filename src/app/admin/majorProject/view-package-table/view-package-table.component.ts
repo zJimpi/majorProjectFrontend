@@ -26,6 +26,8 @@ export class ViewPackageTableComponent implements OnInit {
     'spots',
     'imageFile',
     'activity',
+    'maxNoOfBookings',
+    'noOfBookings',
     'action'
   ];
 

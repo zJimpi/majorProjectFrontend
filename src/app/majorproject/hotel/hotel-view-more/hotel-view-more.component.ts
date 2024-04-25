@@ -17,6 +17,8 @@ export class HotelViewMoreComponent {
   hotelId!: number;
   hotel:any
 
+  isRoomSelected: boolean = false;
+
   availableStatus:boolean=false
 
   displayedColumns: string[] = [
@@ -112,9 +114,11 @@ constructor(private _roomService:AddRoomService,
     if (checked) {
       // Checkbox is checked, call addRoomSelection with default guests (0)
       this.addRoomSelection(roomId, 0, true);
+      this.isRoomSelected = true;
     } else {
       // Checkbox is unchecked, call addRoomSelection with guests as 0 to remove room selection
       this.addRoomSelection(roomId, 0, false);
+      this.isRoomSelected = false;
     }
   }
 

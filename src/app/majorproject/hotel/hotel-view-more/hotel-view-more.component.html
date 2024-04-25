@@ -11,7 +11,7 @@
           <h5 class="card-text">Airport Distance: {{hotel.airportDistance}} km</h5>
           <h5 class="card-text">Railway Station Distance: {{hotel.railwayDistance}} km</h5>
         </div>
-        <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn">Book Now</button>
+        <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn" [disabled]="!isRoomSelected">Book Now</button>
       </div>
 
 </div>

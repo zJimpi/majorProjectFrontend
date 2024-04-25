@@ -22,6 +22,9 @@ export class PkgViewMoreComponent {
   package!:any;
   filteredHotels: any[] = [];
 
+  isHotelSelected: boolean = false;
+  isRoomSelected: boolean = false;
+
   roomSelections: { roomId: number, noRooms: number }[] = [];
   hotelSelections: { hotelId: number, isChecked: boolean } = { hotelId: 0, isChecked: false };
 
@@ -101,17 +104,21 @@ export class PkgViewMoreComponent {
       if (checked) {
         // Checkbox is checked, call addRoomSelection with default guests (0)
         this.addRoomSelection(roomId, 0, true);
+        this.isRoomSelected = true;
       } else {
         // Checkbox is unchecked, call addRoomSelection with guests as 0 to remove room selection
         this.addRoomSelection(roomId, 0, false);
+        this.isRoomSelected = false;
       }
     }
 
     toggleHotelInput(checked: boolean, hotelId: number) {
       if(checked) {
         this.addHotelSelection({ hotelId, isChecked: true });
+        this.isHotelSelected = true;
       } else {
         this.addHotelSelection({ hotelId, isChecked: false });
+        this.isHotelSelected = false;
       }
     }
 
@@ -145,6 +152,21 @@ export class PkgViewMoreComponent {
         this.hotelSelections = { hotelId: 0, isChecked: false }; // Reset to default values
       }
     }    
+
+    isBookNowDisabled(): boolean {
+      // Check if at least one hotel is selected
+      const isHotelSelected = this.filteredHotels.some(hotel => hotel.isChecked);
+    
+      // Check if at least one room is selected
+      const isRoomSelected = this.filteredHotels.some(hotel => hotel.rooms.some((room: { isChecked: any; }) => room.isChecked));
+    
+      // Disable the button if either no hotel or no room is selected
+      return !isHotelSelected || !isRoomSelected;
+    }
+    
+    areHotelAndRoomSelected(): boolean {
+      return this.isHotelSelected && this.isRoomSelected;
+    }
     
     addReview(){
       const reviewFormData={

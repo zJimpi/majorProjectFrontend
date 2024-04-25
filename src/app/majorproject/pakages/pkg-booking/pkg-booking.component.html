@@ -40,7 +40,9 @@
       </div>
     
       <div>
-        <button mat-raised-button routerLink="/hotelView">I Disagree</button>  
+        <button mat-raised-button routerLink="/hotelView">I Disagree</button>
+        <!-- Add space between buttons -->
+        <span style="margin-right: 10px;"></span>  
         <button mat-raised-button color="primary" matStepperNext>I agree</button>
       
       </div>
@@ -104,6 +106,8 @@
   
           <div>
             <button mat-button matStepperPrevious>Back</button>
+            <!-- Add space between buttons -->
+            <span style="margin-right: 10px;"></span>
             <button mat-raised-button color="primary" matStepperNext type="submit">Book</button>
           </div>
         </form>
@@ -125,6 +129,8 @@
   
         <div>
           <button mat-button matStepperPrevious>Back</button>
+          <!-- Add space between buttons -->
+          <span style="margin-right: 10px;"></span>
           <button mat-button (click)="generateTicket()">Payment Done</button>
         </div>
       </form>

@@ -82,6 +82,7 @@ export class AddHotelComponent implements OnInit{
         location:[,Validators.required],
         address:['',Validators.required],
         number:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+        nearBy:['',Validators.required]
         
       });
     }
@@ -111,7 +112,8 @@ export class AddHotelComponent implements OnInit{
             startingPrice:this.hotelForm.value.startingPrice,
             location:this.hotelForm.value.location,
             address:this.hotelForm.value.address,
-            number:this.hotelForm.value.number
+            number:this.hotelForm.value.number,
+            nearBy:this.hotelForm.value.nearBy
           }
           this._hotelService.addHotel(formData).subscribe({
             
