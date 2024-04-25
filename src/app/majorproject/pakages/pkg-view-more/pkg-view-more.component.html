@@ -25,13 +25,14 @@
       </td>
       <td><img [src]="hotel.imageFile" class="h-img-size"></td>
       <td>
-        
+
         <p>{{hotel.hotelName}}</p>
       </td>
       <td>
         <table>
           <thead>
             <tr>
+
               <th>Room Type</th>
               <th>Room Picture</th>
               <th>Price per Day</th>
@@ -52,7 +53,7 @@
       </td>
     </tr>
   </table>
-  
+
 </div>
 
 
@@ -71,11 +72,11 @@
 </div>
 
 <div class="conditions">
- 
+
   <div class="heading">
     <p >Know Before You Go</p>
   </div>
- 
+
   <div class="points">
     <ul>
       <li>Wander Quest reserves the right to rearrange or change the itinerary for reasons that are beyond control like Natural calamity, weather conditions, road block etc.</li>
@@ -104,20 +105,20 @@
               <h5>username</h5>
           </div>
           <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
-          
+
               <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Leave a comment</mat-label>
               <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
               </mat-form-field>
 
               <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
-                  
+
           </form>
       </div>
   </div>
 </div>
 
 <div class="container show-review">
-  
+
   <app-review [pkgAccesed]="true" [pLocation]="package?.location" [packageName]="package?.pckgName"></app-review>
 </div>

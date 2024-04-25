@@ -1,7 +1,7 @@
 
 
 .container{
-  padding: 20px 0px;
+  padding: 30px 0px;
 }
 .hero{
   background-color: #076B83ff;
@@ -29,7 +29,7 @@ padding: 10px;
 }
 .action button{
   width: 90%;
- 
+
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -46,16 +46,29 @@ padding: 10px;
   text-align: center;
   border-radius: 0.5rem;
   padding: 10px;
-  
+
 }
 .filter-box input{
   width: 100%;
   border: none;
   border-radius: 0.5rem;
-  
+
 }
 .image-resize{
   height: 100%;
   width: 100%;
-  
+
+}
+.bi-geo-alt-fill {
+  color: green; /* Color for geo-alt icon */
+}
+
+.bi-telephone-fill {
+  color:green; /* Color for telephone icon */
+}
+/* Additional styling for individual hotel cards */
+.hotel-card {
+  background-color: #f9f9f9; /* Background color for individual hotel cards */
+  margin-bottom: 20px; /* Add margin between hotel cards */
+  border-radius: 10px; /* Add border radius to hotel cards */
 }
