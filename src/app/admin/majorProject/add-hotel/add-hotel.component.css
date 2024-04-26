@@ -1,5 +1,5 @@
 .hotel-design-box{
-    background-image: linear-gradient(to top, #55bfcb, #75d0c8, #6ceaba, #00ba98, #95efe8 );
+    background-image: linear-gradient(to top,#4cacc4, #6dcdda,#40c7c4,#39ebcb,#a4f5dd);
 
     padding: 20px;
     padding: 20px;
@@ -26,4 +26,5 @@
   }
   .action {
     margin-top: 10px; /* Adjust the margin value according to your preference */
-  }
+   
+}

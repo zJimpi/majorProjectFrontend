@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  font-size: x-large;
+  font-size: 50px;
   
  
 }
@@ -36,7 +36,7 @@
 .top-section {
   flex-grow: 1;
   display: flex;
-  font-size: x-large;
+  font-size: 20px;
   margin-bottom: 10px;
 
 }
@@ -65,6 +65,8 @@
   background-color: #D3D3D3;
   color: black;
   padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 25px;
   text-align: center;
   border-radius: 5px;
   /* Center the box in its div */
@@ -79,7 +81,7 @@
   background-color: #3187b5;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px; /* Added margin to separate the buttons */
@@ -91,7 +93,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  font-size: x-large;
+  font-size: 20px;
 }
 
 .text-container p {

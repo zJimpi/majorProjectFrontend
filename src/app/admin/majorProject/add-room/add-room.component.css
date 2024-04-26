@@ -4,9 +4,9 @@
 }
 
 .room-design-box{
-    background-image: linear-gradient(to right, #55bfcb, #00ba98 );
+    background-color:#55bfcb;
     width: 100%;
-    height: 180px;
+    height: 230px;
     
 }
 .action{
@@ -16,5 +16,5 @@
     gap: 10px;
 }
 .action {
-    margin-top: 10px; /* Adjust the margin value according to your preference */
+    margin-top: 15px; /* Adjust the margin value according to your preference */
   }

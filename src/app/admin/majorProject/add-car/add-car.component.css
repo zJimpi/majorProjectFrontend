@@ -1,6 +1,6 @@
 .car-rental-design-box{
-    background-image: linear-gradient(to top, #55bfcb, #75d0c8, #6ceaba, #00ba98, #95efe8 );
-    height: 380px;
+    background-image: linear-gradient(to top,#4cacc4, #6dcdda,#40c7c4,#39ebcb,#a4f5dd);
+    height: 430px;
     padding: 20px 20px;
     
 
@@ -13,13 +13,18 @@
 .button_div{
     padding-top: 50px;
 }
+.row{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
 .action{
    
     display: grid; 
     grid-template-columns: repeat(1, 8fr); 
     gap: 15px;
-}
-.action {
+
+
     margin-top: 10px; /* Adjust the margin value according to your preference */
-  }
+    margin-bottom: 10px;
+}
 
