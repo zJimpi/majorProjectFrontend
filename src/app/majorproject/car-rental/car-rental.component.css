@@ -19,7 +19,7 @@
     color: white;
     font-size: 2.6rem;
     font-weight: 400;
-    
+
 }
 .location-details{
     margin-top: 30px;
@@ -29,8 +29,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 img{
-    height:100px;
-    width : 100px;
+    height:200px;
+    width : 200px;
     border-radius: 0.2rem;
 }
 .col-md-4{
@@ -49,3 +49,30 @@ img{
     text-align: center;
     font-size: 1.2rem;
 }
+/* Styling for the hero section */
+.hero {
+  padding: 50px 0; /* Add padding top and bottom */
+  background-color: #076B83; /* Change the background color */
+}
+
+/* Styling for the hero content */
+.hero-content {
+  text-align: center;
+}
+
+/* Styling for the search box */
+.search {
+  margin-top: 20px; /* Add some space between the hero content and search box */
+}
+
+/* Styling for the location details */
+.location-details {
+  padding-top: 50px; /* Add padding top */
+  background-color: #FCEFE5; /* Change the background color */
+}
+
+/* Styling for the car rental location cards */
+.car-rent-location-card {
+  height: 100%; /* Set a fixed height for each card */
+}
+

@@ -8,6 +8,8 @@
           <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
           <h5 class="card-text">{{hotel.address}}</h5>
           <h5 class="card-text">{{hotel.number}}</h5>
+          <h5 class="card-text">Airport Distance: {{hotel.airportDistance}} km</h5>
+          <h5 class="card-text">Railway Station Distance: {{hotel.railwayDistance}} km</h5>
         </div>
         <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn" [disabled]="!isRoomSelected">Book Now</button>
       </div>
@@ -21,24 +23,24 @@
     </div>
     <div class="row">
         <div class="col">
-            <span><i class="bi bi-shuttle"></i> Airport shuttle </span>
-        <span><i class="bi bi-emoji-neutral-fill"></i> Non-smoking rooms </span>
-        <span><i class="bi bi-telephone"></i> Room service </span>
-        <span><i class="bi bi-person-circle"></i> Facilities for disabled guests </span>
+            <span><i class="bi bi-bus-front-fill"></i> Airport shuttle<br> </span>
+        <span><i class="bi bi-emoji-neutral-fill"></i> Non-smoking rooms<br> </span>
+        <span><i class="bi bi-telephone"></i> Room service<br> </span>
+        <span><i class="bi bi-person-circle"></i> Facilities for disabled guests <br></span>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <span><i class="bi bi-parking"></i> Free parking </span>
-        <span><i class="bi bi-wifi"></i> Free WiFi </span>
-        <span><i class="bi bi-people"></i> Family rooms </span>
-        <span><i class="bi bi-clock"></i> 24-hour front desk </span>
+            <span><i class="bi bi-pin-map-fill"></i> Free parking <br></span>
+        <span><i class="bi bi-wifi"></i> Free WiFi <br></span>
+        <span><i class="bi bi-people"></i> Family rooms <br></span>
+        <span><i class="bi bi-clock"></i> 24-hour front desk <br></span>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <span><i class="bi bi-cup-straw"></i> Tea/Coffee Maker in All Rooms </span>
-        <span><i class="bi bi-egg-fried"></i> Breakfast </span>
+            <span><i class="bi bi-cup-straw"></i> Tea/Coffee Maker in All Rooms <br></span>
+        <span><i class="bi bi-egg-fried"></i> Breakfast <br></span>
         </div>
     </div>
 
@@ -49,7 +51,7 @@
 </div> -->
 <!-- room table  -->
 <div class="main-body container">
-        <h4>Room Details</h4>    
+        <h4>Room Details</h4>
     <div class="table-container">
     <table mat-table [dataSource]="dataSource" matSort>
 
@@ -102,51 +104,59 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-        
+
     </table>
     </div>
 
 </div>
 
-<!-- refund ppolicies(static)  -->
+<!-- refund policies(static)  -->
 <div class="refund container">
-    <h2>Hotel Refund Policy</h2>
-        
-        <h3>Booking Terms:</h3>
-        <ul>
-            <li>All bookings are subject to availability.</li>
-            <li>Guests must provide valid payment details to confirm reservations.</li>
-            <li>Rates are subject to change without prior notice.</li>
-        </ul>
+  <h2>Hotel Refund Policy</h2>
 
-        <h3>Cancellation Policy:</h3>
-        <ul>
-            <li>Cancellations made [X] days prior to the check-in date are eligible for a full refund.</li>
-            <li>Cancellations made between [Y] and [Z] days prior to the check-in date are eligible for a partial refund, subject to [percentage]% cancellation fee.</li>
-            <li>Cancellations made within [A] days of the check-in date are non-refundable.</li>
-        </ul>
+      <h3>Booking Terms:</h3>
+      <ul>
+          <li>All bookings are subject to availability.</li>
+          <li>Guests must provide valid payment details to confirm reservations.</li>
+          <li>Rates are subject to change without prior notice.</li>
+      </ul>
 
-        <h3>Refund Eligibility:</h3>
-        <ul>
-            <li>Refunds will be issued to the original payment method.</li>
-            <li>Refunds may take [N] business days to process.</li>
-        </ul>
+      <!-- Add the booking terms here -->
+      <h3>Booking Terms:</h3>
+      <ul>
+          <li>Booking terms data point 1</li>
+          <li>Booking terms data point 2</li>
+          <!-- Add more booking terms data points as needed -->
+      </ul>
 
-        <h3>Exceptions:</h3>
-        <ul>
-            <li>Force Majeure: In the event of unforeseen circumstances beyond our control, such as natural disasters or government regulations, the hotel reserves the right to modify or cancel bookings without penalty.</li>
-            <li>No-Show: Guests who fail to arrive without prior notice will be charged the full amount of the reservation.</li>
-            <li>Special Promotions: Bookings made under special promotional rates may have different cancellation and refund policies. Please refer to the specific terms and conditions of the promotion.</li>
-        </ul>
+      <h3>Cancellation Policy:</h3>
+      <ul>
+          <li>Cancellations made [X] days prior to the check-in date are eligible for a full refund.</li>
+          <li>Cancellations made between [Y] and [Z] days prior to the check-in date are eligible for a partial refund, subject to [percentage]% cancellation fee.</li>
+          <li>Cancellations made within [A] days of the check-in date are non-refundable.</li>
+      </ul>
 
-        <h3>How to Cancel:</h3>
-        <p>Guests can cancel or modify their reservations by contacting our reservations team at [Insert Contact Information].</p>
+      <h3>Refund Eligibility:</h3>
+      <ul>
+          <li>Refunds will be issued to the original payment method.</li>
+          <li>Refunds may take [N] business days to process.</li>
+      </ul>
 
-        <h3>Additional Notes:</h3>
-        <ul>
-            <li>Refund policies may vary for group bookings, long-term stays, or special events.</li>
-            <li>Any disputes regarding refunds will be resolved at the discretion of the hotel management.</li>
-        </ul>
+      <h3>Exceptions:</h3>
+      <ul>
+          <li>Force Majeure: In the event of unforeseen circumstances beyond our control, such as natural disasters or government regulations, the hotel reserves the right to modify or cancel bookings without penalty.</li>
+          <li>No-Show: Guests who fail to arrive without prior notice will be charged the full amount of the reservation.</li>
+          <li>Special Promotions: Bookings made under special promotional rates may have different cancellation and refund policies. Please refer to the specific terms and conditions of the promotion.</li>
+      </ul>
+
+      <h3>How to Cancel:</h3>
+      <p>Guests can cancel or modify their reservations by contacting our reservations team at [Insert Contact Information].</p>
+
+      <h3>Additional Notes:</h3>
+      <ul>
+          <li>Refund policies may vary for group bookings, long-term stays, or special events.</li>
+          <li>Any disputes regarding refunds will be resolved at the discretion of the hotel management.</li>
+      </ul>
 </div>
 
 <div class="container review-form">
@@ -160,20 +170,20 @@
                 <h5>username</h5>
             </div>
             <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
-            
+
                 <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Leave a comment</mat-label>
                 <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
                 </mat-form-field>
 
                 <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
-                    
+
             </form>
         </div>
     </div>
 </div>
 
 <div class="container show-review">
-    
+
     <app-review [hotelAccesed]="true" [hLocation]="hotel.location" [hotelName]="hotel.hotelName"></app-review>
 </div>

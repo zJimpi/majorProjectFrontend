@@ -8,10 +8,9 @@
 
 <div class="container"  *ngFor="let package of filteredPackages">
   <div class="image-container">
-   
+
     <img [src]="package.maxNoOfBookings === package.noOfBookings ? 'assets/pkg_img/PackageSoldOut.png' : package.imageFile" class="img-size">
 
-    
   </div>
   <div class="text-container">
     <div class="top-section">
@@ -21,14 +20,7 @@
         <p><b>Location</b>: {{package.location}}</p>
         <p><b>Duration</b>: {{package.packageDuration}}</p>
         
-          <!-- <p>Spots: 1. Cellular Jail<br />
-          2. Radhanagar Beach<br />
-          3.Neil Island<br />
-           4.Ross Island<br /> 
-           5.Elephant Beach<br /> 
-           6. Baratang Island</p> -->
-       
-        <!-- <p>Package Code: wby2345</p> -->
+     
       </div>
       <div class="sub-section">
         <!-- Second sub-section -->
@@ -38,8 +30,9 @@
         <!-- Third sub-section -->
         <div class="box">
           <h4> Starting from <br> ₹ {{package.price}}  </h4>
-          
+   
           <button *ngIf="package.maxNoOfBookings !== package.noOfBookings" (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 
+
         </div>
       </div>
     </div>

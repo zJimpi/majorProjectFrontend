@@ -20,7 +20,7 @@
     color: white;
     font-size: 2.6rem;
     font-weight: 400;
-    
+
 }
 
 .things-to-know{
@@ -55,7 +55,7 @@
     display: flex;
     gap: 30px; /* Add spacing between form fields */
   }
-  
+
   .container.form input,
   .container.form select
    {
@@ -78,25 +78,89 @@
     background-color: #076B83ff; 
     color: #fff; 
   }
-  
+
   .container.form input[type="date"] {
     
     appearance: none; 
   }
-  
+
   .container.form input:focus,
   .container.form select:focus {
-    outline: none; 
-    border-color: #007bff; 
+    outline: none; /* Remove focus outline */
+    border-color: #007bff; /* Change border color on focus */
+
   }
-  
+
   .hero-bg{
     width: 100%;
-    height: 67vh;
+    height: 35vh;
     z-index: -1;
     object-fit: cover;
-    
+
   }
   .things-to-know{
     color: #fff;
   }
+  /* Styling for the hero section */
+.hero {
+  position: relative; /* Ensure proper stacking context for overlay */
+}
+
+/* Styling for the hero content */
+.hero-content {
+  position: absolute; /* Position content relative to the hero */
+  top: 50%; /* Align content vertically */
+  left: 50%; /* Align content horizontally */
+  transform: translate(-50%, -50%); /* Center content */
+  text-align: center;
+}
+
+/* Styling for the search box */
+.search {
+  margin-top: 20px; /* Add some space between the hero content and search box */
+}
+
+/* Styling for the form */
+.form {
+  margin-top: 20px; /* Add space between the hero section and the form */
+}
+
+/* Styling for the conditions section */
+.conditions {
+  margin-top: 10px; /* Add space between the form and the conditions section */
+}
+
+/* Text shadow for the hero content */
+.hero-content h1, .hero-content h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+
+/* Add space between each form box */
+.form input,
+.form select {
+  margin-bottom: 25px; /* Adjust the value as needed */
+}
+
+/* Change the color of hero section icons to green */
+.icon-container i {
+  color: green;
+}
+/* Add text color to container to brown */
+.container {
+  color: black;
+}
+.content-container {
+  padding: 5px; /* Adjust the value as needed */
+}
+/* Add text shadow for all text in the hero section */
+.hero-content h1,
+.hero-content h3,
+.hero-content h4 {
+    text-shadow: 2px 2px 4px rgb(243, 7, 7); /* Adjust the shadow values as needed */
+}
+.container.form input,
+.container.form select,
+.container.form button {
+    margin-left: 30px; /* Adjust the value as needed */
+}
+
