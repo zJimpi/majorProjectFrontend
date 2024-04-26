@@ -35,6 +35,7 @@ export class AddPackageComponent implements OnInit {
         packageDuration : ['',Validators.required],
         location : ['',Validators.required],
         price : ['',Validators.required],
+        maxNoOfBookings : ['',Validators.required],
         spots : ['',Validators.required],
         imageFile:'',
       }); 
@@ -67,7 +68,8 @@ export class AddPackageComponent implements OnInit {
             packageDuration : this.packageForm.value.packageDuration,
             location : this.packageForm.value.location,
             price : this.packageForm.value.price,
-            spots : this.packageForm.value.spots
+            spots : this.packageForm.value.spots,
+            maxNoOfBookings : this.packageForm.value.maxNoOfBookings
           }
           this._packageService.addPackage(formData).subscribe({
             next : (val:any)=>{
