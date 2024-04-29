@@ -30,11 +30,11 @@
 
         <div class="pkg-booking-details">
         <h6><u>Package Bookings</u></h6>
-        <div *ngFor="let booking of packageBookingDetails">
-        <div>Pakage Name: {{booking.packageId}}</div>
-        <div>Date: 2/4/24-5/4/24</div>
+        <div *ngFor="let package of packageBookingDetails">
+        <div>Pakage Name: {{package.packageName}}</div>
+        <div>Date: {{package.checkInDate}}-{{package.checkOutDate}}</div>
         <div>Package Hotel Booked</div>
-        <div>Raju Delux Hotel</div>
+        <div>{{package.hotelName}}</div>
         <div>Room Details: 2 suit 1 family</div>
         </div>
       </div>

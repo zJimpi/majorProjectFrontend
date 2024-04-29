@@ -68,6 +68,8 @@ import { CarRentalComponent } from './majorproject/car-rental/car-rental.compone
 import { AddCarComponent } from './admin/majorProject/add-car/add-car.component';
 import { ViewCarTableComponent } from './admin/majorProject/view-car-table/view-car-table.component';
 import { CarBookingComponent } from './majorproject/car-booking/car-booking.component';
+import { UserBookingComponent } from './user-booking/user-booking.component';
+import { PkgHotelViewMoreComponent } from './majorproject/pakages/pkg-hotel-view-more/pkg-hotel-view-more.component';
 
 
 
@@ -108,6 +110,8 @@ import { CarBookingComponent } from './majorproject/car-booking/car-booking.comp
     AddCarComponent,
     ViewCarTableComponent,
     CarBookingComponent,
+    UserBookingComponent,
+    PkgHotelViewMoreComponent,
 
 
   ],
