@@ -3,7 +3,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     height: 150px;
-    background-image: linear-gradient(to right, #076b83, #008596, #00a09d, #00ba98, #2cd287);
+    background-image: linear-gradient(to right,#55bfcb, #55bfcb);
     
 }
 .action{
@@ -24,4 +24,7 @@
   
   .input-width {
     width: 100%; /* Ensures the input fields take full width */
+  }
+  .action {
+    margin-top: 10px; /* Adjust the margin value according to your preference */
   }

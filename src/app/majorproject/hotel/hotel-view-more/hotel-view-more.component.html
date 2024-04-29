@@ -6,10 +6,9 @@
         </div>
         <div class="card-img-overlay" *ngIf="hotel">
           <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
-          <h5 class="card-text">{{hotel.address}}</h5>
-          <h5 class="card-text">{{hotel.number}}</h5>
-          <h5 class="card-text">Airport Distance: {{hotel.airportDistance}} km</h5>
-          <h5 class="card-text">Railway Station Distance: {{hotel.railwayDistance}} km</h5>
+          <h5 class="card-text"><i class="bi bi-building-fill-add"></i>{{hotel.address}}</h5>
+          <h5 class="card-text"><i class="bi bi-telephone-fill"></i>{{hotel.number}}</h5>
+          <h5 class="card-text"><i class="bi bi-car-front-fill"></i>Near by:{{hotel.nearby}} km</h5>
         </div>
         <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn" [disabled]="!isRoomSelected">Book Now</button>
       </div>
@@ -19,7 +18,7 @@
 <!-- hotel  facilities(static) -->
 <div class="facilities container">
     <div class="row">
-        <h4>Hotel Facilities</h4>
+        <h3>Hotel Facilities</h3>
     </div>
     <div class="row">
         <div class="col">

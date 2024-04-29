@@ -1,6 +1,6 @@
 .package-design-box{
-    background-image: linear-gradient(to top, #55bfcb, #75d0c8, #6ceaba, #00ba98, #95efe8);
-    height: 500px;
+    background-image: linear-gradient(to top,#4cacc4, #6dcdda,#40c7c4,#39ebcb,#a4f5dd);
+    height: 700px;
     padding: 40px 20px;
     border-radius: 10px; /* Add border radius for rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
