@@ -1,0 +1,195 @@
+.hero{
+padding: 0;
+margin: 0;
+
+}
+.hero img{
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
+    overflow:hidden;
+    
+}
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.487); 
+}
+
+.spots-content{
+
+margin: 20px 0px;
+}
+
+.spot-list {
+    list-style: none;
+    padding: 0; 
+    display: flex; 
+   justify-content: center;
+   
+  }
+  
+.spot-list li { 
+    margin-right: 10px; 
+    font-size: 1.2rem;
+  }
+
+  /*----------------- hotel section ----------------- */
+  .hotel-cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 160px; /* Add padding on both sides */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    margin: 50px;
+   
+    /* background-color: #edede9; */
+  }
+  
+  .hotel-card {
+    position: relative;
+    width: 300px; /* Adjust width to fit three cards in a row with padding */
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease; /* Smooth transition for filter */
+  }
+  
+  .hotel-card:hover .hotel-image {
+    filter: brightness(70%); /* Decrease brightness of image on hover */
+  }
+  
+  .hotel-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: filter 0.3s ease; /* Smooth transition for filter */
+  }
+  
+  .hotel-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    padding: 10px;
+  }
+  
+  .hotel-info:hover .explore-text {
+    display: block; /* Show Explore text on hover */
+  }
+  
+  .hotel-name {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  
+  .starting-price {
+    font-size: 14px;
+  }
+  
+  .explore-text {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+ /*------------- activity section -------------- */
+  .additional-activity-text{
+    text-align: center;
+    font-size: 2rem;
+    }
+    .additional-activity-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    
+    /* Styles for each activity card */
+    .card1 {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card1:hover {
+    transform: translateY(-10px); /* Adjust to desired hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust to desired box shadow on hover */
+    }
+    
+    
+    .card1 img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    
+    }
+    
+    /* Styles for activity card body */
+    .card-body1 {
+    padding: 20px 0px;
+    text-align: center;
+    }
+    
+    /* Styles for activity names */
+    .additional-activity-name
+    {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+    .additional-activity-timing
+    {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+    
+    /* Styles for activity descriptions */
+    .additional-activity-description
+    {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+    }
+    
+    /*---------------- terms and conditions  ------------------ */
+    .conditions{
+      margin-top: 100x;
+      margin-left: 200px;
+      margin-right: 200px;
+      margin-bottom: 50px;
+      padding: 20px;
+   
+    
+    
+    }
+    .conditions .points ul {
+      list-style-type: disc; /* Use bullets for list items */
+      padding-left: 20px; /* Add some space to the left of the bullets */
+    }
+    .heading{
+      font-size : 2.5rem;
+      font-weight: 600;
+      border-bottom: 1px solid #edede9; /* Border style: 1px solid black */
+    }
+    
+    .conditions p{
+      margin-bottom : 10px;
+      border-bottom: 1px #adb5bd;
+    }
+    .points ul li {
+      font-size: 20px; /* Medium font size */
+      margin-bottom: 10px; /* Add space between list items */
+    }
+    .points{
+      margin-top: 20px;
+    }
+    

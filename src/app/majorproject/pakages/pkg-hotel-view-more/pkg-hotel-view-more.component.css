@@ -65,10 +65,12 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   .image-resize {
-      height: 300px;
+      height: 200px;
       width: 300px;
-      object-fit:contain;
+      object-fit:cover;
+     
       border-radius: 0.7rem;
+      margin: 10px;
   }
   /* Change hotel facility icon color to green */
   .facilities .bi {
