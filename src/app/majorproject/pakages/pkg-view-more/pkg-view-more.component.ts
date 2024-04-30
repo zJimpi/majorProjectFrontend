@@ -11,7 +11,7 @@ import { ReviewService } from 'src/app/service/review.service';
 @Component({
   selector: 'app-pkg-view-more',
   templateUrl: './pkg-view-more.component.html',
-  styleUrls: ['./pkg-view-more.component.css']
+  styleUrls: ['./pkg-view-more-new.component.css']
 })
 export class PkgViewMoreComponent implements OnInit {
 

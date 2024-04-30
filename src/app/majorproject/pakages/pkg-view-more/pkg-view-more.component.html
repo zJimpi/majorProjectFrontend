@@ -1,68 +1,36 @@
 <!-- Hero section -->
-<div class="hero" *ngIf="package">
-  <img [src]="package.imageFile" class="img-size">
-  <h1 class="hero-title">{{package.location}}</h1>
-  <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
+<div class="container-fluid hero">
+  <div class="card text-bg-dark ">
+    <div class="card-img" alt="...">
+      <img [src]="package.imageFile" class="hero-img">
+    </div>
+    <div class="card-img-overlay" *ngIf="package">
+    <h1 class="card-title text-center">{{package.pckgName}}</h1>
+
+    <div class="row text-center">
+      <div class="spots-content">
+        
+       
+        <ul class="spot-list ">
+          <li *ngFor="let spot of package.spots.split(',')" ><i class="bi bi-geo-alt-fill" style="color: rgb(6, 140, 4);"></i> {{ spot }}</li>
+        </ul>
+      </div>
+    </div>
+  <h4 class="hero-subtitle text-center">"Discover the Uncharted Beauty of {{package.location}}"</h4>
+  <i><p class="spot-heading text-center">Embark on an unforgettable journey spanning {{package.packageDuration}} of adventure and discovery.</p></i>
+  
 </div>
+</div>
+</div>
+
 <br>
 
-<!-- Book now -->
-<!-- <button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn" [disabled]="!areHotelAndRoomSelected()">Book Now</button> -->
 
-<!-- Spot section -->
-<section id="spots" class="spots-section">
-  <div class="spot-heading-container">
-    <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>
-  </div>
-  <div class="spots-content">
-    <ul class="spot-list">
-      <li *ngFor="let spot of package.spots.split(',')">{{ spot }}</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Hotel section(Old) -->
-<!-- <b><p class="additional-activity-text">Hotels</p></b>
-<div class="conatiner">
-  <table>
-    <tr *ngFor="let hotel of filteredHotels">
-      <td>
-        <input type="checkbox" #hotelCheckbox (change)="toggleHotelInput(hotelCheckbox.checked, hotel.hotelId)">
-      </td>
-      <td><img [src]="hotel.imageFile" class="h-img-size"></td>
-      <td>
-        <p>{{hotel.hotelName}}</p>
-      </td>
-      <td>
-        <table>
-          <thead>
-            <tr>
-              <th>Room Type</th>
-              <th>Room Picture</th>
-              <th>Price per Day</th>
-              <th>Checkbox</th>
-              <th>Input Field</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let room of hotel.rooms">
-              <td>{{room.roomType}}</td>
-              <td><img [src]="room.imageFile"></td>
-              <td>{{room.pricePerDay}}</td>
-              <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
-              <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </table>
-</div> -->
 
 <!-- Hotel section(New) -->
-<b><p class="additional-activity-text">Choose Hotel as per your preference</p></b>
+<h2 class="additional-activity-text"><b>Choose Hotel as per your preference</b></h2>
 <div class="hotel-cards">
-  <div class="hotel-card col-md-4" *ngFor="let hotel of filteredHotels">
+  <div class="hotel-card col-4" *ngFor="let hotel of filteredHotels">
     <div class="hotel-image" [style.background-image]="'url(' + hotel.imageFile + ')'"></div>
     <div class="hotel-info">
       <h3 class="hotel-name">{{ hotel.hotelName }}</h3>
@@ -72,7 +40,40 @@
   </div>
 </div>
 
+<hr>
+<div class="static-jargon container">
+  <div class="row">
+    <div class="col incusive">
+      <h4>Inclusive</h4>
+      <ul>
+        <li>Welcome drink on arrival</li>
+        <li>Wi-Fi</li>
+        <li>Parking and Toll tax</li>
+        <li>Meet & greet at arrival</li>
+        <li>Pick and Drop at time of arrival/departure</li>
+        <li>Breakfast</li>
+        <li>Sightseeing by private car</li>
+        <li>All tours and transfers by Personal Car is included</li>
+      </ul>
+    </div>
+    <div class="col exclusive">
+      <h4>Exclusive</h4>
+      <ul>
+        <li>Camera fee</li>
+        <li>Alcoholic / Non- Alcoholic beverages</li>
+        <li>Travel insurance</li>
+        <li>5% GST</li>
+        <li>Expenses caused by factors beyond our control like rail and flight delays, roadblocks, vehicle mal-functions, political disturbances etc.</li>
+        <li>Tips, laundry & phone call</li>
+        <li>Entrance fees to monuments and museum</li>
+      </ul>
+    </div>
+  </div>
+  
 
+</div>
+
+<hr>
 
 <!-- Activity section -->
 <b><p class="additional-activity-text">Additional Activities</p></b>
