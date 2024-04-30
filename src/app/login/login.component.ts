@@ -56,6 +56,8 @@ export class LoginComponent {
                 this._router.navigate(['/home']);
                 this._loginService.user_name = username;
                 this._loginService.password = password;
+                this._loginService.user = userDetails;
+                console.log(userDetails);
               }
               //if it is normal user 
               else 

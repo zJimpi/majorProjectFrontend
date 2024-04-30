@@ -12,7 +12,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class UserDashboardComponent implements OnInit {
 
   loggedIn:boolean =false;
-  //This boolean variable is used to track whether the logged-in user is an admin. Initially set to false.
   adminIn:boolean = false;
   user:string='';
 

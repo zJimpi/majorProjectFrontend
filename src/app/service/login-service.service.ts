@@ -13,6 +13,7 @@ export class LoginServiceService {
 
   user_name : string ='' ;
   password : string ='' ;
+  user:any;
   
 
   constructor(private _http:HttpClient) { }

@@ -15,8 +15,8 @@
         <div class="user_details-header"><h5><B>Your profile 
           <!-- <button mat-icon-button color="priamry"></button> -->
         </B></h5></div>
-        <div class="email">Email: {{this.userDetails.email}}</div>
-        <div class="phoneNumber">Phone: {{this.userDetails.mobile}}</div>
+        <div class="email">Email: {{_loginService.user.email}}</div>
+        <div class="phoneNumber">Phone: {{_loginService.user.mobile}}</div>
         <div class="reset">Reset Password
           <button mat-icon-button class="reset-pas" color="primary" (click)="openResetPass()">
           <mat-icon>edit</mat-icon></button>
