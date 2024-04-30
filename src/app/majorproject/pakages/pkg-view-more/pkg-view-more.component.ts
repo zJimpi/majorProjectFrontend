@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { ReviewService } from 'src/app/service/review.service';
   templateUrl: './pkg-view-more.component.html',
   styleUrls: ['./pkg-view-more.component.css']
 })
-export class PkgViewMoreComponent {
+export class PkgViewMoreComponent implements OnInit {
 
   packageId!: number;
   hotelId!: number;
@@ -92,6 +92,16 @@ export class PkgViewMoreComponent {
         });
     }
 
+    viewRoomsByHotelId(hotelId:number)
+    {
+      this._roomService.getRoomByHotelId(hotelId).subscribe({
+        next:(val:any)=>{
+          console.log(val);
+          this._router.navigate(['pakageView/pakageViewMore/viewRoomsByHotelId', hotelId, 'packageId', this.packageId]);
+        },error:console.log,
+      });
+    }
+    
     bookPackage(){
       this._packageService.getPackageById(this.packageId).subscribe({
         next:(val:any)=>{

@@ -453,3 +453,75 @@ tr:nth-child(even) {
   margin: 0 auto; /* Center horizontally */
   display: block; /* Display as block to center */
 }
+
+
+
+
+
+
+
+
+
+.hotel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 160px; /* Add padding on both sides */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  margin: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* background-color: #edede9; */
+}
+
+.hotel-card {
+  position: relative;
+  width: 300px; /* Adjust width to fit three cards in a row with padding */
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+.hotel-card:hover .hotel-image {
+  filter: brightness(70%); /* Decrease brightness of image on hover */
+}
+
+.hotel-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+.hotel-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.hotel-info:hover .explore-text {
+  display: block; /* Show Explore text on hover */
+}
+
+.hotel-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.starting-price {
+  font-size: 14px;
+}
+
+.explore-text {
+  display: none; /* Hide Explore text by default */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}

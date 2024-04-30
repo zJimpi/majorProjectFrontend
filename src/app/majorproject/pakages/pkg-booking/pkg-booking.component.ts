@@ -63,7 +63,7 @@ export class PkgBookingComponent {
   ngOnInit(): void {
     this.loadPackageDetails()
     this.roomSelections = history.state.roomSelections;
-    this.hotelSelections = history.state.hotelSelections;
+    this.hotelId = history.state.hotelId;
     this.fetchRoomDetails();
     this.fetchHotelDetails();
   }
@@ -101,18 +101,16 @@ export class PkgBookingComponent {
   }
 
   fetchHotelDetails() {
-    if (this.hotelSelections.isChecked) {
-      this._hotelService.getHotelById(this.hotelSelections.hotelId).subscribe(
-        (details: any) => {
-          this.hotelDetails = details;
-          console.log(this.hotelDetails); 
-        },
-        error => {
-          console.error('Error fetching hotel details:', error);
-        }
-      );
-    } 
-  }
+    this._hotelService.getHotelById(this.hotelId).subscribe(
+      (details: any) => {
+        this.hotelDetails = details;
+        console.log(this.hotelDetails); 
+      },
+      error => {
+        console.error('Error fetching hotel details:', error);
+      }
+    );
+  } 
   
 
 
@@ -152,7 +150,7 @@ export class PkgBookingComponent {
       
       roomIds: roomTypes,
       noOfRooms: noOfRooms,
-      hotelId: this.hotelSelections.hotelId 
+      hotelId: this.hotelId 
     };
 
     console.log(formData);
@@ -183,12 +181,10 @@ export class PkgBookingComponent {
       const noRooms = roomDetail.noRooms;
       const roomTotalPrice = roomPrice * noRooms * dateDifference;
 
-      
       totalPrice += roomTotalPrice;
     });
     totalPrice += this.bookingDetails.price
 
-    // Update the total price in the form control
     this.paymentFormGroup.get('amount')?.setValue(totalPrice);
    
     this._bookingTableService.updatePriceByBookingId(bookingId,totalPrice).subscribe();

@@ -36,6 +36,7 @@ import { ReviewComponent } from './majorproject/review/review/review.component';
 import { ViewCarTableComponent } from './admin/majorProject/view-car-table/view-car-table.component';
 import { CarRentalComponent } from './majorproject/car-rental/car-rental.component';
 import { CarBookingComponent } from './majorproject/car-booking/car-booking.component';
+import { PkgHotelViewMoreComponent } from './majorproject/pakages/pkg-hotel-view-more/pkg-hotel-view-more.component';
 
 
 
@@ -83,6 +84,8 @@ const routes: Routes = [
   { path:'hotelView/getRoomByHotelId/:hotelId', component:HotelViewMoreComponent},
   { path:'carRental', component:CarRentalComponent},
   { path:'carRent/viewCarRentLocationByLocationId/:locationId',component:CarBookingComponent},
+  { path:'pakageView/pakageViewMore/viewRoomsByHotelId/:hotelId/packageId/:packageId',component:PkgHotelViewMoreComponent},
+
  
   // booking pages
   { path:'hotelBooking/:hotelId', component:HotelBookingComponent},
