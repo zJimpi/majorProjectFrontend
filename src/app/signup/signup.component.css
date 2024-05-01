@@ -68,3 +68,12 @@
   h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+  .image {
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+.row.image mat-label {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}

@@ -9,7 +9,6 @@
 
     <div class="row text-center">
       <div class="spots-content">
-        
        
         <ul class="spot-list ">
           <li *ngFor="let spot of package.spots.split(',')" ><i class="bi bi-geo-alt-fill" style="color: rgb(6, 140, 4);"></i> {{ spot }}</li>
@@ -31,11 +30,11 @@
 <h2 class="additional-activity-text"><b>Choose Hotel as per your preference</b></h2>
 <div class="hotel-cards">
   <div class="hotel-card col-4" *ngFor="let hotel of filteredHotels">
-    <div class="hotel-image" [style.background-image]="'url(' + hotel.imageFile + ')'"></div>
+    <div class="hotel-image" [style.background-image]="'url(' + hotel.imageFile + ')'" (click)="viewRoomsByHotelId(hotel.hotelId)"></div>
     <div class="hotel-info">
       <h3 class="hotel-name">{{ hotel.hotelName }}</h3>
       <p class="starting-price">Starting Price: {{ hotel.startingPrice }}</p>
-      <p class="explore-text" (click)="viewRoomsByHotelId(hotel.hotelId)">Explore</p>
+      <p class="explore-text" >Explore</p>
     </div>
   </div>
 </div>

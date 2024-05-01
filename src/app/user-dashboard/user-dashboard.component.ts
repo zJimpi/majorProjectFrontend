@@ -109,11 +109,11 @@ export class UserDashboardComponent implements OnInit {
   }
 
   getUser(){
-    this._loginService.getuser(this._loginService.user_name,this._loginService.password).subscribe({
+    this._loginService.getuserByUsername(this._loginService.user_name).subscribe({
       next: (val :any)=>{
 
         this.userDetails= val;
-        console.log(this.userDetails.email);
+        console.log(this.userDetails);
       },
       error: (err:any)=>{
         console.error(err);

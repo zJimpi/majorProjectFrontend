@@ -36,26 +36,22 @@ margin: 20px 0px;
   .hotel-cards {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 160px; /* Add padding on both sides */
-    justify-content: space-between; /* Distribute items evenly along the main axis */
+    padding: 0 160px; 
+    justify-content: space-between; 
     margin: 50px;
-   
-    /* background-color: #edede9; */
   }
   
   .hotel-card {
     position: relative;
-    width: 300px; /* Adjust width to fit three cards in a row with padding */
+    width: 300px; 
     height: 300px;
     border-radius: 50%;
     overflow: hidden;
     margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: filter 0.3s ease; /* Smooth transition for filter */
-  }
-  
-  .hotel-card:hover .hotel-image {
-    filter: brightness(70%); /* Decrease brightness of image on hover */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    filter: brightness(70%); */
+    background-color: rgba(0, 0, 0, 0.487);  
+    transition: filter 0.3s ease; 
   }
   
   .hotel-image {
@@ -64,7 +60,8 @@ margin: 20px 0px;
     background-size: cover;
     background-position: center;
     position: relative;
-    transition: filter 0.3s ease; /* Smooth transition for filter */
+    /* background-color: rgba(0, 0, 0, 0.487);  */
+    transition: filter 0.3s ease;
   }
   
   .hotel-info {
@@ -77,17 +74,17 @@ margin: 20px 0px;
     padding: 10px;
   }
   
-  .hotel-info:hover .explore-text {
-    display: block; /* Show Explore text on hover */
+  .hotel-card:hover .explore-text {
+    display: block; 
   }
   
   .hotel-name {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 5px;
   }
   
   .starting-price {
-    font-size: 14px;
+    font-size: 17px;
   }
   
   .explore-text {

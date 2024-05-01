@@ -12,8 +12,6 @@ export class LoginServiceService {
   adminIn : boolean = false;
 
   user_name : string ='' ;
-  password : string ='' ;
-  user:any;
   
 
   constructor(private _http:HttpClient) { }
@@ -27,6 +25,11 @@ export class LoginServiceService {
   getuser(username : string, password : string):Observable<any>{
     return this._http.get(`http://localhost:8086/user/getUserBy/${username}/${password}`);
   }
+
+  getuserByUsername(username : string):Observable<any>{
+    return this._http.get(`http://localhost:8086/user/getUserBy/${username}`);
+  }
+
 
   resetPassword(username: string, oldPassword: string, newPassword: string): Observable<any> {
     return this._http.put(`http://localhost:8086/user/changePasswordBy/${username}/${oldPassword}/${newPassword}`, null);

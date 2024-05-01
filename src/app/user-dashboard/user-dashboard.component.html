@@ -2,11 +2,11 @@
 <mat-card class="container user-card">
     <mat-card-header>
       <mat-card-title><h3>User Dashboard</h3></mat-card-title>
-      <mat-card-subtitle><h5>Namaste {{_loginService.user_name}}</h5></mat-card-subtitle><br>
+      <mat-card-subtitle><h5>Namaste {{userDetails.username}}</h5></mat-card-subtitle><br>
     </mat-card-header>
 
     <div class="image">
-    <img mat-card-image src="assets/destImage/Kalpeni.jpg" alt="Photo of a user" class="userImg">
+    <img mat-card-image src="userDetails.imageFile" class="userImg">
     </div><br>
     
     <mat-card-content>
@@ -15,8 +15,8 @@
         <div class="user_details-header"><h5><B>Your profile 
           <!-- <button mat-icon-button color="priamry"></button> -->
         </B></h5></div>
-        <div class="email">Email: {{_loginService.user.email}}</div>
-        <div class="phoneNumber">Phone: {{_loginService.user.mobile}}</div>
+        <div class="email">Email: {{userDetails.email}}</div>
+        <div class="phoneNumber">Phone: {{userDetails.mobile}}</div>
         <div class="reset">Reset Password
           <button mat-icon-button class="reset-pas" color="primary" (click)="openResetPass()">
           <mat-icon>edit</mat-icon></button>
@@ -24,7 +24,9 @@
         
       </div><hr>
 
-      <div class="booking-details">
+      <a routerLink="userBooking">See here your booking details</a>
+
+      <!-- <div class="booking-details">
 
         <div class="booking-details-header"><h5><B>Your Bookings</B></h5></div><br>
 
@@ -55,7 +57,7 @@
         <div>Date</div>
         </div>
 
-      </div><hr>
+      </div><hr> -->
 
       <div class="row">
         <div class="col">

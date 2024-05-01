@@ -34,9 +34,9 @@
   .hide2{
     visibility:hidden;
 }
-  /* .hotelBook-btn{
+  .hotelBook-btn{
       height: 50px;
-  } */
+  }
   
   /*=========== //review ========== */
   .big-icon {
@@ -123,10 +123,10 @@
     flex-direction: column;
   }
   
-  /* .hotelBook-btn {
+  .hotelBook-btn {
     align-self: flex-center; 
     margin-top: 20px; 
-  } */
+  }
   
   .sticky-book-button {
     position: sticky;
