@@ -1,64 +1,80 @@
-<div class="hero" *ngIf="package">
-  <img [src]="package.imageFile" class="img-size">
-  <h1 class="hero-title">{{package.location}}</h1>
-  <p class="hero-subtitle">"Discover the Uncharted Beauty of {{package.location}}"</p>
+<!-- Hero section -->
+<div class="container-fluid hero">
+  <div class="card text-bg-dark ">
+    <div class="card-img" alt="...">
+      <img [src]="package.imageFile" class="hero-img">
+    </div>
+    <div class="card-img-overlay" *ngIf="package">
+    <h1 class="card-title text-center">{{package.pckgName}}</h1>
+
+    <div class="row text-center">
+      <div class="spots-content">
+       
+        <ul class="spot-list ">
+          <li *ngFor="let spot of package.spots.split(',')" ><i class="bi bi-geo-alt-fill" style="color: rgb(6, 140, 4);"></i> {{ spot }}</li>
+        </ul>
+      </div>
+    </div>
+  <h4 class="hero-subtitle text-center">"Discover the Uncharted Beauty of {{package.location}}"</h4>
+  <i><p class="spot-heading text-center">Embark on an unforgettable journey spanning {{package.packageDuration}} of adventure and discovery.</p></i>
+  
 </div>
+</div>
+</div>
+
 <br>
-<button mat-raised-button color="primary" (click)="bookPackage()" class="hotelBook-btn" [disabled]="!areHotelAndRoomSelected()">Book Now</button>
-<section id="spots" class="spots-section">
-  <div class="spot-heading-container">
-    <b><p class="spot-heading">Embark on an unforgettable journey exploring the mesmerizing spots of our tour package, spanning {{package.packageDuration}} of adventure and discovery.</p></b>
+
+
+
+<!-- Hotel section(New) -->
+<h2 class="additional-activity-text"><b>Choose Hotel as per your preference</b></h2>
+<div class="hotel-cards">
+  <div class="hotel-card col-4" *ngFor="let hotel of filteredHotels">
+    <div class="hotel-image" [style.background-image]="'url(' + hotel.imageFile + ')'" (click)="viewRoomsByHotelId(hotel.hotelId)"></div>
+    <div class="hotel-info">
+      <h3 class="hotel-name">{{ hotel.hotelName }}</h3>
+      <p class="starting-price">Starting Price: {{ hotel.startingPrice }}</p>
+      <p class="explore-text" >Explore</p>
+    </div>
   </div>
-  <div class="spots-content">
-    <ul class="spot-list">
-      <li *ngFor="let spot of package.spots.split(',')">{{ spot }}</li>
-    </ul>
+</div>
+
+<hr>
+<div class="static-jargon container">
+  <div class="row">
+    <div class="col incusive">
+      <h4>Inclusive</h4>
+      <ul>
+        <li>Welcome drink on arrival</li>
+        <li>Wi-Fi</li>
+        <li>Parking and Toll tax</li>
+        <li>Meet & greet at arrival</li>
+        <li>Pick and Drop at time of arrival/departure</li>
+        <li>Breakfast</li>
+        <li>Sightseeing by private car</li>
+        <li>All tours and transfers by Personal Car is included</li>
+      </ul>
+    </div>
+    <div class="col exclusive">
+      <h4>Exclusive</h4>
+      <ul>
+        <li>Camera fee</li>
+        <li>Alcoholic / Non- Alcoholic beverages</li>
+        <li>Travel insurance</li>
+        <li>5% GST</li>
+        <li>Expenses caused by factors beyond our control like rail and flight delays, roadblocks, vehicle mal-functions, political disturbances etc.</li>
+        <li>Tips, laundry & phone call</li>
+        <li>Entrance fees to monuments and museum</li>
+      </ul>
+    </div>
   </div>
-</section>
-<b><p class="additional-activity-text">Hotels</p></b>
-
-<div class="conatiner">
-  <table>
-    <tr *ngFor="let hotel of filteredHotels">
-      <td>
-        <input type="checkbox" #hotelCheckbox (change)="toggleHotelInput(hotelCheckbox.checked, hotel.hotelId)">
-      </td>
-      <td><img [src]="hotel.imageFile" class="h-img-size"></td>
-      <td>
-
-        <p>{{hotel.hotelName}}</p>
-      </td>
-      <td>
-        <table>
-          <thead>
-            <tr>
-
-              <th>Room Type</th>
-              <th>Room Picture</th>
-              <th>Price per Day</th>
-              <th>Checkbox</th>
-              <th>Input Field</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let room of hotel.rooms">
-              <td>{{room.roomType}}</td>
-              <td><img [src]="room.imageFile"></td>
-              <td>{{room.pricePerDay}}</td>
-              <td><input type="checkbox" #checkbox (change)="toggleGuestInput(checkbox.checked, room.roomId)"></td>
-              <td><input type="number" #guestInput *ngIf="checkbox.checked" placeholder="Quantity" (change)="addRoomSelection(room.roomId, +guestInput.value,checkbox.checked)"></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </table>
+  
 
 </div>
 
+<hr>
 
-
-
+<!-- Activity section -->
 <b><p class="additional-activity-text">Additional Activities</p></b>
 <div class="additional-activity-section">
   <div class="card1 col-md-3" *ngFor="let activity of activities">
@@ -66,17 +82,16 @@
     <div class="card-body1">
       <h2 class="additional-activity-name">{{activity.activityName}}</h2>
       <h4 class="additional-activity-timing">Timing : {{activity.activityTiming}}</h4>
-      <p class="additional-activity-description">Parasailing is a recreational activity where participants are towed behind a boat while attached to a parachute-like canopy, soaring above the water or land.</p>
+      <p class="additional-activity-description">{{activity.activityDescription}}</p>
     </div>
   </div>
 </div>
 
+<!-- Conditions section -->
 <div class="conditions">
-
   <div class="heading">
     <p >Know Before You Go</p>
   </div>
-
   <div class="points">
     <ul>
       <li>Wander Quest reserves the right to rearrange or change the itinerary for reasons that are beyond control like Natural calamity, weather conditions, road block etc.</li>
@@ -90,11 +105,11 @@
       <li>Force Majeure: In cases of force majeure events (e.g., natural disasters, political unrest, or other unforeseeable circumstances), [Wander Quest] reserves the right to reschedule Tours & treks or offer alternative itineraries to ensure the safety and well-being of clients and staff.</li>
       <li>Cancellation After Rescheduling: Clients who reschedule their tours or treks but later decide to cancel will be subject to our standard cancellation policy. Any rescheduling fees paid will be non-refundable.</li>
     </ul>
-
   </div>
 </div>
 
-<div class="container review-form">
+<!-- Review section(not needed) -->
+<!-- <div class="container review-form">
   <div class="row"><h3>Share Your Thoughts</h3></div>
   <div class="row">
       <div class="col-1 icon">
@@ -105,20 +120,15 @@
               <h5>username</h5>
           </div>
           <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
-
               <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Leave a comment</mat-label>
               <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
               </mat-form-field>
-
               <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
-
           </form>
       </div>
   </div>
 </div>
-
 <div class="container show-review">
-
   <app-review [pkgAccesed]="true" [pLocation]="package?.location" [packageName]="package?.pckgName"></app-review>
-</div>
+</div> -->

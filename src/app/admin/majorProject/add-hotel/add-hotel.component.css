@@ -25,4 +25,7 @@
     width: 100px;
     height: 100px;
   }
-  
+  .action {
+    margin-top: 10px; /* Adjust the margin value according to your preference */
+   
+}

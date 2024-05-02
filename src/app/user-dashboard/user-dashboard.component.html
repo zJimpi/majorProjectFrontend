@@ -2,11 +2,11 @@
 <mat-card class="container user-card">
     <mat-card-header>
       <mat-card-title><h3>User Dashboard</h3></mat-card-title>
-      <mat-card-subtitle><h5>Namaste {{_loginService.user_name}}</h5></mat-card-subtitle><br>
+      <mat-card-subtitle><h5>Namaste {{userDetails.username}}</h5></mat-card-subtitle><br>
     </mat-card-header>
 
     <div class="image">
-    <img mat-card-image src="assets/destImage/Kalpeni.jpg" alt="Photo of a user" class="userImg">
+    <img mat-card-image src="userDetails.imageFile" class="userImg">
     </div><br>
     
     <mat-card-content>
@@ -15,8 +15,8 @@
         <div class="user_details-header"><h5><B>Your profile 
           <!-- <button mat-icon-button color="priamry"></button> -->
         </B></h5></div>
-        <div class="email">Email: test@gmail.com</div>
-        <div class="phoneNumber">Phone: 9876867584</div>
+        <div class="email">Email: {{userDetails.email}}</div>
+        <div class="phoneNumber">Phone: {{userDetails.mobile}}</div>
         <div class="reset">Reset Password
           <button mat-icon-button class="reset-pas" color="primary" (click)="openResetPass()">
           <mat-icon>edit</mat-icon></button>
@@ -24,18 +24,22 @@
         
       </div><hr>
 
-      <div class="booking-details">
+      <a routerLink="userBooking">See here your booking details</a>
+
+      <!-- <div class="booking-details">
 
         <div class="booking-details-header"><h5><B>Your Bookings</B></h5></div><br>
 
         <div class="pkg-booking-details">
         <h6><u>Package Bookings</u></h6>
-        <div>Pakage Name: Delhi Package</div>
-        <div>Date: 2/4/24-5/4/24</div>
+        <div *ngFor="let package of packageBookingDetails">
+        <div>Pakage Name: {{package.packageName}}</div>
+        <div>Date: {{package.checkInDate}}-{{package.checkOutDate}}</div>
         <div>Package Hotel Booked</div>
-        <div>Raju Delux Hotel</div>
+        <div>{{package.hotelName}}</div>
         <div>Room Details: 2 suit 1 family</div>
         </div>
+      </div>
 
         <br>
         <div class="hotel-booking-details">
@@ -53,11 +57,11 @@
         <div>Date</div>
         </div>
 
-      </div><hr>
+      </div><hr> -->
 
       <div class="row">
         <div class="col">
-          <button mat-raised-button color="primary" class="admin" (click)="openAdminPanel()">Admin Panel</button>
+          <button mat-raised-button color="primary" class="admin" *ngIf="_loginService.adminIn" (click)="openAdminPanel()">Admin Panel</button>
           </div>
           
         <div class="col">

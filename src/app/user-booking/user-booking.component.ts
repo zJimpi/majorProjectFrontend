@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from '../service/login-service.service';
-import { Router } from '@angular/router';
-import { RestPasswordComponent } from '../rest-password/rest-password.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { LoginServiceService } from '../service/login-service.service';
 
 @Component({
-  selector: 'app-user-dashboard',
-  templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.css']
+  selector: 'app-user-booking',
+  templateUrl: './user-booking.component.html',
+  styleUrls: ['./user-booking.component.css']
 })
-export class UserDashboardComponent implements OnInit {
-
-  loggedIn:boolean =false;
-  adminIn:boolean = false;
-  user:string='';
+export class UserBookingComponent implements OnInit{
 
   packageBookingDetails !: any[];
   hotelBookingDetails !: any[];
@@ -46,29 +41,9 @@ export class UserDashboardComponent implements OnInit {
 
   }
 
-  openResetPass(){
-    //open by component
-    const dialogRef = this._dialog.open(RestPasswordComponent)
-    //when alose button is closed
-    dialogRef.afterClosed().subscribe({
-      next: (val : any) => {
-        if (val) {
-          this.adminIn = this._loginService.adminIn;
-          this.loggedIn = this._loginService.loggedIn;
-          this.user=this._loginService.user_name;
-          
-        }
-      },
-    });
-  }
-
-  openAdminPanel(){
-    this._router.navigate(['/adminHome']);
-  }
-
   getHotelBookingDetails(){
 
-    this._loginService.getHotelBookingsByUsername(this.user).subscribe({
+    this._loginService.getHotelBookingsByUsername(this._loginService.user_name).subscribe({
       next: (val :any)=>{
         this.hotelBookingDetails = val;
         console.log(this.hotelBookingDetails);
@@ -82,7 +57,7 @@ export class UserDashboardComponent implements OnInit {
 
   getPackageBookingDetails(){
 
-    this._loginService.getPackageBookingsByUsername(this.user).subscribe({
+    this._loginService.getPackageBookingsByUsername(this._loginService.user_name).subscribe({
       next: (val :any)=>{
         this.packageBookingDetails = val;
         console.log(this.packageBookingDetails);
@@ -96,7 +71,7 @@ export class UserDashboardComponent implements OnInit {
 
   getCarBookingDetails(){
 
-    this._loginService.getCarBookingsByUsername(this.user).subscribe({
+    this._loginService.getCarBookingsByUsername(this._loginService.user_name).subscribe({
       next: (val :any)=>{
         this.carBookingDetails = val;
         console.log(this.carBookingDetails);
@@ -120,4 +95,5 @@ export class UserDashboardComponent implements OnInit {
       }
     });
   }
+
 }

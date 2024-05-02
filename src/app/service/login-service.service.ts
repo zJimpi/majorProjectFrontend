@@ -26,6 +26,11 @@ export class LoginServiceService {
     return this._http.get(`http://localhost:8086/user/getUserBy/${username}/${password}`);
   }
 
+  getuserByUsername(username : string):Observable<any>{
+    return this._http.get(`http://localhost:8086/user/getUserBy/${username}`);
+  }
+
+
   resetPassword(username: string, oldPassword: string, newPassword: string): Observable<any> {
     return this._http.put(`http://localhost:8086/user/changePasswordBy/${username}/${oldPassword}/${newPassword}`, null);
   }
