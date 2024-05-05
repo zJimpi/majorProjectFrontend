@@ -29,7 +29,7 @@
     text-align: center;
     color: #FCEFE5ff;
     margin-top: 12%;
-    
+
 }
 .home__subtitle{
     text-align: center;
@@ -41,8 +41,8 @@
 .popular{
     display: flex;
     margin: 30px 0px 30px 0px;
-    
-    
+
+
 }
 .img__card{
     width: 100%;
@@ -108,18 +108,18 @@
     width: 100%;
     height: 460px;
     background-color: aqua;
-    background-image: url('assets/ride.png');
+    background-image: url('assets/ride.jpg');
     background-size: cover;
     background-position-y: 50%;
 }
 .destination__title{
-    
+
     margin: 15px;
     font-size: 60px;
     color:#FCEFE5ff ;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-    
+
 }
 .des__title-box{
     background-color: #076B83ff ;
@@ -127,7 +127,7 @@
     width: 47%;
     border-radius: 1rem;
     margin: auto;
-    
+
 }
 .des__title-box p{
     color: white;
@@ -176,7 +176,7 @@
         height: 12rem;
 
     }
-    
+
 }
 /* ==================animations===================== */
 .card:hover{
@@ -192,3 +192,45 @@
 .location-text{
     color: rgb(156, 155, 158);
 }
+
+/* ============================== Our service ======================= */
+
+/* Styling for the card group */
+
+.whyUs {
+  text-align: center;
+
+}
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between cards */
+}
+
+/* Styling for each card */
+.card {
+  background-color: #f9f9f9; /* Set background color for the cards */
+  border-radius: 20px; /* Add border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for card effect */
+  flex: 1; /* Allow cards to grow equally within the flex container */
+}
+
+/* Styling for the card body */
+.card-body {
+  padding: 10px; /* Add padding inside the card */
+}
+
+/* Styling for the card title */
+.card-title {
+  color: #333; /* Set color for the card title */
+}
+
+/* Styling for the card text */
+.card-text {
+  color: #666; /* Set color for the card text */
+}
+
+
+
+
+

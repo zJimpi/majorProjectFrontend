@@ -1,6 +1,6 @@
 .hero {
   padding-top:10px;
-  text-shadow: 2px 2px 4px rgb(247, 245, 245); /* Adding text shadow */
+  text-shadow: 2px 2px 4px rgba(47, 5, 255, 0.3); /* Adding text shadow */
 }
 /* Add padding for the top after the hero section */
 .container-fluid {
@@ -14,7 +14,7 @@
     border:none
 }
 .card-img{
-    height: 200px;
+    height: 300%;
     width: 100%;
     /* background-image: url(); */
     background-size: cover;
@@ -59,23 +59,24 @@
 }
 
 .hero-img {
-  height: 230px;
-  width: 100%;
+  height: 40vh;
+  width: 100vw;
   object-fit:cover;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .image-resize {
-    height: 300px;
+    height: 200px;
     width: 300px;
-    object-fit:contain;
-    border-radius: 0.7rem;
+    object-fit:cover;
+    border-radius: 3rem;
+    padding: 10px;
 }
 /* Change hotel facility icon color to green */
 .facilities .bi {
   color: green;
 }
 .facilities.container {
-  display: flex;
+  display:flex;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 20px;
 }
@@ -90,8 +91,8 @@
   flex: 1;
   margin-right: 10px; /* adjust as needed */
 }
-.facilities.container h3 {
-  text-align: center;
+.facilities.container h2 {
+  text-align:center;
   grid-column: 1 / -1; /* Span across all columns */
   margin-bottom: 20px; /* Add some space below the text */
 
@@ -114,7 +115,7 @@
   }
 }
 .bi {
-  color: blue;
+  color:white(1, 63, 1, 0.748);
 }
 .card {
   display: flex;
@@ -123,9 +124,21 @@
 
 .hotelBook-btn {
   align-self: flex-center; /* Position button to the left */
-  margin-top: 20px; /* Add some top margin for spacing */
+  margin-top: 0%; /* Add some top margin for spacing */
+}
+/* Apply padding before and after every div except for the hero section */
+.container:not(.hero) {
+  padding-top: 2%; /* Add desired padding value before each div */
+  padding-bottom: 2%; /* Add desired padding value after each div */
 }
 
+/* No padding for the hero section */
+.hero {
+  padding: 0; /* Reset padding for the hero section */
+}
+h2 {
+  text-align: center;
+}
 
 
 

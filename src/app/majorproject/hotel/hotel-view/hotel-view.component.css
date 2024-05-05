@@ -8,7 +8,7 @@
   height: 150px;
 }
 .hero h1{
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 /* .search but{
@@ -68,7 +68,8 @@ padding: 10px;
 }
 /* Additional styling for individual hotel cards */
 .hotel-card {
-  background-color: #f9f9f9; /* Background color for individual hotel cards */
+  background-color: rgba(252, 247, 247, 252); /* Background color for individual hotel cards */
   margin-bottom: 20px; /* Add margin between hotel cards */
   border-radius: 10px; /* Add border radius to hotel cards */
 }
+

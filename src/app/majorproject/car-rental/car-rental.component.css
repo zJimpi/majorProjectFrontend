@@ -29,9 +29,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 img{
-    height:200px;
-    width : 200px;
-    border-radius: 0.2rem;
+    height:40vh;
+    width :30vw;
+    border-radius: 0.3rem;
 }
 .col-md-4{
     padding : 20px;
@@ -68,11 +68,17 @@ img{
 /* Styling for the location details */
 .location-details {
   padding-top: 50px; /* Add padding top */
-  background-color: #FCEFE5; /* Change the background color */
+  background-color: rgba(255, 255, 255, 0.921); /* Change the background color */
 }
 
 /* Styling for the car rental location cards */
 .car-rent-location-card {
   height: 100%; /* Set a fixed height for each card */
+}
+.search {
+  position: absolute; /* Position the search bar absolutely */
+  top:235px; /* Adjust the top position to move it above the blue box */
+  left: 0; /* Align the search bar to the left side */
+  width: 100%; /* Set the width to fill the container */
 }
 

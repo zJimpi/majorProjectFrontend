@@ -5,13 +5,13 @@ margin: 0;
 }
 .hero img{
     width: 100%;
-    height: 25vh;
+    height: 40vh;
     object-fit: cover;
     overflow:hidden;
-    
+
 }
 .card-img-overlay {
-    background-color: rgba(0, 0, 0, 0.487); 
+    background-color: rgba(0, 0, 0, 0.487);
 }
 
 .spots-content{
@@ -21,14 +21,14 @@ margin: 20px 0px;
 
 .spot-list {
     list-style: none;
-    padding: 0; 
-    display: flex; 
+    padding: 0;
+    display: flex;
    justify-content: center;
-   
+
   }
-  
-.spot-list li { 
-    margin-right: 10px; 
+
+.spot-list li {
+    margin-right: 10px;
     font-size: 1.2rem;
   }
 
@@ -36,24 +36,24 @@ margin: 20px 0px;
   .hotel-cards {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 160px; 
-    justify-content: space-between; 
+    padding: 0 160px;
+    justify-content: space-between;
     margin: 50px;
   }
-  
+
   .hotel-card {
     position: relative;
-    width: 300px; 
+    width: 300px;
     height: 300px;
-    border-radius: 50%;
+    border-radius: 20%;
     overflow: hidden;
     margin: 10px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     filter: brightness(70%); */
-    background-color: rgba(0, 0, 0, 0.487);  
-    transition: filter 0.3s ease; 
+    background-color: rgba(0, 0, 0, 0.487);
+    transition: filter 0.3s ease;
   }
-  
+
   .hotel-image {
     width: 100%;
     height: 100%;
@@ -63,7 +63,7 @@ margin: 20px 0px;
     /* background-color: rgba(0, 0, 0, 0.487);  */
     transition: filter 0.3s ease;
   }
-  
+
   .hotel-info {
     position: absolute;
     bottom: 0;
@@ -73,20 +73,20 @@ margin: 20px 0px;
     color: white;
     padding: 10px;
   }
-  
+
   .hotel-card:hover .explore-text {
-    display: block; 
+    display: block;
   }
-  
+
   .hotel-name {
     font-size: 1.7rem;
     margin-bottom: 5px;
   }
-  
+
   .starting-price {
     font-size: 17px;
   }
-  
+
   .explore-text {
     display: none;
     font-size: 18px;
@@ -104,7 +104,7 @@ margin: 20px 0px;
     flex-wrap: wrap;
     justify-content: center;
     }
-    
+
     /* Styles for each activity card */
     .card1 {
     width: 300px;
@@ -115,26 +115,26 @@ margin: 20px 0px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
+
     .card1:hover {
     transform: translateY(-10px); /* Adjust to desired hover effect */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust to desired box shadow on hover */
     }
-    
-    
+
+
     .card1 img {
     width: 100%;
     height: 50%;
     object-fit: cover;
-    
+
     }
-    
+
     /* Styles for activity card body */
     .card-body1 {
     padding: 20px 0px;
     text-align: center;
     }
-    
+
     /* Styles for activity names */
     .additional-activity-name
     {
@@ -148,7 +148,7 @@ margin: 20px 0px;
     margin-bottom: 10px;
     text-align: center;
     }
-    
+
     /* Styles for activity descriptions */
     .additional-activity-description
     {
@@ -156,7 +156,7 @@ margin: 20px 0px;
     color: #555;
     margin-bottom: 15px;
     }
-    
+
     /*---------------- terms and conditions  ------------------ */
     .conditions{
       margin-top: 100x;
@@ -164,9 +164,9 @@ margin: 20px 0px;
       margin-right: 200px;
       margin-bottom: 50px;
       padding: 20px;
-   
-    
-    
+
+
+
     }
     .conditions .points ul {
       list-style-type: disc; /* Use bullets for list items */
@@ -177,7 +177,7 @@ margin: 20px 0px;
       font-weight: 600;
       border-bottom: 1px solid #edede9; /* Border style: 1px solid black */
     }
-    
+
     .conditions p{
       margin-bottom : 10px;
       border-bottom: 1px #adb5bd;
@@ -189,4 +189,3 @@ margin: 20px 0px;
     .points{
       margin-top: 20px;
     }
-    

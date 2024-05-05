@@ -21,15 +21,15 @@
         <mat-card-header>
           <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
         </mat-card-header>
-        
+
         <div class="hotel-img">
           <img [src]="hotel.imageFile" class="image-resize">
         </div>
-          
-      
+
+
         <mat-card-content class="hotel-content">
           <div class="hotel-loc">
-            <i class="bi bi-geo-alt-fill"></i> {{hotel.address}} <br>
+          <i class="bi bi-geo-alt-fill"></i> {{hotel.address}}<br>
           </div>
          <div class="phone"><b><i class="bi bi-telephone-fill"></i></b> {{hotel.number}}</div><br>
           <div class="description">
@@ -45,11 +45,11 @@
         </mat-card-content>
         <mat-card-actions class="row action justify-content-center">
           <!-- <button mat-raised-button color="primary" (click)="  loadBookingPage()" >Book</button> -->
-        
+
           <button mat-raised-button color="primary" (click)="viewRoomDetailByHotelId(hotel.hotelId)">View Rooms</button>
         </mat-card-actions>
       </mat-card>
-      
+
     </div>
 <!-- /// -->
 

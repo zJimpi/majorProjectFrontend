@@ -164,7 +164,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.433);
+  background-color: rgba(26, 23, 23, 0.433);
   border-radius: 2rem;
 }
 
@@ -173,7 +173,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   font-weight: bold;
   opacity: 0;
@@ -195,6 +195,6 @@
 .card-box h6:hover,
 .card-end:hover {
   color: #007bff; /* Change text color to blue on hover */
-  text-decoration: underline; /* Add underline effect on hover */
+
 }
 

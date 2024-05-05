@@ -22,11 +22,16 @@
     font-weight: 400;
 
 }
+.hero img {
+  width: 1600px; /* Set the width to your desired size */
+  height: 250px; /* Set the height to your desired size */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
 
 .things-to-know{
     margin-top: 50px;
     height:350px;
-  
+
 }
 
 .icon-large {
@@ -59,8 +64,8 @@
   .container.form input,
   .container.form select
    {
-    flex: 1; 
-    height: 60px; 
+    flex: 1;
+    height: 60px;
     padding: 10px; /* Add padding to form fields */
     border: 3px solid #076B83ff; /* Add border to form fields */
     border-radius: 5px; /* Add rounded corners to form fields */
@@ -75,13 +80,13 @@
     box-sizing: border-box; /* Include padding and border in width calculation */
   }
   .container.form button:hover {
-    background-color: #076B83ff; 
-    color: #fff; 
+    background-color: #076B83ff;
+    color: #fff;
   }
 
   .container.form input[type="date"] {
-    
-    appearance: none; 
+
+    appearance: none;
   }
 
   .container.form input:focus,
