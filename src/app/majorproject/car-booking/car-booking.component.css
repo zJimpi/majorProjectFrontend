@@ -24,7 +24,7 @@
 }
 .hero img {
   width: 100%; /* Set the width to your desired size */
-  height: 38vh; /* Set the height to your desired size */
+  height: 110%; /* Set the height to your desired size */
   object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
@@ -161,7 +161,7 @@
 .hero-content h1,
 .hero-content h3,
 .hero-content h4 {
-    text-shadow: 2px 2px 4px rgb(243, 7, 7); /* Adjust the shadow values as needed */
+    text-shadow: 2px 2px 4px rgb(14, 1, 1); /* Adjust the shadow values as needed */
 }
 .container.form input,
 .container.form select,

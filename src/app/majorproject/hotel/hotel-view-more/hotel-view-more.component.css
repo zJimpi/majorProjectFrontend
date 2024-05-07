@@ -14,7 +14,7 @@
     border:none
 }
 .card-img{
-    height: 300%;
+    height: 270px;
     width: 100%;
     /* background-image: url(); */
     background-size: cover;
@@ -60,7 +60,7 @@
 
 .hero-img {
   height: 40vh;
-  width: 100vw;
+  width: 100%;
   object-fit:cover;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -71,6 +71,7 @@
     border-radius: 3rem;
     padding: 10px;
 }
+
 /* Change hotel facility icon color to green */
 .facilities .bi {
   color: green;
@@ -116,6 +117,7 @@
 }
 .bi {
   color:white(1, 63, 1, 0.748);
+
 }
 .card {
   display: flex;
@@ -132,15 +134,17 @@
   padding-bottom: 2%; /* Add desired padding value after each div */
 }
 
-/* No padding for the hero section */
-.hero {
-  padding: 0; /* Reset padding for the hero section */
-}
+
 h2 {
   text-align: center;
 }
-
-
+.boxed-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 
 

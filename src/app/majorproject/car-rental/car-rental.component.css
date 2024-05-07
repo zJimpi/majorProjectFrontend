@@ -62,7 +62,7 @@ img{
 
 /* Styling for the search box */
 .search {
-  margin-top: 20px; /* Add some space between the hero content and search box */
+  margin-top: 15px; /* Add some space between the hero content and search box */
 }
 
 /* Styling for the location details */
@@ -77,8 +77,10 @@ img{
 }
 .search {
   position: absolute; /* Position the search bar absolutely */
-  top:235px; /* Adjust the top position to move it above the blue box */
-  left: 0; /* Align the search bar to the left side */
-  width: 100%; /* Set the width to fill the container */
+  left: 10%; /* Align the search bar to the left side */
+  width: 80%; /* Set the width to fill the container */
+}
+.search input[type="text"] {
+  height: 25px; /* Adjust the height as needed */
 }
 

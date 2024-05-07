@@ -45,18 +45,18 @@
 
         </div>
     </div>
-
 </div>
 <!-- chek availability  -->
 <!-- <div class="container">
     <button>check</button>
 </div> -->
 <!-- room table  -->
+
 <div class="main-body container">
         <h2>Room Details</h2>
+        <div class="boxed-container">
     <div class="table-container">
     <table mat-table [dataSource]="dataSource" matSort>
-
         <!-- ID Column -->
         <ng-container matColumnDef="roomId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Room ID </th>
@@ -74,7 +74,6 @@
               </ng-container>
             </td>
         </ng-container>
-
         <!-- Progress Column -->
 
         <ng-container matColumnDef="roomType">
@@ -109,6 +108,7 @@
 
 
     </table>
+    </div>
     </div>
 
 </div>
