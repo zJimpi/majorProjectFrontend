@@ -77,10 +77,13 @@
                             </mat-hint>
                         </mat-form-field>
                     </div>
+                    <mat-form-field appearance="outline">
+
                     <div class="row image" >
                         <mat-label >Choose an Image</mat-label>
-                        <div class="col"><input  type="file" (change)="onFileChanged($event)" accept="image/**"></div>
+                        <input  type="file" (change)="onFileChanged($event)" accept="image/**" formControlName="imageFile">
                     </div>
+                </mat-form-field>
 
                 </div>
 
