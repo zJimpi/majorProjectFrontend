@@ -28,7 +28,7 @@ export class AppComponent {
   constructor(private _dialog: MatDialog,// Injecting the MatDialog service for displaying dialogs.
     private _coreService: CoreService,// Injecting a custom CoreService.
     private _router:Router,// Injecting the Router service for navigating between routes.
-    private _loginService: LoginServiceService // Injecting a custom LoginServiceService.
+    public _loginService: LoginServiceService // Injecting a custom LoginServiceService.
 
     ){}
 

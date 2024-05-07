@@ -49,7 +49,8 @@ export class SignupComponent {
         email : this.signupForm.value.email,
         mobile : this.signupForm.value.mobile,
         username : this.signupForm.value.username,
-        password : this.signupForm.value.password
+        password : this.signupForm.value.password,
+        
       }
 
       this._loginService.adduser(formData).subscribe({
