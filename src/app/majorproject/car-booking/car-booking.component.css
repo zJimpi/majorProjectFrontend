@@ -23,8 +23,8 @@
 
 }
 .hero img {
-  width: 1600px; /* Set the width to your desired size */
-  height: 250px; /* Set the height to your desired size */
+  width: 100%; /* Set the width to your desired size */
+  height: 38vh; /* Set the height to your desired size */
   object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
