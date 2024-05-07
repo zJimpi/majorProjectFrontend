@@ -32,6 +32,7 @@
   .action{
     padding: 0px 14px 10px;
     width: 100%;
+    padding-top: 2vh;
   }
   .action button{
     flex: 1;
@@ -43,7 +44,7 @@
     background-image: url('asset/login_pic2.jpg');
     background-size: cover;
     background-color: #FCEFE5ff;
-    height: 700px;
+    height: 630px;
     padding-top: 10px;
     padding: 10px;
 
@@ -53,6 +54,7 @@
   .design-box{
     padding: 10px;
     margin-top: 150px;
+    height: 36vh;
 
   }
   .peacock-box{
@@ -77,3 +79,7 @@
   font-size: 20px;
   color: black;
 } */
+
+.image{
+  overflow-x: hidden;
+}
