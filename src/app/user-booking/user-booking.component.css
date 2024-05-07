@@ -40,7 +40,7 @@
 .booking-card {
     width: 100%;
     max-width: 600px; /* Adjust the max-width as needed */
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
 .card {
@@ -84,4 +84,7 @@ h6 {
 .bi {
     vertical-align: middle;
     margin-right: 5px;
+}
+.rental-booking-detail .booking-item {
+    border-bottom: none; /* Remove border bottom from car booking item */
 }
