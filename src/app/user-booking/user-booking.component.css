@@ -1,0 +1,87 @@
+/* .booking-details {
+    margin: 20px;
+}
+
+.booking-details-header h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pkg-booking-details,
+.hotel-booking-details,
+.rental-booking-detail {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.pkg-booking-details h6,
+.hotel-booking-details h6,
+.rental-booking-detail h6 {
+    margin-top: 0;
+    
+}
+
+.pkg-booking-details div,
+.hotel-booking-details div,
+.rental-booking-detail div {
+    margin-bottom: 5px;
+    
+}
+
+.pkg-booking-details div:nth-child(odd),
+.hotel-booking-details div:nth-child(odd),
+.rental-booking-detail div:nth-child(odd) {
+    font-weight: bold;
+    
+} */
+.booking-card {
+    width: 100%;
+    max-width: 600px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-header h5 {
+    margin: 0;
+}
+
+.card-body {
+    padding: 10px 0;
+}
+
+.booking-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.booking-item div {
+    margin-bottom: 5px;
+}
+
+.booking-item div:last-child {
+    margin-bottom: 0;
+}
+
+h6 {
+    margin-bottom: 10px;
+}
+
+.bi {
+    vertical-align: middle;
+    margin-right: 5px;
+}

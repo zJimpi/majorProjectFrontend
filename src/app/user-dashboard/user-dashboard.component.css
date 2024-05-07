@@ -21,6 +21,14 @@
     /* object-fit: cover; */
 
 }
+.booking-link {
+    margin-bottom: 20px;
+    text-decoration: none; /* Remove underline */
+}
+
+.row {
+    margin-top: 20px; /* Add space between buttons and link */
+}
 
 /* =======scroll bar=======  */
 .booking-details{
@@ -44,4 +52,5 @@
 .booking-details::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Color of the scrollbar thumb on hover */
 }
+
 
