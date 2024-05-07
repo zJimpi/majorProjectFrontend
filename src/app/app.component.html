@@ -57,7 +57,11 @@
                       </i></span> 
                     </li > -->
                     <li class="nav-item">
-                      <i class="bi bi-person-circle" *ngIf="_loginService.loggedIn" (click)="openUserDashboard()"></i>
+                      <span class="user" *ngIf="_loginService.loggedIn"> Namaste, {{user}} 
+                       
+                       <i class="bi bi-person-circle" (click)="openUserDashboard()"></i> 
+                    </span> 
+                   
                     </li>
 
                   
@@ -73,8 +77,6 @@
     </div>
   </nav>
 </div>
-
-
 
 
 

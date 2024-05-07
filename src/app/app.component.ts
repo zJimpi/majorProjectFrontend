@@ -22,6 +22,7 @@ export class AppComponent {
   // This boolean variable is used to track whether the logged-in user is an admin. Initially set to false.
   adminIn:boolean = false;
 
+
  
 
   //  services are injected as dependencies.
@@ -134,4 +135,7 @@ export class AppComponent {
         },
       });
     }
+
+
+  
   }
