@@ -150,6 +150,10 @@ export class PkgHotelViewMoreComponent implements OnInit {
   }
 
   addReview(){
+    if(!this.loginService.loggedIn){
+      this.openLoginDialog();
+    }
+    else{
     const reviewFormData={
       username:"username(change)",
       location:this.hotel.location,
@@ -166,6 +170,7 @@ export class PkgHotelViewMoreComponent implements OnInit {
       console.error(err);
     },
    });
+  }
   }
 
 

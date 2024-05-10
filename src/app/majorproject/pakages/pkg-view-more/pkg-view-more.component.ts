@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoreService } from 'src/app/admin/core/core.service';
 import { AddActivityService } from 'src/app/admin/service/add-activity.service';
 import { AddPkgService } from 'src/app/admin/service/add-pkg.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { LoginComponent } from 'src/app/login/login.component';
+import { LoginServiceService } from 'src/app/service/login-service.service';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
@@ -21,6 +23,7 @@ export class PkgViewMoreComponent implements OnInit {
   spots: string = '';
   package!:any;
   filteredHotels: any[] = [];
+  dialogRef!: MatDialogRef<LoginComponent>;
 
   isHotelSelected: boolean = false;
   isRoomSelected: boolean = false;
@@ -32,10 +35,12 @@ export class PkgViewMoreComponent implements OnInit {
   constructor(private _activityService:AddActivityService,
     private _packageService:AddPkgService,
     private _roomService:AddRoomService,
+    public loginService : LoginServiceService,
     private _fb:FormBuilder,
     private _route: ActivatedRoute,
     private _router:Router,
-    private _reviewService:ReviewService
+    private _reviewService:ReviewService,
+    private dialog: MatDialog
    
    ){
     this.reviewForm =this._fb.group({
@@ -103,11 +108,16 @@ export class PkgViewMoreComponent implements OnInit {
     }
     
     bookPackage(){
+      if(!this.loginService.loggedIn){
+        this.openLoginDialog();
+      }
+      else{
       this._packageService.getPackageById(this.packageId).subscribe({
         next:(val:any)=>{
           this._router.navigate(['packageBooking/',this.packageId],{ state: { roomSelections: this.roomSelections, hotelSelections: this.hotelSelections } });
         },error:console.log,
       });
+    }
     }
 
     toggleGuestInput(checked: boolean, roomId: number) {
@@ -178,21 +188,7 @@ export class PkgViewMoreComponent implements OnInit {
       return this.isHotelSelected && this.isRoomSelected;
     }
     
-    addReview(){
-      const reviewFormData={
-        username:"username(change)",
-        location:this.package.location,
-        packageName:this.package.pckgName,
-        comment:this.reviewForm.value.comment,
-      }
-     this._reviewService.addReview(reviewFormData).subscribe({
-      next: (val: any) => {
-       console.log("comment added");
-       this.reviewForm.reset();
-      },
-      error: (err: any) => {
-        console.error(err);
-      },
-     });
-    }
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
+  }
 }
