@@ -87,4 +87,17 @@ export class ReviewComponent implements OnInit{
       },error: console.log,
     });
   }
+
+
+  getStars(rating: number): any[] {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push({ filled: true });
+      } else {
+        stars.push({ filled: false });
+      }
+    }
+    return stars;
+  }
 }

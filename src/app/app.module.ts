@@ -142,7 +142,8 @@ import { PkgHotelViewMoreComponent } from './majorproject/pakages/pkg-hotel-view
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    
 
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-IN' }, // Indian English locale
