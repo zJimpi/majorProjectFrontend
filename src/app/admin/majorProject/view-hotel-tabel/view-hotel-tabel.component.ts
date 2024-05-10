@@ -121,4 +121,8 @@ export class ViewHotelTabelComponent implements OnInit {
         
       });
     }
+
+    adminhomebtn(){
+      this._router.navigate(["/adminHome"])
+    }
 }
