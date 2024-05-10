@@ -15,8 +15,10 @@
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  background-size: cover;
-  background-position: center;
+  /* background-size: cover;
+  background-position: center; */
+  object-position: center;
+  object-fit: cover;
 
 }
 
@@ -27,8 +29,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
-  font-size: 50px;
+  padding: 10px;
+  font-size: 40px;
   
  
 }
@@ -43,23 +45,23 @@
 
 .sub-section {
   flex: 1;
-  padding-right: 20px;
-  margin-right: 10px;
+  /* padding-right: 10px;
+  margin-right: 10px; */
   
 }
 
-.stacked-section {
+/* .stacked-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-}
+} */
 
-.stacked-section h2,
+/* .stacked-section h2,
 .stacked-section p {
   margin: 0;
   margin-bottom: 10px;
-}
+} */
 
 .box {
   background-color: #D3D3D3;
@@ -74,7 +76,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85%;
+  /* height: 85%; */
 }
 
 .book-now-button, .view-more-button{
@@ -98,7 +100,7 @@
 
 .text-container p {
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .bottom-section span {

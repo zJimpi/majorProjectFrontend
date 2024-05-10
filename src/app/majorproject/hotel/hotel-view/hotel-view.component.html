@@ -29,6 +29,7 @@
       <mat-card class="hotel-card" >
         <mat-card-header>
           <mat-card-title class="hotel-title"><h5><b>{{hotel.hotelName}}</b></h5></mat-card-title>
+          <span class="text-center" style="font-size: 20px; color: rgb(255, 166, 0);">{{ getStarIcons(hotel.rating) }}</span>
         </mat-card-header>
 
         <div class="hotel-img">

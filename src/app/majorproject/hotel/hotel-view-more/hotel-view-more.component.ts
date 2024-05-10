@@ -170,6 +170,16 @@ constructor(private _roomService:AddRoomService,
     next: (val: any) => {
      console.log("comment added");
      this.reviewForm.reset();
+
+     this._hotelService.updateHotelReview(this.hotel.hotelName).subscribe({
+     next: (val:any)=>{
+      console.log(" update review subscribe");
+      
+     }
+      
+     });
+     console.log(this.hotel.hotelName);
+     
     },
     error: (err: any) => {
       console.error(err);
