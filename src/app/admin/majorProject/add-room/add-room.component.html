@@ -26,7 +26,7 @@
 
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Price Per Day</mat-label>
-                <input matInput placeholder="ex: Jaipur" formControlName="pricePerDay">
+                <input matInput placeholder="Price per day" formControlName="pricePerDay">
                 <mat-hint style = "color: red;" *ngIf="roomForm.get('pricePerDay')?.touched && roomForm.get('pricePerDay')?.errors?.['required']">
                     <small>Price Per Day is required.</small>
                 </mat-hint>

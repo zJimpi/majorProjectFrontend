@@ -30,7 +30,7 @@
         <div class="row">
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Hotel Reception Number</mat-label>
-                <input matInput placeholder="ex:" formControlName="number">
+                <input matInput formControlName="number">
                 <mat-hint style = "color: red;" *ngIf="hotelForm.get('number')?.touched && hotelForm.get('number')?.errors?.['required']">
                     <small>Hotel Reception Number is required.</small>
                 </mat-hint>
@@ -44,7 +44,7 @@
             
             <mat-form-field appearance="fill" class="input-width col">
                 <mat-label >Hotel Starting Price</mat-label>
-                <input matInput placeholder="ex: Jaipur" formControlName="startingPrice">
+                <input matInput placeholder="ex: 2000" formControlName="startingPrice">
                 <mat-hint style = "color: red;" *ngIf="hotelForm.get('startingPrice')?.touched && hotelForm.get('startingPrice')?.errors?.['required']">
                     <small>Hotel starting price is required.</small>
                 </mat-hint>

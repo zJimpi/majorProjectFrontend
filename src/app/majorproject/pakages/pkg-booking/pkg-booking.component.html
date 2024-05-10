@@ -105,7 +105,7 @@
         
   
           <div>
-            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperPrevious>Back</button>
             <!-- Add space between buttons -->
             <span style="margin-right: 10px;"></span>
             <button mat-raised-button color="primary" matStepperNext type="submit">Book</button>
@@ -128,10 +128,10 @@
         </mat-form-field>
   
         <div>
-          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperPrevious>Back</button>
           <!-- Add space between buttons -->
-          <span style="margin-right: 10px;"></span>
-          <button mat-button (click)="generateTicket()">Payment Done</button>
+          <!-- <span style="margin-right: 10px;"></span> -->
+          <button mat-raised-button color="primary" (click)="generateTicket()">Payment Done</button>
         </div>
       </form>
       </mat-step>
