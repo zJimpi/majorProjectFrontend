@@ -48,10 +48,6 @@ margin: 20px 0px;
     border-radius: 20%;
     overflow: hidden;
     margin: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    filter: brightness(70%); */
-    background-color: rgba(0, 0, 0, 0.487);
-    transition: filter 0.3s ease;
   }
 
   .hotel-image {
@@ -60,8 +56,6 @@ margin: 20px 0px;
     background-size: cover;
     background-position: center;
     position: relative;
-    /* background-color: rgba(0, 0, 0, 0.487);  */
-    transition: filter 0.3s ease;
   }
 
   .hotel-info {
