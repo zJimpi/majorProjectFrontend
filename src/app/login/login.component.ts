@@ -53,7 +53,7 @@ export class LoginComponent {
                 this._dialogRef.close(true);
                 this._loginService.adminIn= true; // Initialize as false
                 this._loginService.loggedIn= true;
-                this._router.navigate(['/home']);
+                // this._router.navigate(['/home']);
                 this._loginService.user_name = username;
                 console.log(this._loginService.loggedIn);
               }
@@ -65,7 +65,7 @@ export class LoginComponent {
                 this._dialogRef.close(true);
                 this._loginService.adminIn= false;
                 this._loginService.loggedIn= true; 
-                this._router.navigate(['/home']);
+                // this._router.navigate(['/home']);
                 this._loginService.user_name = username;
               }
             },
