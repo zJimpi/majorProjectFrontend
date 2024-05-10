@@ -1,4 +1,4 @@
-<div class="hero" *ngIf="showHero">
+<!-- <div class="hero" *ngIf="showHero">
   <div class="container">
     <h1>Best Stays Available</h1>
     <div class="search">
@@ -7,7 +7,16 @@
         </div>
     </div>
   </div>
+</div> -->
+
+<div class="hero" *ngIf="showHero">
+  <div class="filter-box">
+    <h1> Best Stays Available</h1>
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterHotels(searchQuery)" placeholder="Search hotels by location" class="rounded-input">
+  </div>
 </div>
+
+
 
 
 <!-- hotel cards  -->

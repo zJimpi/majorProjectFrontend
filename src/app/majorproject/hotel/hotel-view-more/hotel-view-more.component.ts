@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { LoginComponent } from 'src/app/login/login.component';
+import { LoginServiceService } from 'src/app/service/login-service.service';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
@@ -38,13 +40,16 @@ export class HotelViewMoreComponent {
   reviewForm:FormGroup
   dateForm:FormGroup
   dataSource!: MatTableDataSource<any>;
+  dialogRef!: MatDialogRef<LoginComponent>;
 
 constructor(private _roomService:AddRoomService,
   private route: ActivatedRoute,
   private _router:Router,
+  public loginService : LoginServiceService,
   private _hotelService:AddHotelService,
   private _fb:FormBuilder,
-  private _reviewService:ReviewService
+  private _reviewService:ReviewService,
+  private dialog: MatDialog
   ){
     this.dateForm = this._fb.group({
       checkInDate:['',Validators.required],
@@ -59,8 +64,6 @@ constructor(private _roomService:AddRoomService,
   ngOnInit(): void {
     this.getHotelById()
     this.loadRoomDetails();
-
-
   }
 
   loadRoomDetails(){
@@ -90,9 +93,6 @@ constructor(private _roomService:AddRoomService,
       next:(res:any)=>{
         this.hotel = res;
         console.log(this.hotel);
-
-
-
       },error: console.log,
     });
   });
@@ -100,15 +100,23 @@ constructor(private _roomService:AddRoomService,
 
 
   bookHotelById(){
+    if(!this.loginService.loggedIn){
+      this.openLoginDialog();
+    }
+    else{
       this._hotelService.getHotelById(this.hotelId).subscribe({
         next:(val:any)=>{
           this._router.navigate(['hotelBooking/',this.hotelId],{ state: { roomSelections: this.roomSelections } });
-          // console.log(this.roomSelections)
+          console.log(this.loginService.loggedIn);
+          
         },error:console.log,
       });
-      // this._router.navigate(['/hotelBooking'])
     }
+  }
 
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
+  }
 
   toggleGuestInput(checked: boolean, roomId: number) {
     if (checked) {
@@ -145,7 +153,7 @@ constructor(private _roomService:AddRoomService,
 
   addReview(){
     const reviewFormData={
-      username:"username(change)",
+      username: this.loginService.user_name,
       location:this.hotel.location,
       hotelName:this.hotel.hotelName,
       comment:this.reviewForm.value.comment,

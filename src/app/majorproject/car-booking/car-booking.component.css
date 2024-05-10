@@ -169,3 +169,32 @@
     margin-left: 30px; /* Adjust the value as needed */
 }
 
+.conditions{
+  margin-top: 100x;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+.conditions .points ul {
+  list-style-type: disc; /* Use bullets for list items */
+  padding-left: 50px; /* Add some space to the left of the bullets */
+}
+.heading{
+  font-size : 3rem;
+  font-weight: 600;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #adb5bd; /* Border style: 1px solid black */
+}
+
+.conditions p{
+  margin-bottom : 10px;
+  border-bottom: 1px #adb5bd;
+}
+.points ul li {
+  font-size: 20px; /* Medium font size */
+  margin-bottom: 10px; /* Add space between list items */
+}
+.points{
+  margin-top: 20px;
+}

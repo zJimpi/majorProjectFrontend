@@ -5,113 +5,94 @@
             <img [src]="hotel.imageFile" class="hero-img">
         </div>
         <div class="card-img-overlay" *ngIf="hotel">
-          <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
-         <h5 class="card-text"><i class="bi bi-building-fill-add"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{hotel.address}}</h5>
-          <h5 class="card-text"><i class="bi bi-telephone-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;  {{hotel.number}}</h5>
-          <h5 class="card-text"><i class="bi bi-car-front-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp; Near by:{{hotel.nearby}} km</h5>
+            <h1 class="card-title text-center">{{hotel.hotelName}}</h1>
+            <h5 class="card-text"><i class="bi bi-building-fill-add"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{hotel.address}}</h5>
+            <h5 class="card-text"><i class="bi bi-telephone-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;  {{hotel.number}}</h5>
+            <h5 class="card-text"><i class="bi bi-car-front-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp; Near by : {{hotel.nearBy}}</h5>
         </div>
-        <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn" [disabled]="!isRoomSelected">Book Now</button>
-      </div>
-
+    </div>
 </div>
 
 <!-- hotel  facilities(static) -->
-<div class="facilities container">
-    <div class="row">
+<div class="facilities container" >
+    <div class="row ">
         <h2>Hotel Facilities</h2>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row ">
+        <div class="col-4">
             <span><i class="bi bi-bus-front-fill"></i> Airport shuttle<br> </span>
-        <span><i class="bi bi-emoji-neutral-fill"></i> Non-smoking rooms<br> </span>
-        <span><i class="bi bi-telephone"></i> Room service<br> </span>
-        <span><i class="bi bi-person-circle"></i> Facilities for disabled guests <br></span>
+            <span><i class="bi bi-emoji-neutral-fill"></i> Non-smoking rooms<br> </span>
+            <span><i class="bi bi-telephone"></i> Room service<br> </span>
+            <span><i class="bi bi-person-circle"></i> Facilities for disabled guests <br></span>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
+   
+        <div class="col-4">
             <span><i class="bi bi-pin-map-fill"></i> Free parking <br></span>
         <span><i class="bi bi-wifi"></i> Free WiFi <br></span>
         <span><i class="bi bi-people"></i> Family rooms <br></span>
         <span><i class="bi bi-clock"></i> 24-hour front desk <br></span>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
+        <div class="col-4">
             <span><i class="bi bi-cup-straw"></i> Tea/Coffee Maker in All Rooms <br></span>
         <span><i class="bi bi-egg-fried"></i> Breakfast <br></span>
         <span><i class="bi bi-luggage"></i> Luggage Storage<br></span>
         <span><i class="bi bi-newspaper"></i> Newspaper <br></span>
-
         </div>
     </div>
 </div>
-<!-- chek availability  -->
-<!-- <div class="container">
-    <button>check</button>
-</div> -->
+
+
 <!-- room table  -->
 
 <div class="main-body container">
-        <h2>Room Details</h2>
-        <div class="boxed-container">
-    <div class="table-container">
-    <table mat-table [dataSource]="dataSource" matSort>
-        <!-- ID Column -->
-        <ng-container matColumnDef="roomId">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Room ID </th>
-        <td mat-cell *matCellDef="let row" class="hide"> {{row.roomId}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="imageFile">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide2">Room Image</th>
-            <td mat-cell *matCellDef="let row" class="card-start">
-              <ng-container *ngIf="row.imageFile">
-                  <img [src]="row.imageFile" class="image-resize">
-              </ng-container>
-              <ng-container *ngIf="!row.imageFile">
-                  No image added
-              </ng-container>
-            </td>
-        </ng-container>
-        <!-- Progress Column -->
-
-        <ng-container matColumnDef="roomType">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Type </th>
-        <td mat-cell *matCellDef="let row"> {{row.roomType}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="roomName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.roomName}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="pricePerDay">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price Per Day</th>
-        <td mat-cell *matCellDef="let row"> &#8377;{{row.pricePerDay}}</td>
-        </ng-container>
-
-
-        <ng-container matColumnDef="selected">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Select your Rooms</th>
-            <td mat-cell *matCellDef="let row">
-                <mat-checkbox #checkbox (change)="toggleGuestInput(checkbox.checked, row.roomId)"></mat-checkbox>
-                <mat-form-field *ngIf="checkbox.checked" appearance="outline">
+    <h2>Choose Your Preferable Rooms(mention the no. of rooms) and Click Here  <button mat-raised-button color="primary" (click)="bookHotelById()" class="hotelBook-btn" [disabled]="!isRoomSelected">Book Now</button></h2>
+    <div class="boxed-container">
+        <div class="table-container">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="roomId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Room ID </th>
+                    <td mat-cell *matCellDef="let row" class="hide"> {{row.roomId}} </td>
+                </ng-container>
+                <ng-container matColumnDef="imageFile">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide2">Room Image</th>
+                    <td mat-cell *matCellDef="let row" class="card-start">
+                    <ng-container *ngIf="row.imageFile">
+                        <img [src]="row.imageFile" class="image-resize">
+                    </ng-container>
+                    <ng-container *ngIf="!row.imageFile">
+                        No image added
+                    </ng-container>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="roomType">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Type </th>
+                    <td mat-cell *matCellDef="let row"> {{row.roomType}}</td>
+                </ng-container>
+                <ng-container matColumnDef="roomName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Room Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.roomName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="pricePerDay">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Price Per Day</th>
+                    <td mat-cell *matCellDef="let row"> &#8377;{{row.pricePerDay}}</td>
+                </ng-container>
+                <ng-container matColumnDef="selected">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Select your Rooms</th>
+                    <td mat-cell *matCellDef="let row">
+                    <mat-checkbox #checkbox (change)="toggleGuestInput(checkbox.checked, row.roomId)"></mat-checkbox>
+                    <mat-form-field *ngIf="checkbox.checked" appearance="outline">
                     <mat-label>No of Rooms</mat-label>
-                    <input matInput #guestInput placeholder="ex: 2" (change)="addRoomSelection(row.roomId, +guestInput.value,checkbox.checked)">
-                </mat-form-field>
-            </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-
-    </table>
+                        <input matInput #guestInput placeholder="ex: 2" (change)="addRoomSelection(row.roomId, +guestInput.value,checkbox.checked)">
+                    </mat-form-field>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
     </div>
-    </div>
-
 </div>
+
 
 <!-- refund policies(static)  -->
 <div class="refund container">
@@ -124,25 +105,28 @@
           <li>Rates are subject to change without prior notice.</li>
       </ul>
 
-      <!-- Add the booking terms here -->
       <h3>Booking Terms:</h3>
       <ul>
-          <li>Booking terms data point 1</li>
-          <li>Booking terms data point 2</li>
-          <!-- Add more booking terms data points as needed -->
+          <li>Check-in time is from 2:00 PM onwards, and check-out time is before 12:00 PM.</li>
+          <li>A valid government-issued ID proof is required at the time of check-in.</li>
+          <li>Early check-in or late check-out is subject to availability and may incur additional charges.</li>
+          <li>Pets are not allowed in the hotel premises.</li>
+          <li>Smoking is strictly prohibited in all rooms and public areas.</li>
+          <li>Room allocation is subject to availability and hotel discretion.</li>
+          <li>The hotel reserves the right to refuse accommodation to guests who violate hotel policies.</li>
       </ul>
 
       <h3>Cancellation Policy:</h3>
       <ul>
-          <li>Cancellations made [X] days prior to the check-in date are eligible for a full refund.</li>
-          <li>Cancellations made between [Y] and [Z] days prior to the check-in date are eligible for a partial refund, subject to [percentage]% cancellation fee.</li>
-          <li>Cancellations made within [A] days of the check-in date are non-refundable.</li>
+          <li>Cancellations made 15 days prior to the check-in date are eligible for a full refund.</li>
+          <li>Cancellations made between 10 and 14 days prior to the check-in date are eligible for a partial refund, subject to [percentage]% cancellation fee.</li>
+          <li>Cancellations made within 9 days of the check-in date are non-refundable.</li>
       </ul>
 
       <h3>Refund Eligibility:</h3>
       <ul>
           <li>Refunds will be issued to the original payment method.</li>
-          <li>Refunds may take [N] business days to process.</li>
+          <li>Refunds may take 30 business days to process.</li>
       </ul>
 
       <h3>Exceptions:</h3>
@@ -153,7 +137,7 @@
       </ul>
 
       <h3>How to Cancel:</h3>
-      <p>Guests can cancel or modify their reservations by contacting our reservations team at [Insert Contact Information].</p>
+      <p>Guests can cancel or modify their reservations by contacting our reservations team at <strong>1-800-123-4567</strong> or email us at <strong>reservations@wander_quest.com</strong>.</p>
 
       <h3>Additional Notes:</h3>
       <ul>
@@ -161,6 +145,9 @@
           <li>Any disputes regarding refunds will be resolved at the discretion of the hotel management.</li>
       </ul>
 </div>
+
+
+<!-- review section -->
 
 <div class="container review-form">
     <div class="row"><h3>Comments</h3></div>
@@ -170,7 +157,7 @@
         </div>
         <div class="col-11">
             <div class="row">
-                <h5>username</h5>
+                <h5>{{this.loginService.user_name}}</h5>
             </div>
             <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
 
@@ -187,6 +174,5 @@
 </div>
 
 <div class="container show-review">
-
     <app-review [hotelAccesed]="true" [hLocation]="hotel.location" [hotelName]="hotel.hotelName"></app-review>
 </div>

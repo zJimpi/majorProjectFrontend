@@ -69,9 +69,9 @@ export class CarBookingComponent {
 
       username : this.carBookingFormGroup.value.username,
       pickUpDate : this.carBookingFormGroup.value.pickUpDate,
-      dropOffDate : this.carBookingFormGroup.value.pickUpDate,
-      acOrNonAc : this.carBookingFormGroup.value.pickUpDate,
-      carType : this.carBookingFormGroup.value.pickUpDate,
+      dropOffDate : this.carBookingFormGroup.value.dropOffDate,
+      acOrNonAc : this.carBookingFormGroup.value.acOrNonAc,
+      carType : this.carBookingFormGroup.value.carType,
       location : this.carLocation.location
     }
 
@@ -80,6 +80,7 @@ export class CarBookingComponent {
       next: (val: any) => {
         const bookingId = val.bookingId;
         this._coreService.openSnackBar("car Reserved Successfully");
+        this.carBookingFormGroup.reset();
       },
     });
   }

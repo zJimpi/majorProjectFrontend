@@ -1,7 +1,31 @@
+.filter-box{
+  width : 500px;
+  margin: 50 px;
+}
 
+.filter-box{
+  height: 140px;
+  width: 100%;
+  background-color: #076B83;
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.rounded-input::placeholder {
+  text-align: center;
+
+}
+
+.rounded-input {
+  border-radius: 10px;
+  height : 30px;
+  width : 1300px;
+  border: none;
+}
 
 .container{
-  padding: 30px 0px;
+  padding-top: 100px;
 }
 .hero{
   background-color: #076B83ff;
@@ -48,12 +72,7 @@ padding: 10px;
   padding: 10px;
 
 }
-.filter-box input{
-  width: 100%;
-  border: none;
-  border-radius: 0.5rem;
 
-}
 .image-resize{
   height: 100%;
   width: 100%;
@@ -69,7 +88,6 @@ padding: 10px;
 /* Additional styling for individual hotel cards */
 .hotel-card {
   background-color: rgba(252, 247, 247, 252); /* Background color for individual hotel cards */
-  margin-bottom: 20px; /* Add margin between hotel cards */
+  margin-bottom: 70px; /* Add margin between hotel cards */
   border-radius: 10px; /* Add border radius to hotel cards */
 }
-

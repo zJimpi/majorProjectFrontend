@@ -1,148 +1,151 @@
 .hero {
-    padding-top:10px;
-    text-shadow: 2px 2px 4px rgba(4, 4, 4, 0.908); /* Adding text shadow */
-  }
-  /* Add padding for the top after the hero section */
-  .container-fluid {
-    padding-top: 25px; /* Adjust the value as needed */
-  }
-
-  .container-fluid {
-    padding: 0;
-  }
-  .card{
-      border:none
-  }
-  .card-img{
-      height: 200px;
-      width: 100%;
-      /* background-image: url(); */
-      background-size: cover;
-      background-position:center;
-
-  }
-  .card-img-overlay{
-      background-color: #0000006c;
-
-  }
-  .card-title{
-      padding-bottom: 50px;
-  }
-  .hide{
-      display:none;
-  }
-  .hide2{
-    visibility:hidden;
+  padding-top:10px;
+  text-shadow: 2px 2px 4px rgba(47, 5, 255, 0.3); /* Adding text shadow */
 }
-  .hotelBook-btn{
-      height: 50px;
-  }
+/* Add padding for the top after the hero section */
+/* .container-fluid {
+  padding-top: 25px; 
+} */
 
-  /*=========== //review ========== */
-  .big-icon {
-
-      font-size: 4em;
-      color: rgb(255, 166, 115);
-      padding-left: 20px;
-    }
-  .review-form{
-      /* background-color: antiquewhite; */
-      border-radius: 0.7rem;
-      padding: 20px;
-  }
-  .review-form h3{
-      text-align: center;
-      padding: 15px 30px;
-  }
-  .show-review{
-      margin: 20px auto;
-  }
-
-  .hero-img {
-    height: 230px;
+.container-fluid {
+  padding: 0;
+}
+.card{
+    border:none
+}
+.card-img{
+    height: 250px;
     width: 100%;
-    object-fit:cover;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  .image-resize {
-      height: 200px;
-      width: 300px;
-      object-fit:cover;
+    /* background-image: url(); */
+    background-size: cover;
+    background-position:center;
 
-      border-radius: 0.7rem;
-      margin: 10px;
-  }
-  /* Change hotel facility icon color to green */
-  .facilities .bi {
-    color: green;
-  }
-  .facilities.container {
-    display: flex;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px;
-  }
+}
+.card-img-overlay{
+    background-color: #0000006c;
 
-  .facilities.container .row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+}
+.card-title{
+    padding-bottom: 50px;
+}
+.hide{
+    display:none;
+}
+.hide2{
+  visibility: hidden;
+}
+.hotelBook-btn{
+    height: 30px;
+}
 
-  .facilities.container .col {
-    flex: 1;
-    margin-right: 10px; /* adjust as needed */
+/*=========== //review ========== */
+.big-icon {
+
+    font-size: 4em;
+    color: rgb(255, 166, 115);
+    padding-left: 20px;
   }
-  .facilities.container h3 {
+.review-form{
+    /* background-color: antiquewhite; */
+    border-radius: 0.7rem;
+    padding: 20px;
+}
+.review-form h3{
     text-align: center;
-    grid-column: 1 / -1; /* Span across all columns */
-    margin-bottom: 20px; /* Add some space below the text */
+    padding: 15px 30px;
+}
+.show-review{
+    margin: 20px auto;
+}
 
-  }
+.hero-img {
+  height: 250px;
+  width: 100%;
+  object-fit:cover;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.image-resize {
+    height: 200px;
+    width: 300px;
+    object-fit:cover;
+    border-radius: 3rem;
+    padding: 10px;
+}
 
-  .facilities.container span {
-    display:flex ;
-    margin-top: 30px;
-    margin-bottom: 20px; /* adjust as needed */
-    margin-left: 50px;
-    margin-right: 50px;
-    font-size: 16px; /* adjust as needed */
-  }
-  .facilities.container span i {
-    margin-right: 10px;
-  }
-  @media (max-width: 768px) {
-    .facilities.container {
-        grid-template-columns: 1fr;
-    }
-  }
-  .bi {
-    color: white;
-  }
-  .card {
-    display: flex;
-    flex-direction: column;
-  }
+/* Change hotel facility icon color to green */
+.facilities .bi {
+  color: green;
+}
+/* .facilities.container {
+  display:flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-  .hotelBook-btn {
-    align-self: flex-center;
-    margin-top: 20px;
-  }
+.facilities.container .row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .sticky-book-button {
-    position: sticky;
-    bottom: 20px; /* Adjust this value to set the distance from the bottom of the viewport */
-    z-index: 999; /* Ensure it stays above other content */
-    width: 100%;
+.facilities.container .col {
+  flex: 1;
+  margin-right: 10px; 
+} */
+
+.facilities.container span {
+  display:flex ;
+  margin-top: 30px;
+  margin-bottom: 20px; /* adjust as needed */
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 4 rem; /* adjust as needed */
+}
+.facilities.container span i {
+  margin-right: 10px;
+}
+@media (max-width: 768px) {
+  .facilities.container {
+      grid-template-columns: 1fr;
+  }
+}
+.bi {
+  color:white(1, 63, 1, 0.748);
+
+}
+.card {
+  display: flex;
+  flex-direction: column;
 }
 
 .hotelBook-btn {
-    width: 100%; /* Ensure button spans full width */
+
+  height: 45px;
+  
+}
+/* Apply padding before and after every div except for the hero section */
+.container:not(.hero) {
+  padding-top: 2%; /* Add desired padding value before each div */
+  padding-bottom: 2%; /* Add desired padding value after each div */
 }
 
 
+h2 {
+  text-align: center;
+}
+.boxed-container {
+  max-width: 2000px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  margin-top: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-
-
+span{
+  font-size: 4 rem;
+}
 
 
 

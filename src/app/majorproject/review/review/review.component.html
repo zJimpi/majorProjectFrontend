@@ -1,23 +1,20 @@
-
 <div class="container">
-    <div class="card mb-3"  *ngFor="let review of reviews" style="max-width: 100%;">
-        <div class="row g-0">
-          <div class="col-1">
-            <i class="bi bi-person-circle"></i>
-          </div>
-          <div class="col-md-11">
-            <div class="card-body">
-              <h5 class="card-title">User name</h5>
-              <p class="card-text">
-                {{review.comment}}
-                </p>
-              
-            </div>
-          </div>
+  <div class="card mb-3"  *ngFor="let review of reviews" style="max-width: 100%;">
+    <div class="row g-0">
+      <div class="col-1">
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div class="col-md-11">
+        <div class="card-body">
+          <h5 class="card-title">{{review.username}}</h5>
+          <i class="bi bi-star-fill star__color"></i>
+          <i class="bi bi-star-fill star__color"></i>
+          <i class="bi bi-star-fill star__color"></i>
+          <i class="bi bi-star-fill star__color"></i>
+          <i class="bi bi-star-half star__color"></i>
+          <p class="card-text">{{review.comment}}</p>
         </div>
       </div>
-
-
-      
-
+    </div>
+  </div>
 </div>

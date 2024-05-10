@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddHotelService } from 'src/app/admin/service/add-hotel.service';
 import { AddPkgService } from 'src/app/admin/service/add-pkg.service';
 import { AddRoomService } from 'src/app/admin/service/add-room.service';
+import { LoginComponent } from 'src/app/login/login.component';
+import { LoginServiceService } from 'src/app/service/login-service.service';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
@@ -33,14 +36,17 @@ export class PkgHotelViewMoreComponent implements OnInit {
   reviewForm!:FormGroup
   dateForm!:FormGroup
   dataSource!: MatTableDataSource<any>;
+  dialogRef!: MatDialogRef<LoginComponent>;
 
   constructor(private _roomService:AddRoomService,
     private route: ActivatedRoute,
     private _router:Router,
+    public loginService : LoginServiceService,
     private _hotelService:AddHotelService,
     private _packageService:AddPkgService,
     private _fb:FormBuilder,
-    private _reviewService:ReviewService
+    private _reviewService:ReviewService,
+    private dialog: MatDialog
     ){
       this.reviewForm =this._fb.group({
         comment:''
@@ -125,11 +131,20 @@ export class PkgHotelViewMoreComponent implements OnInit {
   }
 
   bookPackage(){
+    if(!this.loginService.loggedIn){
+      this.openLoginDialog();
+    }
+    else{
     this._packageService.getPackageById(this.packageId).subscribe({
       next:(val:any)=>{
         this._router.navigate(['packageBooking/',this.packageId],{ state: { roomSelections: this.roomSelections, hotelId: this.hotelId } });
       },error:console.log,
     });
+    }
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
   }
 
   addReview(){

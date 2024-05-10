@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class LoginServiceService {
   // Properties to track whether a user is logged in and whether the user is an admin.
   //can be tracked and injected globally
-  loggedIn : boolean =false;
+  loggedIn : boolean = false;
   adminIn : boolean = false;
 
   user_name : string ='' ;

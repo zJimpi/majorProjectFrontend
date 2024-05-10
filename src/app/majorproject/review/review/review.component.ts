@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { LoginServiceService } from 'src/app/service/login-service.service';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class ReviewComponent implements OnInit{
   @Input() destAccesed:boolean=false
 
   reviews!:any
-  constructor(private _reviewService:ReviewService){
+  constructor(private _reviewService:ReviewService
+  ){
 
   }
   ngOnInit(): void {
