@@ -198,8 +198,11 @@
 /* Styling for the card group */
 
 .whyUs {
+margin: 30px 0px;
   text-align: center;
-
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 60px;
+  color: black;
 }
 .card-group {
   display: flex;
@@ -217,15 +220,22 @@
 
 /* Styling for the card body */
 .card-body {
-  padding: 10px; /* Add padding inside the card */
+  padding: 10px; 
 }
 
-/* Styling for the card title */
-.card-title {
-  color: #333; /* Set color for the card title */
-}
-
-/* Styling for the card text */
 .card-text {
-  color: #666; /* Set color for the card text */
+  color: black;
+  padding: 15px; 
+}
+
+
+.card1{
+    background-color: rgb(253, 237, 206);
+}
+.card2{
+    background-color: rgb(239, 249, 254);
+}
+
+.card3{
+    background-color: rgb(235, 255, 233);
 }
