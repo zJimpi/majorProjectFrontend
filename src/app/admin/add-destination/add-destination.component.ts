@@ -8,6 +8,7 @@ import { CoreService } from '../core/core.service';
 import { AddDestService } from '../service/add-dest.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-destination',
@@ -36,7 +37,8 @@ export class AddDestinationComponent implements OnInit {
   constructor(private _dialog: MatDialog,
     private _destService: AddDestService,
     private _coreService: CoreService,
-    private _httpClient:HttpClient
+    private _httpClient:HttpClient,
+    private _router:Router
     ){}
     ngOnInit(): void {
       this.getDestinationList();
@@ -113,5 +115,8 @@ export class AddDestinationComponent implements OnInit {
     });
   }
 
+  adminhomebtn(){
+    this._router.navigate(["/adminHome"])
+  }
   
 }

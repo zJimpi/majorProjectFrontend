@@ -121,7 +121,9 @@ export class ViewPackageTableComponent implements OnInit {
       });
     }
 
-
+    adminhomebtn(){
+      this._router.navigate(["/adminHome"])
+    }
     
 
 }

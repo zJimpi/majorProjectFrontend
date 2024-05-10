@@ -92,4 +92,7 @@ export class ViewCarTableComponent implements OnInit {
         this.getCarRentalDetailsList();},
     });
   }
+  adminhomebtn(){
+    this._router.navigate(["/adminHome"])
+  }
 }
