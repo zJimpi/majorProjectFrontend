@@ -155,9 +155,19 @@
         <div class="col-1 icon">
             <i class="bi bi-person-circle big-icon"></i>
         </div>
+
         <div class="col-11">
             <div class="row">
-                <h5>{{this.loginService.user_name}}</h5>
+                <div >
+                    <h5>{{ loginService.user_name ? loginService.user_name : 'Username' }}</h5>
+                </div>
+                <!-- rating  -->
+                    <div>
+                        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                            <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}"><i   class="bi bi-star-fill "></i></li> 
+                        </ul>
+                    </div>
+               <!-- --  -->
             </div>
             <form class="row example-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
 
@@ -169,6 +179,8 @@
                 <button mat-raised-button color="primary" type="submit" [disabled]="!reviewForm.valid">Comment</button>
 
             </form>
+
+
         </div>
     </div>
 </div>

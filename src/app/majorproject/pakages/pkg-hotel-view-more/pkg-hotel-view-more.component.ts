@@ -31,6 +31,8 @@ export class PkgHotelViewMoreComponent implements OnInit {
     'pricePerDay',
     'selected'
   ];
+  stars: number[] = [1, 2, 3, 4, 5];
+  rate!:number;
 
   roomSelections: { roomId: number, noRooms: number }[] = [];
   reviewForm!:FormGroup
@@ -153,6 +155,7 @@ export class PkgHotelViewMoreComponent implements OnInit {
       location:this.hotel.location,
       hotelName:this.hotel.hotelName,
       comment:this.reviewForm.value.comment,
+      rating:this.rate
     }
    this._reviewService.addReview(reviewFormData).subscribe({
     next: (val: any) => {
@@ -165,4 +168,12 @@ export class PkgHotelViewMoreComponent implements OnInit {
    });
   }
 
+
+  selectedValue!:number;
+  // start system 
+  countStar(star:any) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
+    this.rate=star;
+  }
 }

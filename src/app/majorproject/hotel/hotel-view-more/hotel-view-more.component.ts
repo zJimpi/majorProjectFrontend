@@ -35,7 +35,8 @@ export class HotelViewMoreComponent {
 
 
   ];
-
+  stars: number[] = [1, 2, 3, 4, 5];
+  rate!:number;
   roomSelections: { roomId: number, noRooms: number }[] = [];
   reviewForm:FormGroup
   dateForm:FormGroup
@@ -58,6 +59,7 @@ constructor(private _roomService:AddRoomService,
 
     this.reviewForm =this._fb.group({
       comment:''
+     
     });
   }
 
@@ -157,6 +159,7 @@ constructor(private _roomService:AddRoomService,
       location:this.hotel.location,
       hotelName:this.hotel.hotelName,
       comment:this.reviewForm.value.comment,
+      rating:this.rate
     }
    this._reviewService.addReview(reviewFormData).subscribe({
     next: (val: any) => {
@@ -169,5 +172,11 @@ constructor(private _roomService:AddRoomService,
    });
   }
 
-
+  selectedValue!:number;
+  // start system 
+  countStar(star:any) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
+    this.rate=star;
+  }
 }
