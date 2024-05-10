@@ -45,34 +45,33 @@
         </div>
 
         <div class="card-body">
-            <div class="pkg-booking-details">
+            <div class="pkg-booking-details" *ngIf= "packageBookingDetails && packageBookingDetails.length > 0" >
                 <h6><u>Package Bookings</u></h6>
-                <div class="booking-item">
-                    <div>Package Name: Goa Premium Package</div>
-                    <div><i class="bi bi-calendar-fill"></i> Date: 2024-04-29 - 2024-05-02</div>
+                <div class="booking-item" *ngFor = "let package of packageBookingDetails">
+                    <div>Package Name: {{package.packageName}}</div>
+                    <div><i class="bi bi-calendar-fill"></i> Date: {{package.checkInDate}} - {{package.checkOutDate}}</div>
                     <div>Package Hotel Booked</div>
-                    <div>Raju Hotel</div>
+                    <div>{{package.hotelName}}</div>
                     <div>Room Details: 1 Family Room, 2 Standard Room</div>
                 </div>
             </div>
-       
             <br>
             
-            <div class="hotel-booking-details">
+            <div class="hotel-booking-details" *ngIf= "hotelBookingDetails && hotelBookingDetails.length > 0">
                 <h6><i class="bi bi-building-fill"></i><u>Hotel Bookings</u></h6>
-                <div class="booking-item">
-                    <div>Raju Hotel</div>
+                <div class="booking-item" *ngFor = "let hotel of hotelBookingDetails">
+                    <div>{{hotel.hotelName}}</div>
                     <div>Room Details: 1 Family Room, 2 Standard Room</div>
-                    <div><i class="bi bi-calendar-fill"></i> Date: 2024-04-29 - 2024-05-02</div>
+                    <div><i class="bi bi-calendar-fill"></i> Date: {{hotel.checkInDate}} - {{hotel.checkOutDate}}</div>
                 </div>
             </div>
             <br>
-            <div class="rental-booking-detail">
+            <div class="rental-booking-detail" *ngIf= "carBookingDetails && carBookingDetails.length > 0">
                 <h6><i class="bi bi-taxi-front-fill"></i><u>Car Booking Deatils</u></h6>
-                <div class="booking-item">
-                    <div><i class="bi bi-calendar-fill"></i> Date : 2024-04-29 - 2024-05-02</div>
-                    <div><i class="bi bi-geo-alt-fill"></i> Location : Goa</div>
-                    <div><i class="bi bi-taxi-front-fill"></i> AC 4 Wheeler(6 seater)</div>
+                <div class="booking-item" *ngFor = "let car of carBookingDetails">
+                    <div><i class="bi bi-calendar-fill"></i> Date : {{car.pickUpDate}} - {{car.dropOffDate}}</div>
+                    <div><i class="bi bi-geo-alt-fill"></i> Location : {{car.location}}</div>
+                    <div><i class="bi bi-taxi-front-fill"></i> {{car.acOrNonAc}} {{car.carType}}</div>
                 </div>
             </div>
         </div>
