@@ -152,6 +152,11 @@ constructor(private _roomService:AddRoomService,
   }
 
   addReview(){
+    if(!this.loginService.loggedIn){
+      this.openLoginDialog();
+    }
+    else{
+
     const reviewFormData={
       username: this.loginService.user_name,
       location:this.hotel.location,
@@ -167,6 +172,7 @@ constructor(private _roomService:AddRoomService,
       console.error(err);
     },
    });
+  }
   }
 
 

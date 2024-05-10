@@ -28,7 +28,7 @@
 
 <!-- Hotel section(New) -->
 <h2 class="additional-activity-text"><b>Choose Hotel as per your preference</b></h2>
-<div class="hotel-cards">
+<div class="hotel-cards ">
   <div class="hotel-card col-4" *ngFor="let hotel of filteredHotels">
     <div class="hotel-image" [style.background-image]="'url(' + hotel.imageFile + ')'" (click)="viewRoomsByHotelId(hotel.hotelId)"></div>
     <div class="hotel-info">
