@@ -35,4 +35,10 @@ export class AddHotelService {
     return this._http.post(`http://localhost:8086/hotel/assignRoomId/${roomId}/toHotelId/${hotelId}`,null);
     
   }
+
+  updateHotelReview(hotelName:string):Observable<any>{
+    
+    return this._http.put(`http://localhost:8086/hotel/updateHotelRating/${hotelName}`,null);
+    
+  }
 }

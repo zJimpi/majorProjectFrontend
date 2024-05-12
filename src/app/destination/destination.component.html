@@ -85,7 +85,7 @@
         
                 <ng-container matColumnDef="popularityScore">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide"> Rating </th>
-                  <td mat-cell *matCellDef="let row" class="card-end"> RATING: {{row.popularityScore}}  out of 5</td>
+                  <td mat-cell *matCellDef="let row" class="card-end" style="font-size: 30px; color: rgb(255, 166, 0);">{{ getStarIcons(row.popularityScore) }}</td>
                 </ng-container>
 
         

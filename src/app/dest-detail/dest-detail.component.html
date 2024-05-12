@@ -1,4 +1,4 @@
-<div class="card text-bg-dark">
+<div class="card text-bg-dark text-center">
 
 <img [src]="destDetail.imageFile" class="card-img img-box" alt="...">
     <div class="card-img-overlay">
@@ -9,10 +9,10 @@
           <p class="card-text">Location: {{destDetail.imageLocation}}</p>
           <p class="card-text">State: {{destDetail.stateAndUTName}}</p>
         </div>
-        <div class="col">
+        
           <p class="card-text">Description: {{destDetail.imageDescription}}</p>
-          <p class="card-text">Rating: {{destDetail.popularityScore}}</p>
-        </div>
+          <p class="card-text" style="font-size: 30px;">{{ getStarIcons(destDetail.popularityScore) }}</p>
+       
       </div>
     </div>
 </div>

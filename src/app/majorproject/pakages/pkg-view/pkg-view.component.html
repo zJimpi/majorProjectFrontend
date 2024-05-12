@@ -19,16 +19,17 @@
         <h2>{{package.pckgName}}</h2>
         <p><b>Location</b>: {{package.location}}</p>
         <p><b>Duration</b>: {{package.packageDuration}}</p>
-        <p><i class="bi bi-check-lg"> Videography & Photos</i></p>
+        <p><i class="bi bi-check-lg"></i> Videography & Photos</p>
         <p><i class="bi bi-check-lg"></i> Welcome drink on arrival</p>
+        <p><i class="bi bi-check-lg"></i> Guided tour of local attractions upon request</p>
+        <p><i class="bi bi-check-lg"></i> Exclusive discounts for nearby restaurants </p>
       </div>
-      <div class="sub-section">
-        <!-- Second sub-section -->
-        <!-- <b>Location</b>: {{package.location}} -->
-      </div>
+
       <div class="sub-section stacked-section">
         <!-- Third sub-section -->
+        <span class="text-center" style="font-size: 40px; color: rgb(255, 166, 0);">{{ getStarIcons(package.rating) }}</span>
         <div class="box">
+          
           <h4> Starting from <br> ₹ {{package.price}}  </h4>
    
           <button *ngIf="package.maxNoOfBookings !== package.noOfBookings" (click)="viewActivitiesByPackageId(package.pckgId)"class="view-more-button">View More</button> 

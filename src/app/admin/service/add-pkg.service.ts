@@ -42,5 +42,9 @@ export class AddPkgService {
   getHotelsByPackageLocation(packageLocation: string): Observable<any> {
     return this._http.get(`http://localhost:8086/package/getHotelsByPackageLocation/${packageLocation}`);
   }
-
+  updatePackageRating(packageName:string):Observable<any>{
+    
+    return this._http.put(`http://localhost:8086/hotel/updatePackageRating/${packageName}`,null);
+    
+  }
 }

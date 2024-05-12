@@ -73,4 +73,13 @@ export class HotelViewComponent implements OnInit{
         },error: console.log,
       });
     }
+
+
+    getStarIcons(score: number): string {
+      const fullStars = Math.floor(score);
+      const halfStar = score - fullStars >= 0.5 ? 1 : 0;
+      const emptyStars = 5 - fullStars - halfStar;
+    
+      return '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(emptyStars);
+    }
 }
