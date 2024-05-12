@@ -155,7 +155,7 @@ export class PkgHotelViewMoreComponent implements OnInit {
     }
     else{
     const reviewFormData={
-      username:"username(change)",
+      username:this.loginService.user_name,
       location:this.hotel.location,
       hotelName:this.hotel.hotelName,
       comment:this.reviewForm.value.comment,
